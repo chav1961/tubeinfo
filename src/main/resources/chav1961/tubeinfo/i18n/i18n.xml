@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localization xmlns="http://www.i18n.purelib.chav1961.ru/">
+	<lang name="en">
+<!-- Localization for window titles -->
+		<key name="chav1961.tubesReference.application.title">(c) 2025 A.Chernomyrdin aka chav1961. Tubes reference V.R.=1.0</key>
+		<key name="chav1961.tubesReference.application.about">About...</key>
+
+<!-- Localization for messages --> 
+		<key name="chav1961.tubesReference.message.ready">Ready</key>
+
+<!-- Localization for tubes reference (enum TubesGroup) -->
+		<key name="chav1961.tubeinfo.references.interfaces.tubesGroup.electron">El.tubes</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesGroup.electron.tt">Electronic tubes</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesGroup.ion">Ions</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesGroup.ion.tt">Ion tubes</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesGroup.images">Images</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesGroup.images.tt">Image tubes</key>
+
+<!-- Localization for tubes reference (enum TubesType) -->
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.diode">Diode</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.diode.tt">Diode</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.doubleDiode">Double diode</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.doubleDiode.tt">Double diode</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.triode">Triode</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.triode.tt">Triode</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.doubleTriode">Double triode</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.doubleTriode.tt">Double triode</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.tetrode">Tetrode</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.tetrode.tt">Tetrode</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.doubleTetrode">Double tetrode</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.doubleTetrode.tt">Double tetrode</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.pentode">Pentode</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.pentode.tt">Pentode</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.doublePentode">Double pentode</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.doublePentode.tt">Double pentode</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.triodePentode">Triode-pentode</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.triodePentode.tt">Triode-pentode</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.heptode">Heptode</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.heptode.tt">Heptode</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.triodeHeptode">Triode-heptode</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.triodeHeptode.tt">Triode-heptode</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.special">Special</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.special.tt">Special</key>
+
+
+<!-- Localization for tubes reference -->
+		<key name="chav1961.tubesReference">Tubes reference</key>
+		<key name="chav1961.tubesReference.tt">Electronic tubes reference</key>
+		<key name="chav1961.tubesReference.typesType">Tube type</key>
+		<key name="chav1961.tubesReference.typesType.tt">Electronic tube type</key>
+
+		<key name="chav1961.tubesReference.preview.table.name">Parameter name</key>
+		<key name="chav1961.tubesReference.preview.table.value">Value</key>
+		<key name="chav1961.tubesReference.table.scheme">Pinout</key>
+		<key name="chav1961.tubesReference.table.panel">Panel</key>
+		<key name="chav1961.tubesReference.table.abbr">Part No</key>
+		<key name="chav1961.tubesReference.tab.general">General</key>
+		<key name="chav1961.tubesReference.filterForm.title">Title</key>
+		<key name="chav1961.tubesReference.filterForm.abbr.name">Part No</key>
+		<key name="chav1961.tubesReference.filterForm.descr.name">Description</key>
+		<key name="chav1961.tubesReference.filterForm.pinout.title">Pinout to find</key>		
+		<key name="chav1961.tubesReference.connScreen.label">Pinout to find:</key>
+
+		<key name="chav1961s.tubes.pinType.ordinal">Ordinal</key>
+		<key name="chav1961s.tubes.pinType.ordinal.tt">Ordinal</key>
+		<key name="chav1961s.tubes.pinType.top">Top</key>
+		<key name="chav1961s.tubes.pinType.top.tt">Top</key>
+
+		<key name="chav1961s.tubes.tubeConnectorType.an">AN</key>
+		<key name="chav1961s.tubes.tubeConnectorType.an.tt">AN</key>
+
+		<key name="chav1961s.tubes.tubeCorpusGroup.tg">TG</key>
+		<key name="chav1961s.tubes.tubeCorpusGroup.tg.tt">TG</key>
+
+		<key name="chav1961s.tubes.tubeCorpusType.tg">TG</key>
+		<key name="chav1961s.tubes.tubeCorpusType.tg.tt">TG</key>
+
+		<key name="chav1961s.tubes.tubePanelGroup.pin9">PIN9</key>
+		<key name="chav1961s.tubes.tubePanelGroup.pin9.tt">PIN9</key>
+
+		<key name="chav1961s.tubes.tubePanelType.pin9">PIN9</key>
+		<key name="chav1961s.tubes.tubePanelType.pin9.tt">PIN9</key>
+
+		<key name="chav1961s.tubes.tubeParameter.myu">Myu</key>
+		<key name="chav1961s.tubes.tubeParameter.myu.tt">Myu</key>
+		
+	</lang>
+	<lang name="ru">
+<!-- Локализация заголовков окон -->
+		<key name="chav1961.tubesReference.application.title"> (c) 2025 А.Черномырдин aka chav1961. Справочник по лампам V.R.=1.0</key>
+		<key name="chav1961.tubesReference.application.about">О программе</key>
+
+<!-- Локализация сообщений --> 
+		<key name="chav1961.tubesReference.message.ready">Готово</key>
+
+<!-- Локализация для справочника по лампам (нумерация TubesGroup) -->
+		<key name="chav1961.tubeinfo.references.interfaces.tubesGroup.electron">Эл.лампы</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesGroup.electron.tt">Электронные лампы</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesGroup.ion">Ионные</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesGroup.ion.tt">Ионные приборы</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesGroup.images">ЭЛТ</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesGroup.images.tt">Электронно-лучевые трубки</key>
+
+<!-- Локализация для справочника по лампам (нумерация TubesType) -->
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.diode">Диод</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.diode.tt">Диод</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.doubleDiode">Двойной диод</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.doubleDiode.tt">Двойной диод</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.triode">Триод</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.triode.tt">Триод</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.doubleTriode">Двойной триод</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.doubleTriode.tt">Двойной триод</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.tetrode">Тетрод</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.tetrode.tt">Тетрод</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.doubleTetrode">Двойной тетрод</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.doubleTetrode.tt">Двойной тетрод</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.pentode">Пентод</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.pentode.tt">Пентод</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.doublePentode">Двойной пентод</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.doublePentode.tt">Двойной пентод</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.triodePentode">Триод-пентод</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.triodePentode.tt">Триод-пентод</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.heptode">Гептод</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.heptode.tt">Гептод</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.triodeHeptode">Триод-гептод</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.triodeHeptode.tt">Триод-гептод</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.special">Прочие</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.special.tt">Прочие</key>
+
+<!-- Локализация для справочника по лампам -->
+		<key name="chav1961.tubesReference">Справочник по лампам</key>
+		<key name="chav1961.tubesReference.tt">Справочник по электронным лампам</key>
+		<key name="chav1961.tubesReference.typesType">Тип</key>
+		<key name="chav1961.tubesReference.typesType.tt">Тип электронной лампы</key>
+
+		<key name="chav1961.tubesReference.preview.table.name">Наименование параметра</key>
+		<key name="chav1961.tubesReference.preview.table.value">Значение</key>
+		<key name="chav1961.tubesReference.table.scheme">Разводка</key>
+		<key name="chav1961.tubesReference.table.panel">Панель</key>
+		<key name="chav1961.tubesReference.table.abbr">Тип</key>
+		<key name="chav1961.tubesReference.tab.general">Общий список</key>
+		<key name="chav1961.tubesReference.filterForm.title">Заголовок</key>
+		<key name="chav1961.tubesReference.filterForm.abbr.name">Тип</key>
+		<key name="chav1961.tubesReference.filterForm.descr.name">Описание</key>
+		<key name="chav1961.tubesReference.filterForm.pinout.title">Найти разводку</key>		
+		<key name="chav1961.tubesReference.connScreen.label">Цоколевка :</key>
+		
+		<key name="chav1961s.tubes.pinType.ordinal">Ordinal</key>
+		<key name="chav1961s.tubes.pinType.ordinal.tt">Ordinal</key>
+		<key name="chav1961s.tubes.pinType.top">Top</key>
+		<key name="chav1961s.tubes.pinType.top.tt">Top</key>
+
+		<key name="chav1961s.tubes.tubeConnectorType.an">AN</key>
+		<key name="chav1961s.tubes.tubeConnectorType.an.tt">AN</key>
+
+		<key name="chav1961s.tubes.tubeCorpusGroup.tg">TG</key>
+		<key name="chav1961s.tubes.tubeCorpusGroup.tg.tt">TG</key>
+
+		<key name="chav1961s.tubes.tubeCorpusType.tg">TG</key>
+		<key name="chav1961s.tubes.tubeCorpusType.tg.tt">TG</key>
+
+		<key name="chav1961s.tubes.tubePanelGroup.pin9">PIN9</key>
+		<key name="chav1961s.tubes.tubePanelGroup.pin9.tt">PIN9</key>
+
+		<key name="chav1961s.tubes.tubePanelType.pin9">PIN9</key>
+		<key name="chav1961s.tubes.tubePanelType.pin9.tt">PIN9</key>
+
+		<key name="chav1961s.tubes.tubeParameter.myu">Myu</key>
+		<key name="chav1961s.tubes.tubeParameter.myu.tt">Myu</key>
+
+
+	</lang>	
+</localization>
