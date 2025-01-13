@@ -3,6 +3,7 @@ package chav1961.tubeinfo;
 import java.awt.BorderLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Locale;
@@ -38,6 +39,7 @@ public class Application extends JFrame implements LocalizerOwner, LoggerFacadeO
 	private static final long 	serialVersionUID = -2254433813417255787L;
 	
 	public static final String	ARG_DEBUG = "d";
+	public static final String	ARG_SOURCE = "src";
 	public static final String	APPLICATION_TITLE = "chav1961.tubesReference.application.title";	
 	public static final String	MESSAGE_READY = "chav1961.tubesReference.message.ready";	
 	
@@ -46,7 +48,7 @@ public class Application extends JFrame implements LocalizerOwner, LoggerFacadeO
 	private final JTabbedPane				tabs = new JTabbedPane();
 	private final JStateString				state;
 	
-	public Application(final CountDownLatch latch, final ContentMetadataInterface mdi) {
+	public Application(final CountDownLatch latch, final ContentMetadataInterface mdi, final File contentDir) {
 		if (latch == null) {
 			throw new NullPointerException("Latch can't be null");
 		}
@@ -64,7 +66,7 @@ public class Application extends JFrame implements LocalizerOwner, LoggerFacadeO
 			for(TubesGroup item : TubesGroup.values()) {
 				final LocaleResource	anno = InternalUtils.getLocaleResource(item);
 				
-				tabs.addTab("", new ImageIcon(TubesGroup.class.getResource(anno.icon())), createTab(item));
+				tabs.addTab("", new ImageIcon(TubesGroup.class.getResource(anno.icon())), createTab(item, contentDir));
 			}
 			
 			state.setBorder(new EtchedBorder(EtchedBorder.LOWERED));
@@ -107,11 +109,11 @@ public class Application extends JFrame implements LocalizerOwner, LoggerFacadeO
 		fillLocalizedStrings();
 	}
 
-	private JComponent createTab(final TubesGroup group) {
+	private JComponent createTab(final TubesGroup group, final File contentDir) {
 		switch (group) {
 			case GROUP_ELECTRON	:
 				try {
-					return new ElectronicTubesScreen(localizer);
+					return new ElectronicTubesScreen(localizer, contentDir);
 				} catch (IOException e) {
 					e.printStackTrace();
 					return new JLabel(group.name());
@@ -153,7 +155,7 @@ public class Application extends JFrame implements LocalizerOwner, LoggerFacadeO
 				final ContentMetadataInterface	xda = ContentModelFactory.forXmlDescription(is);
 				final CountDownLatch			latch = new CountDownLatch(1);
 
-				try(final Application			app = new Application(latch, xda)) {
+				try(final Application			app = new Application(latch, xda, parsed.getValue(ARG_SOURCE, File.class))) {
 				
 					app.setVisible(true);
 					app.getLogger().message(Severity.note, MESSAGE_READY);
@@ -172,7 +174,8 @@ public class Application extends JFrame implements LocalizerOwner, LoggerFacadeO
 
 	private static class ApplicationArgParser extends ArgParser {
 		private static final ArgParser.AbstractArg[]	KEYS = {
-			new BooleanArg(ARG_DEBUG, false, "turn on debugging trace", false)
+			new BooleanArg(ARG_DEBUG, false, "turn on debugging trace", false),
+			new FileArg(ARG_SOURCE, false, "Directory with tube descriptors", "./tubes")
 		};
 		
 		ApplicationArgParser() {
