@@ -33,7 +33,7 @@ public class ElectronicTubesScreen extends JSplitPane {
 			final List<TubeDescriptor>	list = new ArrayList<>();
 			
 			this.preview = new TubesPreview(localizer);
-			loadContent(XMLBasedTube.class.getResource("/chav1961/tubeinfo/basic/"), list);
+			loadContent(XMLBasedTube.class.getResource("/chav1961/tubeinfo/builtin/"), list);
 			
 			if (contentDir.exists() && contentDir.isDirectory() && contentDir.canRead()) {
 				loadContent(contentDir, list);
