@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tubes>
+	<tube type="DOUBLE_TRIODE" abbr="6Н2П" corpus="TG" panel="PIN9">
+		<description>
+			== test 
+			assa **desc**;
+		</description>
+		<parms>
+			<parm name="FILAMENT_CURRENT" number="1">340</parm>
+			<parm name="ANODE_CURRENT" number="1">1.8</parm>
+			<parm name="GRID_LEAK_CURRENT" number="1">15</parm>
+			<parm name="S" number="1">2.25</parm>
+			<parm name="MYU" number="1">97.5</parm>
+			<parm name="NOISE_VOLTAGE" number="1">150</parm>
+			<parm name="INPUT_CAPACITY" number="1">2.25</parm>
+			<parm name="OUTPUT_CAPACITY" number="1">2.3</parm>
+			<parm name="TRANSFER_CAPACITY" number="1">0.75</parm>
+			<parm name="ANODE_ANODE_CAPACITY" number="1">0.15</parm>
+			<parm name="CATHODE_FILAMENT_CAPACITY" number="1">5</parm>
+			<parm name="MIN_FILAMENT_VOLTAGE" number="1">5</parm>
+			<parm name="MAX_FILAMENT_VOLTAGE" number="1">7</parm>
+			<parm name="MAX_ANODE_VOLTAGE" number="1">300</parm>
+			<parm name="MAX_CATHODE_CURRENT" number="1">10</parm>
+			<parm name="POWER_DISSIPATION" number="1">1</parm>
+			<parm name="MAX_GRID_1_RESISTANCE" number="1">0.5</parm>
+			<parm name="MAX_TEMPERATURE" number="1">110</parm>
+		</parms>
+		<scheme href="root://chav1961.tubeinfo.Application/chav1961/tubeinfo/builtin/electron/doubletriodes/triode1.svg"/>
+		<connectors>
+			<connector number="1" type="ANODE" pin="1" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_1" pin="2" pinType="ORDINAL"/>
+			<connector number="1" type="CATHODE" pin="3" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="4" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="5" pinType="ORDINAL"/>
+			<connector number="2" type="ANODE" pin="6" pinType="ORDINAL"/>
+			<connector number="2" type="GRID_1" pin="7" pinType="ORDINAL"/>
+			<connector number="2" type="CATHODE" pin="8" pinType="ORDINAL"/>
+			<connector number="0" type="SHIELD_1" pin="9" pinType="ORDINAL"/>
+		</connectors>
+		<graphics>
+			<graphic name="localizedKey" tooltip="localizedKey" number="0">iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABWUlEQVR4nK3Wv0tWURwG8A+JSSJpIORkNlZOSjqHs0FKS0pbf0AtDbpns/4Foou6qi1GLoFDDioogYguRkWugUsc+CYvel89933vAw98z/P98cDlnHsOxdjEGf5k8ix6svAAJ2jJbcAtHONhTvE0PiiPGUzlFO6jvwGDx/h+U9Ewvmkc2xi6rmAOb5sweIfZeslWnKKnCYP7+IHbRcnnWNc8PmG0KLGMVxUYTGDpstiJX+iowKAdP9FVK77BAd5XxIOYeYHJOCj1+Bs7+BjcCe26njQzC0+xi7YarS20lGsa45gv0JM2VoXBk/gkl7GHRyrCVzyrWY9gS4UYw2rNeg0vqjRowRF60RdxmfsiC4txSl9HXAm6Yxe9xAoWYvhKaONR0zA+x89rqQ5TbqPs0Dv4gkP8jfs5xUVMuVST4tRzN8dgILblvZJMPYM5BqnovMST5T9TzxWDf69ybCTo/04CAAAAAElFTkSuQmCC</graphic>
+		</graphics>
+	</tube>
+</tubes>

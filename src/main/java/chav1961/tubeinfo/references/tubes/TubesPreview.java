@@ -8,7 +8,10 @@ import java.awt.GridLayout;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -30,6 +33,7 @@ import chav1961.purelib.i18n.interfaces.Localizer.LocaleChangeListener;
 import chav1961.purelib.ui.swing.useful.svg.SVGPainter;
 import chav1961.tubeinfo.references.interfaces.TubeDescriptor;
 import chav1961.tubeinfo.references.interfaces.TubePanelGroup;
+import chav1961.tubeinfo.references.interfaces.TubeParameter;
 import chav1961.tubeinfo.references.interfaces.TubesType;
 import chav1961.tubeinfo.utils.InternalUtils;
 
@@ -99,6 +103,7 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 		for(int index = 0; index < tables.length; index++) {
 			if (index < desc.getType().getNumberOfLampTypes()) {
 				tabArea.add(scrolls[index]);
+				parms[index].setContent(buildList(desc.getParameters(index+1), desc.getValues(index+1)));
 			}
 		}
 		scheme.setPainter(desc.getScheme());
@@ -109,14 +114,25 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 		} catch (SecurityException | MalformedURLException e) {
 			abbr.setIcon(null);
 		}
+		
 		fillLocalizedStrings();
+	}
+
+	
+	private Collection<NamedValue<Float>> buildList(final TubeParameter[] parameters, final float[] values) {
+		final NamedValue<Float>[]	result = new NamedValue[parameters.length];
+
+		for(int index = 0; index < parameters.length; index++) {
+			result[index] = new NamedValue<Float>(parameters[index].name(), values[index]);
+		}
+		return Arrays.asList(result);
 	}
 
 	private void fillLocalizedStrings() {
 		if (desc != null) {
 			final LocaleResource	anno = InternalUtils.getLocaleResource(desc.getType());
 			
-			abbr.setText(desc.getAbbr()+" - "+localizer.getValue(anno.value()));
+			abbr.setText("<html><body><h1>" + desc.getAbbr()+" - "+localizer.getValue(anno.value()) +"</h1></body></html>");
 			description.setText(desc.getDescription());
 		}
 	}
@@ -169,7 +185,13 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 		public Object getValueAt(final int rowIndex, final int columnIndex) {
 			switch (columnIndex) {
 				case 0 :
-					return content.get(rowIndex).getName();
+					final String name = content.get(rowIndex).getName();
+					
+					try {
+						return localizer.getValue(TubeParameter.class.getField(name).getAnnotation(LocaleResource.class).value());
+					} catch (LocalizationException | NoSuchFieldException | SecurityException e) {
+						return name;
+					}
 				case 1 :
 					return content.get(rowIndex).getValue();
 				default :

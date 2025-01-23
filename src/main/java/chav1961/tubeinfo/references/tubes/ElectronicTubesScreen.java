@@ -53,15 +53,19 @@ public class ElectronicTubesScreen extends JSplitPane {
 			}
 		}
 		else {
-			try(final InputStream		is = root.openStream();
-				final Reader			rdr = new InputStreamReader(is);
-				final BufferedReader	brdr = new BufferedReader(rdr)) {
-				String	line;
-				
-				while ((line = brdr.readLine()) != null) {
-					loadContent(URI.create(root.toExternalForm()+"/"+line).toURL(), list);
-				}
-				
+			final String	path = root.getPath();
+			
+			if (!path.substring(path.lastIndexOf("/")+1).contains(".")) {	// Possibly directory???
+				try(final InputStream		is = root.openStream();
+						final Reader			rdr = new InputStreamReader(is);
+						final BufferedReader	brdr = new BufferedReader(rdr)) {
+						String	line;
+						
+						while ((line = brdr.readLine()) != null) {
+							loadContent(URI.create(root.toExternalForm()+"/"+line).toURL(), list);
+						}
+						
+					}
 			}
 		}
 	}	

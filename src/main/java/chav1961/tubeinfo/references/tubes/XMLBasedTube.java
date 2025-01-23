@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.net.URI;
 import java.util.Base64;
 
 import javax.imageio.ImageIO;
@@ -87,7 +88,7 @@ public class XMLBasedTube implements TubeDescriptor {
 				this.abbr = root.getAttribute(ATTR_ABBR);
 				this.corpus = TubeCorpusType.valueOf(root.getAttribute(ATTR_CORPUS));
 				this.panel = TubePanelType.valueOf(root.getAttribute(ATTR_PANEL));
-				this.scheme = loadSVG(((Element)scheme.item(0)).getAttribute(ATTR_HREF));
+				this.scheme = loadSVG(URI.create(((Element)scheme.item(0)).getAttribute(ATTR_HREF)));
 				this.parms = new TubeParmDescriptor[parms.getLength()];
 
 				try(final StringWriter	wr = new StringWriter()) {
@@ -134,10 +135,10 @@ public class XMLBasedTube implements TubeDescriptor {
 		}
 	}
 	
-	private SVGPainter loadSVG(final String href) {
+	private SVGPainter loadSVG(final URI href) {
 		try {
-			return SVGParser.parse(this.getClass().getResourceAsStream(href));
-		} catch (ContentException e) {
+			return SVGParser.parse(href.toURL().openStream());
+		} catch (ContentException | IOException e) {
 			return null;
 		}
 	}
