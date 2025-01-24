@@ -34,6 +34,7 @@ import chav1961.purelib.ui.swing.useful.svg.SVGPainter;
 import chav1961.tubeinfo.references.interfaces.TubeDescriptor;
 import chav1961.tubeinfo.references.interfaces.TubePanelGroup;
 import chav1961.tubeinfo.references.interfaces.TubeParameter;
+import chav1961.tubeinfo.references.interfaces.TubeParameterUnit;
 import chav1961.tubeinfo.references.interfaces.TubesType;
 import chav1961.tubeinfo.utils.InternalUtils;
 
@@ -41,6 +42,7 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 	private static final long 	serialVersionUID = -2153048973150602961L;
 	private static final int	PARM_COUNT = 2;
 	private static final String	COL_NAME = "chav1961.tubesReference.preview.table.name"; 
+	private static final String	COL_ABBR = "chav1961.tubesReference.preview.table.abbr"; 
 	private static final String	COL_VALUE = "chav1961.tubesReference.preview.table.value"; 
 
 	private final Localizer	localizer;
@@ -69,6 +71,10 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 		for(int index = 0; index < PARM_COUNT; index++) {
 			parms[index] = new Parameters();
 			tables[index] = new JTable(parms[index]);
+			tables[index].getColumnModel().getColumn(1).setMinWidth(80);
+			tables[index].getColumnModel().getColumn(1).setMaxWidth(80);
+			tables[index].getColumnModel().getColumn(2).setMaxWidth(200);
+			tables[index].setRowHeight(20);
 			scrolls[index] = new JScrollPane(tables[index]);
 		}
 		add(abbr, BorderLayout.NORTH);
@@ -149,7 +155,7 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 
 		@Override
 		public int getColumnCount() {
-			return 2;
+			return 3;
 		}
 
 		@Override
@@ -158,6 +164,8 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 				case 0 :
 					return localizer.getValue(COL_NAME);
 				case 1 :
+					return localizer.getValue(COL_ABBR);
+				case 2 :
 					return localizer.getValue(COL_VALUE);
 				default :
 					return null;
@@ -170,6 +178,8 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 				case 0 :
 					return String.class;
 				case 1 :
+					return String.class;
+				case 2 :
 					return Float.class;
 				default :
 					return null;
@@ -183,16 +193,22 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 
 		@Override
 		public Object getValueAt(final int rowIndex, final int columnIndex) {
+			final String name = content.get(rowIndex).getName();
+
 			switch (columnIndex) {
 				case 0 :
-					final String name = content.get(rowIndex).getName();
+					final TubeParameterUnit	unit = TubeParameter.valueOf(name).getUnit();
 					
 					try {
-						return localizer.getValue(TubeParameter.class.getField(name).getAnnotation(LocaleResource.class).value());
+						return localizer.getValue(TubeParameter.class.getField(name).getAnnotation(LocaleResource.class).value())
+								+", "+
+								localizer.getValue(TubeParameterUnit.class.getField(unit.name()).getAnnotation(LocaleResource.class).value());
 					} catch (LocalizationException | NoSuchFieldException | SecurityException e) {
 						return name;
 					}
 				case 1 :
+					return "<html><body><p><b>" + TubeParameter.valueOf(name).getAbbr() + "</b></p></body></html>";
+				case 2 :
 					return content.get(rowIndex).getValue();
 				default :
 					return null;

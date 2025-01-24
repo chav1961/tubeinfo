@@ -38,23 +38,23 @@ public class TubesScreen extends JSplitPane {
 			
 			PureLibSettings.PURELIB_LOCALIZER.push(localizer);
 			
-			try {
-				final DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-				
-				Document doc = builder.parse(this.getClass().getResourceAsStream("test.xml"));
-				doc.getDocumentElement().normalize();
-				
-				final XMLBasedTube	item = new XMLBasedTube((Element)doc.getElementsByTagName("tube").item(0));
-				
+//			try {
+//				final DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+//				
+//				Document doc = builder.parse(this.getClass().getResourceAsStream("test.xml"));
+//				doc.getDocumentElement().normalize();
+//				
+//				final XMLBasedTube	item = new XMLBasedTube((Element)doc.getElementsByTagName("tube").item(0));
+//				
 				this.tp = new TubesPreview(localizer);
 				setLeftComponent(this.tp);
-				final TubesTabs		tt = new TubesTabs(localizer, (t)->{selection(t);}, item);
+				final TubesTabs		tt = new TubesTabs(localizer, (t)->{selection(t);});
 				setRightComponent(tt);
 				
 				SwingUtils.assignActionKey(this, JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT, SwingUtils.KS_FIND, (e)->{find();}, SwingUtils.ACTION_FIND);
-			} catch (ParserConfigurationException | SAXException e) {
-				throw new IOException(e.getLocalizedMessage(), e);
-			}
+//			} catch (ParserConfigurationException | SAXException e) {
+//				throw new IOException(e.getLocalizedMessage(), e);
+//			}
 			
 		}
 	}

@@ -6,9 +6,9 @@ import chav1961.purelib.i18n.interfaces.LocaleResourceLocation;
 @LocaleResourceLocation("i18n:xml:root://chav1961.tubeinfo.references.interfaces.TubeParameter/chav1961/tubeinfo/i18n/i18n.xml")
 public enum TubeParameter {
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.myu",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.myu.tt")
-	S("S", 100, TubeParameterUnit.MA_V),
-	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.s",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.s.tt")
 	MYU("μ", 100, TubeParameterUnit.NONE),
+	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.s",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.s.tt")
+	S("S", 100, TubeParameterUnit.MA_V),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.max.temperature",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.max.temperature.tt")
 	MAX_TEMPERATURE("t<sub>max</sub>", 100, TubeParameterUnit.CELSIUS),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.input.capacity",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.input.capacity.tt")

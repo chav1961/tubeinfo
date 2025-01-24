@@ -50,6 +50,7 @@
 		<key name="chav1961.tubesReference.typesType.tt">Electronic tube type</key>
 
 		<key name="chav1961.tubesReference.preview.table.name">Parameter name</key>
+		<key name="chav1961.tubesReference.preview.table.abbr">Short name</key>
 		<key name="chav1961.tubesReference.preview.table.value">Value</key>
 		<key name="chav1961.tubesReference.table.scheme">Pinout</key>
 		<key name="chav1961.tubesReference.table.panel">Panel</key>
@@ -81,8 +82,8 @@
 		<key name="chav1961s.tubes.tubePanelType.pin9">PIN9</key>
 		<key name="chav1961s.tubes.tubePanelType.pin9.tt">PIN9</key>
 
-		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.myu">Myu</key>
-		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.myu.tt">Myu</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.myu">Коэффициент усиления</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.myu.tt">Коэффициент усиления</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.s">Крутизна</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.s.tt">Крутизна</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.temperature">Макс.температура</key>
@@ -209,6 +210,7 @@
 		<key name="chav1961.tubesReference.typesType.tt">Тип электронной лампы</key>
 
 		<key name="chav1961.tubesReference.preview.table.name">Наименование параметра</key>
+		<key name="chav1961.tubesReference.preview.table.abbr">Обозначение</key>
 		<key name="chav1961.tubesReference.preview.table.value">Значение</key>
 		<key name="chav1961.tubesReference.table.scheme">Разводка</key>
 		<key name="chav1961.tubesReference.table.panel">Панель</key>
