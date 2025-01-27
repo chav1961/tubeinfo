@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tubes>
 	<tube type="DOUBLE_TRIODE" abbr="6Н2П" corpus="TG" panel="PIN9">
-		<description>
+		<description lang="ru">
 			== test 
 			assa **desc**;
 		</description>

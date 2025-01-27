@@ -31,11 +31,21 @@ import chav1961.tubeinfo.references.interfaces.TubeParameter;
 import chav1961.tubeinfo.references.interfaces.TubesType;
 
 /*
- * <tube type="TubesType" abbr="1a1a" corpus="TubeCorpusType" panel="TubePanelType" description="localizedKey">
+ * <tube type="TubesType" abbr="1a1a" panel="TubePanelType" description="localizedKey">
+ *   <localizedKeys>
+ *   	<lang name="en">
+ *   		<key name="name">text</key>
+ *   	</lang>
+ *   </localizedKeys>
  * 	 <parms>
  *   	<parm name="TubeParameter" number="0|1|2">value</parm>
  * 	 </parms>
- *   <scheme href="scheme.svg">
+ *   <scheme href="scheme.svg" standard="TubeSchemeType">
+ *   	<parm name="p1">1</parm>  // Optional
+ *   </scheme>
+ *   <corpus href="corpus.svg" standard="TubeCorpusType">
+ *   	<parm name="p1">1</parm>
+ *   </corpus>
  *   <connectors>
  *   	<connector number="0|1|2" type="TubeConnector.TypeConnectorType" pin="pinNumber" pinType="TubeConnector.PinType"/>
  *   </connectors>
