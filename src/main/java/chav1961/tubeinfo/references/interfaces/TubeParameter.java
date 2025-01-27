@@ -30,13 +30,13 @@ public enum TubeParameter {
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.noise.voltage",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.noise.voltage.tt")
 	NOISE_VOLTAGE("U<sub>noise</sub>", 100, TubeParameterUnit.MILLIVOLT),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.noise.resistance",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.noise.resistance.tt")
-	NOISE_RESISTANCE("R<sub>noise</sub>", 100, TubeParameterUnit.KOM),
+	NOISE_RESISTANCE("R<sub>noise</sub>", 100, TubeParameterUnit.KOHM),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.power.dissipation",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.power.dissipation.tt")
 	POWER_DISSIPATION("P<sub>max</sub>", 100, TubeParameterUnit.WATT),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.min.grid1.resistance",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.min.grid1.resistance.tt")
-	MIN_GRID_1_RESISTANCE("R<sub>g.min</sub>", 100, TubeParameterUnit.KOM),
+	MIN_GRID_1_RESISTANCE("R<sub>g.min</sub>", 100, TubeParameterUnit.KOHM),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.max.grid1.resistance",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.max.grid1.resistance.tt")
-	MAX_GRID_1_RESISTANCE("R<sub>g.max</sub>", 100, TubeParameterUnit.KOM),
+	MAX_GRID_1_RESISTANCE("R<sub>g.max</sub>", 100, TubeParameterUnit.KOHM),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.filament.current",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.filament.current.tt")
 	FILAMENT_CURRENT("I<sub>f</sub>", 100, TubeParameterUnit.AMPER),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.filament.voltage",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.filament.voltage.tt")
