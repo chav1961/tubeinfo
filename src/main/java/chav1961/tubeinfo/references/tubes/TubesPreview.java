@@ -48,8 +48,7 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 	private final Localizer	localizer;
 	
 	private SchemePainter		scheme = new SchemePainter();
-	private JLabel				panel = new JLabel("");
-	private JLabel				corpus = new JLabel("");
+	private CorpusPainter		corpus = new CorpusPainter();
 	private JLabel				abbr = new JLabel("", JLabel.CENTER);
 	private JEditorPane			description = new JEditorPane("text/html","");
 	private final JPanel		tabArea = new JPanel(new GridLayout(1, PARM_COUNT));
@@ -79,7 +78,7 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 		}
 		add(abbr, BorderLayout.NORTH);
 		pictures.add(scheme);
-		pictures.add(panel);
+		pictures.add(corpus);
 		add(pictures, BorderLayout.WEST);
 		description.setEditable(false);
 		description.setOpaque(false);
@@ -113,6 +112,7 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 			}
 		}
 		scheme.setPainter(desc.getScheme());
+		corpus.setPainter(desc.getCorpusDraw());
 		try {
 			final URL	ref = URI.create(InternalUtils.getLocaleResource(desc.getPanelType().getGroup()).icon()).toURL();
 			
@@ -229,6 +229,28 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 	}
 	
 	private static class SchemePainter extends JComponent {
+		private static final long serialVersionUID = -6183021481289137700L;
+
+		private SVGPainter	painter = null;
+		
+		private void setPainter(final SVGPainter painter) {
+			this.painter = painter;
+			if (painter != null) {
+				this.setPreferredSize(new Dimension(painter.getWidth(), painter.getHeight()));
+			}
+			repaint();
+		}
+		
+		@Override
+		protected void paintComponent(final Graphics g) {
+			super.paintComponent(g);
+			if (painter != null) {
+				painter.paint((Graphics2D)g);
+			}
+		}
+	}
+
+	private static class CorpusPainter extends JComponent {
 		private static final long serialVersionUID = -6183021481289137700L;
 
 		private SVGPainter	painter = null;

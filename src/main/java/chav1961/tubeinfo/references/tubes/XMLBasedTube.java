@@ -5,7 +5,9 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Base64;
+import java.util.Properties;
 
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
@@ -15,6 +17,8 @@ import org.w3c.dom.DOMException;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import chav1961.purelib.basic.CharUtils.CharSubstitutionSource;
+import chav1961.purelib.basic.CharUtils.SubstitutionSource;
 import chav1961.purelib.basic.URIUtils;
 import chav1961.purelib.basic.exceptions.ContentException;
 import chav1961.purelib.streams.char2char.CreoleWriter;
@@ -31,7 +35,7 @@ import chav1961.tubeinfo.references.interfaces.TubeParameter;
 import chav1961.tubeinfo.references.interfaces.TubesType;
 
 /*
- * <tube type="TubesType" abbr="1a1a" panel="TubePanelType" description="localizedKey">
+ * <tube type="TubesType" abbr="1a1a" panel="TubePanelType" corpus="TubeCorpusType" description="localizedKey">
  *   <localizedKeys>
  *   	<lang name="en">
  *   		<key name="name">text</key>
@@ -40,11 +44,11 @@ import chav1961.tubeinfo.references.interfaces.TubesType;
  * 	 <parms>
  *   	<parm name="TubeParameter" number="0|1|2">value</parm>
  * 	 </parms>
- *   <scheme href="scheme.svg" standard="TubeSchemeType">
- *   	<parm name="p1">1</parm>  // Optional
+ *   <scheme href="scheme.svg"> 	// if href is missing, href from TubesType will be used.
+ *   	<parm name="p1">1</parm>  	// Optional
  *   </scheme>
- *   <corpus href="corpus.svg" standard="TubeCorpusType">
- *   	<parm name="p1">1</parm>
+ *   <corpus href="corpus.svg">		// if href is missing, href from TubesCorpusType will be used.
+ *   	<parm name="p1">1</parm>	// Optional
  *   </corpus>
  *   <connectors>
  *   	<connector number="0|1|2" type="TubeConnector.TypeConnectorType" pin="pinNumber" pinType="TubeConnector.PinType"/>
@@ -57,8 +61,10 @@ import chav1961.tubeinfo.references.interfaces.TubesType;
 
 public class XMLBasedTube implements TubeDescriptor {
 	private static final String			TAG_DESCRIPTION = "description";
+	private static final String			TAG_PARMS = "parms";
 	private static final String			TAG_PARM = "parm";
 	private static final String			TAG_SCHEME = "scheme";
+	private static final String			TAG_CORPUS = "corpus";
 	private static final String			TAG_CONNECTOR = "connector";
 	private static final String			TAG_GRAPHIC = "graphic";
 	private static final String			ATTR_TYPE = "type";
@@ -78,6 +84,7 @@ public class XMLBasedTube implements TubeDescriptor {
 	private final TubeCorpusType		corpus;
 	private final TubePanelType			panel;
 	private final SVGPainter			scheme;
+	private final SVGPainter			corpusDraw;
 	private final TubeParmDescriptor[]	parms;
 	private final TubeConnectorImpl[]	connectors;
 	private final GraphicImpl[]			graphics;
@@ -88,7 +95,7 @@ public class XMLBasedTube implements TubeDescriptor {
 		}
 		else {
 			try {
-				final NodeList parms = root.getElementsByTagName(TAG_PARM);
+				final NodeList parms = ((Element)root.getElementsByTagName(TAG_PARMS).item(0)).getElementsByTagName(TAG_PARM);
 				final NodeList scheme = root.getElementsByTagName(TAG_SCHEME);
 				final NodeList connectors = root.getElementsByTagName(TAG_CONNECTOR);
 				final NodeList graphics = root.getElementsByTagName(TAG_GRAPHIC);
@@ -98,7 +105,26 @@ public class XMLBasedTube implements TubeDescriptor {
 				this.abbr = root.getAttribute(ATTR_ABBR);
 				this.corpus = TubeCorpusType.valueOf(root.getAttribute(ATTR_CORPUS));
 				this.panel = TubePanelType.valueOf(root.getAttribute(ATTR_PANEL));
-				this.scheme = loadSVG(URI.create(((Element)scheme.item(0)).getAttribute(ATTR_HREF)));
+				
+				final ParmSubstitutor	psScheme = new ParmSubstitutor(((Element)scheme.item(0)).getElementsByTagName(TAG_PARM));
+						
+				if (((Element)scheme.item(0)).hasAttribute(ATTR_HREF)) {
+					this.scheme = loadSVG(URI.create(((Element)scheme.item(0)).getAttribute(ATTR_HREF)), psScheme);
+				}
+				else {
+					this.scheme = loadSVG(type.getSvgURL().toURI(), psScheme);
+				}
+
+				final NodeList 			corpusRef = root.getElementsByTagName(TAG_CORPUS);
+				final ParmSubstitutor	psCorpus = new ParmSubstitutor(((Element)corpusRef.item(0)).getElementsByTagName(TAG_PARM));
+				
+				if (((Element)scheme.item(0)).hasAttribute(ATTR_HREF)) {
+					this.corpusDraw = loadSVG(URI.create(((Element)scheme.item(0)).getAttribute(ATTR_HREF)), psCorpus);
+				}
+				else {
+					this.corpusDraw = loadSVG(corpus.getGroup().getSvgURL().toURI(), psCorpus);
+				}
+				
 				this.parms = new TubeParmDescriptor[parms.getLength()];
 
 				try(final StringWriter	wr = new StringWriter()) {
@@ -139,15 +165,15 @@ public class XMLBasedTube implements TubeDescriptor {
 					
 					this.connectors[index] = new TubeConnectorImpl(number, type, pin, pinType);
 				}
-			} catch (DOMException exc) {
+			} catch (DOMException | URISyntaxException exc) {
 				throw new IOException(exc.getLocalizedMessage(), exc);
 			}
 		}
 	}
 	
-	private SVGPainter loadSVG(final URI href) {
+	private SVGPainter loadSVG(final URI href, final SubstitutionSource ss) {
 		try {
-			return SVGParser.parse(href.toURL().openStream());
+			return SVGParser.parse(href.toURL().openStream(), ss);
 		} catch (ContentException | IOException e) {
 			return null;
 		}
@@ -173,6 +199,11 @@ public class XMLBasedTube implements TubeDescriptor {
 		return scheme;
 	}
 
+	@Override
+	public SVGPainter getCorpusDraw() {
+		return corpusDraw;
+	}
+	
 	@Override
 	public TubeConnector[] getConnectors() {
 		return connectors;
@@ -276,6 +307,28 @@ public class XMLBasedTube implements TubeDescriptor {
 		}
 	}
 
+	private static class ParmSubstitutor implements SubstitutionSource {
+		private final Properties	parms = new Properties();
+
+		private ParmSubstitutor(final NodeList list) {
+			for(int index = 0; index < list.getLength(); index++) {
+				final Element	el = (Element) list.item(index);
+				
+				parms.setProperty(el.getAttribute(ATTR_NAME), el.getTextContent());
+			}
+		}
+		
+		@Override
+		public String getValue(final String key) {
+			return parms.getProperty(key, "???");
+		}
+
+		@Override
+		public String toString() {
+			return "ParmSubstitutor [parms=" + parms + "]";
+		}
+	}
+	
 	private static class TubeParmDescriptor {
 		final int			lampNo;
 		final TubeParameter	parm;

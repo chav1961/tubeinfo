@@ -10,6 +10,7 @@ public interface TubeDescriptor {
 	String getAbbr();
 	String getDescription();
 	SVGPainter getScheme();
+	SVGPainter getCorpusDraw();
 	TubePanelType getPanelType();
 	TubeConnector[] getConnectors();
 	TubeCorpusType getCorpus();
