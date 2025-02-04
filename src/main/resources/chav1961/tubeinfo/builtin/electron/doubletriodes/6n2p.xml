@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tubes>
-	<tube type="DOUBLE_TRIODE" abbr="6Н2П" corpus="TG" panel="PIN9">
-		<description lang="ru">
-			== test 
-			assa **desc**;
-		</description>
+	<tube type="DOUBLE_TRIODE" abbr="6Н2П" corpus="TG" panel="PIN9" description="description">
+	    <localizedKeys>
+	    	<lang name="en">
+	    		<key name="graphic1">graphic number 1</key>
+	    		<key name="graphic1.tt">graphic number 1 tooltip</key>
+	    		<help name="description">
+					== test 
+					assa **desc**;
+	    		</help>	    		
+	    	</lang>
+	    	<lang name="ru">
+	    		<key name="graphic1">graphic number 1</key>
+	    		<key name="graphic1.tt">graphic number 1 tooltip</key>
+	    		<help name="description">
+					== test 
+					assa **desc**;
+	    		</help>	    		
+	    	</lang>
+	    </localizedKeys>
 		<parms>
 			<parm name="FILAMENT_CURRENT" number="1">340</parm>
 			<parm name="ANODE_CURRENT" number="1">1.8</parm>
@@ -59,7 +73,7 @@
 			<connector number="0" type="SHIELD_1" pin="9" pinType="ORDINAL"/>
 		</connectors>
 		<graphics>
-			<graphic name="localizedKey" tooltip="localizedKey" number="0">iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABWUlEQVR4nK3Wv0tWURwG8A+JSSJpIORkNlZOSjqHs0FKS0pbf0AtDbpns/4Foou6qi1GLoFDDioogYguRkWugUsc+CYvel89933vAw98z/P98cDlnHsOxdjEGf5k8ix6svAAJ2jJbcAtHONhTvE0PiiPGUzlFO6jvwGDx/h+U9Ewvmkc2xi6rmAOb5sweIfZeslWnKKnCYP7+IHbRcnnWNc8PmG0KLGMVxUYTGDpstiJX+iowKAdP9FVK77BAd5XxIOYeYHJOCj1+Bs7+BjcCe26njQzC0+xi7YarS20lGsa45gv0JM2VoXBk/gkl7GHRyrCVzyrWY9gS4UYw2rNeg0vqjRowRF60RdxmfsiC4txSl9HXAm6Yxe9xAoWYvhKaONR0zA+x89rqQ5TbqPs0Dv4gkP8jfs5xUVMuVST4tRzN8dgILblvZJMPYM5BqnovMST5T9TzxWDf69ybCTo/04CAAAAAElFTkSuQmCC</graphic>
+			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="./graphic1.png"/>
 		</graphics>
 	</tube>
 </tubes>

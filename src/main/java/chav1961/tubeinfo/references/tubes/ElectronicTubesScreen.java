@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +50,9 @@ public class ElectronicTubesScreen extends JSplitPane {
 	private void loadContent(final URL root, final List<TubeDescriptor> list) throws IOException {
 		if (root.getPath().endsWith(".xml")) {
 			try(final InputStream		is = root.openStream()) {
-				list.add(InternalUtils.getTubeDescriptor(is));
+				list.add(InternalUtils.getTubeDescriptor(root.toURI(), is));
+			} catch (URISyntaxException e) {
+				throw new IOException(e.getLocalizedMessage(), e);
 			}
 		}
 		else {
@@ -83,7 +86,7 @@ public class ElectronicTubesScreen extends JSplitPane {
 			}
 			else if (root.getName().endsWith(".xml")) {
 				try(final InputStream	is = new FileInputStream(root)) {
-					list.add(InternalUtils.getTubeDescriptor(is));
+					list.add(InternalUtils.getTubeDescriptor(root.toURI(), is));
 				}
 			}
 		}

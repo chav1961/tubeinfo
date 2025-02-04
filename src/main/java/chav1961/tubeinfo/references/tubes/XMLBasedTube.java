@@ -7,6 +7,7 @@ import java.io.StringWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Base64;
+import java.util.Locale;
 import java.util.Properties;
 
 import javax.imageio.ImageIO;
@@ -17,10 +18,14 @@ import org.w3c.dom.DOMException;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import chav1961.purelib.basic.CharUtils.CharSubstitutionSource;
 import chav1961.purelib.basic.CharUtils.SubstitutionSource;
+import chav1961.purelib.basic.MimeType;
 import chav1961.purelib.basic.URIUtils;
+import chav1961.purelib.basic.Utils;
 import chav1961.purelib.basic.exceptions.ContentException;
+import chav1961.purelib.i18n.KeyValueLocalizer;
+import chav1961.purelib.i18n.interfaces.Localizer;
+import chav1961.purelib.i18n.interfaces.LocalizerOwner;
 import chav1961.purelib.streams.char2char.CreoleWriter;
 import chav1961.purelib.ui.swing.useful.svg.SVGPainter;
 import chav1961.purelib.ui.swing.useful.svg.SVGParser;
@@ -39,6 +44,7 @@ import chav1961.tubeinfo.references.interfaces.TubesType;
  *   <localizedKeys>
  *   	<lang name="en">
  *   		<key name="name">text</key>
+ *   		<help name="name">text</help>
  *   	</lang>
  *   </localizedKeys>
  * 	 <parms>
@@ -59,18 +65,22 @@ import chav1961.tubeinfo.references.interfaces.TubesType;
  * </tube>
  */
 
-public class XMLBasedTube implements TubeDescriptor {
-	private static final String			TAG_DESCRIPTION = "description";
+public class XMLBasedTube implements TubeDescriptor, LocalizerOwner {
 	private static final String			TAG_PARMS = "parms";
 	private static final String			TAG_PARM = "parm";
 	private static final String			TAG_SCHEME = "scheme";
 	private static final String			TAG_CORPUS = "corpus";
 	private static final String			TAG_CONNECTOR = "connector";
 	private static final String			TAG_GRAPHIC = "graphic";
+	private static final String			TAG_LOCALIZED_KEYS = "localizedKeys";
+	private static final String			TAG_LANG = "lang";
+	private static final String			TAG_KEY = "key";
+	private static final String			TAG_HELP = "help";
 	private static final String			ATTR_TYPE = "type";
 	private static final String			ATTR_ABBR = "abbr";
 	private static final String			ATTR_CORPUS = "corpus";
 	private static final String			ATTR_PANEL = "panel";
+	private static final String			ATTR_DESCRIPTION = "description";
 	private static final String			ATTR_NAME = "name";
 	private static final String			ATTR_NUMBER = "number";
 	private static final String			ATTR_PIN = "pin";
@@ -78,6 +88,7 @@ public class XMLBasedTube implements TubeDescriptor {
 	private static final String			ATTR_TOOLTIP = "tooltip";
 	private static final String			ATTR_HREF = "href";
 
+	private final URI					currentURI;
 	private final TubesType				type;
 	private final String				abbr;
 	private final String				description;
@@ -88,10 +99,14 @@ public class XMLBasedTube implements TubeDescriptor {
 	private final TubeParmDescriptor[]	parms;
 	private final TubeConnectorImpl[]	connectors;
 	private final GraphicImpl[]			graphics;
+	private final KeyValueLocalizer		localizer = new KeyValueLocalizer();
 	
-	public XMLBasedTube(final Element root) throws IOException {
+	public XMLBasedTube(final Element root, final URI currentURI) throws IOException {
 		if (root == null) {
 			throw new NullPointerException("Root element can't be null");
+		}
+		else if (currentURI == null) {
+			throw new NullPointerException("Current URI can't be null");
 		}
 		else {
 			try {
@@ -99,8 +114,32 @@ public class XMLBasedTube implements TubeDescriptor {
 				final NodeList scheme = root.getElementsByTagName(TAG_SCHEME);
 				final NodeList connectors = root.getElementsByTagName(TAG_CONNECTOR);
 				final NodeList graphics = root.getElementsByTagName(TAG_GRAPHIC);
-				final NodeList desc = root.getElementsByTagName(TAG_DESCRIPTION);
+				final NodeList localizedSection = root.getElementsByTagName(TAG_LOCALIZED_KEYS);
 
+				if (localizedSection.getLength() > 0) {
+					final NodeList 	localizedKeys = ((Element)localizedSection.item(0)).getElementsByTagName(TAG_LANG);
+					
+					for(int langIndex = 0; langIndex < localizedKeys.getLength(); langIndex++) {
+						final Locale	locale = Locale.forLanguageTag(((Element)localizedKeys.item(langIndex)).getAttribute(ATTR_NAME));
+						final NodeList	keys = ((Element)localizedKeys.item(langIndex)).getElementsByTagName(TAG_KEY);
+						final NodeList	helps = ((Element)localizedKeys.item(langIndex)).getElementsByTagName(TAG_HELP);
+	
+						for(int index = 0; index < keys.getLength(); index++) {
+							localizer.addKey(((Element)keys.item(index)).getAttribute(ATTR_NAME), 
+										  locale, 
+										  ((Element)keys.item(index)).getTextContent());
+							
+						}
+						for(int index = 0; index < helps.getLength(); index++) {
+							localizer.addHelp(((Element)helps.item(index)).getAttribute(ATTR_NAME), 
+										  locale, 
+										  ((Element)helps.item(index)).getTextContent());
+							
+						}
+					}
+				}
+				
+				this.currentURI = currentURI; 
 				this.type = TubesType.valueOf(root.getAttribute(ATTR_TYPE));
 				this.abbr = root.getAttribute(ATTR_ABBR);
 				this.corpus = TubeCorpusType.valueOf(root.getAttribute(ATTR_CORPUS));
@@ -124,18 +163,11 @@ public class XMLBasedTube implements TubeDescriptor {
 				else {
 					this.corpusDraw = loadSVG(corpus.getGroup().getSvgURL().toURI(), psCorpus);
 				}
+				final String	str = Utils.fromResource(getLocalizer().getContent(root.getAttribute(ATTR_DESCRIPTION), MimeType.MIME_CREOLE_TEXT, MimeType.MIME_HTML_TEXT)); 
 				
 				this.parms = new TubeParmDescriptor[parms.getLength()];
+				this.description = str.substring(str.indexOf("<html>"));
 
-				try(final StringWriter	wr = new StringWriter()) {
-					try (final CreoleWriter	cwr = new CreoleWriter(wr)) {
-						cwr.write(desc.item(0).getTextContent().trim());
-					}
-					final String	val = wr.toString();
-					
-					this.description = val.substring(val.indexOf("<html>"));
-				}
-				
 				for(int index = 0; index < this.parms.length; index++) {
 					final int			number = ((Element)parms.item(index)).hasAttribute(ATTR_NUMBER) ? Integer.valueOf(((Element)parms.item(index)).getAttribute(ATTR_NUMBER)) : 0;
 					final TubeParameter	key = TubeParameter.valueOf(((Element)parms.item(index)).getAttribute(ATTR_NAME));
@@ -147,11 +179,24 @@ public class XMLBasedTube implements TubeDescriptor {
 				this.graphics = new GraphicImpl[graphics.getLength()];
 				
 				for(int index = 0; index < this.graphics.length; index++) {
-					final int			number = ((Element)graphics.item(index)).hasAttribute(ATTR_NUMBER) ? Integer.valueOf(((Element)graphics.item(index)).getAttribute(ATTR_NUMBER)) : 0;
-					final String		name = ((Element)graphics.item(index)).getAttribute(ATTR_NAME);
-					final String		tooltip = ((Element)graphics.item(index)).getAttribute(ATTR_TOOLTIP);
-					final Icon			picture = new ImageIcon(URIUtils.convert2selfURI(graphics.item(index).getTextContent().trim().getBytes()).toURL());
+					final int		number = ((Element)graphics.item(index)).hasAttribute(ATTR_NUMBER) ? Integer.valueOf(((Element)graphics.item(index)).getAttribute(ATTR_NUMBER)) : 0;
+					final String	name = ((Element)graphics.item(index)).getAttribute(ATTR_NAME);
+					final String	tooltip = ((Element)graphics.item(index)).getAttribute(ATTR_TOOLTIP);
+					final Icon		picture;
 					
+					if (((Element)graphics.item(index)).hasAttribute(ATTR_HREF)) {
+						final URI	ref = URI.create(((Element)graphics.item(index)).getAttribute(ATTR_HREF)); 	
+						
+						if (ref.isAbsolute()) {
+							picture = new ImageIcon(ref.toURL());
+						}
+						else {
+							picture = new ImageIcon(currentURI.resolve(ref).toURL());
+						}
+					}
+					else {
+						picture = new ImageIcon(URIUtils.convert2selfURI(graphics.item(index).getTextContent().trim().getBytes()).toURL());
+					}
 					this.graphics[index] = new GraphicImpl(number, name, tooltip, picture);
 				}
 
@@ -165,20 +210,18 @@ public class XMLBasedTube implements TubeDescriptor {
 					
 					this.connectors[index] = new TubeConnectorImpl(number, type, pin, pinType);
 				}
+
 			} catch (DOMException | URISyntaxException exc) {
 				throw new IOException(exc.getLocalizedMessage(), exc);
 			}
 		}
 	}
 	
-	private SVGPainter loadSVG(final URI href, final SubstitutionSource ss) {
-		try {
-			return SVGParser.parse(href.toURL().openStream(), ss);
-		} catch (ContentException | IOException e) {
-			return null;
-		}
+	@Override
+	public Localizer getLocalizer() {
+		return localizer;
 	}
-
+	
 	@Override
 	public TubesType getType() {
 		return type;
@@ -295,14 +338,10 @@ public class XMLBasedTube implements TubeDescriptor {
 		return result;
 	}
 
-	
-	private Icon loadIcon(final String base64Content) {
+	private SVGPainter loadSVG(final URI href, final SubstitutionSource ss) {
 		try {
-			final byte[]		content = Base64.getDecoder().decode(base64Content);
-			final BufferedImage	image = ImageIO.read(new ByteArrayInputStream(content));
-			
-			return new ImageIcon(image);
-		} catch (IOException e) {
+			return SVGParser.parse(href.toURL().openStream(), ss);
+		} catch (ContentException | IOException e) {
 			return null;
 		}
 	}
@@ -404,7 +443,7 @@ public class XMLBasedTube implements TubeDescriptor {
 		}
 
 		@Override
-		public String getTooptip() {
+		public String getTooltip() {
 			return tooltip;
 		}
 

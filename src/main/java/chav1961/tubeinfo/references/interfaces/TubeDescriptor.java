@@ -1,11 +1,10 @@
 package chav1961.tubeinfo.references.interfaces;
 
 
-import javax.swing.Icon;
-
+import chav1961.purelib.i18n.interfaces.LocalizerOwner;
 import chav1961.purelib.ui.swing.useful.svg.SVGPainter;
 
-public interface TubeDescriptor {
+public interface TubeDescriptor extends LocalizerOwner {
 	TubesType getType();
 	String getAbbr();
 	String getDescription();

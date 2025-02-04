@@ -1,6 +1,7 @@
 package chav1961.tubeinfo.references.tubes;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -22,7 +23,9 @@ import javax.swing.JEditorPane;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
 import javax.swing.JTable;
+import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
 import chav1961.purelib.basic.NamedValue;
@@ -31,6 +34,7 @@ import chav1961.purelib.i18n.interfaces.LocaleResource;
 import chav1961.purelib.i18n.interfaces.Localizer;
 import chav1961.purelib.i18n.interfaces.Localizer.LocaleChangeListener;
 import chav1961.purelib.ui.swing.useful.svg.SVGPainter;
+import chav1961.tubeinfo.references.interfaces.Graphic;
 import chav1961.tubeinfo.references.interfaces.TubeDescriptor;
 import chav1961.tubeinfo.references.interfaces.TubePanelGroup;
 import chav1961.tubeinfo.references.interfaces.TubeParameter;
@@ -51,10 +55,14 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 	private CorpusPainter		corpus = new CorpusPainter();
 	private JLabel				abbr = new JLabel("", JLabel.CENTER);
 	private JEditorPane			description = new JEditorPane("text/html","");
-	private final JPanel		tabArea = new JPanel(new GridLayout(1, PARM_COUNT));
-	private final JScrollPane[]	scrolls = new JScrollPane[PARM_COUNT];
-	private Parameters[]		parms = new Parameters[PARM_COUNT];
-	private JTable[]			tables = new JTable[PARM_COUNT];
+	private final JTabbedPane	tabArea = new JTabbedPane();
+	private final JScrollPane[]	scrollsOrdinal = new JScrollPane[PARM_COUNT];
+	private final JScrollPane[]	scrollsMaximum = new JScrollPane[PARM_COUNT];
+	private Parameters[]		parmsOrdinal = new Parameters[PARM_COUNT];
+	private Parameters[]		parmsMaximum = new Parameters[PARM_COUNT];
+	private JTable[]			tablesOrdinal = new JTable[PARM_COUNT];
+	private JTable[]			tablesMaximum = new JTable[PARM_COUNT];
+	private JLabel[][]			graphics = new JLabel[PARM_COUNT][];
 	private TubeDescriptor		desc = null;
 	
 	TubesPreview(final Localizer localizer) {
@@ -68,13 +76,20 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 		pictures.setLayout(picturesLayout);
 
 		for(int index = 0; index < PARM_COUNT; index++) {
-			parms[index] = new Parameters();
-			tables[index] = new JTable(parms[index]);
-			tables[index].getColumnModel().getColumn(1).setMinWidth(80);
-			tables[index].getColumnModel().getColumn(1).setMaxWidth(80);
-			tables[index].getColumnModel().getColumn(2).setMaxWidth(200);
-			tables[index].setRowHeight(20);
-			scrolls[index] = new JScrollPane(tables[index]);
+			parmsOrdinal[index] = new Parameters();
+			tablesOrdinal[index] = new JTable(parmsOrdinal[index]);
+			tablesOrdinal[index].getColumnModel().getColumn(1).setMinWidth(80);
+			tablesOrdinal[index].getColumnModel().getColumn(1).setMaxWidth(80);
+			tablesOrdinal[index].getColumnModel().getColumn(2).setMaxWidth(200);
+			tablesOrdinal[index].setRowHeight(20);
+			scrollsOrdinal[index] = new JScrollPane(tablesOrdinal[index]);
+			parmsMaximum[index] = new Parameters();
+			tablesMaximum[index] = new JTable(parmsMaximum[index]);
+			tablesMaximum[index].getColumnModel().getColumn(1).setMinWidth(80);
+			tablesMaximum[index].getColumnModel().getColumn(1).setMaxWidth(80);
+			tablesMaximum[index].getColumnModel().getColumn(2).setMaxWidth(200);
+			tablesMaximum[index].setRowHeight(20);
+			scrollsMaximum[index] = new JScrollPane(tablesMaximum[index]);
 		}
 		add(abbr, BorderLayout.NORTH);
 		pictures.add(scheme);
@@ -90,25 +105,55 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 	
 	@Override
 	public void localeChanged(final Locale oldLocale, final Locale newLocale) throws LocalizationException {
-		for(int index = 0; index < parms.length; index++) {
-			parms[index].fireTableStructureChanged();
+		for(int index = 0; index < parmsOrdinal.length; index++) {
+			parmsOrdinal[index].fireTableStructureChanged();
+		}
+		for(int index = 0; index < parmsMaximum.length; index++) {
+			parmsMaximum[index].fireTableStructureChanged();
 		}
 		fillLocalizedStrings();
 	}
 
 	public void refreshDesc(final TubeDescriptor desc) {
+		if (this.desc != null) {
+			localizer.remove(this.desc.getLocalizer());
+		}
 		this.desc = desc;
 		if (desc != null) {
+			localizer.add(this.desc.getLocalizer());
 			fillContent();
 		}
 	}
 	
 	private void fillContent() {
 		tabArea.removeAll();
-		for(int index = 0; index < tables.length; index++) {
+		for(int index = 0; index < tablesOrdinal.length; index++) {
 			if (index < desc.getType().getNumberOfLampTypes()) {
-				tabArea.add(scrolls[index]);
-				parms[index].setContent(buildList(desc.getParameters(index+1), desc.getValues(index+1)));
+				tabArea.addTab("#"+(index+1), scrollsOrdinal[index]);
+				parmsOrdinal[index].setContent(buildList(desc.getParameters(index+1), desc.getValues(index+1), false));
+			}
+		}
+		for(int index = 0; index < tablesMaximum.length; index++) {
+			if (index < desc.getType().getNumberOfLampTypes()) {
+				tabArea.addTab("#"+(index+1)+"(max)", scrollsMaximum[index]);
+				parmsMaximum[index].setContent(buildList(desc.getParameters(index+1), desc.getValues(index+1), true));
+			}
+		}
+		for(int index = 0; index < tablesMaximum.length; index++) {
+			if (index < desc.getType().getNumberOfLampTypes()) {
+				final Graphic[] g = desc.getGraphics(index+1);
+				final JPanel gallery = new JPanel(new GridLayout(1, g.length, 10, 10));
+				
+				this.graphics[index] = new JLabel[g.length]; 
+				for(int gIndex = 0; gIndex < g.length; gIndex++) {
+					final JLabel	label = new JLabel(g[gIndex].getPicture());
+
+					label.setVerticalTextPosition(JLabel.BOTTOM);
+					label.setHorizontalTextPosition(JLabel.CENTER);
+					this.graphics[index][gIndex] = label;
+					gallery.add(label);
+				}
+				tabArea.addTab("#"+(index+1)+"(grf)", gallery);
 			}
 		}
 		scheme.setPainter(desc.getScheme());
@@ -120,16 +165,25 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 		} catch (SecurityException | MalformedURLException e) {
 			abbr.setIcon(null);
 		}
-		
 		fillLocalizedStrings();
 	}
 
 	
-	private Collection<NamedValue<Float>> buildList(final TubeParameter[] parameters, final float[] values) {
-		final NamedValue<Float>[]	result = new NamedValue[parameters.length];
+	private Collection<NamedValue<Float>> buildList(final TubeParameter[] parameters, final float[] values, final boolean isMaximum) {
+		int	count = 0;
+		
+		for (TubeParameter item : parameters) {
+			if (item.isMaxAvailable() == isMaximum) {
+				count++;
+			}
+		}
+		final NamedValue<Float>[]	result = new NamedValue[count];
 
+		count = 0;
 		for(int index = 0; index < parameters.length; index++) {
-			result[index] = new NamedValue<Float>(parameters[index].name(), values[index]);
+			if (parameters[index].isMaxAvailable() == isMaximum) {
+				result[count++] = new NamedValue<Float>(parameters[index].name(), values[index]);
+			}
 		}
 		return Arrays.asList(result);
 	}
@@ -140,6 +194,16 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 			
 			abbr.setText("<html><body><h1>" + desc.getAbbr()+" - "+localizer.getValue(anno.value()) +"</h1></body></html>");
 			description.setText(desc.getDescription());
+			for(int index = 0; index < graphics.length; index++) {
+				if (index < desc.getType().getNumberOfLampTypes()) {
+					final Graphic[]	g = desc.getGraphics(index+1);
+					
+					for(int gIndex = 0; gIndex < graphics[index].length; gIndex++) {
+						graphics[index][gIndex].setText(localizer.getValue(g[gIndex].getTitle()));
+						graphics[index][gIndex].setToolTipText(localizer.getValue(g[gIndex].getTooltip()));
+					}
+				}
+			}
 		}
 	}
 
