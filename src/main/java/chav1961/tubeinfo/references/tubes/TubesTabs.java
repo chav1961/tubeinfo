@@ -35,6 +35,7 @@ class TubesTabs extends JTabbedPane implements LocaleChangeListener {
 		else {
 			this.localizer = localizer;
 			
+			setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
 			addTab(localizer, content, selection);
 			for(TubesType item : TubesType.values()) {
 				addTab(item, localizer, content, selection);

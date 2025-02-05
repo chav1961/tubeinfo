@@ -4,6 +4,6 @@ import javax.swing.Icon;
 
 public interface Graphic {
 	String getTitle();
-	String getTooptip();
+	String getTooltip();
 	Icon getPicture();
 }

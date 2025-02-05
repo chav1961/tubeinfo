@@ -2,6 +2,7 @@ package chav1961.tubeinfo.utils;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -29,8 +30,11 @@ public class InternalUtils {
 		}
 	}
 	
-	public static TubeDescriptor getTubeDescriptor(final InputStream is) throws IOException {
-		if (is == null) {
+	public static TubeDescriptor getTubeDescriptor(final URI currentURI, final InputStream is) throws IOException {
+		if (currentURI == null) {
+			throw new NullPointerException("Current URI can't be null");
+		}
+		else if (is == null) {
 			throw new NullPointerException("Input stream to parse can't be null");
 		}
 		else {
@@ -39,7 +43,7 @@ public class InternalUtils {
 				final Document 			doc = builder.parse(is);
 				
 				doc.getDocumentElement().normalize();
-				return new XMLBasedTube((Element)doc.getElementsByTagName("tube").item(0));
+				return new XMLBasedTube((Element)doc.getElementsByTagName("tube").item(0), currentURI);
 			} catch (ParserConfigurationException | SAXException e) {
 				throw new IOException(e.getLocalizedMessage(), e);
 			}

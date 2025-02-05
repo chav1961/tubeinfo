@@ -52,6 +52,10 @@
 		<key name="chav1961.tubesReference.preview.table.name">Parameter name</key>
 		<key name="chav1961.tubesReference.preview.table.abbr">Short name</key>
 		<key name="chav1961.tubesReference.preview.table.value">Value</key>
+		<key name="chav1961.tubesReference.preview.tab.parameters">#%1$d parms</key>
+		<key name="chav1961.tubesReference.preview.tab.maximum">#%1$d maximums</key>
+		<key name="chav1961.tubesReference.preview.tab.graphics">#%1$d graphics</key>
+		<key name="chav1961.tubesReference.preview.tab.usage">Usage</key>
 		<key name="chav1961.tubesReference.table.scheme">Pinout</key>
 		<key name="chav1961.tubesReference.table.panel">Panel</key>
 		<key name="chav1961.tubesReference.table.abbr">Part No</key>
@@ -211,7 +215,11 @@
 
 		<key name="chav1961.tubesReference.preview.table.name">Наименование параметра</key>
 		<key name="chav1961.tubesReference.preview.table.abbr">Обозначение</key>
-		<key name="chav1961.tubesReference.preview.table.value">Значение</key>
+		<key name="chav1961.tubesReference.preview.table.value">Величина</key>
+		<key name="chav1961.tubesReference.preview.tab.parameters">#%1$d парам.</key>
+		<key name="chav1961.tubesReference.preview.tab.maximum">#%1$d максимум</key>
+		<key name="chav1961.tubesReference.preview.tab.graphics">#%1$d графики</key>
+		<key name="chav1961.tubesReference.preview.tab.usage">Применение</key>
 		<key name="chav1961.tubesReference.table.scheme">Разводка</key>
 		<key name="chav1961.tubesReference.table.panel">Панель</key>
 		<key name="chav1961.tubesReference.table.abbr">Тип</key>
