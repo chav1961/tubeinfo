@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with "sPlan" (http://www.abacom-online.de) -->
+<svg version="1.1" baseProfile="full"
+xmlns="http://www.w3.org/2000/svg"
+width="324" height="281">
+<title>corpus P</title>
+<defs>
+<style type="text/css">
+<![CDATA[
+polyline {stroke-linecap:round; stroke-linejoin:round}
+polygon {stroke-linecap:round; stroke-linejoin:round}
+path {stroke-linecap:round; stroke-linejoin:round}
+circle {stroke-linecap:round; stroke-linejoin:round}
+]]>
+</style>
+</defs>
+<polyline points="119.00 66.00 119.00 196.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="204.00 66.00 204.00 196.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="129.00 211.00 194.00 211.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<path fill="none" stroke="rgb(0,0,0)" stroke-width="2" d=" M 119 66 C 124 51 154 66 159 46 C 164 66 194 51 204 66" />
+<path fill="none" stroke="rgb(0,0,0)" stroke-width="2" d=" M 129 211 C 119 211 119 196 119 196" />
+<path fill="none" stroke="rgb(0,0,0)" stroke-width="2" d=" M 194 211 C 204 211 204 196 204 196" />
+<path fill="none" stroke="rgb(0,0,0)" stroke-width="2" style="stroke-linecap:square; stroke-linejoin:miter" d=" M 134 211 L 139 211 139 241 134 241 134 211" />
+<path fill="none" stroke="rgb(0,0,0)" stroke-width="2" style="stroke-linecap:square; stroke-linejoin:miter" d=" M 144 211 L 149 211 149 241 144 241 144 211" />
+<path fill="none" stroke="rgb(0,0,0)" stroke-width="2" style="stroke-linecap:square; stroke-linejoin:miter" d=" M 154 211 L 159 211 159 241 154 241 154 211" />
+<path fill="none" stroke="rgb(0,0,0)" stroke-width="2" style="stroke-linecap:square; stroke-linejoin:miter" d=" M 164 211 L 169 211 169 241 164 241 164 211" />
+<path fill="none" stroke="rgb(0,0,0)" stroke-width="2" style="stroke-linecap:square; stroke-linejoin:miter" d=" M 174 211 L 179 211 179 241 174 241 174 211" />
+<path fill="none" stroke="rgb(0,0,0)" stroke-width="2" style="stroke-linecap:square; stroke-linejoin:miter" d=" M 184 211 L 189 211 189 241 184 241 184 211" />
+<line x1="275.00" y1="235.00" x2="194.00" y2="211.00"  fill="none" stroke="rgb(128,128,128)" stroke-width="1" />
+<line x1="275.00" y1="85.00" x2="194.00" y2="61.00"  fill="none" stroke="rgb(128,128,128)" stroke-width="1" />
+<line x1="255.00" y1="235.00" x2="255.00" y2="85.00"  fill="none" stroke="rgb(128,128,128)" stroke-width="1" />
+<polygon points="255.00 85.00 251.35 112.76 258.65 112.76" fill="rgb(128,128,128)" stroke="rgb(128,128,128)" stroke-width="1" />
+<polygon points="255.00 235.00 258.65 207.24 251.35 207.24" fill="rgb(128,128,128)" stroke="rgb(128,128,128)" stroke-width="1" />
+<text x="-169.12" y="256.00" font-family ="Arial" font-size ="22pt" font-weight="normal" font-style="normal" fill="rgb(128,128,128)" transform=" rotate(-90.000) scale(1.000,1.000)">${p4}</text>
+<line x1="85.00" y1="235.00" x2="164.00" y2="211.00"  fill="none" stroke="rgb(128,128,128)" stroke-width="1" />
+<line x1="85.00" y1="70.00" x2="164.00" y2="46.00"  fill="none" stroke="rgb(128,128,128)" stroke-width="1" />
+<line x1="105.00" y1="235.00" x2="105.00" y2="70.00"  fill="none" stroke="rgb(128,128,128)" stroke-width="1" />
+<polygon points="105.00 70.00 101.35 97.76 108.65 97.76" fill="rgb(128,128,128)" stroke="rgb(128,128,128)" stroke-width="1" />
+<polygon points="105.00 235.00 108.65 207.24 101.35 207.24" fill="rgb(128,128,128)" stroke="rgb(128,128,128)" stroke-width="1" />
+<text x="-161.62" y="106.00" font-family ="Arial" font-size ="22pt" font-weight="normal" font-style="normal" fill="rgb(128,128,128)" transform=" rotate(-90.000) scale(1.000,1.000)">${p2}</text>
+<line x1="45.00" y1="265.00" x2="134.00" y2="241.00"  fill="none" stroke="rgb(128,128,128)" stroke-width="1" />
+<line x1="45.00" y1="65.00" x2="134.00" y2="41.00"  fill="none" stroke="rgb(128,128,128)" stroke-width="1" />
+<line x1="65.00" y1="265.00" x2="65.00" y2="65.00"  fill="none" stroke="rgb(128,128,128)" stroke-width="1" />
+<polygon points="65.00 65.00 61.35 92.76 68.65 92.76" fill="rgb(128,128,128)" stroke="rgb(128,128,128)" stroke-width="1" />
+<polygon points="65.00 265.00 68.65 237.24 61.35 237.24" fill="rgb(128,128,128)" stroke="rgb(128,128,128)" stroke-width="1" />
+<text x="-174.12" y="66.00" font-family ="Arial" font-size ="22pt" font-weight="normal" font-style="normal" fill="rgb(128,128,128)" transform=" rotate(-90.000) scale(1.000,1.000)">${p1}</text>
+<line x1="110.00" y1="155.00" x2="119.00" y2="101.00"  fill="none" stroke="rgb(128,128,128)" stroke-width="1" />
+<line x1="195.00" y1="155.00" x2="204.00" y2="101.00"  fill="none" stroke="rgb(128,128,128)" stroke-width="1" />
+<line x1="54.00" y1="135.00" x2="251.00" y2="135.00"  fill="none" stroke="rgb(128,128,128)" stroke-width="1" />
+<polygon points="195.00 135.00 222.76 138.65 222.76 131.35" fill="rgb(128,128,128)" stroke="rgb(128,128,128)" stroke-width="1" />
+<polygon points="110.00 135.00 82.24 131.35 82.24 138.65" fill="rgb(128,128,128)" stroke="rgb(128,128,128)" stroke-width="1" />
+<text x="128.38" y="103.00" font-family ="Arial" font-size ="22pt" font-weight="normal" font-style="normal" fill="rgb(128,128,128)" transform=" rotate(0.000) scale(1.000,1.000)">${p3}</text>
+</svg>

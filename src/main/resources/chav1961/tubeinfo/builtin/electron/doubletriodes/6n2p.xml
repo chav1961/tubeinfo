@@ -1,23 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tubes>
-	<tube type="DOUBLE_TRIODE" abbr="6Н2П" corpus="TG" panel="PIN9" description="description" usage="description">
+	<tube type="DOUBLE_TRIODE" abbr="6Н2П" corpus="TG" panel="PIN9" description="description" usage="usage">
 	    <localizedKeys>
 	    	<lang name="en">
-	    		<key name="graphic1">graphic number 1</key>
-	    		<key name="graphic1.tt">graphic number 1 tooltip</key>
+	    		<key name="graphic1">Anode characteristics</key>
+	    		<key name="graphic1.tt">Averaged characteristics of the dependence of the anode current and grid current on the voltage at the anode of each triode.</key>
+	    		<key name="graphic2">Anode-grid characteristics</key>
+	    		<key name="graphic2.tt">Dynamic characteristics of the dependence of the anode current on the grid voltage at various load resistances and an anode power source voltage of 250 V.</key>
 	    		<help name="description">
-					== test 
-					assa **desc**;
-					[[https://yandex.ru|test ref]]
+Designed to amplify low frequency voltage.
+Used in resistance pre-amplification stages.
+Indirectly heated oxide cathode.
+Works in any position.
+Available in glass finger design.
+Service life of at least 1000 hours.
+9 pin base with button bottom.
+	    		</help>	    		
+	    		<help name="usage">
+The 6N2P lamp is an analogue of the 6N9S lamp. Both lamps are interchangeable.
+The schemes for using the 6N2P lamp and the 6N9S lamp are the same.
+
+==== LITERATURE
+
+*Borisov E., Synchronizer for an amateur film installation, “Radio”, 1961, No. 12.
+*Davydov M., Tone controls, “Radio”, 1959, No. 1.
+*Efremov V., Volume control with low frequency compensation, “Radio”, 1961, No. 9.
+*Markov F., Two-tube AM-FM receiver, “Radio”, 1954, No. 4.
+*Prizemlin Yu., VHF receiver, “Radio”, 1957, No. 3.
+*Shabalin A., Shortwave transmitter, “Radio”, 1960, No. 10.
 	    		</help>	    		
 	    	</lang>
 	    	<lang name="ru">
-	    		<key name="graphic1">graphic number 1</key>
-	    		<key name="graphic1.tt">graphic number 1 tooltip</key>
+	    		<key name="graphic1">Анодные характеристики</key>
+	    		<key name="graphic1.tt">Усредненные характеристики зависимости тока анода и тока сетки от напряжения на аноде каждого триода</key>
+	    		<key name="graphic2">Анодно-сеточные характеристики</key>
+	    		<key name="graphic2.tt">Динамические характеристики зависимости тока анода от напряжения на сетке при различных сопротивлениях нагрузки и напряжении источника анодного питания 250 В.</key>
 	    		<help name="description">
-					== test 
-					assa **desc**;
-					[[https://yandex.ru|test ref]]
+Предназначен для усиления напряжения низкой частоты.
+Применяется в каскадах предварительного усиления на сопротивлениях.
+Катод оксидный косвенного накала.
+Работает в любом положении.
+Выпускается в стеклянном пальчиковом оформлении.
+Срок службы не менее 1000 ч.
+Цоколь 9 штырьковый с пуговичным дном.
+	    		</help>	    		
+	    		<help name="usage">
+Лампа 6Н2П является аналогом лампы 6Н9С. 0бе лампы взаимозаменяемы.
+Схемы применения лампы 6Н2П и лампы 6Н9С одинаковы.
+
+==== ЛИТЕРАТУРА
+
+*Борисов Е., Синхронизатор для любительской киноустановки, «Радио», 1961, № 12.
+*Давыдов М., Регуляторы тембра, «Радио», 1959, № 1.
+*Ефремов В., Регулятор громкости с компенсацией НЧ, «Радио», 1961, № 9.
+*Марков Ф., Двухламповый АМ-ЧМ приемник, «Радио», 1954, № 4.
+*Приземлин Ю., УКВ приемник, «Радио», 1957, № 3.
+*Шабалин А., Коротковолновый передатчик, «Радио», 1960, № 10.
 	    		</help>	    		
 	    	</lang>
 	    </localizedKeys>
@@ -75,7 +113,8 @@
 			<connector number="0" type="SHIELD_1" pin="9" pinType="ORDINAL"/>
 		</connectors>
 		<graphics>
-			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="./graphic1.png"/>
+			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="./6n2p-1.png"/>
+			<graphic name="graphic2" tooltip="graphic2.tt" number="1" href="./6n2p-2.png"/>
 		</graphics>
 	</tube>
 </tubes>

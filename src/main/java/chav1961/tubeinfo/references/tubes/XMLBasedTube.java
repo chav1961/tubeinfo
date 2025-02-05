@@ -1,16 +1,11 @@
 package chav1961.tubeinfo.references.tubes;
 
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.StringWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Base64;
 import java.util.Locale;
 import java.util.Properties;
 
-import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -19,14 +14,11 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import chav1961.purelib.basic.CharUtils.SubstitutionSource;
-import chav1961.purelib.basic.MimeType;
 import chav1961.purelib.basic.URIUtils;
-import chav1961.purelib.basic.Utils;
 import chav1961.purelib.basic.exceptions.ContentException;
 import chav1961.purelib.i18n.KeyValueLocalizer;
 import chav1961.purelib.i18n.interfaces.Localizer;
 import chav1961.purelib.i18n.interfaces.LocalizerOwner;
-import chav1961.purelib.streams.char2char.CreoleWriter;
 import chav1961.purelib.ui.swing.useful.svg.SVGPainter;
 import chav1961.purelib.ui.swing.useful.svg.SVGParser;
 import chav1961.tubeinfo.references.interfaces.Graphic;

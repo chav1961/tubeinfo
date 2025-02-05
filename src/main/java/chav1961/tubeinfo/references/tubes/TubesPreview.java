@@ -53,6 +53,8 @@ import chav1961.tubeinfo.utils.InternalUtils;
 class TubesPreview extends JPanel implements LocaleChangeListener {
 	private static final long 	serialVersionUID = -2153048973150602961L;
 	private static final int	PARM_COUNT = 2;
+	private static final int	PREFERRED_SVG_WIDTH = 250; 
+	
 	private static final String	COL_NAME = "chav1961.tubesReference.preview.table.name"; 
 	private static final String	COL_ABBR = "chav1961.tubesReference.preview.table.abbr"; 
 	private static final String	COL_VALUE = "chav1961.tubesReference.preview.table.value"; 
@@ -85,10 +87,10 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 		this.localizer = localizer;
 
 		final JPanel		pictures = new JPanel(new GridLayout(2, 1, 5, 5));
-		final BoxLayout		picturesLayout = new BoxLayout(pictures, BoxLayout.Y_AXIS);
+//		final BoxLayout		picturesLayout = new BoxLayout(pictures, BoxLayout.Y_AXIS);
 		final JPanel		center = new JPanel(new BorderLayout(5, 5));
 		
-		pictures.setLayout(picturesLayout);
+//		pictures.setLayout(picturesLayout);
 
 		for(int index = 0; index < PARM_COUNT; index++) {
 			parmsOrdinal[index] = new Parameters();
@@ -352,7 +354,7 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 		private void setPainter(final SVGPainter painter) {
 			this.painter = painter;
 			if (painter != null) {
-				this.setPreferredSize(new Dimension(painter.getWidth(), painter.getHeight()));
+				this.setPreferredSize(new Dimension(Math.min(PREFERRED_SVG_WIDTH, painter.getWidth()), painter.getHeight()));
 			}
 			repaint();
 		}
@@ -374,7 +376,7 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 		private void setPainter(final SVGPainter painter) {
 			this.painter = painter;
 			if (painter != null) {
-				this.setPreferredSize(new Dimension(painter.getWidth(), painter.getHeight()));
+				this.setPreferredSize(new Dimension(Math.min(PREFERRED_SVG_WIDTH, painter.getWidth()), painter.getHeight()));
 			}
 			repaint();
 		}
