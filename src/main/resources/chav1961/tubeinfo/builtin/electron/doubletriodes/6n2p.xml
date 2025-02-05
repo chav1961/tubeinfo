@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tubes>
-	<tube type="DOUBLE_TRIODE" abbr="6Н2П" corpus="TG" panel="PIN9" description="description">
+	<tube type="DOUBLE_TRIODE" abbr="6Н2П" corpus="TG" panel="PIN9" description="description" usage="description">
 	    <localizedKeys>
 	    	<lang name="en">
 	    		<key name="graphic1">graphic number 1</key>
@@ -8,6 +8,7 @@
 	    		<help name="description">
 					== test 
 					assa **desc**;
+					[[https://yandex.ru|test ref]]
 	    		</help>	    		
 	    	</lang>
 	    	<lang name="ru">
@@ -16,6 +17,7 @@
 	    		<help name="description">
 					== test 
 					assa **desc**;
+					[[https://yandex.ru|test ref]]
 	    		</help>	    		
 	    	</lang>
 	    </localizedKeys>

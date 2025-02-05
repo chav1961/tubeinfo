@@ -40,7 +40,7 @@ import chav1961.tubeinfo.references.interfaces.TubeParameter;
 import chav1961.tubeinfo.references.interfaces.TubesType;
 
 /*
- * <tube type="TubesType" abbr="1a1a" panel="TubePanelType" corpus="TubeCorpusType" description="localizedKey">
+ * <tube type="TubesType" abbr="1a1a" panel="TubePanelType" corpus="TubeCorpusType" description="localizedKey" usage="localizedKey">
  *   <localizedKeys>
  *   	<lang name="en">
  *   		<key name="name">text</key>
@@ -81,6 +81,7 @@ public class XMLBasedTube implements TubeDescriptor, LocalizerOwner {
 	private static final String			ATTR_CORPUS = "corpus";
 	private static final String			ATTR_PANEL = "panel";
 	private static final String			ATTR_DESCRIPTION = "description";
+	private static final String			ATTR_USAGE = "usage";
 	private static final String			ATTR_NAME = "name";
 	private static final String			ATTR_NUMBER = "number";
 	private static final String			ATTR_PIN = "pin";
@@ -92,6 +93,7 @@ public class XMLBasedTube implements TubeDescriptor, LocalizerOwner {
 	private final TubesType				type;
 	private final String				abbr;
 	private final String				description;
+	private final String				usage;
 	private final TubeCorpusType		corpus;
 	private final TubePanelType			panel;
 	private final SVGPainter			scheme;
@@ -163,10 +165,12 @@ public class XMLBasedTube implements TubeDescriptor, LocalizerOwner {
 				else {
 					this.corpusDraw = loadSVG(corpus.getGroup().getSvgURL().toURI(), psCorpus);
 				}
-				final String	str = Utils.fromResource(getLocalizer().getContent(root.getAttribute(ATTR_DESCRIPTION), MimeType.MIME_CREOLE_TEXT, MimeType.MIME_HTML_TEXT)); 
-				
+//				final String	strDesc = Utils.fromResource(getLocalizer().getContent(root.getAttribute(ATTR_DESCRIPTION), MimeType.MIME_CREOLE_TEXT, MimeType.MIME_HTML_TEXT)); 
+//				final String	strUsage = root.hasAttribute(ATTR_USAGE) ? Utils.fromResource(getLocalizer().getContent(root.getAttribute(ATTR_USAGE), MimeType.MIME_CREOLE_TEXT, MimeType.MIME_HTML_TEXT)) : ""; 
+//				
 				this.parms = new TubeParmDescriptor[parms.getLength()];
-				this.description = str.substring(str.indexOf("<html>"));
+				this.description = root.getAttribute(ATTR_DESCRIPTION); //strDesc.substring(strDesc.indexOf("<html>"));
+				this.usage = root.hasAttribute(ATTR_USAGE) ? root.getAttribute(ATTR_USAGE) : "";  
 
 				for(int index = 0; index < this.parms.length; index++) {
 					final int			number = ((Element)parms.item(index)).hasAttribute(ATTR_NUMBER) ? Integer.valueOf(((Element)parms.item(index)).getAttribute(ATTR_NUMBER)) : 0;
@@ -237,6 +241,11 @@ public class XMLBasedTube implements TubeDescriptor, LocalizerOwner {
 		return description;
 	}
 
+	@Override
+	public String getUsage() {
+		return usage;
+	}
+	
 	@Override
 	public SVGPainter getScheme() {
 		return scheme;

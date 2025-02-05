@@ -2,12 +2,15 @@ package chav1961.tubeinfo.references.tubes;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,13 +29,18 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.border.LineBorder;
+import javax.swing.event.HyperlinkEvent;
 import javax.swing.table.DefaultTableModel;
 
+import chav1961.purelib.basic.MimeType;
 import chav1961.purelib.basic.NamedValue;
+import chav1961.purelib.basic.Utils;
 import chav1961.purelib.basic.exceptions.LocalizationException;
+import chav1961.purelib.basic.interfaces.LoggerFacade.Severity;
 import chav1961.purelib.i18n.interfaces.LocaleResource;
 import chav1961.purelib.i18n.interfaces.Localizer;
 import chav1961.purelib.i18n.interfaces.Localizer.LocaleChangeListener;
+import chav1961.purelib.ui.swing.SwingUtils;
 import chav1961.purelib.ui.swing.useful.svg.SVGPainter;
 import chav1961.tubeinfo.references.interfaces.Graphic;
 import chav1961.tubeinfo.references.interfaces.TubeDescriptor;
@@ -48,16 +56,23 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 	private static final String	COL_NAME = "chav1961.tubesReference.preview.table.name"; 
 	private static final String	COL_ABBR = "chav1961.tubesReference.preview.table.abbr"; 
 	private static final String	COL_VALUE = "chav1961.tubesReference.preview.table.value"; 
+	private static final String	TAB_PARAMETERS = "chav1961.tubesReference.preview.tab.parameters"; 
+	private static final String	TAB_MAXIMUM = "chav1961.tubesReference.preview.tab.maximum"; 
+	private static final String	TAB_GRAPHICS = "chav1961.tubesReference.preview.tab.graphics"; 
+	private static final String	TAB_USAGE = "chav1961.tubesReference.preview.tab.usage"; 
 
-	private final Localizer	localizer;
-	
+	private final Localizer		localizer;
+	private final JTabbedPane	tabArea = new JTabbedPane();
+	private final List<TabDesc>	tabDesc = new ArrayList<>();
+	private final JScrollPane[]	scrollsOrdinal = new JScrollPane[PARM_COUNT];
+	private final JScrollPane[]	scrollsMaximum = new JScrollPane[PARM_COUNT];
+
 	private SchemePainter		scheme = new SchemePainter();
 	private CorpusPainter		corpus = new CorpusPainter();
 	private JLabel				abbr = new JLabel("", JLabel.CENTER);
 	private JEditorPane			description = new JEditorPane("text/html","");
-	private final JTabbedPane	tabArea = new JTabbedPane();
-	private final JScrollPane[]	scrollsOrdinal = new JScrollPane[PARM_COUNT];
-	private final JScrollPane[]	scrollsMaximum = new JScrollPane[PARM_COUNT];
+	private JEditorPane			usage = new JEditorPane("text/html","");
+	private final JScrollPane	usagePane = new JScrollPane(usage);
 	private Parameters[]		parmsOrdinal = new Parameters[PARM_COUNT];
 	private Parameters[]		parmsMaximum = new Parameters[PARM_COUNT];
 	private JTable[]			tablesOrdinal = new JTable[PARM_COUNT];
@@ -95,14 +110,14 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 		pictures.add(scheme);
 		pictures.add(corpus);
 		add(pictures, BorderLayout.WEST);
-		description.setEditable(false);
-		description.setOpaque(false);
+		prepareEditorPane(description);
+		prepareEditorPane(usage);
 		center.add(description, BorderLayout.NORTH);
 		center.add(tabArea, BorderLayout.CENTER);
 		add(center, BorderLayout.CENTER);
 		fillLocalizedStrings();
 	}
-	
+
 	@Override
 	public void localeChanged(final Locale oldLocale, final Locale newLocale) throws LocalizationException {
 		for(int index = 0; index < parmsOrdinal.length; index++) {
@@ -126,35 +141,41 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 	}
 	
 	private void fillContent() {
+		int	tabNo = 0;
+		
 		tabArea.removeAll();
-		for(int index = 0; index < tablesOrdinal.length; index++) {
+		tabDesc.clear();
+		for(int index = 0; index < PARM_COUNT; index++) {
 			if (index < desc.getType().getNumberOfLampTypes()) {
-				tabArea.addTab("#"+(index+1), scrollsOrdinal[index]);
+				tabArea.addTab("", scrollsOrdinal[index]);
+				tabDesc.add(new TabDesc(tabNo++, TabType.PARAMETERS, index+1));
 				parmsOrdinal[index].setContent(buildList(desc.getParameters(index+1), desc.getValues(index+1), false));
-			}
-		}
-		for(int index = 0; index < tablesMaximum.length; index++) {
-			if (index < desc.getType().getNumberOfLampTypes()) {
-				tabArea.addTab("#"+(index+1)+"(max)", scrollsMaximum[index]);
-				parmsMaximum[index].setContent(buildList(desc.getParameters(index+1), desc.getValues(index+1), true));
-			}
-		}
-		for(int index = 0; index < tablesMaximum.length; index++) {
-			if (index < desc.getType().getNumberOfLampTypes()) {
-				final Graphic[] g = desc.getGraphics(index+1);
-				final JPanel gallery = new JPanel(new GridLayout(1, g.length, 10, 10));
-				
-				this.graphics[index] = new JLabel[g.length]; 
-				for(int gIndex = 0; gIndex < g.length; gIndex++) {
-					final JLabel	label = new JLabel(g[gIndex].getPicture());
 
-					label.setVerticalTextPosition(JLabel.BOTTOM);
-					label.setHorizontalTextPosition(JLabel.CENTER);
-					this.graphics[index][gIndex] = label;
-					gallery.add(label);
+				tabArea.addTab("", scrollsMaximum[index]);
+				tabDesc.add(new TabDesc(tabNo++, TabType.ABSOLUTE_MAXIMUM, index+1));
+				parmsMaximum[index].setContent(buildList(desc.getParameters(index+1), desc.getValues(index+1), true));
+				final Graphic[] g = desc.getGraphics(index+1);
+				
+				if (g != null && g.length > 0) {						
+					final JPanel gallery = new JPanel(new GridLayout(1, g.length, 10, 10));
+					
+					this.graphics[index] = new JLabel[g.length]; 
+					for(int gIndex = 0; gIndex < g.length; gIndex++) {
+						final JLabel	label = new JLabel(g[gIndex].getPicture());
+	
+						label.setVerticalTextPosition(JLabel.BOTTOM);
+						label.setHorizontalTextPosition(JLabel.CENTER);
+						this.graphics[index][gIndex] = label;
+						gallery.add(label);
+					}
+					tabArea.addTab("", gallery);
+					tabDesc.add(new TabDesc(tabNo++, TabType.GRAPHICS, index+1));
 				}
-				tabArea.addTab("#"+(index+1)+"(grf)", gallery);
 			}
+		}
+		if (!desc.getUsage().isEmpty()) {
+			tabArea.addTab("", usagePane);
+			tabDesc.add(new TabDesc(tabNo++, TabType.USAGE, 0));
 		}
 		scheme.setPainter(desc.getScheme());
 		corpus.setPainter(desc.getCorpusDraw());
@@ -167,7 +188,6 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 		}
 		fillLocalizedStrings();
 	}
-
 	
 	private Collection<NamedValue<Float>> buildList(final TubeParameter[] parameters, final float[] values, final boolean isMaximum) {
 		int	count = 0;
@@ -190,10 +210,26 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 
 	private void fillLocalizedStrings() {
 		if (desc != null) {
+			try {
+				final String		strDesc = Utils.fromResource(localizer.getContent(desc.getDescription(), MimeType.MIME_CREOLE_TEXT, MimeType.MIME_HTML_TEXT));
+				
+				description.setText(strDesc.substring(strDesc.indexOf("<html>")));
+				if (!desc.getUsage().isEmpty()) {
+					final String	strUsage = Utils.fromResource(localizer.getContent(desc.getUsage(), MimeType.MIME_CREOLE_TEXT, MimeType.MIME_HTML_TEXT)); 
+
+					usage.setText(strUsage.substring(strUsage.indexOf("<html>")));
+				}
+				else {
+					usage.setText("");
+				}
+			} catch (LocalizationException | IOException e) {
+			} 
 			final LocaleResource	anno = InternalUtils.getLocaleResource(desc.getType());
 			
 			abbr.setText("<html><body><h1>" + desc.getAbbr()+" - "+localizer.getValue(anno.value()) +"</h1></body></html>");
-			description.setText(desc.getDescription());
+			for (TabDesc item : tabDesc) {
+				tabArea.setTitleAt(item.tabIndex, localizer.getValue(item.type.getTitle(), item.lampNo));
+			}
 			for(int index = 0; index < graphics.length; index++) {
 				if (index < desc.getType().getNumberOfLampTypes()) {
 					final Graphic[]	g = desc.getGraphics(index+1);
@@ -207,6 +243,22 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 		}
 	}
 
+	private void prepareEditorPane(final JEditorPane pane) {
+		pane.setEditable(false);
+		pane.setOpaque(false);
+		pane.addHyperlinkListener((e)->{
+			if (e.getEventType() == HyperlinkEvent.EventType.ACTIVATED) {
+	            if (Desktop.isDesktopSupported()) {
+	                try {
+	                    Desktop.getDesktop().browse(e.getURL().toURI());
+	                } catch (IOException | URISyntaxException exc) {
+	                	SwingUtils.getNearestLogger(this).message(Severity.warning, exc.getLocalizedMessage());
+	                }
+	            }	
+			}
+		});
+	}
+	
 	private class Parameters extends DefaultTableModel {
 		private static final long serialVersionUID = 5633892490065085578L;
 		
@@ -333,6 +385,40 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 			if (painter != null) {
 				painter.paint((Graphics2D)g);
 			}
+		}
+	}
+
+	private static enum TabType {
+		PARAMETERS(TAB_PARAMETERS),
+		ABSOLUTE_MAXIMUM(TAB_MAXIMUM),
+		GRAPHICS(TAB_GRAPHICS),
+		USAGE(TAB_USAGE);
+		
+		private final String	title;
+		
+		private TabType(final String title) {
+			this.title = title;
+		}
+		
+		public String getTitle() {
+			return title;
+		}
+	}
+	
+	private static class TabDesc {
+		private final int		tabIndex;
+		private final TabType	type;
+		private final int		lampNo;
+		
+		private TabDesc(int tabIndex, TabType type, int lampNo) {
+			this.tabIndex = tabIndex;
+			this.type = type;
+			this.lampNo = lampNo;
+		}
+
+		@Override
+		public String toString() {
+			return "TabDesc [tabIndex=" + tabIndex + ", type=" + type + ", lampNo=" + lampNo + "]";
 		}
 	}
 }

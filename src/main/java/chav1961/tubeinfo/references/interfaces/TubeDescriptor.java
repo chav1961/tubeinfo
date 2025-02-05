@@ -8,6 +8,7 @@ public interface TubeDescriptor extends LocalizerOwner {
 	TubesType getType();
 	String getAbbr();
 	String getDescription();
+	String getUsage();
 	SVGPainter getScheme();
 	SVGPainter getCorpusDraw();
 	TubePanelType getPanelType();
