@@ -1,6 +1,5 @@
 package chav1961.tubeinfo.references.tubes;
 
-import java.awt.AWTEvent;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Cursor;

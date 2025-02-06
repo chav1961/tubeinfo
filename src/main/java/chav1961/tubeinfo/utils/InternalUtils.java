@@ -31,8 +31,8 @@ public class InternalUtils {
 	}
 	
 	public static TubeDescriptor getTubeDescriptor(final URI currentURI, final InputStream is) throws IOException {
-		if (currentURI == null) {
-			throw new NullPointerException("Current URI can't be null");
+		if (currentURI == null || !currentURI.isAbsolute()) {
+			throw new NullPointerException("Current URI can't be null and must be absolute");
 		}
 		else if (is == null) {
 			throw new NullPointerException("Input stream to parse can't be null");

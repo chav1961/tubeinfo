@@ -7,6 +7,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
+import java.awt.geom.AffineTransform;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -179,7 +180,11 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 			tabArea.addTab("", usagePane);
 			tabDesc.add(new TabDesc(tabNo++, TabType.USAGE, 0));
 		}
+		final int	preferredX = Math.min(desc.getScheme().getWidth(), desc.getCorpusDraw().getWidth());
+				
+		scheme.setPreferredSize(new Dimension(preferredX, 1));
 		scheme.setPainter(desc.getScheme());
+		corpus.setPreferredSize(new Dimension(preferredX, 1));
 		corpus.setPainter(desc.getCorpusDraw());
 		try {
 			final URL	ref = URI.create(InternalUtils.getLocaleResource(desc.getPanelType().getGroup()).icon()).toURL();
@@ -259,6 +264,21 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 	            }	
 			}
 		});
+	}
+
+	private static void resizeContent(final Graphics g, final int width, final int height, final int width2, final int height2) {
+		final Graphics2D		g2d = (Graphics2D)g;
+		final AffineTransform	at = new AffineTransform(g2d.getTransform());
+		final double			kW = 1.0 * width / width2;
+		final double			kH = 1.0 * height / height2;
+		
+		if (kW < kH) {
+			at.scale(kW, kW);
+		}
+		else {
+			at.scale(kH, kH);
+		}
+		g2d.setTransform(at);
 	}
 	
 	private class Parameters extends DefaultTableModel {
@@ -353,9 +373,6 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 		
 		private void setPainter(final SVGPainter painter) {
 			this.painter = painter;
-			if (painter != null) {
-				this.setPreferredSize(new Dimension(Math.min(PREFERRED_SVG_WIDTH, painter.getWidth()), painter.getHeight()));
-			}
 			repaint();
 		}
 		
@@ -363,6 +380,7 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 		protected void paintComponent(final Graphics g) {
 			super.paintComponent(g);
 			if (painter != null) {
+				resizeContent(g, getWidth(), getHeight(), painter.getWidth(), painter.getHeight());
 				painter.paint((Graphics2D)g);
 			}
 		}
@@ -375,9 +393,6 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 		
 		private void setPainter(final SVGPainter painter) {
 			this.painter = painter;
-			if (painter != null) {
-				this.setPreferredSize(new Dimension(Math.min(PREFERRED_SVG_WIDTH, painter.getWidth()), painter.getHeight()));
-			}
 			repaint();
 		}
 		
@@ -385,6 +400,7 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 		protected void paintComponent(final Graphics g) {
 			super.paintComponent(g);
 			if (painter != null) {
+				resizeContent(g, getWidth(), getHeight(), painter.getWidth(), painter.getHeight());
 				painter.paint((Graphics2D)g);
 			}
 		}
@@ -423,4 +439,5 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 			return "TabDesc [tabIndex=" + tabIndex + ", type=" + type + ", lampNo=" + lampNo + "]";
 		}
 	}
+
 }

@@ -113,8 +113,8 @@ The schemes for using the 6N2P lamp and the 6N9S lamp are the same.
 			<connector number="0" type="SHIELD_1" pin="9" pinType="ORDINAL"/>
 		</connectors>
 		<graphics>
-			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="./6n2p-1.png"/>
-			<graphic name="graphic2" tooltip="graphic2.tt" number="1" href="./6n2p-2.png"/>
+			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="../6n2p-1.png"/>
+			<graphic name="graphic2" tooltip="graphic2.tt" number="1" href="../6n2p-2.png"/>
 		</graphics>
 	</tube>
 </tubes>
