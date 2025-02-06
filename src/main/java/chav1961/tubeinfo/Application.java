@@ -1,6 +1,7 @@
 package chav1961.tubeinfo;
 
 import java.awt.BorderLayout;
+import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
@@ -71,6 +72,7 @@ public class Application extends JFrame implements LocalizerOwner, LoggerFacadeO
 			state.setBorder(new EtchedBorder(EtchedBorder.LOWERED));
 			getContentPane().add(tabs, BorderLayout.CENTER);
 			getContentPane().add(state, BorderLayout.SOUTH);
+			setIconImage(Toolkit.getDefaultToolkit().createImage(getClass().getResource("/icon.png")));
 			setSize(1024, 768);
 			setLocationRelativeTo(null);
 			setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
