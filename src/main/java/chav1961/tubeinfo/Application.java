@@ -42,7 +42,7 @@ public class Application extends JFrame implements LocalizerOwner, LoggerFacadeO
 	public static final String	APPLICATION_TITLE = "chav1961.tubesReference.application.title";	
 	public static final String	MESSAGE_READY = "chav1961.tubesReference.message.ready";	
 	
-	private final ContentMetadataInterface	mdi;
+//	private final ContentMetadataInterface	mdi;
 	private final Localizer					localizer;
 	private final JTabbedPane				tabs = new JTabbedPane();
 	private final JStateString				state;
@@ -55,7 +55,7 @@ public class Application extends JFrame implements LocalizerOwner, LoggerFacadeO
 			throw new NullPointerException("Metadata interface can't be null");
 		}
 		else {
-			this.mdi = mdi;
+//			this.mdi = mdi;
 			this.localizer = Localizer.Factory.newInstance(mdi.getRoot().getLocalizerAssociated());
 			
 			PureLibSettings.PURELIB_LOCALIZER.push(localizer);

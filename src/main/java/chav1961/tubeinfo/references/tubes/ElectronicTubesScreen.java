@@ -1,5 +1,6 @@
 package chav1961.tubeinfo.references.tubes;
 
+import java.awt.Dimension;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -21,15 +22,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 
 import chav1961.purelib.i18n.interfaces.Localizer;
+import chav1961.purelib.ui.swing.SwingUtils;
+import chav1961.purelib.ui.swing.useful.JLocalizedOptionPane;
 import chav1961.tubeinfo.references.interfaces.TubeDescriptor;
 import chav1961.tubeinfo.utils.InternalUtils;
 
 public class ElectronicTubesScreen extends JSplitPane {
 	private static final long serialVersionUID = -3893101411523333611L;
+	private static final String	TITLE_FILTER_FORM = "chav1961.tubesReference.filterForm.title"; 
 
+	private final Localizer		localizer; 
 	private final TubesPreview	preview;
 	private final TubesTabs		tabs;
 	
@@ -41,6 +48,7 @@ public class ElectronicTubesScreen extends JSplitPane {
 		else {
 			final List<TubeDescriptor>	list = new ArrayList<>();
 			
+			this.localizer = localizer;
 			this.preview = new TubesPreview(localizer);
 			try {
 				final URI	std = XMLBasedTube.class.getResource("/chav1961/tubeinfo/builtin/").toURI();
@@ -63,6 +71,7 @@ public class ElectronicTubesScreen extends JSplitPane {
 				
 				setLeftComponent(preview);
 				setRightComponent(tabs);
+				SwingUtils.assignActionKey(this, JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT, SwingUtils.KS_FIND, (e)->{find();}, SwingUtils.ACTION_FIND);
 				this.setDividerLocation(350);
 			} catch (URISyntaxException e) {
 				throw new IOException(e.getLocalizedMessage(), e);
@@ -137,5 +146,12 @@ public class ElectronicTubesScreen extends JSplitPane {
 				}
 			}
 		}
+	}
+	
+	private void find() {
+		final FilterForm	ff = new FilterForm(localizer);
+		
+		ff.setPreferredSize(new Dimension(640, 480));
+		new JLocalizedOptionPane(localizer).confirm(this, ff, TITLE_FILTER_FORM, JOptionPane.PLAIN_MESSAGE, JOptionPane.OK_CANCEL_OPTION);
 	}
 }

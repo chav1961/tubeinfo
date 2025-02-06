@@ -42,11 +42,11 @@ import chav1961.tubeinfo.references.interfaces.TubesType;
 
 public class FilterForm extends JPanel {
 	private static final long 	serialVersionUID = 2249124198926610489L;
-	private static final String	COL_NAME = "chav1961.calc.reference.tubesReference.preview.table.name"; 
-	private static final String	COL_VALUE = "chav1961.calc.reference.tubesReference.preview.table.value"; 
-	private static final String	LABEL_ABBR_NAME = "chav1961.calc.reference.tubesReference.filterForm.abbr.name"; 
-	private static final String	LABEL_DESCR_NAME = "chav1961.calc.reference.tubesReference.filterForm.descr.name"; 
-	private static final String	PINOUT_TITLE = "chav1961.calc.reference.tubesReference.filterForm.pinout.title"; 
+	private static final String	COL_NAME = "chav1961.tubesReference.preview.table.name"; 
+	private static final String	COL_VALUE = "chav1961.tubesReference.preview.table.value"; 
+	private static final String	LABEL_ABBR_NAME = "chav1961.tubesReference.filterForm.abbr.name"; 
+	private static final String	LABEL_DESCR_NAME = "chav1961.tubesReference.filterForm.descr.name"; 
+	private static final String	PINOUT_TITLE = "chav1961.tubesReference.filterForm.pinout.title"; 
 
 	private final Localizer				localizer;
 	private final ParmTableModel		model;

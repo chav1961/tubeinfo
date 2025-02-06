@@ -1,6 +1,5 @@
 package chav1961.tubeinfo.references.interfaces;
 
-import java.net.URI;
 import java.net.URL;
 
 import chav1961.purelib.i18n.interfaces.LocaleResource;
