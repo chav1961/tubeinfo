@@ -187,7 +187,7 @@ public class XMLBasedTube implements TubeDescriptor, LocalizerOwner {
 							picture = new ImageIcon(ref.toURL());
 						}
 						else {
-							picture = new ImageIcon(currentURI.resolve(ref).toURL());
+							picture = new ImageIcon(URIUtils.appendRelativePath2URI(currentURI, ref.toString()).toURL());
 						}
 					}
 					else {
