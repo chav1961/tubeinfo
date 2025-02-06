@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.net.JarURLConnection;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -48,6 +49,7 @@ public class ElectronicTubesScreen extends JSplitPane {
 	}
 
 	private void loadContent(final URL root, final List<TubeDescriptor> list) throws IOException {
+		System.err.println("Load: "+root);
 		if (root.getPath().endsWith(".xml")) {
 			try(final InputStream		is = root.openStream()) {
 				list.add(InternalUtils.getTubeDescriptor(root.toURI(), is));
@@ -59,16 +61,18 @@ public class ElectronicTubesScreen extends JSplitPane {
 			final String	path = root.getPath();
 			
 			if (!path.substring(path.lastIndexOf("/")+1).contains(".")) {	// Possibly directory???
+				System.err.println("Dir: "+path);
 				try(final InputStream		is = root.openStream();
-						final Reader			rdr = new InputStreamReader(is);
-						final BufferedReader	brdr = new BufferedReader(rdr)) {
-						String	line;
-						
-						while ((line = brdr.readLine()) != null) {
-							loadContent(URI.create(root.toExternalForm()+"/"+line).toURL(), list);
-						}
-						
+					final Reader			rdr = new InputStreamReader(is);
+					final BufferedReader	brdr = new BufferedReader(rdr)) {
+					String	line;
+					
+					System.err.println("Open "+path);
+					while ((line = brdr.readLine()) != null) {
+						System.err.println("Read: "+line);
+						loadContent(URI.create(root.toExternalForm()+"/"+line).toURL(), list);
 					}
+				}
 			}
 		}
 	}	
