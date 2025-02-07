@@ -12,15 +12,19 @@ import javax.swing.JPanel;
 import javax.swing.Icon;
 import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
+import javax.swing.ListCellRenderer;
 
 import chav1961.purelib.basic.Utils;
 import chav1961.purelib.basic.exceptions.LocalizationException;
 import chav1961.purelib.i18n.interfaces.Localizer;
 import chav1961.purelib.i18n.interfaces.Localizer.LocaleChangeListener;
+import chav1961.purelib.i18n.interfaces.LocalizerOwner;
+import chav1961.purelib.model.FieldFormat;
+import chav1961.purelib.ui.swing.SwingUtils;
 import chav1961.tubeinfo.references.interfaces.TubeDescriptor;
 import chav1961.tubeinfo.references.interfaces.TubesType;
 
-class TubesTabs extends JPanel implements LocaleChangeListener {
+class TubesTabs extends JPanel implements LocaleChangeListener, LocalizerOwner {
 	private static final long 	serialVersionUID = -9007080601952548368L;
 	private static final Icon	GENERAL_ICON = new ImageIcon(TubesTabs.class.getResource(""));
 	private static final String	GENERAL_TITLE = "chav1961.tubesReference.tab.general";
@@ -28,7 +32,7 @@ class TubesTabs extends JPanel implements LocaleChangeListener {
 	
 	
 	private final Localizer		localizer;
-	private final JComboBox<TubesType>	types = new JComboBox<>();
+	private final JComboBox<TubesType>	types = new JComboBox<>(TubesType.values());
 	private final JToggleButton	filter = new JToggleButton(FILTER_ICON);
 	private final TubesTab		tab; 
 
@@ -40,15 +44,21 @@ class TubesTabs extends JPanel implements LocaleChangeListener {
 			throw new IllegalArgumentException("Content is null or contains nulls inside");
 		}
 		else {
-			final JPanel		toolBar = new JPanel(new FlowLayout(FlowLayout.LEFT));
+			final JToolBar		toolBar = new JToolBar();
 			
 			this.localizer = localizer;
-			this.tab = new TubesTab(localizer, null, selection, content);
+			this.tab = new TubesTab(localizer, selection, content);
 			
 			setLayout(new BorderLayout());
-			types.setPreferredSize(new Dimension(200, 25));
+			types.setMaximumSize(new Dimension(250, 32));
+			types.setRenderer(SwingUtils.getCellRenderer(TubesType.class, new FieldFormat(TubesType.class), ListCellRenderer.class));
+			types.addActionListener((e)->{
+				tab.setTypeFilter((TubesType)types.getSelectedItem());
+			});
+			toolBar.setFloatable(false);
+			toolBar.setRollover(true);
 			toolBar.add(types);
-			filter.setContentAreaFilled(false);
+			toolBar.addSeparator();
 			toolBar.add(filter);
 			add(toolBar, BorderLayout.NORTH);
 			add(tab, BorderLayout.CENTER);
@@ -57,6 +67,11 @@ class TubesTabs extends JPanel implements LocaleChangeListener {
 		}
 	}
 
+	@Override
+	public Localizer getLocalizer() {
+		return localizer;
+	}
+	
 	@Override
 	public void localeChanged(final Locale oldLocale, final Locale newLocale) throws LocalizationException {
 		fillLocalizedStrings();

@@ -17,6 +17,8 @@
 		<key name="chav1961.tubeinfo.references.interfaces.tubesGroup.images.tt">Image tubes</key>
 
 <!-- Localization for tubes reference (enum TubesType) -->
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.all">All types</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.all.tt">All types</key>
 		<key name="chav1961.tubeinfo.references.interfaces.tubesType.diode">Diode</key>
 		<key name="chav1961.tubeinfo.references.interfaces.tubesType.diode.tt">Diode</key>
 		<key name="chav1961.tubeinfo.references.interfaces.tubesType.doubleDiode">Double diode</key>
@@ -184,6 +186,8 @@
 		<key name="chav1961.tubeinfo.references.interfaces.tubesGroup.images.tt">Электронно-лучевые трубки</key>
 
 <!-- Локализация для справочника по лампам (нумерация TubesType) -->
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.all">Все типы</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.all.tt">Все типы</key>
 		<key name="chav1961.tubeinfo.references.interfaces.tubesType.diode">Диод</key>
 		<key name="chav1961.tubeinfo.references.interfaces.tubesType.diode.tt">Диод</key>
 		<key name="chav1961.tubeinfo.references.interfaces.tubesType.doubleDiode">Двойной диод</key>

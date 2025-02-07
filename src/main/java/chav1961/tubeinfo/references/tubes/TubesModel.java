@@ -49,43 +49,6 @@ class TubesModel extends DefaultTableModel {
 			this.joinedParms = joinParameters(this.parms);
 		}
 	}
-	
-	public TubesModel(final Localizer localizer, final TubesType type, final TubeDescriptor... content) {
-		if (localizer == null) {
-			throw new NullPointerException("Localizer can't be null"); 
-		}
-		else if (type == null) {
-			throw new NullPointerException("Content type can't be null");
-		}
-		else if (content == null || Utils.checkArrayContent4Nulls(content) >= 0) {
-			throw new IllegalArgumentException("Content is null or contaons nulls inside");
-		}
-		else {
-			this.localizer = localizer;
-			this.type = type;
-			int	count = 0;
-			
-			for(TubeDescriptor item : content) {
-				if (item.getType() == type) {
-					count++;
-				}
-			}
-			this.content = new TubeDescriptor[count];
-			count = 0;
-			for(TubeDescriptor item : content) {
-				if (item.getType() == type) {
-					this.content[count++] = item;
-				}
-			}
-			this.parms = new TubeParameter[TubesType.getMaximumNumberOfLampTypes()][];  
-			
-			for(int index = 0; index < this.parms.length; index++) {
-				this.parms[index] = extractParameters(this.content, index);
-			}
-			this.joinedParms = joinParameters(this.parms);
-		}
-	}
-	
 
 	@Override
 	public int getRowCount() {
@@ -162,6 +125,10 @@ class TubesModel extends DefaultTableModel {
 		}
 	}
 
+	public TubeDescriptor getDescriptor(final int rowIndex) {
+		return content[rowIndex];
+	}
+
 	private TubeParameter[] extractParameters(final TubeDescriptor[] content, final int lampNo) {
 		final Set<TubeParameter>	candidates = new HashSet<>();
 		
@@ -186,7 +153,4 @@ class TubesModel extends DefaultTableModel {
 		return result;
 	}
 
-	public TubeDescriptor getDescriptor(final int rowIndex) {
-		return content[rowIndex];
-	}
 }

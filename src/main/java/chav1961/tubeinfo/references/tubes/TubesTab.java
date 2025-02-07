@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableRowSorter;
@@ -29,18 +30,17 @@ import chav1961.tubeinfo.references.interfaces.TubesType;
 class TubesTab extends JPanel implements LocaleChangeListener {
 	private static final long 		serialVersionUID = 8720981840520863203L;
 
-	private final TubesType			type;
 	private final Consumer<TubeDescriptor>	selection;
 	private final TubesModel		model;
 	private final TableRowSorter<TubesModel>	sorter;
 	private final JScrollPane		scroll;
-	private final JTable			table; 
+	private final JTable			table;
+	private TubesType				currentType = TubesType.ALL;
 	
-	TubesTab(final Localizer localizer, final TubesType type, final Consumer<TubeDescriptor> selection, final TubeDescriptor... content) {
+	TubesTab(final Localizer localizer, final Consumer<TubeDescriptor> selection, final TubeDescriptor... content) {
 		super(new BorderLayout(5, 5));
-		this.type = type;
 		this.selection = selection;
-		this.model = type == null ? new TubesModel(localizer, content) : new TubesModel(localizer, type, content);
+		this.model = new TubesModel(localizer, content);
 		this.table = new JTable(model);
 		this.sorter = new TableRowSorter<TubesModel>(model);
 		this.sorter.setSortable(0, false);
@@ -64,9 +64,29 @@ class TubesTab extends JPanel implements LocaleChangeListener {
 	public void localeChanged(final Locale oldLocale, final Locale newLocale) throws LocalizationException {
 		model.fireTableStructureChanged();
 	}
+	
+	public TubesType getTypeFilter() {
+		return currentType;
+	}
 
-	public TubesType getType() {
-		return type;
+	public void setTypeFilter(final TubesType type) {
+		if (type == null) {
+			throw new NullPointerException("Tubes type can't be null");
+		}
+		else {
+			currentType = type;
+			if (type == TubesType.ALL) {
+				this.sorter.setRowFilter(null);
+			}
+			else {
+				this.sorter.setRowFilter(new RowFilter<>(){
+					@Override
+					public boolean include(Entry<? extends TubesModel, ? extends Integer> entry) {
+						return entry.getModel().getDescriptor(entry.getIdentifier()).getType() == type;
+					}
+				});
+			}
+		}
 	}
 	
 	public TubeDescriptor getSelection() {

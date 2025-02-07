@@ -7,6 +7,8 @@ import chav1961.purelib.i18n.interfaces.LocaleResourceLocation;
 
 @LocaleResourceLocation("i18n:xml:root://chav1961.tubeinfo.references.interfaces.TubesType/chav1961/tubeinfo/i18n/i18n.xml")
 public enum TubesType {
+	@LocaleResource(value="chav1961.tubeinfo.references.interfaces.tubesType.all",tooltip="chav1961.tubeinfo.references.interfaces.tubesType.all.tt",icon="all.png")
+	ALL(1, 1, "double_triode.svg"), 
 	@LocaleResource(value="chav1961.tubeinfo.references.interfaces.tubesType.diode",tooltip="chav1961.tubeinfo.references.interfaces.tubesType.diode.tt",icon="diode.png")
 	DIODE(1, 1, "double_triode.svg"), 
 	@LocaleResource(value="chav1961.tubeinfo.references.interfaces.tubesType.doubleDiode",tooltip="chav1961.tubeinfo.references.interfaces.tubesType.doubleDiode.tt",icon="doubleDiode.png")
