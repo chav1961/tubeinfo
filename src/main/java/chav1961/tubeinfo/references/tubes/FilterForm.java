@@ -1,7 +1,10 @@
 package chav1961.tubeinfo.references.tubes;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -20,13 +23,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.ListCellRenderer;
-import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.RowFilter;
 import javax.swing.SpringLayout;
-import javax.swing.event.TableModelListener;
+import javax.swing.border.LineBorder;
+import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 import chav1961.purelib.basic.NamedValue;
 import chav1961.purelib.basic.Utils;
@@ -46,7 +48,10 @@ public class FilterForm extends JPanel {
 	private static final String	COL_VALUE = "chav1961.tubesReference.preview.table.value"; 
 	private static final String	LABEL_ABBR_NAME = "chav1961.tubesReference.filterForm.abbr.name"; 
 	private static final String	LABEL_DESCR_NAME = "chav1961.tubesReference.filterForm.descr.name"; 
-	private static final String	PINOUT_TITLE = "chav1961.tubesReference.filterForm.pinout.title"; 
+	private static final String	BORDER_TYPES_NAME = "chav1961.tubesReference.filterForm.types.title"; 
+	private static final String	BORDER_PANELS_NAME = "chav1961.tubesReference.filterForm.panels.title"; 
+	private static final String	PINOUT_TITLE = "chav1961.tubesReference.filterForm.pinout.title";
+	private static final Icon	PINOUTS_ICON = new ImageIcon(FilterForm.class.getResource("pinouts.png"));
 
 	private final Localizer				localizer;
 	private final ParmTableModel		model;
@@ -55,8 +60,10 @@ public class FilterForm extends JPanel {
 	private final JLabel				descLabel = new JLabel();
 	private final JTextField			descValue = new JTextField();
 	private final JList<TubesType>		types = new JList<>();
+	private final JScrollPane			typesPane = new JScrollPane(types); 
 	private final JList<TubePanelGroup>	panels = new JList<>();
-	private final JButton				pinouts = new JButton("...");
+	private final JScrollPane			panelsPane = new JScrollPane(panels); 
+	private final JButton				pinouts = new JButton(PINOUTS_ICON);
 	
 	public FilterForm(final Localizer localizer, final NamedValue<float[]>... parameters) {
 		super(new BorderLayout(5, 5));
@@ -79,8 +86,8 @@ public class FilterForm extends JPanel {
 		panels.setCellRenderer(SwingUtils.getCellRenderer(TubePanelGroup.class, new FieldFormat(TubePanelGroup.class), ListCellRenderer.class));
 		final JPanel	left = new JPanel(new GridLayout(2, 1, 10, 10));
 
-		left.add(new JScrollPane(types));
-		left.add(new JScrollPane(panels));
+		left.add(typesPane);
+		left.add(panelsPane);
 
 		add(left, BorderLayout.WEST);
 		
@@ -117,12 +124,12 @@ public class FilterForm extends JPanel {
 		
 		add(center, BorderLayout.CENTER);
 	
+		pinouts.setContentAreaFilled(false);
 		pinouts.addActionListener((e)->showPinout());
 		fillLocalizedStrings();
 	}
 
 	public RowFilter<TubesModel, Integer> getFilter() {
-		final List<Predicate<?>>	tests = new ArrayList<>();
 		final Set<TubesType>		types2Check = new HashSet<>();
 		final Set<TubePanelGroup>	panels2Check = new HashSet<>();
 		
@@ -148,9 +155,7 @@ public class FilterForm extends JPanel {
 				
 				if (!trimmed.isEmpty()) {
 					if (trimmed.contains("*") || trimmed.contains("?")) {
-						final String	regex = Utils.fileMask2Regex(trimmed);
-						
-						testAbbr.add((s)->Pattern.matches(regex, s));
+						testAbbr.add((s)->Pattern.matches(Utils.fileMask2Regex(trimmed), s));
 					}
 					else {
 						testAbbr.add((s)->s.toUpperCase().equalsIgnoreCase(trimmed));
@@ -196,6 +201,8 @@ public class FilterForm extends JPanel {
 	private void fillLocalizedStrings() {
 		abbrLabel.setText(localizer.getValue(LABEL_ABBR_NAME));
 		descLabel.setText(localizer.getValue(LABEL_DESCR_NAME));
+		typesPane.setBorder(new TitledBorder(new LineBorder(Color.BLACK), localizer.getValue(BORDER_TYPES_NAME)));
+		panelsPane.setBorder(new TitledBorder(new LineBorder(Color.BLACK), localizer.getValue(BORDER_PANELS_NAME)));
 	}
 
 	private static boolean hasAbbr(final String abbr, final Predicate<String>... test) {

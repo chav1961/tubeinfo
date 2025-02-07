@@ -60,9 +60,11 @@
 		<key name="chav1961.tubesReference.table.panel">Panel</key>
 		<key name="chav1961.tubesReference.table.abbr">Part No</key>
 		<key name="chav1961.tubesReference.tab.general">General</key>
-		<key name="chav1961.tubesReference.filterForm.title">Title</key>
+		<key name="chav1961.tubesReference.filterForm.title">Set filter</key>
 		<key name="chav1961.tubesReference.filterForm.abbr.name">Part No</key>
 		<key name="chav1961.tubesReference.filterForm.descr.name">Description</key>
+		<key name="chav1961.tubesReference.filterForm.types.title">Tube types</key> 
+		<key name="chav1961.tubesReference.filterForm.panels.title">Panel types</key>
 		<key name="chav1961.tubesReference.filterForm.pinout.title">Pinout to find</key>		
 		<key name="chav1961.tubesReference.connScreen.label">Pinout to find:</key>
 
@@ -224,9 +226,12 @@
 		<key name="chav1961.tubesReference.table.panel">Панель</key>
 		<key name="chav1961.tubesReference.table.abbr">Тип</key>
 		<key name="chav1961.tubesReference.tab.general">Общий список</key>
-		<key name="chav1961.tubesReference.filterForm.title">Заголовок</key>
+		<key name="chav1961.tubesReference.filterForm.title">Установить фильтр</key>
 		<key name="chav1961.tubesReference.filterForm.abbr.name">Тип</key>
 		<key name="chav1961.tubesReference.filterForm.descr.name">Описание</key>
+		<key name="chav1961.tubesReference.filterForm.types.title">Типы ламп</key> 
+		<key name="chav1961.tubesReference.filterForm.panels.title">Типы панелей</key>
+		
 		<key name="chav1961.tubesReference.filterForm.pinout.title">Найти разводку</key>		
 		<key name="chav1961.tubesReference.connScreen.label">Цоколевка :</key>
 		
