@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with "sPlan" (http://www.abacom-online.de) -->
+<svg version="1.1" baseProfile="full"
+xmlns="http://www.w3.org/2000/svg"
+width="251" height="235">
+<title>pentode</title>
+<defs>
+<style type="text/css">
+<![CDATA[
+polyline {stroke-linecap:round; stroke-linejoin:round}
+polygon {stroke-linecap:round; stroke-linejoin:round}
+path {stroke-linecap:round; stroke-linejoin:round}
+circle {stroke-linecap:round; stroke-linejoin:round}
+]]>
+</style>
+</defs>
+<circle cx="110.00" cy="115.00" r="50.00" fill="rgb(255,255,255)" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="110.00 45.00 110.00 85.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="90.00 85.00 130.00 85.00" fill="none" stroke="rgb(0,0,0)" stroke-width="4" />
+<polyline points="40.00 115.00 70.00 115.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="80.00 115.00 90.00 115.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="100.00 115.00 110.00 115.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="120.00 115.00 130.00 115.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="90.00 165.00 90.00 195.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="130.00 165.00 130.00 195.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<path fill="none" stroke="rgb(0,0,0)" stroke-width="2" d=" M 129.70 165.00 Q 129.62 164.09 129.05 162.44 Q 128.48 160.80 127.55 159.29 Q 126.63 157.78 125.39 156.45 Q 124.14 155.13 122.63 154.04 Q 121.11 152.95 119.38 152.14 Q 117.65 151.33 115.78 150.83 Q 113.90 150.34 111.95 150.17 Q 110.00 150.00 108.05 150.17 Q 106.10 150.34 104.22 150.83 Q 102.35 151.33 100.62 152.14 Q 98.89 152.95 97.37 154.04 Q 95.86 155.13 94.61 156.45 Q 93.37 157.78 92.45 159.29 Q 91.52 160.80 90.95 162.44 Q 90.38 164.09 90.34 164.54 L 90.30 165.00" />
+<polyline points="80.40 194.40 80.40 154.40" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<path fill="none" stroke="rgb(0,0,0)" stroke-width="4" d=" M 140.60 154.40 Q 140.41 153.11 139.55 151.00 Q 138.68 148.89 137.27 146.94 Q 135.86 145.00 133.96 143.29 Q 132.07 141.59 129.76 140.19 Q 127.44 138.79 124.81 137.75 Q 122.17 136.71 119.31 136.07 Q 116.45 135.43 113.48 135.22 Q 110.50 135.00 107.52 135.22 Q 104.55 135.43 101.69 136.07 Q 98.83 136.71 96.19 137.75 Q 93.56 138.79 91.24 140.19 Q 88.93 141.59 87.04 143.29 Q 85.14 145.00 83.73 146.94 Q 82.32 148.89 81.45 151.00 Q 80.59 153.11 80.49 153.76 L 80.40 154.40" />
+<polyline points="70.00 100.00 80.00 100.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="90.00 100.00 100.00 100.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="110.00 100.00 120.00 100.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="130.00 100.00 140.00 100.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="40.00 130.00 70.00 130.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="80.00 130.00 90.00 130.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="100.00 130.00 110.00 130.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="120.00 130.00 130.00 130.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="135.00 145.00 145.00 135.00 145.00 100.00 140.00 100.00" fill="none" stroke="rgb(0,0,0)" stroke-width="1" />
+<text x="45.00" y="104.00" font-family ="Arial" font-size ="17pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">${p1}</text>
+<text x="45.00" y="149.00" font-family ="Arial" font-size ="17pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">${p2}</text>
+<text x="50.00" y="184.00" font-family ="Arial" font-size ="17pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">${p3}</text>
+<text x="95.00" y="184.00" font-family ="Arial" font-size ="17pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">${p4}</text>
+<text x="135.00" y="184.00" font-family ="Arial" font-size ="17pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">${p5}</text>
+<text x="120.00" y="59.00" font-family ="Arial" font-size ="17pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">${p6}</text>
+</svg>

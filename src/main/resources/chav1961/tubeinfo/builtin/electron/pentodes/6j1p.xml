@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tubes>
+	<tube type="PENTODE" abbr="6Ж1П" corpus="TG" panel="PIN7" description="description" usage="usage">
+	    <localizedKeys>
+	    	<lang name="en">
+	    		<key name="graphic1">Anode characteristics</key>
+	    		<key name="graphic1.tt">Averaged characteristics of the dependence of the anode current and the second grid current on the voltage at the anode at a voltage on the second grid of 120 V.</key>
+	    		<help name="description">
+High frequency pentode with short response. 
+Designed for broadband high frequency voltage amplification.
+It is used in ultra-short wave and television equipment.
+Indirectly heated oxide cathode.
+Works in any position.
+Available in glass finger design.
+Service life of at least 500 hours.
+Pin base with button bottom. Number of pins are 7.
+	    		</help>	    		
+	    		<help name="usage">
+==== LITERATURE
+	    		
+*Bogosyan A., Receiver at 28-29.7 MHz, “Radio”, 1961, No. 5.
+*Vasilishchenko V., Amateur VHF receiver, “Radio”, 1955, No. 3.
+*Gumelya V., HF path of combined receivers, “Radio”, 1955, No. 3.
+*Dzhunkovsky G., Converter KPK-1, “Radio”, 1960, No. 5.
+*Dzhunkovsky G., High frequency amplifier, “Radio”, 1964, No. 12.
+*Sharkatov S. et al., Broadband antenna amplifier, “Radio”, 1961 No. 10.
+*Ephrussi Y., Intermediate frequency amplifier of the TV output circuit, “Radio”, 1956, No. 8.    			
+			</help>	    		
+	    	</lang>
+	    	<lang name="ru">
+	    		<key name="graphic1">Анодные характеристики</key>
+	    		<key name="graphic1.tt">Усредненные характеристики зависимости тока анода и тока второй сетки от напряжения на аноде при напряжении на второй сетке 120 В</key>
+	    		<help name="description">
+Пентод высокой частоты с короткой характеристикой. 
+Предназначен для широкополосного усиления напряжения высокой частоты.
+Применяется в ультракоротковолновой и телевизионной аппаратуре.
+Катод оксидный косвенного накала.
+Работает в любом положении.
+Выпускается в стеклянном пальчиковом оформлении.
+Срок службы не менее 500 часов.
+Цоколь штырьковый с пуговичным дном. Штырьков 7.
+	    		</help>	    		
+	    		<help name="usage">
+====ЛИТЕРАТУРА
+
+*Богосян А., Приемник на 28—29,7 Мгц, «Радио», 1961, № 5.
+*Василищенко В., Любительский УКВ приомник, «Радио», 1955, № 3.
+*Гумеля В., ВЧ тракт комбинированних приемников, «Радио», 1955,  № 3.
+*Джунковский Г., Конвертор КПК-1, «Радио», 1960, № 5.
+*Джунковский Г., Усилитель высокой частоты, «Радио», 1964, № 12.
+*Шаркатов С. и др., Широкополосный антенный усилитель, «Радио», 1961 № 10.
+*Эфрусси Я., Усилитель промежуточной частоты выдеотракта телевизора, «Радио», 1956, №8.
+	    		</help>	    		
+	    	</lang>
+	    </localizedKeys>
+		<parms>
+			<parm name="FILAMENT_CURRENT" number="1">185</parm>
+			<parm name="ANODE_CURRENT" number="1">7.7</parm>
+			<parm name="GRID_LEAK_CURRENT" number="1">0.1</parm>
+			<parm name="S" number="1">5.15</parm>
+			<parm name="NOISE_VOLTAGE" number="1">200</parm>
+			<parm name="NOISE_RESISTANCE" number="1">2</parm>
+			<parm name="INPUT_RESISTANCE" number="1">10</parm>
+			<parm name="INTERNAL_RESISTANCE" number="1">300</parm>
+			<parm name="INPUT_CAPACITY" number="1">4.4</parm>
+			<parm name="OUTPUT_CAPACITY" number="1">2.6</parm>
+			<parm name="TRANSFER_CAPACITY" number="1">0.04</parm>
+			<parm name="MIN_FILAMENT_VOLTAGE" number="1">5.7</parm>
+			<parm name="MAX_FILAMENT_VOLTAGE" number="1">6.9</parm>
+			<parm name="MAX_ANODE_VOLTAGE" number="1">200</parm>
+			<parm name="MAX_CATHODE_CURRENT" number="1">13.5</parm>
+			<parm name="POWER_DISSIPATION" number="1">1.2</parm>
+			<parm name="MAX_GRID_1_RESISTANCE" number="1">1</parm>
+			<parm name="MAX_TEMPERATURE" number="1">80</parm>
+		</parms>
+		<scheme>
+			<parm name="p1">6</parm>
+			<parm name="p2">1</parm>
+			<parm name="p3">2,7</parm>
+			<parm name="p4">3</parm>
+			<parm name="p5">4</parm>
+			<parm name="p6">5</parm>
+		</scheme> 
+		<corpus>
+			<parm name="p1">10</parm>
+			<parm name="p2">20</parm>
+			<parm name="p3">30</parm>
+			<parm name="p4">40</parm>
+			<parm name="p5">50</parm>
+			<parm name="p6">60</parm>
+			<parm name="p7">70</parm>
+			<parm name="p8">80</parm>
+			<parm name="p9">90</parm>
+		</corpus> 
+		<connectors>
+			<connector number="1" type="GRID_1" pin="1" pinType="ORDINAL"/>
+			<connector number="1" type="CATHODE" pin="2" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="3" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="4" pinType="ORDINAL"/>
+			<connector number="1" type="ANODE" pin="5" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_2" pin="6" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_3" pin="7" pinType="ORDINAL"/>
+		</connectors>
+		<graphics>
+ 			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="../6j1p-1.png"/>  
+		</graphics>
+	</tube>
+</tubes>

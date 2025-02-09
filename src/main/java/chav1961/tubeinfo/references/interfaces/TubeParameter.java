@@ -31,6 +31,10 @@ public enum TubeParameter {
 	NOISE_VOLTAGE("U<sub>noise</sub>", 100, TubeParameterUnit.MILLIVOLT, false),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.noise.resistance",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.noise.resistance.tt")
 	NOISE_RESISTANCE("R<sub>noise</sub>", 100, TubeParameterUnit.KOHM, false),
+	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.input.resistance",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.input.resistance.tt")
+	INPUT_RESISTANCE("R<sub>in</sub>", 100, TubeParameterUnit.KOHM, false),
+	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.internal.resistance",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.internal.resistance.tt")
+	INTERNAL_RESISTANCE("R<sub>int</sub>", 100, TubeParameterUnit.KOHM, false),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.power.dissipation",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.power.dissipation.tt")
 	POWER_DISSIPATION("P<sub>max</sub>", 100, TubeParameterUnit.WATT, true),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.min.grid1.resistance",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.min.grid1.resistance.tt")

@@ -84,9 +84,13 @@
 		<key name="chav1961s.tubes.tubeCorpusType.tg">TG</key>
 		<key name="chav1961s.tubes.tubeCorpusType.tg.tt">TG</key>
 
+		<key name="chav1961s.tubes.tubePanelGroup.pin7">PIN7</key>
+		<key name="chav1961s.tubes.tubePanelGroup.pin7.tt">PIN7</key>
 		<key name="chav1961s.tubes.tubePanelGroup.pin9">PIN9</key>
 		<key name="chav1961s.tubes.tubePanelGroup.pin9.tt">PIN9</key>
 
+		<key name="chav1961s.tubes.tubePanelType.pin7">PIN7</key>
+		<key name="chav1961s.tubes.tubePanelType.pin7.tt">PIN7</key>
 		<key name="chav1961s.tubes.tubePanelType.pin9">PIN9</key>
 		<key name="chav1961s.tubes.tubePanelType.pin9.tt">PIN9</key>
 
@@ -116,6 +120,10 @@
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.noise.voltage.tt">Напряжение виброшумов</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.noise.resistance">Экв.сопротивление шумов</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.noise.resistance.tt">Экв.сопротивление шумов</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.input.resistance">Входное сопротивление</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.input.resistance.tt">Входное сопротивление</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.internal.resistance">Внутреннее сопротивление</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.internal.resistance.tt">Внутреннее сопротивление</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.power.dissipation">Рассеиваемая мощность анода</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.power.dissipation.tt">Рассеиваемая мощность анода</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.min.grid1.resistance">Минимальное сопротивление в цепи сетки 1</key>
@@ -253,9 +261,13 @@
 		<key name="chav1961s.tubes.tubeCorpusType.tg">TG</key>
 		<key name="chav1961s.tubes.tubeCorpusType.tg.tt">TG</key>
 
+		<key name="chav1961s.tubes.tubePanelGroup.pin7">PIN7</key>
+		<key name="chav1961s.tubes.tubePanelGroup.pin7.tt">PIN7</key>
 		<key name="chav1961s.tubes.tubePanelGroup.pin9">PIN9</key>
 		<key name="chav1961s.tubes.tubePanelGroup.pin9.tt">PIN9</key>
 
+		<key name="chav1961s.tubes.tubePanelType.pin7">PIN7</key>
+		<key name="chav1961s.tubes.tubePanelType.pin7.tt">PIN7</key>
 		<key name="chav1961s.tubes.tubePanelType.pin9">PIN9</key>
 		<key name="chav1961s.tubes.tubePanelType.pin9.tt">PIN9</key>
 
@@ -285,6 +297,10 @@
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.noise.voltage.tt">Напряжение виброшумов</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.noise.resistance">Экв.сопротивление шумов</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.noise.resistance.tt">Экв.сопротивление шумов</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.input.resistance">Входное сопротивление</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.input.resistance.tt">Входное сопротивление</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.internal.resistance">Внутреннее сопротивление</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.internal.resistance.tt">Внутреннее сопротивление</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.power.dissipation">Рассеиваемая мощность анода</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.power.dissipation.tt">Рассеиваемая мощность анода</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.min.grid1.resistance">Минимальное сопротивление в цепи сетки 1</key>
