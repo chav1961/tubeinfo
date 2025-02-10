@@ -17,11 +17,14 @@ import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.JToolBar;
 import javax.swing.ListCellRenderer;
 import javax.swing.ListSelectionModel;
 import javax.swing.RowFilter;
@@ -41,6 +44,7 @@ import chav1961.tubeinfo.references.interfaces.TubeDescriptor;
 import chav1961.tubeinfo.references.interfaces.TubePanelGroup;
 import chav1961.tubeinfo.references.interfaces.TubeParameter;
 import chav1961.tubeinfo.references.interfaces.TubesType;
+import chav1961.tubeinfo.utils.InternalUtils;
 
 public class FilterForm extends JPanel {
 	private static final long 	serialVersionUID = 2249124198926610489L;
@@ -55,6 +59,7 @@ public class FilterForm extends JPanel {
 
 	private final Localizer				localizer;
 	private final ParmTableModel		model;
+	private final JTable				parms;
 	private final JLabel				abbrLabel = new JLabel();
 	private final JTextField			abbrValue = new JTextField();
 	private final JLabel				descLabel = new JLabel();
@@ -62,15 +67,17 @@ public class FilterForm extends JPanel {
 	private final JList<TubesType>		types = new JList<>();
 	private final JScrollPane			typesPane = new JScrollPane(types); 
 	private final JList<TubePanelGroup>	panels = new JList<>();
-	private final JScrollPane			panelsPane = new JScrollPane(panels); 
+	private final JScrollPane			panelsPane = new JScrollPane(panels);
+	private final JButton				addParam = new JButton("+");
+	private final JButton				removeParam = new JButton("-");
 	private final JButton				pinouts = new JButton(PINOUTS_ICON);
 	
 	public FilterForm(final Localizer localizer, final NamedValue<float[]>... parameters) {
 		super(new BorderLayout(5, 5));
 		this.localizer = localizer;
 		
-		this.model = new ParmTableModel(localizer, parameters);
-		final JTable	parms = new JTable(this.model);
+		this.model = new ParmTableModel(localizer);
+		this.parms = new JTable(this.model);
 
 		final DefaultListModel<TubesType>		typesModel = new DefaultListModel<TubesType>();
 		typesModel.addAll(Arrays.asList(TubesType.values()));
@@ -93,14 +100,23 @@ public class FilterForm extends JPanel {
 		
 		final SpringLayout	sl = new SpringLayout();
 		final JPanel		center = new JPanel(sl);
+		final JPanel		centerPanel = new JPanel(new BorderLayout(5, 5));
+		final JToolBar		centerToolbar = new JToolBar(JToolBar.VERTICAL);
 		final JScrollPane	pane = new JScrollPane(parms);
+		
+		centerToolbar.setFloatable(false);
+		centerToolbar.add(addParam);
+		centerToolbar.add(removeParam);
+		
+		centerPanel.add(pane, BorderLayout.CENTER);
+		centerPanel.add(centerToolbar, BorderLayout.EAST);
 		
 		center.add(abbrLabel);
 		center.add(abbrValue);
 		center.add(descLabel);
 		center.add(descValue);
 		center.add(pinouts);
-		center.add(pane);
+		center.add(centerPanel);
 		sl.putConstraint(SpringLayout.NORTH, pinouts, 15, SpringLayout.NORTH, center);
 		sl.putConstraint(SpringLayout.EAST, pinouts, -4, SpringLayout.EAST, center);
 		
@@ -117,15 +133,19 @@ public class FilterForm extends JPanel {
 		sl.putConstraint(SpringLayout.WEST, descValue, 10, SpringLayout.EAST, descLabel);
 		sl.putConstraint(SpringLayout.WEST, abbrValue, 0, SpringLayout.WEST, descValue);
 
-		sl.putConstraint(SpringLayout.NORTH, pane, 10, SpringLayout.SOUTH, descValue);
-		sl.putConstraint(SpringLayout.WEST, pane, 10, SpringLayout.WEST, center);
-		sl.putConstraint(SpringLayout.EAST, pane, -10, SpringLayout.EAST, center);
-		sl.putConstraint(SpringLayout.SOUTH, pane, -10, SpringLayout.SOUTH, center);
+		sl.putConstraint(SpringLayout.NORTH, centerPanel, 10, SpringLayout.SOUTH, descValue);
+		sl.putConstraint(SpringLayout.WEST, centerPanel, 10, SpringLayout.WEST, center);
+		sl.putConstraint(SpringLayout.EAST, centerPanel, -10, SpringLayout.EAST, center);
+		sl.putConstraint(SpringLayout.SOUTH, centerPanel, -10, SpringLayout.SOUTH, center);
 		
 		add(center, BorderLayout.CENTER);
 	
 		pinouts.setContentAreaFilled(false);
 		pinouts.addActionListener((e)->showPinout());
+		addParam.setContentAreaFilled(false);
+		addParam.addActionListener((e)->insertParam());
+		removeParam.setContentAreaFilled(false);
+		removeParam.addActionListener((e)->removeParam());
 		fillLocalizedStrings();
 	}
 
@@ -171,15 +191,16 @@ public class FilterForm extends JPanel {
 		if (!Utils.checkEmptyOrNullString(descValue.getText())) {
 			
 		}
-
-		final List<Predicate<TubeDescriptor>>	testParm = new ArrayList<>();
-		
-		for(int index = 0; index < model.getRowCount(); index++) {
-			if (!Utils.checkEmptyOrNullString(model.values[index])) {
-				testParm.add(buildParamTest(model.names[index], model.values[index]));
-			}
+		else {
+			
 		}
-		final Predicate<TubeDescriptor>[]	parms = testParm.toArray(new Predicate[testParm.size()]);
+		final Predicate<TubeDescriptor>[]	parms = new Predicate[model.getRowCount()];
+
+		for(int index = 0; index < model.getRowCount(); index++) {
+			final ParmValue	item = model.content.get(index);
+			
+			parms[index] = buildPredicate(item.parameter, item.value);
+		}
 		
 		return new RowFilter<TubesModel, Integer>() {
 			@Override
@@ -188,61 +209,57 @@ public class FilterForm extends JPanel {
 				
 				return types2Check.contains(desc.getType()) &&
 						hasAbbr(desc.getAbbr(), abbrs) &&
-						panels2Check.contains(desc.getPanelType().getGroup());
+						panels2Check.contains(desc.getPanelType().getGroup()) &&
+						hasParameter(desc, parms);
 			}
 		};
 	}
-	
-	private Predicate<TubeDescriptor> buildParamTest(NamedValue<float[]> namedValue, String string) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	private void fillLocalizedStrings() {
-		abbrLabel.setText(localizer.getValue(LABEL_ABBR_NAME));
-		descLabel.setText(localizer.getValue(LABEL_DESCR_NAME));
-		typesPane.setBorder(new TitledBorder(new LineBorder(Color.BLACK), localizer.getValue(BORDER_TYPES_NAME)));
-		panelsPane.setBorder(new TitledBorder(new LineBorder(Color.BLACK), localizer.getValue(BORDER_PANELS_NAME)));
-	}
-
-	private static boolean hasAbbr(final String abbr, final Predicate<String>... test) {
-		for(Predicate<String> item : test) {
-			if (item.test(abbr)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	private static boolean hasParm(final String abbr, final Predicate<String>... test) {
-		for(Predicate<String> item : test) {
-			if (item.test(abbr)) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	private static float[] extractParameter(final TubeDescriptor desc, final int lampNo, final TubeParameter parameter) {
-		final TubeParameter[]	parms = desc.getParameters(lampNo);
+	private void insertParam() {
+		final JPopupMenu	menu = new JPopupMenu();
 		
-		for(int index = 0; index < parms.length; index++) {
-			if (parameter == parms[index]) {
-				return desc.getValues(index);
-			}
+		for(TubeParameter item : TubeParameter.values()) {
+			final JMenuItem	mi = new JMenuItem(localizer.getValue(InternalUtils.getLocaleResource(item).value()));
+			
+			mi.addActionListener((e)->insertParam(item));
+			menu.add(mi);
 		}
-		return null;
+		menu.show(addParam, addParam.getWidth()/2, addParam.getHeight()/2);
+	}
+
+	private void insertParam(final TubeParameter item) {
+		model.insertParameter(item);
+	}
+
+	private void removeParam() {
+		model.removeParameter(parms.getSelectedRow());
 	}
 	
-	private static boolean inList(final float[] values, final float[][] list) {
-		for(float item : values) {
-			for(float[] range : list) {
-				if (item >= range[0] && item <= range[1]) {
-					return true;
+	private Predicate<TubeDescriptor> buildPredicate(final TubeParameter parameter, final String value) {
+		final List<float[]>		temp = new ArrayList<>();
+		
+		for (String item : value.split(",")) {
+			final String[]	minMax = item.split("\\.\\.");
+			
+			if (minMax[1].isEmpty()) {
+				minMax[1] = minMax[0];
+			}
+			temp.add(new float[] {Float.parseFloat(minMax[0]), Float.parseFloat(minMax[1])});
+		}
+		final float[][]	ranges = temp.toArray(new float[temp.size()][]);
+		
+		return (d)->{
+			for(int index = 0; index < d.getType().getNumberOfLamps(); index++) {
+				final TubeParameter[]	p = d.getParameters(index);
+				
+				for(int pIndex = 0; pIndex < p.length; pIndex++) {
+					if (p[pIndex] == parameter && inList(d.getValues(index)[pIndex], ranges)) {
+						return true;
+					}
 				}
 			}
-		}
-		return false;
+			return false;
+		};
 	}
 
 	private void showPinout() {
@@ -258,24 +275,64 @@ public class FilterForm extends JPanel {
 		}
 		
 	}
+	
+	private static boolean inList(final float value, final float[][] ranges) {
+		for(float[] item : ranges) {
+			if (value >= item[0] && value <= item[1]) {
+				return true;
+			}
+		}
+		return false;
+	}
 
+	private static boolean hasAbbr(final String abbr, final Predicate<String>... test) {
+		for(Predicate<String> item : test) {
+			if (item.test(abbr)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private static boolean hasParameter(final TubeDescriptor desc, final Predicate<TubeDescriptor>[] parms) {
+		for(Predicate<TubeDescriptor> item : parms) {
+			if (!item.test(desc)) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	private void fillLocalizedStrings() {
+		abbrLabel.setText(localizer.getValue(LABEL_ABBR_NAME));
+		descLabel.setText(localizer.getValue(LABEL_DESCR_NAME));
+		typesPane.setBorder(new TitledBorder(new LineBorder(Color.BLACK), localizer.getValue(BORDER_TYPES_NAME)));
+		panelsPane.setBorder(new TitledBorder(new LineBorder(Color.BLACK), localizer.getValue(BORDER_PANELS_NAME)));
+	}
+
+	private static class ParmValue {
+		private final TubeParameter	parameter;
+		private String				value;
+
+		private ParmValue(final TubeParameter parameter, final String value) {
+			this.parameter = parameter;
+			this.value = value;
+		}
+	}
 	
 	private static class ParmTableModel extends DefaultTableModel {
-		private final Localizer				localizer;
-		private final NamedValue<float[]>[]	names;
-		private final String[]				values;
+		private static final long serialVersionUID = -1898375546844154443L;
 		
-		public ParmTableModel(final Localizer localizer, final NamedValue<float[]>... names) {
+		private final Localizer			localizer;
+		private final List<ParmValue>	content = new ArrayList<>();
+		
+		public ParmTableModel(final Localizer localizer) {
 			this.localizer = localizer;
-			this.names = names.clone();
-			this.values = new String[names.length];
-			
-			Arrays.fill(this.values, "");
 		}
 
 		@Override
 		public int getRowCount() {
-			return names == null ? 0 : names.length;
+			return content == null ? 0 : content.size();
 		}
 
 		@Override
@@ -297,7 +354,14 @@ public class FilterForm extends JPanel {
 
 		@Override
 		public Class<?> getColumnClass(final int columnIndex) {
-			return String.class;
+			switch (columnIndex) {
+				case 0 :
+					return TubeParameter.class;
+				case 1 :
+					return String.class;
+				default :
+					return null;
+			}
 		}
 
 		@Override
@@ -309,9 +373,9 @@ public class FilterForm extends JPanel {
 		public Object getValueAt(final int rowIndex, final int columnIndex) {
 			switch (columnIndex) {
 				case 0 :
-					return localizer.getValue(names[rowIndex].getName());
+					return localizer.getValue(InternalUtils.getLocaleResource(content.get(rowIndex).parameter).value());
 				case 1 :
-					return values[rowIndex];
+					return content.get(rowIndex).value;
 				default :
 					return null;
 			}
@@ -319,8 +383,28 @@ public class FilterForm extends JPanel {
 
 		@Override
 		public void setValueAt(final Object aValue, final int rowIndex, final int columnIndex) {
-			values[rowIndex] = aValue.toString();
+			content.get(rowIndex).value = aValue.toString();
 			fireTableCellUpdated(rowIndex, columnIndex);
+		}
+		
+		public void insertParameter(final TubeParameter parm) {
+			if (parm == null) {
+				throw new NullPointerException("Parameter to insert can't be null");
+			}
+			else {
+				content.add(new ParmValue(parm, "0"));
+				fireTableRowsInserted(content.size()-1, content.size()-1);
+			}
+		}
+		
+		public void removeParameter(final int rowIndex) {
+			if (rowIndex < 0 || rowIndex >= content.size()) {
+				throw new IllegalArgumentException("Parameter index ["+rowIndex+"] out of range 0.."+(content.size()-1));
+			}
+			else {
+				content.remove(rowIndex);
+				fireTableRowsDeleted(rowIndex, rowIndex);
+			}
 		}
 	}
 }

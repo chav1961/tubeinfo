@@ -2,6 +2,7 @@ package chav1961.tubeinfo.references.tubes;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.util.Arrays;
 import java.util.Locale;
 import java.util.function.Consumer;
 
@@ -31,11 +32,12 @@ class TubesTab extends JPanel implements LocaleChangeListener {
 	private static final long 		serialVersionUID = 8720981840520863203L;
 
 	private final Consumer<TubeDescriptor>	selection;
-	private final TubesModel		model;
-	private final TableRowSorter<TubesModel>	sorter;
-	private final JScrollPane		scroll;
-	private final JTable			table;
-	private TubesType				currentType = TubesType.ALL;
+	private final TubesModel				model;
+	private final TableRowSorter<TubesModel>sorter;
+	private final JScrollPane				scroll;
+	private final JTable					table;
+	private TubesType						currentType = TubesType.ALL;
+	private RowFilter<TubesModel, Integer> 	currentFilter = null;
 	
 	TubesTab(final Localizer localizer, final Consumer<TubeDescriptor> selection, final TubeDescriptor... content) {
 		super(new BorderLayout(5, 5));
@@ -75,17 +77,26 @@ class TubesTab extends JPanel implements LocaleChangeListener {
 		}
 		else {
 			currentType = type;
-			if (type == TubesType.ALL) {
-				this.sorter.setRowFilter(null);
-			}
-			else {
-				this.sorter.setRowFilter(new RowFilter<>(){
-					@Override
-					public boolean include(Entry<? extends TubesModel, ? extends Integer> entry) {
-						return entry.getModel().getDescriptor(entry.getIdentifier()).getType() == type;
-					}
-				});
-			}
+			refreshFilter();
+		}
+	}
+	
+	public RowFilter<TubesModel, Integer> getCommonFilter() {
+		return currentFilter;
+	}
+	
+	public void clearCommonFilter() {
+		this.currentFilter = null;
+		refreshFilter();
+	}
+	
+	public void setCommonFilter(final RowFilter<TubesModel, Integer> filter) {
+		if (filter == null) {
+			throw new NullPointerException("Filter to set can't be null");
+		}
+		else {
+			this.currentFilter = filter;
+			refreshFilter();
 		}
 	}
 	
@@ -96,7 +107,32 @@ class TubesTab extends JPanel implements LocaleChangeListener {
 			return null;
 		}
 		else {
-			return model.getDescriptor(row);
+			return model.getDescriptor(table.convertRowIndexToModel(row));
+		}
+	}
+
+	private void refreshFilter() {
+		if (currentType == TubesType.ALL) {
+			if (currentFilter == null) {
+				this.sorter.setRowFilter(null);
+			}
+			else {
+				this.sorter.setRowFilter(currentFilter);
+			}
+		}
+		else {
+			final RowFilter<TubesModel, Integer> filter = new RowFilter<>(){
+													@Override
+													public boolean include(Entry<? extends TubesModel, ? extends Integer> entry) {
+														return entry.getModel().getDescriptor(entry.getIdentifier()).getType() == currentType;
+													}
+												};
+			if (currentFilter == null) {
+				this.sorter.setRowFilter(filter);
+			}
+			else {
+				this.sorter.setRowFilter(RowFilter.<TubesModel, Integer>andFilter(Arrays.asList(filter, currentFilter)));
+			}
 		}
 	}
 	
