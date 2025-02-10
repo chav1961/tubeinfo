@@ -67,7 +67,10 @@
 		<key name="chav1961.tubesReference.filterForm.descr.name">Description</key>
 		<key name="chav1961.tubesReference.filterForm.types.title">Tube types</key> 
 		<key name="chav1961.tubesReference.filterForm.panels.title">Panel types</key>
-		<key name="chav1961.tubesReference.filterForm.pinout.title">Pinout to find</key>		
+		<key name="chav1961.tubesReference.filterForm.pinout.title">Pinout to find</key>
+		<key name="chav1961.tubesReference.filterForm.pinout.tt">Select pinout fro filter</key>
+		<key name="chav1961.tubesReference.filterForm.addParam.tt">Add parameter to filter</key>
+		<key name="chav1961.tubesReference.filterForm.removeParam.tt">Remove parameter from filter</key>
 		<key name="chav1961.tubesReference.connScreen.label">Pinout to find:</key>
 
 		<key name="chav1961s.tubes.pinType.ordinal">Ordinal</key>
@@ -243,8 +246,10 @@
 		<key name="chav1961.tubesReference.filterForm.descr.name">Описание</key>
 		<key name="chav1961.tubesReference.filterForm.types.title">Типы ламп</key> 
 		<key name="chav1961.tubesReference.filterForm.panels.title">Типы панелей</key>
-		
 		<key name="chav1961.tubesReference.filterForm.pinout.title">Найти разводку</key>		
+		<key name="chav1961.tubesReference.filterForm.pinout.tt">Добавить фильтрацию по цоколевке</key>
+		<key name="chav1961.tubesReference.filterForm.addParam.tt">Добавить параметр в фильтр</key>
+		<key name="chav1961.tubesReference.filterForm.removeParam.tt">Удалить параметр из фильтра</key>
 		<key name="chav1961.tubesReference.connScreen.label">Цоколевка :</key>
 		
 		<key name="chav1961s.tubes.pinType.ordinal">Ordinal</key>

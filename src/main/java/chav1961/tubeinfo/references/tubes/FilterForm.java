@@ -56,6 +56,11 @@ public class FilterForm extends JPanel {
 	private static final String	BORDER_PANELS_NAME = "chav1961.tubesReference.filterForm.panels.title"; 
 	private static final String	PINOUT_TITLE = "chav1961.tubesReference.filterForm.pinout.title";
 	private static final Icon	PINOUTS_ICON = new ImageIcon(FilterForm.class.getResource("pinouts.png"));
+	private static final String	PINOUTS_TT = "chav1961.tubesReference.filterForm.pinout.tt";
+	private static final Icon	PLUS_ICON = new ImageIcon(FilterForm.class.getResource("plus.png"));
+	private static final String	PLUS_TT = "chav1961.tubesReference.filterForm.addParam.tt";
+	private static final Icon	MINUS_ICON = new ImageIcon(FilterForm.class.getResource("minus.png"));
+	private static final String	MINUS_TT = "chav1961.tubesReference.filterForm.removeParam.tt";
 
 	private final Localizer				localizer;
 	private final ParmTableModel		model;
@@ -68,8 +73,8 @@ public class FilterForm extends JPanel {
 	private final JScrollPane			typesPane = new JScrollPane(types); 
 	private final JList<TubePanelGroup>	panels = new JList<>();
 	private final JScrollPane			panelsPane = new JScrollPane(panels);
-	private final JButton				addParam = new JButton("+");
-	private final JButton				removeParam = new JButton("-");
+	private final JButton				addParam = new JButton(PLUS_ICON);
+	private final JButton				removeParam = new JButton(MINUS_ICON);
 	private final JButton				pinouts = new JButton(PINOUTS_ICON);
 	
 	public FilterForm(final Localizer localizer, final NamedValue<float[]>... parameters) {
@@ -306,6 +311,9 @@ public class FilterForm extends JPanel {
 	private void fillLocalizedStrings() {
 		abbrLabel.setText(localizer.getValue(LABEL_ABBR_NAME));
 		descLabel.setText(localizer.getValue(LABEL_DESCR_NAME));
+		pinouts.setToolTipText(PINOUTS_TT);
+		addParam.setToolTipText(PLUS_TT);
+		removeParam.setToolTipText(MINUS_TT);
 		typesPane.setBorder(new TitledBorder(new LineBorder(Color.BLACK), localizer.getValue(BORDER_TYPES_NAME)));
 		panelsPane.setBorder(new TitledBorder(new LineBorder(Color.BLACK), localizer.getValue(BORDER_PANELS_NAME)));
 	}
