@@ -1,7 +1,6 @@
 package chav1961.tubeinfo.references.tubes;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -14,13 +13,11 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JEditorPane;
@@ -29,7 +26,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
-import javax.swing.border.LineBorder;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.table.DefaultTableModel;
 
@@ -45,16 +41,13 @@ import chav1961.purelib.ui.swing.SwingUtils;
 import chav1961.purelib.ui.swing.useful.svg.SVGPainter;
 import chav1961.tubeinfo.references.interfaces.Graphic;
 import chav1961.tubeinfo.references.interfaces.TubeDescriptor;
-import chav1961.tubeinfo.references.interfaces.TubePanelGroup;
 import chav1961.tubeinfo.references.interfaces.TubeParameter;
 import chav1961.tubeinfo.references.interfaces.TubeParameterUnit;
-import chav1961.tubeinfo.references.interfaces.TubesType;
 import chav1961.tubeinfo.utils.InternalUtils;
 
 class TubesPreview extends JPanel implements LocaleChangeListener {
 	private static final long 	serialVersionUID = -2153048973150602961L;
 	private static final int	PARM_COUNT = 2;
-	private static final int	PREFERRED_SVG_WIDTH = 250; 
 	
 	private static final String	COL_NAME = "chav1961.tubesReference.preview.table.name"; 
 	private static final String	COL_ABBR = "chav1961.tubesReference.preview.table.abbr"; 
@@ -197,22 +190,14 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 	}
 	
 	private Collection<NamedValue<Float>> buildList(final TubeParameter[] parameters, final float[] values, final boolean isMaximum) {
-		int	count = 0;
-		
-		for (TubeParameter item : parameters) {
-			if (item.isMaxAvailable() == isMaximum) {
-				count++;
-			}
-		}
-		final NamedValue<Float>[]	result = new NamedValue[count];
+		final List<NamedValue<Float>>	result = new ArrayList<>();
 
-		count = 0;
 		for(int index = 0; index < parameters.length; index++) {
 			if (parameters[index].isMaxAvailable() == isMaximum) {
-				result[count++] = new NamedValue<Float>(parameters[index].name(), values[index]);
+				result.add(new NamedValue<Float>(parameters[index].name(), values[index]));
 			}
 		}
-		return Arrays.asList(result);
+		return result;
 	}
 
 	private void fillLocalizedStrings() {

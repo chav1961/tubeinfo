@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.swing.Icon;
 import javax.swing.table.DefaultTableModel;
 
 import chav1961.purelib.basic.Utils;
@@ -26,7 +25,6 @@ class TubesModel extends DefaultTableModel {
 	
 	private final Localizer			localizer;
 	private final TubeDescriptor[]	content;
-	private final TubesType			type;
 	private final TubeParameter[][]	parms;
 	private final TubeParameter[]	joinedParms;
 	
@@ -39,7 +37,6 @@ class TubesModel extends DefaultTableModel {
 		}
 		else {
 			this.localizer = localizer;
-			this.type = null;
 			this.content = content.clone();
 			this.parms = new TubeParameter[TubesType.getMaximumNumberOfLampTypes()][];  
 					

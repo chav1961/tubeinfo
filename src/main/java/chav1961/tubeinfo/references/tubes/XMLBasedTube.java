@@ -81,7 +81,6 @@ public class XMLBasedTube implements TubeDescriptor, LocalizerOwner {
 	private static final String			ATTR_TOOLTIP = "tooltip";
 	private static final String			ATTR_HREF = "href";
 
-	private final URI					currentURI;
 	private final TubesType				type;
 	private final String				abbr;
 	private final String				description;
@@ -132,8 +131,6 @@ public class XMLBasedTube implements TubeDescriptor, LocalizerOwner {
 						}
 					}
 				}
-				
-				this.currentURI = currentURI; 
 				this.type = TubesType.valueOf(root.getAttribute(ATTR_TYPE));
 				this.abbr = root.getAttribute(ATTR_ABBR);
 				this.corpus = TubeCorpusType.valueOf(root.getAttribute(ATTR_CORPUS));
@@ -157,11 +154,8 @@ public class XMLBasedTube implements TubeDescriptor, LocalizerOwner {
 				else {
 					this.corpusDraw = loadSVG(corpus.getGroup().getSvgURL().toURI(), psCorpus);
 				}
-//				final String	strDesc = Utils.fromResource(getLocalizer().getContent(root.getAttribute(ATTR_DESCRIPTION), MimeType.MIME_CREOLE_TEXT, MimeType.MIME_HTML_TEXT)); 
-//				final String	strUsage = root.hasAttribute(ATTR_USAGE) ? Utils.fromResource(getLocalizer().getContent(root.getAttribute(ATTR_USAGE), MimeType.MIME_CREOLE_TEXT, MimeType.MIME_HTML_TEXT)) : ""; 
-//				
 				this.parms = new TubeParmDescriptor[parms.getLength()];
-				this.description = root.getAttribute(ATTR_DESCRIPTION); //strDesc.substring(strDesc.indexOf("<html>"));
+				this.description = root.getAttribute(ATTR_DESCRIPTION);
 				this.usage = root.hasAttribute(ATTR_USAGE) ? root.getAttribute(ATTR_USAGE) : "";  
 
 				for(int index = 0; index < this.parms.length; index++) {

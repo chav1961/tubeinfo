@@ -3,8 +3,6 @@ package chav1961.tubeinfo.references.tubes;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -14,6 +12,8 @@ import java.util.function.Predicate;
 import java.util.regex.Pattern;
 
 import javax.swing.DefaultListModel;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -33,9 +33,10 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
-import chav1961.purelib.basic.NamedValue;
+import chav1961.purelib.basic.CharUtils;
 import chav1961.purelib.basic.Utils;
 import chav1961.purelib.basic.exceptions.ContentException;
+import chav1961.purelib.basic.exceptions.SyntaxException;
 import chav1961.purelib.i18n.interfaces.Localizer;
 import chav1961.purelib.model.FieldFormat;
 import chav1961.purelib.ui.swing.SwingUtils;
@@ -77,7 +78,7 @@ public class FilterForm extends JPanel {
 	private final JButton				removeParam = new JButton(MINUS_ICON);
 	private final JButton				pinouts = new JButton(PINOUTS_ICON);
 	
-	public FilterForm(final Localizer localizer, final NamedValue<float[]>... parameters) {
+	public FilterForm(final Localizer localizer) {
 		super(new BorderLayout(5, 5));
 		this.localizer = localizer;
 		
@@ -151,6 +152,11 @@ public class FilterForm extends JPanel {
 		addParam.addActionListener((e)->insertParam());
 		removeParam.setContentAreaFilled(false);
 		removeParam.addActionListener((e)->removeParam());
+		removeParam.setEnabled(false);
+		parms.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		parms.getSelectionModel().addListSelectionListener((e)->{
+			removeParam.setEnabled(parms.getSelectedRow() != -1);
+		});
 		fillLocalizedStrings();
 	}
 
@@ -224,10 +230,21 @@ public class FilterForm extends JPanel {
 		final JPopupMenu	menu = new JPopupMenu();
 		
 		for(TubeParameter item : TubeParameter.values()) {
-			final JMenuItem	mi = new JMenuItem(localizer.getValue(InternalUtils.getLocaleResource(item).value()));
-			
-			mi.addActionListener((e)->insertParam(item));
-			menu.add(mi);
+			if (!item.isMaxAvailable()) {
+				final JMenuItem	mi = new JMenuItem(localizer.getValue(InternalUtils.getLocaleResource(item).value()));
+				
+				mi.addActionListener((e)->insertParam(item));
+				menu.add(mi);
+			}
+		}
+		menu.addSeparator();
+		for(TubeParameter item : TubeParameter.values()) {
+			if (item.isMaxAvailable()) {
+				final JMenuItem	mi = new JMenuItem(localizer.getValue(InternalUtils.getLocaleResource(item).value()));
+				
+				mi.addActionListener((e)->insertParam(item));
+				menu.add(mi);
+			}
 		}
 		menu.show(addParam, addParam.getWidth()/2, addParam.getHeight()/2);
 	}
@@ -299,6 +316,55 @@ public class FilterForm extends JPanel {
 		return false;
 	}
 
+	private static void ensureValueValid(final String value) throws SyntaxException {
+		final List<Lexema>	lex = new ArrayList<>();
+		final char[]		content = CharUtils.terminateAndConvert2CharArray(value, '\0');
+		final long			forLong[] = new long[1];
+		final float			forFloat[] = new float[1];
+		int		from = 0;
+		
+loop:	for(;;) {
+			while (content[from] <= ' ' && content[from] != '\0') {
+				from++;
+			}
+			final int	start = from;
+			
+			switch (content[from]) {
+				case '\0' 	:
+					lex.add(new Lexema(start, Lexema.LexType.EOF));
+					break loop;
+				case '.'	:
+					break;
+				case ','	:
+					lex.add(new Lexema(start, Lexema.LexType.LIST));
+					from++;
+					break;
+				case '+' : 
+					lex.add(new Lexema(start, Lexema.LexType.PLUS));
+					from++;
+					break;
+				case '-' :
+					lex.add(new Lexema(start, Lexema.LexType.MINUS));
+					from++;
+					break;
+				case '0' : case '1' : case '2' : case '3' : case '4' : case '5' : case '6' : case '7' : case '8' : case '9' :
+					from = CharUtils.parseLong(content, from, forLong, false);
+					float	floatVal = forLong[0];
+					
+					if (content[from] == '.' && Character.isDigit(content[from+1])) {
+						from = CharUtils.parseFloat(content, start, forFloat, false);
+						floatVal = forFloat[0];
+					}
+					lex.add(new Lexema(start, Lexema.LexType.NUMBER, floatVal));
+					break;
+				default :
+					throw new SyntaxException(0, start, "Unknown char");
+			}
+		}
+
+		
+	}
+	
 	private static boolean hasParameter(final TubeDescriptor desc, final Predicate<TubeDescriptor>[] parms) {
 		for(Predicate<TubeDescriptor> item : parms) {
 			if (!item.test(desc)) {
@@ -311,13 +377,43 @@ public class FilterForm extends JPanel {
 	private void fillLocalizedStrings() {
 		abbrLabel.setText(localizer.getValue(LABEL_ABBR_NAME));
 		descLabel.setText(localizer.getValue(LABEL_DESCR_NAME));
-		pinouts.setToolTipText(PINOUTS_TT);
-		addParam.setToolTipText(PLUS_TT);
-		removeParam.setToolTipText(MINUS_TT);
+		pinouts.setToolTipText(localizer.getValue(PINOUTS_TT));
+		addParam.setToolTipText(localizer.getValue(PLUS_TT));
+		removeParam.setToolTipText(localizer.getValue(MINUS_TT));
 		typesPane.setBorder(new TitledBorder(new LineBorder(Color.BLACK), localizer.getValue(BORDER_TYPES_NAME)));
 		panelsPane.setBorder(new TitledBorder(new LineBorder(Color.BLACK), localizer.getValue(BORDER_PANELS_NAME)));
 	}
 
+	private static class Lexema {
+		private static enum LexType {
+			NUMBER,
+			PLUS,
+			MINUS,
+			RANGE,
+			LIST,
+			EOF
+		}
+		
+		private final int		pos;
+		private final LexType	type;
+		private final float		value;
+
+		private Lexema(final int pos, final LexType type) {
+			this(pos, type, 0f);
+		}
+		
+		private Lexema(final int pos, final LexType type, final float value) {
+			this.pos = pos;
+			this.type = type;
+			this.value = value;
+		}
+
+		@Override
+		public String toString() {
+			return "Lexema [pos=" + pos + ", type=" + type + ", value=" + value + "]";
+		}
+	}
+	
 	private static class ParmValue {
 		private final TubeParameter	parameter;
 		private String				value;
@@ -391,7 +487,9 @@ public class FilterForm extends JPanel {
 
 		@Override
 		public void setValueAt(final Object aValue, final int rowIndex, final int columnIndex) {
-			content.get(rowIndex).value = aValue.toString();
+			final String	value = aValue.toString();
+			
+			content.get(rowIndex).value = value; 
 			fireTableCellUpdated(rowIndex, columnIndex);
 		}
 		
