@@ -3,6 +3,8 @@ package chav1961.tubeinfo.references.tubes;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Locale;
 
 import javax.swing.JComboBox;
@@ -23,7 +25,7 @@ import chav1961.tubeinfo.references.interfaces.TubePanelGroup;
 
 public class ConnScreen extends JPanel implements LocaleChangeListener {
 	private static final long 	serialVersionUID = 2335837174087681281L;
-	private static final String	LABEL_TEXT = "chav1961.calc.reference.tubesReference.connScreen.label"; 
+	private static final String	LABEL_TEXT = "chav1961.tubeinfo.references.tubes.connScreen.label"; 
 	private static final int	PREFERRED_WIDTH = 400;
 	private static final int	PREFERRED_HEIGHT = 200;
 	
@@ -63,7 +65,13 @@ public class ConnScreen extends JPanel implements LocaleChangeListener {
 			add(picture, BorderLayout.CENTER);
 			
 			pinout.setRenderer(SwingUtils.getCellRenderer(TubePanelGroup.class, new FieldFormat(TubePanelGroup.class), ListCellRenderer.class));
-			pinout.addActionListener((e)->picture.setPinout(TubePanelGroup.class.getResourceAsStream(((TubePanelGroup)pinout.getSelectedItem()).name())));
+			pinout.addActionListener((e)->{
+				try(final InputStream	is = ((TubePanelGroup)pinout.getSelectedItem()).getSvgURL().openStream()) {
+					picture.setPinout(is);
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			});
 			pinout.setSelectedIndex(0);
 			fillLocalizedStrings();
 		}

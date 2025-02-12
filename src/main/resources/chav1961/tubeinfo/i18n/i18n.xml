@@ -178,6 +178,9 @@
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameterUnit.watt">W</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameterUnit.watt.tt">Ватт</key>
 		
+<!-- Localization for tubes reference -->
+		<key name="chav1961.tubeinfo.references.tubes.connScreen.label">Соединения</key>
+		
 	</lang>
 	<lang name="ru">
 <!-- Локализация заголовков окон -->
@@ -355,6 +358,9 @@
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameterUnit.celsius.tt">Градус Цельсия</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameterUnit.watt">W</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameterUnit.watt.tt">Ватт</key>
+
+<!-- Локализация для  -->
+		<key name="chav1961.tubeinfo.references.tubes.connScreen.label">Соединения</key>
 
 	</lang>	
 </localization>
