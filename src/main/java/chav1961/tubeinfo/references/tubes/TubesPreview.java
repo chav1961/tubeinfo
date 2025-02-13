@@ -52,6 +52,7 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 	private static final String	COL_NAME = "chav1961.tubesReference.preview.table.name"; 
 	private static final String	COL_ABBR = "chav1961.tubesReference.preview.table.abbr"; 
 	private static final String	COL_VALUE = "chav1961.tubesReference.preview.table.value"; 
+	private static final String	COL_MODE = "chav1961.tubesReference.preview.table.mode"; 
 	private static final String	TAB_PARAMETERS = "chav1961.tubesReference.preview.tab.parameters"; 
 	private static final String	TAB_MAXIMUM = "chav1961.tubesReference.preview.tab.maximum"; 
 	private static final String	TAB_GRAPHICS = "chav1961.tubesReference.preview.tab.graphics"; 
@@ -69,7 +70,7 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 	private JEditorPane			description = new JEditorPane("text/html","");
 	private JEditorPane			usage = new JEditorPane("text/html","");
 	private final JScrollPane	usagePane = new JScrollPane(usage);
-	private Parameters[]		parmsOrdinal = new Parameters[PARM_COUNT];
+	private ParametersX[]		parmsOrdinal = new ParametersX[PARM_COUNT];
 	private Parameters[]		parmsMaximum = new Parameters[PARM_COUNT];
 	private JTable[]			tablesOrdinal = new JTable[PARM_COUNT];
 	private JTable[]			tablesMaximum = new JTable[PARM_COUNT];
@@ -87,7 +88,7 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 //		pictures.setLayout(picturesLayout);
 
 		for(int index = 0; index < PARM_COUNT; index++) {
-			parmsOrdinal[index] = new Parameters();
+			parmsOrdinal[index] = new ParametersX();
 			tablesOrdinal[index] = new JTable(parmsOrdinal[index]);
 			tablesOrdinal[index].getColumnModel().getColumn(1).setMinWidth(80);
 			tablesOrdinal[index].getColumnModel().getColumn(1).setMaxWidth(80);
@@ -143,9 +144,15 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 		tabDesc.clear();
 		for(int index = 0; index < PARM_COUNT; index++) {
 			if (index < desc.getType().getNumberOfLampTypes()) {
-				tabArea.addTab("", scrollsOrdinal[index]);
+				final JPanel		panel = new JPanel(new BorderLayout(0, 10));
+				final JEditorPane	modes = new JEditorPane("text/html", buildModeDescriptor(desc));
+				
+				modes.setOpaque(false);
+				panel.add(scrollsOrdinal[index], BorderLayout.CENTER);
+				panel.add(modes, BorderLayout.SOUTH);
+				tabArea.addTab("", panel);
 				tabDesc.add(new TabDesc(tabNo++, TabType.PARAMETERS, index+1));
-				parmsOrdinal[index].setContent(buildList(desc.getParameters(index+1), desc.getValues(index+1), false));
+				parmsOrdinal[index].setContent(buildListX(desc.getParameters(index+1), desc.getValues(index+1), desc.getModes(index+1)));
 
 				tabArea.addTab("", scrollsMaximum[index]);
 				tabDesc.add(new TabDesc(tabNo++, TabType.ABSOLUTE_MAXIMUM, index+1));
@@ -189,6 +196,28 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 		fillLocalizedStrings();
 	}
 	
+	private String buildModeDescriptor(final TubeDescriptor desc) {
+		final StringBuilder	sb = new StringBuilder("<html><body><ol>");
+		
+		for(int index = 0; index < desc.numberOfModes(); index++) {
+			final TubeParameter[]	p = desc.getMode(index);
+			final float[]			v = desc.getModeValue(index);
+			
+			sb.append("<li>");			
+			for(int pIndex = 0; pIndex < p.length; pIndex++) {
+				sb.append(p[pIndex].getAbbr()).append(" = ").append(v[pIndex]);
+				try {
+					sb.append(localizer.getValue(TubeParameterUnit.class.getField(p[pIndex].getUnit().name()).getAnnotation(LocaleResource.class).value()));
+				} catch (LocalizationException | NoSuchFieldException e) {
+					e.printStackTrace();
+				}
+				sb.append(" ");
+			}
+			sb.append("</li>");
+		}
+		return sb.append("</ol></body></html>").toString();
+	}
+
 	private Collection<NamedValue<Float>> buildList(final TubeParameter[] parameters, final float[] values, final boolean isMaximum) {
 		final List<NamedValue<Float>>	result = new ArrayList<>();
 
@@ -200,6 +229,17 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 		return result;
 	}
 
+	private Collection<NamedValueX<Float>> buildListX(final TubeParameter[] parameters, final float[] values, final String[] modes) {
+		final List<NamedValueX<Float>>	result = new ArrayList<>();
+
+		for(int index = 0; index < parameters.length; index++) {
+			if (!parameters[index].isMaxAvailable()) {
+				result.add(new NamedValueX<Float>(parameters[index].name(), values[index], modes[index]));
+			}
+		}
+		return result;
+	}
+	
 	private void fillLocalizedStrings() {
 		if (desc != null) {
 			try {
@@ -349,6 +389,110 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 			}
 		}
 			
+	}
+
+	private class ParametersX extends DefaultTableModel {
+		private static final long serialVersionUID = 5633892490065085578L;
+		
+		private final CopyOnWriteArrayList<NamedValueX<Float>>	content = new CopyOnWriteArrayList<>();
+
+		@Override
+		public int getRowCount() {
+			return content == null ? 0 : content.size();
+		}
+
+		@Override
+		public int getColumnCount() {
+			return 4;
+		}
+
+		@Override
+		public String getColumnName(final int columnIndex) {
+			switch (columnIndex) {
+				case 0 :
+					return localizer.getValue(COL_NAME);
+				case 1 :
+					return localizer.getValue(COL_ABBR);
+				case 2 :
+					return localizer.getValue(COL_VALUE);
+				case 3 :
+					return localizer.getValue(COL_MODE);
+				default :
+					return null;
+			}
+		}
+
+		@Override
+		public Class<?> getColumnClass(int columnIndex) {
+			switch (columnIndex) {
+				case 0 :
+					return String.class;
+				case 1 :
+					return String.class;
+				case 2 :
+					return Float.class;
+				case 3 :
+					return String.class;
+				default :
+					return null;
+			}
+		}
+
+		@Override
+		public boolean isCellEditable(final int rowIndex, final int columnIndex) {
+			return false;
+		}
+
+		@Override
+		public Object getValueAt(final int rowIndex, final int columnIndex) {
+			final String name = content.get(rowIndex).getName();
+
+			switch (columnIndex) {
+				case 0 :
+					final TubeParameterUnit	unit = TubeParameter.valueOf(name).getUnit();
+					
+					try {
+						return localizer.getValue(TubeParameter.class.getField(name).getAnnotation(LocaleResource.class).value())
+								+", "+
+								localizer.getValue(TubeParameterUnit.class.getField(unit.name()).getAnnotation(LocaleResource.class).value());
+					} catch (LocalizationException | NoSuchFieldException | SecurityException e) {
+						return name;
+					}
+				case 1 :
+					return "<html><body><p><b>" + TubeParameter.valueOf(name).getAbbr() + "</b></p></body></html>";
+				case 2 :
+					return content.get(rowIndex).getValue();
+				case 3 :
+					return content.get(rowIndex).getMode();
+				default :
+					return null;
+			}
+		}
+
+		public void setContent(final Collection<NamedValueX<Float>> values) {
+			if (values == null) {
+				throw new NullPointerException("Values to add can't be null");
+			}
+			else {
+				content.clear();
+				content.addAll(values);
+				fireTableDataChanged();
+			}
+		}
+			
+	}
+	
+	private static class NamedValueX<T> extends NamedValue<T> {
+		private final String	mode;
+		
+		private NamedValueX(final String name, final T value, final String mode) {
+			super(name, value);
+			this.mode = mode;
+		}
+		
+		public String getMode() {
+			return mode;
+		}
 	}
 	
 	private static class SchemePainter extends JComponent {

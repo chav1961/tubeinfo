@@ -40,8 +40,13 @@ import chav1961.tubeinfo.references.interfaces.TubesType;
  *   	</lang>
  *   </localizedKeys>
  * 	 <parms>
- *   	<parm name="TubeParameter" number="0|1|2">value</parm>
+ *   	<parm name="TubeParameter" number="0|1|2" ref="ref(mode)">value</parm>
  * 	 </parms>
+ *	 <modes>
+ *		<mode ref="1">
+ *			<parm name="TubeParameter">6.3</parm>
+ *		</mode>
+ * 	 </modes> 
  *   <scheme href="scheme.svg"> 	// if href is missing, href from TubesType will be used.
  *   	<parm name="p1">1</parm>  	// Optional
  *   </scheme>
@@ -60,6 +65,8 @@ import chav1961.tubeinfo.references.interfaces.TubesType;
 public class XMLBasedTube implements TubeDescriptor, LocalizerOwner {
 	private static final String			TAG_PARMS = "parms";
 	private static final String			TAG_PARM = "parm";
+	private static final String			TAG_MODES = "modes";
+	private static final String			TAG_MODE = "mode";
 	private static final String			TAG_SCHEME = "scheme";
 	private static final String			TAG_CORPUS = "corpus";
 	private static final String			TAG_CONNECTOR = "connector";
@@ -76,6 +83,7 @@ public class XMLBasedTube implements TubeDescriptor, LocalizerOwner {
 	private static final String			ATTR_USAGE = "usage";
 	private static final String			ATTR_NAME = "name";
 	private static final String			ATTR_NUMBER = "number";
+	private static final String			ATTR_REF = "ref";
 	private static final String			ATTR_PIN = "pin";
 	private static final String			ATTR_PINTYPE = "pinType";
 	private static final String			ATTR_TOOLTIP = "tooltip";
@@ -90,6 +98,7 @@ public class XMLBasedTube implements TubeDescriptor, LocalizerOwner {
 	private final SVGPainter			scheme;
 	private final SVGPainter			corpusDraw;
 	private final TubeParmDescriptor[]	parms;
+	private final TubeParmDescriptor[][]modes;
 	private final TubeConnectorImpl[]	connectors;
 	private final GraphicImpl[]			graphics;
 	private final KeyValueLocalizer		localizer = new KeyValueLocalizer();
@@ -104,6 +113,7 @@ public class XMLBasedTube implements TubeDescriptor, LocalizerOwner {
 		else {
 			try {
 				final NodeList parms = ((Element)root.getElementsByTagName(TAG_PARMS).item(0)).getElementsByTagName(TAG_PARM);
+				final NodeList modes = root.getElementsByTagName(TAG_MODES);
 				final NodeList scheme = root.getElementsByTagName(TAG_SCHEME);
 				final NodeList connectors = root.getElementsByTagName(TAG_CONNECTOR);
 				final NodeList graphics = root.getElementsByTagName(TAG_GRAPHIC);
@@ -113,21 +123,20 @@ public class XMLBasedTube implements TubeDescriptor, LocalizerOwner {
 					final NodeList 	localizedKeys = ((Element)localizedSection.item(0)).getElementsByTagName(TAG_LANG);
 					
 					for(int langIndex = 0; langIndex < localizedKeys.getLength(); langIndex++) {
-						final Locale	locale = Locale.forLanguageTag(((Element)localizedKeys.item(langIndex)).getAttribute(ATTR_NAME));
-						final NodeList	keys = ((Element)localizedKeys.item(langIndex)).getElementsByTagName(TAG_KEY);
-						final NodeList	helps = ((Element)localizedKeys.item(langIndex)).getElementsByTagName(TAG_HELP);
+						final Element	current = (Element)localizedKeys.item(langIndex);
+						final Locale	locale = Locale.forLanguageTag(current.getAttribute(ATTR_NAME));
+						final NodeList	keys = current.getElementsByTagName(TAG_KEY);
+						final NodeList	helps = current.getElementsByTagName(TAG_HELP);
 	
 						for(int index = 0; index < keys.getLength(); index++) {
-							localizer.addKey(((Element)keys.item(index)).getAttribute(ATTR_NAME), 
-										  locale, 
-										  ((Element)keys.item(index)).getTextContent());
+							final Element	pair = (Element)keys.item(index);
 							
+							localizer.addKey(pair.getAttribute(ATTR_NAME), locale, pair.getTextContent());
 						}
 						for(int index = 0; index < helps.getLength(); index++) {
-							localizer.addHelp(((Element)helps.item(index)).getAttribute(ATTR_NAME), 
-										  locale, 
-										  ((Element)helps.item(index)).getTextContent());
+							final Element	pair = (Element)keys.item(index);
 							
+							localizer.addHelp(pair.getAttribute(ATTR_NAME), locale, pair.getTextContent());
 						}
 					}
 				}
@@ -159,23 +168,50 @@ public class XMLBasedTube implements TubeDescriptor, LocalizerOwner {
 				this.usage = root.hasAttribute(ATTR_USAGE) ? root.getAttribute(ATTR_USAGE) : "";  
 
 				for(int index = 0; index < this.parms.length; index++) {
-					final int			number = ((Element)parms.item(index)).hasAttribute(ATTR_NUMBER) ? Integer.valueOf(((Element)parms.item(index)).getAttribute(ATTR_NUMBER)) : 0;
-					final TubeParameter	key = TubeParameter.valueOf(((Element)parms.item(index)).getAttribute(ATTR_NAME));
-					final float			value = Float.valueOf(parms.item(index).getTextContent().trim());
+					final Element		current = (Element)parms.item(index);
+					final int			number = current.hasAttribute(ATTR_NUMBER) ? Integer.valueOf(current.getAttribute(ATTR_NUMBER)) : 0;
+					final String		ref = current.hasAttribute(ATTR_REF) ? current.getAttribute(ATTR_REF) : null;
+					final TubeParameter	key = TubeParameter.valueOf(current.getAttribute(ATTR_NAME));
+					final float			value = Float.valueOf(current.getTextContent().trim());
 					
-					this.parms[index] = new TubeParmDescriptor(number, key, value);
+					this.parms[index] = new TubeParmDescriptor(number, key, value, ref);
+				}
+				if (modes != null && modes.getLength() > 0) {
+					final NodeList	modeList = ((Element)modes.item(0)).getElementsByTagName(TAG_MODE);
+	
+					this.modes = new TubeParmDescriptor[modeList.getLength()][];
+					for(int index = 0; index < this.modes.length; index++) {
+						final Element		current = (Element)modeList.item(index);
+						final String		ref = current.getAttribute(ATTR_REF);
+						final NodeList		list = current.getElementsByTagName(TAG_PARM);
+						final TubeParmDescriptor[]	items = new TubeParmDescriptor[list.getLength()]; 
+								
+						for(int pIndex = 0; pIndex < items.length; pIndex++) {
+							final Element		pCurrent = (Element)list.item(pIndex);
+							final int			number = pCurrent.hasAttribute(ATTR_NUMBER) ? Integer.valueOf(pCurrent.getAttribute(ATTR_NUMBER)) : 0;
+							final TubeParameter	key = TubeParameter.valueOf(pCurrent.getAttribute(ATTR_NAME));
+							final float			value = Float.valueOf(pCurrent.getTextContent().trim());
+							
+							items[pIndex] = new TubeParmDescriptor(number, key, value, ref);
+						}
+						this.modes[index] = items; 
+					}
+				}
+				else {
+					this.modes = new TubeParmDescriptor[0][];
 				}
 				
 				this.graphics = new GraphicImpl[graphics.getLength()];
 				
 				for(int index = 0; index < this.graphics.length; index++) {
-					final int		number = ((Element)graphics.item(index)).hasAttribute(ATTR_NUMBER) ? Integer.valueOf(((Element)graphics.item(index)).getAttribute(ATTR_NUMBER)) : 0;
-					final String	name = ((Element)graphics.item(index)).getAttribute(ATTR_NAME);
-					final String	tooltip = ((Element)graphics.item(index)).getAttribute(ATTR_TOOLTIP);
+					final Element	current = (Element)graphics.item(index);
+					final int		number = current.hasAttribute(ATTR_NUMBER) ? Integer.valueOf(current.getAttribute(ATTR_NUMBER)) : 0;
+					final String	name = current.getAttribute(ATTR_NAME);
+					final String	tooltip = current.getAttribute(ATTR_TOOLTIP);
 					final Icon		picture;
 					
-					if (((Element)graphics.item(index)).hasAttribute(ATTR_HREF)) {
-						final URI	ref = URI.create(((Element)graphics.item(index)).getAttribute(ATTR_HREF)); 	
+					if (current.hasAttribute(ATTR_HREF)) {
+						final URI	ref = URI.create(current.getAttribute(ATTR_HREF)); 	
 						
 						if (ref.isAbsolute()) {
 							picture = new ImageIcon(ref.toURL());
@@ -185,18 +221,18 @@ public class XMLBasedTube implements TubeDescriptor, LocalizerOwner {
 						}
 					}
 					else {
-						picture = new ImageIcon(URIUtils.convert2selfURI(graphics.item(index).getTextContent().trim().getBytes()).toURL());
+						picture = new ImageIcon(URIUtils.convert2selfURI(current.getTextContent().trim().getBytes()).toURL());
 					}
 					this.graphics[index] = new GraphicImpl(number, name, tooltip, picture);
 				}
-
 				this.connectors = new TubeConnectorImpl[connectors.getLength()];
 				
 				for(int index = 0; index < this.connectors.length; index++) {
-					final int				number = ((Element)connectors.item(index)).hasAttribute(ATTR_NUMBER) ? Integer.valueOf(((Element)connectors.item(index)).getAttribute(ATTR_NUMBER)) : 0;
-					final int				pin = Integer.valueOf(((Element)connectors.item(index)).getAttribute(ATTR_PIN));
-					final TubeConnectorType	type = TubeConnectorType.valueOf(((Element)connectors.item(index)).getAttribute(ATTR_TYPE));
-					final PinType			pinType = ((Element)connectors.item(index)).hasAttribute(ATTR_PINTYPE) ? PinType.valueOf(((Element)connectors.item(index)).getAttribute(ATTR_PINTYPE)) : PinType.ORDINAL;
+					final Element			current = (Element)connectors.item(index);
+					final int				number = current.hasAttribute(ATTR_NUMBER) ? Integer.valueOf(current.getAttribute(ATTR_NUMBER)) : 0;
+					final int				pin = Integer.valueOf(current.getAttribute(ATTR_PIN));
+					final TubeConnectorType	type = TubeConnectorType.valueOf(current.getAttribute(ATTR_TYPE));
+					final PinType			pinType = current.hasAttribute(ATTR_PINTYPE) ? PinType.valueOf(current.getAttribute(ATTR_PINTYPE)) : PinType.ORDINAL;
 					
 					this.connectors[index] = new TubeConnectorImpl(number, type, pin, pinType);
 				}
@@ -288,6 +324,42 @@ public class XMLBasedTube implements TubeDescriptor, LocalizerOwner {
 	}
 
 	@Override
+	public int numberOfModes() {
+		return modes.length;
+	}
+
+
+	@Override
+	public TubeParameter[] getMode(final int modeNo) {
+		if (modeNo < 0 || modeNo >= modes.length) {
+			throw new IllegalArgumentException("Mode number ["+modeNo+"] out of range 0.."+(modes.length-1));
+		}
+		else {
+			final TubeParameter[]	result = new TubeParameter[modes[modeNo].length];
+			
+			for(int index = 0; index < result.length; index++) {
+				result[index] = modes[modeNo][index].parm;
+			}
+			return result;
+		}
+	}
+
+	@Override
+	public float[] getModeValue(final int modeNo) {
+		if (modeNo < 0 || modeNo >= modes.length) {
+			throw new IllegalArgumentException("Mode number ["+modeNo+"] out of range 0.."+(modes.length-1));
+		}
+		else {
+			final float[]	result = new float[modes[modeNo].length];
+			
+			for(int index = 0; index < result.length; index++) {
+				result[index] = modes[modeNo][index].value;
+			}
+			return result;
+		}
+	}
+	
+	@Override
 	public float[] getValues(final int lampNo) {
 		int	count = 0;
 		
@@ -307,6 +379,27 @@ public class XMLBasedTube implements TubeDescriptor, LocalizerOwner {
 		return result;
 	}
 
+	@Override
+	public String[] getModes(final int lampNo) {
+		int	count = 0;
+		
+		for(TubeParmDescriptor item : parms) {
+			if (item.lampNo == lampNo) {
+				count++;
+			}
+		}
+		final String[]	result = new String[count];
+		
+		count = 0;
+		for(TubeParmDescriptor item : parms) {
+			if (item.lampNo == lampNo) {
+				result[count++] = item.ref;
+			}
+		}
+		return result;
+	}
+	
+	
 	@Override
 	public Graphic[] getGraphics() {
 		return getGraphics(0);
@@ -367,16 +460,18 @@ public class XMLBasedTube implements TubeDescriptor, LocalizerOwner {
 		final int			lampNo;
 		final TubeParameter	parm;
 		final float			value;
+		final String		ref;
 
-		private TubeParmDescriptor(final int lampNo, final TubeParameter parm, final float value) {
+		private TubeParmDescriptor(final int lampNo, final TubeParameter parm, final float value, final String ref) {
 			this.lampNo = lampNo;
 			this.parm = parm;
 			this.value = value;
+			this.ref = ref;
 		}
 
 		@Override
 		public String toString() {
-			return "TubeParmDescriptor [lampNo=" + lampNo + ", parm=" + parm + ", value=" + value + "]";
+			return "TubeParmDescriptor [lampNo=" + lampNo + ", parm=" + parm + ", value=" + value + ", ref=" + ref + "]";
 		}
 	}
 

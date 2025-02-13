@@ -17,6 +17,10 @@ public interface TubeDescriptor extends LocalizerOwner {
 	TubeParameter[] getParameters();
 	float[] getValues();
 	TubeParameter[] getParameters(int lampNo);
+	String[] getModes(int lampNo);
+	int numberOfModes();
+	TubeParameter[] getMode(int modeNo);
+	float[] getModeValue(int modeNo);
 	float[] getValues(int lampNo);
 	Graphic[] getGraphics();
 	Graphic[] getGraphics(int lampNo);

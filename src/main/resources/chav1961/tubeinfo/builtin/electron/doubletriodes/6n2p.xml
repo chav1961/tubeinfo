@@ -60,7 +60,7 @@ The schemes for using the 6N2P lamp and the 6N9S lamp are the same.
 	    	</lang>
 	    </localizedKeys>
 		<parms>
-			<parm name="FILAMENT_CURRENT" number="1">340</parm>
+			<parm name="FILAMENT_CURRENT" number="1" ref="1,2">340</parm>
 			<parm name="ANODE_CURRENT" number="1">1.8</parm>
 			<parm name="GRID_LEAK_CURRENT" number="1">15</parm>
 			<parm name="S" number="1">2.25</parm>
@@ -79,6 +79,14 @@ The schemes for using the 6N2P lamp and the 6N9S lamp are the same.
 			<parm name="MAX_GRID_1_RESISTANCE" number="1">0.5</parm>
 			<parm name="MAX_TEMPERATURE" number="1">110</parm>
 		</parms>
+		<modes>
+			<mode ref="1">
+				<parm name="FILAMENT_VOLTAGE">6.3</parm>
+			</mode>
+			<mode ref="2">
+				<parm name="ANODE_VOLTAGE">250</parm>
+			</mode>
+		</modes>
 		<scheme>
 			<parm name="p1">1</parm>
 			<parm name="p2">2</parm>

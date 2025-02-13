@@ -55,6 +55,8 @@ public enum TubeParameter {
 	MAX_PULSE_CATHODE_CURRENT("U<sub>c.pulse.max</sub>", 100, TubeParameterUnit.AMPER, true),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.anode.current",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.anode.current.tt")
 	ANODE_CURRENT("I<sub>a</sub>", 100, TubeParameterUnit.MILLIAMPER, false),
+	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.anode.voltage",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.anode.voltage.tt")
+	ANODE_VOLTAGE("U<sub>a</sub>", 100, TubeParameterUnit.VOLT, false),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.max.anode.voltage",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.max.anode.voltage.tt")
 	MAX_ANODE_VOLTAGE("U<sub>a.max</sub>", 100, TubeParameterUnit.VOLT, true);
 	
