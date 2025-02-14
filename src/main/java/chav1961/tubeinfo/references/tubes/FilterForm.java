@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.DoublePredicate;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
 
@@ -487,10 +488,15 @@ loop:	for(;;) {
 
 		@Override
 		public void setValueAt(final Object aValue, final int rowIndex, final int columnIndex) {
-			final String	value = aValue.toString();
+			final String			value = aValue.toString();
 			
-			content.get(rowIndex).value = value; 
-			fireTableCellUpdated(rowIndex, columnIndex);
+			try {
+				CharUtils.parseListRanges(value, DoublePredicate.class);
+				content.get(rowIndex).value = value; 
+				fireTableCellUpdated(rowIndex, columnIndex);
+			} catch (SyntaxException e) {
+				throw new IllegalArgumentException(e.getLocalizedMessage(), e);
+			}
 		}
 		
 		public void insertParameter(final TubeParameter parm) {
