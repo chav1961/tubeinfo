@@ -38,17 +38,21 @@ import chav1961.purelib.basic.CharUtils;
 import chav1961.purelib.basic.Utils;
 import chav1961.purelib.basic.exceptions.ContentException;
 import chav1961.purelib.basic.exceptions.SyntaxException;
+import chav1961.purelib.basic.interfaces.LoggerFacade;
+import chav1961.purelib.basic.interfaces.LoggerFacadeOwner;
+import chav1961.purelib.basic.interfaces.LoggerFacade.Severity;
 import chav1961.purelib.i18n.interfaces.Localizer;
 import chav1961.purelib.model.FieldFormat;
 import chav1961.purelib.ui.swing.SwingUtils;
 import chav1961.purelib.ui.swing.useful.JLocalizedOptionPane;
+import chav1961.purelib.ui.swing.useful.JStateString;
 import chav1961.tubeinfo.references.interfaces.TubeDescriptor;
 import chav1961.tubeinfo.references.interfaces.TubePanelGroup;
 import chav1961.tubeinfo.references.interfaces.TubeParameter;
 import chav1961.tubeinfo.references.interfaces.TubesType;
 import chav1961.tubeinfo.utils.InternalUtils;
 
-public class FilterForm extends JPanel {
+public class FilterForm extends JPanel implements LoggerFacadeOwner {
 	private static final long 	serialVersionUID = 2249124198926610489L;
 	private static final String	COL_NAME = "chav1961.tubesReference.preview.table.name"; 
 	private static final String	COL_VALUE = "chav1961.tubesReference.preview.table.value"; 
@@ -78,10 +82,12 @@ public class FilterForm extends JPanel {
 	private final JButton				addParam = new JButton(PLUS_ICON);
 	private final JButton				removeParam = new JButton(MINUS_ICON);
 	private final JButton				pinouts = new JButton(PINOUTS_ICON);
+	private final JStateString			logger;
 	
 	public FilterForm(final Localizer localizer) {
 		super(new BorderLayout(5, 5));
 		this.localizer = localizer;
+		this.logger = new JStateString(localizer);
 		
 		this.model = new ParmTableModel(localizer);
 		this.parms = new JTable(this.model);
@@ -146,6 +152,7 @@ public class FilterForm extends JPanel {
 		sl.putConstraint(SpringLayout.SOUTH, centerPanel, -10, SpringLayout.SOUTH, center);
 		
 		add(center, BorderLayout.CENTER);
+		add(logger, BorderLayout.SOUTH);
 	
 		pinouts.setContentAreaFilled(false);
 		pinouts.addActionListener((e)->showPinout());
@@ -159,6 +166,11 @@ public class FilterForm extends JPanel {
 			removeParam.setEnabled(parms.getSelectedRow() != -1);
 		});
 		fillLocalizedStrings();
+	}
+
+	@Override
+	public LoggerFacade getLogger() {
+		return logger;
 	}
 
 	public RowFilter<TubesModel, Integer> getFilter() {
@@ -259,30 +271,25 @@ public class FilterForm extends JPanel {
 	}
 	
 	private Predicate<TubeDescriptor> buildPredicate(final TubeParameter parameter, final String value) {
-		final List<float[]>		temp = new ArrayList<>();
-		
-		for (String item : value.split(",")) {
-			final String[]	minMax = item.split("\\.\\.");
+		try {
+			final DoublePredicate	test = CharUtils.parseListRanges(value, DoublePredicate.class);
 			
-			if (minMax[1].isEmpty()) {
-				minMax[1] = minMax[0];
-			}
-			temp.add(new float[] {Float.parseFloat(minMax[0]), Float.parseFloat(minMax[1])});
-		}
-		final float[][]	ranges = temp.toArray(new float[temp.size()][]);
-		
-		return (d)->{
-			for(int index = 0; index < d.getType().getNumberOfLamps(); index++) {
-				final TubeParameter[]	p = d.getParameters(index);
-				
-				for(int pIndex = 0; pIndex < p.length; pIndex++) {
-					if (p[pIndex] == parameter && inList(d.getValues(index)[pIndex], ranges)) {
-						return true;
+			return (d)->{
+				for(int index = 0; index < d.getType().getNumberOfLamps(); index++) {
+					final TubeParameter[]	p = d.getParameters(index);
+					
+					for(int pIndex = 0; pIndex < p.length; pIndex++) {
+						if (p[pIndex] == parameter && test.test(d.getValues(index)[pIndex])) {
+							return true;
+						}
 					}
 				}
-			}
-			return false;
-		};
+				return false;
+			};
+		} catch (SyntaxException e) {
+			getLogger().message(Severity.error, e.getLocalizedMessage());
+			return (d)->false;
+		}
 	}
 
 	private void showPinout() {
@@ -299,15 +306,6 @@ public class FilterForm extends JPanel {
 		
 	}
 	
-	private static boolean inList(final float value, final float[][] ranges) {
-		for(float[] item : ranges) {
-			if (value >= item[0] && value <= item[1]) {
-				return true;
-			}
-		}
-		return false;
-	}
-
 	private static boolean hasAbbr(final String abbr, final Predicate<String>... test) {
 		for(Predicate<String> item : test) {
 			if (item.test(abbr)) {
@@ -315,55 +313,6 @@ public class FilterForm extends JPanel {
 			}
 		}
 		return false;
-	}
-
-	private static void ensureValueValid(final String value) throws SyntaxException {
-		final List<Lexema>	lex = new ArrayList<>();
-		final char[]		content = CharUtils.terminateAndConvert2CharArray(value, '\0');
-		final long			forLong[] = new long[1];
-		final float			forFloat[] = new float[1];
-		int		from = 0;
-		
-loop:	for(;;) {
-			while (content[from] <= ' ' && content[from] != '\0') {
-				from++;
-			}
-			final int	start = from;
-			
-			switch (content[from]) {
-				case '\0' 	:
-					lex.add(new Lexema(start, Lexema.LexType.EOF));
-					break loop;
-				case '.'	:
-					break;
-				case ','	:
-					lex.add(new Lexema(start, Lexema.LexType.LIST));
-					from++;
-					break;
-				case '+' : 
-					lex.add(new Lexema(start, Lexema.LexType.PLUS));
-					from++;
-					break;
-				case '-' :
-					lex.add(new Lexema(start, Lexema.LexType.MINUS));
-					from++;
-					break;
-				case '0' : case '1' : case '2' : case '3' : case '4' : case '5' : case '6' : case '7' : case '8' : case '9' :
-					from = CharUtils.parseLong(content, from, forLong, false);
-					float	floatVal = forLong[0];
-					
-					if (content[from] == '.' && Character.isDigit(content[from+1])) {
-						from = CharUtils.parseFloat(content, start, forFloat, false);
-						floatVal = forFloat[0];
-					}
-					lex.add(new Lexema(start, Lexema.LexType.NUMBER, floatVal));
-					break;
-				default :
-					throw new SyntaxException(0, start, "Unknown char");
-			}
-		}
-
-		
 	}
 	
 	private static boolean hasParameter(final TubeDescriptor desc, final Predicate<TubeDescriptor>[] parms) {
@@ -385,36 +334,6 @@ loop:	for(;;) {
 		panelsPane.setBorder(new TitledBorder(new LineBorder(Color.BLACK), localizer.getValue(BORDER_PANELS_NAME)));
 	}
 
-	private static class Lexema {
-		private static enum LexType {
-			NUMBER,
-			PLUS,
-			MINUS,
-			RANGE,
-			LIST,
-			EOF
-		}
-		
-		private final int		pos;
-		private final LexType	type;
-		private final float		value;
-
-		private Lexema(final int pos, final LexType type) {
-			this(pos, type, 0f);
-		}
-		
-		private Lexema(final int pos, final LexType type, final float value) {
-			this.pos = pos;
-			this.type = type;
-			this.value = value;
-		}
-
-		@Override
-		public String toString() {
-			return "Lexema [pos=" + pos + ", type=" + type + ", value=" + value + "]";
-		}
-	}
-	
 	private static class ParmValue {
 		private final TubeParameter	parameter;
 		private String				value;
@@ -425,7 +344,7 @@ loop:	for(;;) {
 		}
 	}
 	
-	private static class ParmTableModel extends DefaultTableModel {
+	private class ParmTableModel extends DefaultTableModel {
 		private static final long serialVersionUID = -1898375546844154443L;
 		
 		private final Localizer			localizer;
@@ -495,7 +414,7 @@ loop:	for(;;) {
 				content.get(rowIndex).value = value; 
 				fireTableCellUpdated(rowIndex, columnIndex);
 			} catch (SyntaxException e) {
-				throw new IllegalArgumentException(e.getLocalizedMessage(), e);
+				getLogger().message(Severity.error, e.getLocalizedMessage());
 			}
 		}
 		
