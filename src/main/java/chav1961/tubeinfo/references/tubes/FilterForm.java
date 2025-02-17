@@ -15,7 +15,9 @@ import java.util.regex.Pattern;
 import javax.swing.DefaultListModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.InputVerifier;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JMenuItem;
@@ -154,6 +156,31 @@ public class FilterForm extends JPanel implements LoggerFacadeOwner {
 		add(center, BorderLayout.CENTER);
 		add(logger, BorderLayout.SOUTH);
 	
+		abbrValue.setInputVerifier(new InputVerifier() {
+			@Override
+			public boolean verify(final JComponent input) {
+				try{
+					CharUtils.parseListRanges(abbrValue.getText(), Predicate.class);
+					return true;
+				} catch (SyntaxException exc) {
+					getLogger().message(Severity.error, exc.getLocalizedMessage());
+					return false;
+				}
+			}
+		});
+		descValue.setInputVerifier(new InputVerifier() {
+			@Override
+			public boolean verify(final JComponent input) {
+				try{
+					CharUtils.parseListRanges(descValue.getText(), Predicate.class);
+					return true;
+				} catch (SyntaxException exc) {
+					getLogger().message(Severity.error, exc.getLocalizedMessage());
+					return false;
+				}
+			}
+		});
+		
 		pinouts.setContentAreaFilled(false);
 		pinouts.addActionListener((e)->showPinout());
 		addParam.setContentAreaFilled(false);
@@ -190,33 +217,35 @@ public class FilterForm extends JPanel implements LoggerFacadeOwner {
 		if (panels2Check.isEmpty()) {
 			panels2Check.addAll(Arrays.asList(TubePanelGroup.values()));
 		}
-		
-		final List<Predicate<String>>	testAbbr = new ArrayList<>();
+		final Predicate<String>	testAbbr;
+		final Predicate<String>	testDescr;
 		
 		if (!Utils.checkEmptyOrNullString(abbrValue.getText())) {
-			for(String item : abbrValue.getText().trim().split(",")) {
-				final String	trimmed = item.trim();
-				
-				if (!trimmed.isEmpty()) {
-					if (trimmed.contains("*") || trimmed.contains("?")) {
-						testAbbr.add((s)->Pattern.matches(Utils.fileMask2Regex(trimmed), s));
-					}
-					else {
-						testAbbr.add((s)->s.toUpperCase().equalsIgnoreCase(trimmed));
-					}
-				}
+			Predicate<String>	temp;
+			
+			try {
+				temp = CharUtils.parseListRanges(abbrValue.getText(), Predicate.class);
+			} catch (SyntaxException e) {
+				temp = (s)->false;
 			}
+			testAbbr = temp;
 		}
 		else {
-			testAbbr.add((s)->true);
+			testAbbr = (s)->true;
 		}
-		final Predicate<String>[]	abbrs = testAbbr.toArray(new Predicate[testAbbr.size()]);
 		
 		if (!Utils.checkEmptyOrNullString(descValue.getText())) {
+			Predicate<String>	temp;
 			
+			try {
+				temp = CharUtils.parseListRanges(descValue.getText(), Predicate.class);
+			} catch (SyntaxException e) {
+				temp = (s)->false;
+			}
+			testDescr = temp;
 		}
 		else {
-			
+			testDescr = (s)->true;
 		}
 		final Predicate<TubeDescriptor>[]	parms = new Predicate[model.getRowCount()];
 
@@ -231,9 +260,10 @@ public class FilterForm extends JPanel implements LoggerFacadeOwner {
 			public boolean include(final Entry<? extends TubesModel, ? extends Integer> entry) {
 				final TubeDescriptor	desc = entry.getModel().getDescriptor(entry.getIdentifier());
 				
-				return types2Check.contains(desc.getType()) &&
-						hasAbbr(desc.getAbbr(), abbrs) &&
+				return  types2Check.contains(desc.getType()) &&
 						panels2Check.contains(desc.getPanelType().getGroup()) &&
+						testAbbr.test(desc.getAbbr()) &&
+						testDescr.test(desc.getDescription()) &&
 						hasParameter(desc, parms);
 			}
 		};
@@ -300,19 +330,9 @@ public class FilterForm extends JPanel implements LoggerFacadeOwner {
 				
 			}
 		} catch (ContentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			getLogger().message(Severity.error, e.getLocalizedMessage());
 		}
 		
-	}
-	
-	private static boolean hasAbbr(final String abbr, final Predicate<String>... test) {
-		for(Predicate<String> item : test) {
-			if (item.test(abbr)) {
-				return true;
-			}
-		}
-		return false;
 	}
 	
 	private static boolean hasParameter(final TubeDescriptor desc, final Predicate<TubeDescriptor>[] parms) {
