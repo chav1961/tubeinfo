@@ -183,6 +183,10 @@
 		
 <!-- Localization for tubes reference -->
 		<key name="chav1961.tubeinfo.references.tubes.connScreen.label">Соединения</key>
+
+<!-- Localization for tubes reference help -->
+		<key name="chav1961.tubeinfo.references.help">uri(aboutApplication.cre)</key>
+
 		
 	</lang>
 	<lang name="ru">
@@ -367,6 +371,9 @@
 
 <!-- Локализация для  -->
 		<key name="chav1961.tubeinfo.references.tubes.connScreen.label">Соединения</key>
+
+<!-- Локализация для справки -->
+		<key name="chav1961.tubeinfo.references.help">uri(aboutApplication.cre)</key>
 
 	</lang>	
 </localization>

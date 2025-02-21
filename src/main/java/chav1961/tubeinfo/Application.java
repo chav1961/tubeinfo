@@ -7,6 +7,7 @@ import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
 import java.util.Locale;
 import java.util.concurrent.CountDownLatch;
 
@@ -30,6 +31,9 @@ import chav1961.purelib.i18n.interfaces.Localizer.LocaleChangeListener;
 import chav1961.purelib.i18n.interfaces.LocalizerOwner;
 import chav1961.purelib.model.ContentModelFactory;
 import chav1961.purelib.model.interfaces.ContentMetadataInterface;
+import chav1961.purelib.ui.swing.SwingUtils;
+import chav1961.purelib.ui.swing.useful.JCloseableTab;
+import chav1961.purelib.ui.swing.useful.JCreoleHelpWindow;
 import chav1961.purelib.ui.swing.useful.JStateString;
 import chav1961.tubeinfo.references.interfaces.TubesGroup;
 import chav1961.tubeinfo.references.tubes.ElectronicTubesScreen;
@@ -41,12 +45,15 @@ public class Application extends JFrame implements LocalizerOwner, LoggerFacadeO
 	public static final String	ARG_DEBUG = "d";
 	public static final String	ARG_SOURCE = "src";
 	public static final String	APPLICATION_TITLE = "chav1961.tubesReference.application.title";	
-	public static final String	MESSAGE_READY = "chav1961.tubesReference.message.ready";	
+	public static final String	MESSAGE_READY = "chav1961.tubesReference.message.ready";
+	private static final int	MAX_TABS = 3;
 	
 //	private final ContentMetadataInterface	mdi;
 	private final Localizer					localizer;
 	private final JTabbedPane				tabs = new JTabbedPane();
 	private final JStateString				state;
+	private JCloseableTab					helpTab = null; 
+	private JCreoleHelpWindow				helpWindow = null;	
 	
 	public Application(final CountDownLatch latch, final ContentMetadataInterface mdi, final File contentDir) {
 		if (latch == null) {
@@ -69,9 +76,11 @@ public class Application extends JFrame implements LocalizerOwner, LoggerFacadeO
 				tabs.addTab("", new ImageIcon(TubesGroup.class.getResource(anno.icon())), createTab(item, contentDir));
 			}
 			
+			SwingUtils.assignActionKey((JComponent)getContentPane(), SwingUtils.KS_HELP, (e)->showHelp(URI.create("chav1961.tubeinfo.references.help")), SwingUtils.ACTION_HELP);
 			state.setBorder(new EtchedBorder(EtchedBorder.LOWERED));
 			getContentPane().add(tabs, BorderLayout.CENTER);
 			getContentPane().add(state, BorderLayout.SOUTH);
+			
 			setIconImage(Toolkit.getDefaultToolkit().createImage(getClass().getResource("/icon.png")));
 			setSize(1024, 768);
 			setLocationRelativeTo(null);
@@ -106,10 +115,31 @@ public class Application extends JFrame implements LocalizerOwner, LoggerFacadeO
 
 	@Override
 	public void localeChanged(final Locale oldLocale, final Locale newLocale) throws LocalizationException {
-		// TODO Auto-generated method stub
+		if (tabs.getTabCount() > MAX_TABS) {
+			helpTab.localeChanged(getLocale(), getLocale());
+		}
 		fillLocalizedStrings();
 	}
 
+	public void showHelp(final URI helpUri) {
+		if (tabs.getTabCount() == MAX_TABS) {
+			final JCloseableTab		helpTab = new JCloseableTab(getLocalizer(), "HELP");
+			
+			helpTab.setLayout(new BorderLayout());
+			helpWindow = new JCreoleHelpWindow(getLocalizer(), APPLICATION_TITLE);
+			helpTab.add(helpWindow, BorderLayout.CENTER);
+			
+			JCloseableTab.placeComponentIntoTab(tabs, "HELP", helpWindow, helpTab);			
+		}
+		try {
+			helpWindow.loadContent(helpUri.toString());
+		} catch (LocalizationException | IOException e) {
+			getLogger().message(Severity.error, e.getLocalizedMessage());
+		}
+		tabs.setSelectedIndex(MAX_TABS);
+		fillLocalizedStrings();
+	}
+	
 	private JComponent createTab(final TubesGroup group, final File contentDir) {
 		switch (group) {
 			case GROUP_ELECTRON	:
@@ -133,7 +163,6 @@ public class Application extends JFrame implements LocalizerOwner, LoggerFacadeO
 		return true;
 	}
 	
-	
 	private void fillLocalizedStrings() {
 		setTitle(getLocalizer().getValue(APPLICATION_TITLE));
 		for(TubesGroup item : TubesGroup.values()) {
@@ -141,6 +170,9 @@ public class Application extends JFrame implements LocalizerOwner, LoggerFacadeO
 			
 			tabs.setTitleAt(item.ordinal(), getLocalizer().getValue(anno.value()));
 			tabs.setToolTipTextAt(item.ordinal(), getLocalizer().getValue(anno.tooltip()));
+		}
+		if (tabs.getTabCount() > MAX_TABS && helpTab != null) {
+			helpTab.setText(getLocalizer().getValue("HELP"));
 		}
 	}
 

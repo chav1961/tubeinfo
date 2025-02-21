@@ -37,6 +37,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
 import chav1961.purelib.basic.CharUtils;
+import chav1961.purelib.basic.CharUtils.RelevanceFunction;
 import chav1961.purelib.basic.Utils;
 import chav1961.purelib.basic.exceptions.ContentException;
 import chav1961.purelib.basic.exceptions.SyntaxException;
@@ -218,7 +219,7 @@ public class FilterForm extends JPanel implements LoggerFacadeOwner {
 			panels2Check.addAll(Arrays.asList(TubePanelGroup.values()));
 		}
 		final Predicate<String>	testAbbr;
-		final Predicate<String>	testDescr;
+		final RelevanceFunction	testDescr;
 		
 		if (!Utils.checkEmptyOrNullString(abbrValue.getText())) {
 			Predicate<String>	temp;
@@ -235,17 +236,17 @@ public class FilterForm extends JPanel implements LoggerFacadeOwner {
 		}
 		
 		if (!Utils.checkEmptyOrNullString(descValue.getText())) {
-			Predicate<String>	temp;
+			RelevanceFunction	temp;
 			
 			try {
-				temp = CharUtils.parseListRanges(descValue.getText(), Predicate.class);
+				temp = CharUtils.parsceLuceneStyledQuery(descValue.getText());
 			} catch (SyntaxException e) {
-				temp = (s)->false;
+				temp = (f)->0;
 			}
 			testDescr = temp;
 		}
 		else {
-			testDescr = (s)->true;
+			testDescr = (f)->0;
 		}
 		final Predicate<TubeDescriptor>[]	parms = new Predicate[model.getRowCount()];
 
@@ -254,7 +255,7 @@ public class FilterForm extends JPanel implements LoggerFacadeOwner {
 			
 			parms[index] = buildPredicate(item.parameter, item.value);
 		}
-		
+
 		return new RowFilter<TubesModel, Integer>() {
 			@Override
 			public boolean include(final Entry<? extends TubesModel, ? extends Integer> entry) {
@@ -263,7 +264,7 @@ public class FilterForm extends JPanel implements LoggerFacadeOwner {
 				return  types2Check.contains(desc.getType()) &&
 						panels2Check.contains(desc.getPanelType().getGroup()) &&
 						testAbbr.test(desc.getAbbr()) &&
-						testDescr.test(desc.getDescription()) &&
+						testDescr.test((s)->desc.getDescription()) > 0 &&
 						hasParameter(desc, parms);
 			}
 		};
