@@ -54,8 +54,8 @@ public class ConnScreen extends JPanel implements LocaleChangeListener {
 			sl.putConstraint(SpringLayout.WEST, pinoutLabel, 5, SpringLayout.WEST, top);
 			sl.putConstraint(SpringLayout.EAST, pinout, 0, SpringLayout.EAST, top);
 			sl.putConstraint(SpringLayout.WEST, pinout, 0, SpringLayout.EAST, pinoutLabel);
-			sl.putConstraint(SpringLayout.SOUTH, pinoutLabel, 5, SpringLayout.SOUTH, top);
-			sl.putConstraint(SpringLayout.SOUTH, pinout, 5, SpringLayout.SOUTH, top);
+			sl.putConstraint(SpringLayout.SOUTH, pinoutLabel, -5, SpringLayout.SOUTH, top);
+			sl.putConstraint(SpringLayout.SOUTH, pinout, -5, SpringLayout.SOUTH, top);
 			top.setPreferredSize(new Dimension(PREFERRED_WIDTH, PREFERRED_WIDTH/10));
 			
 			picture.setBorder(new LineBorder(Color.black));
@@ -66,11 +66,7 @@ public class ConnScreen extends JPanel implements LocaleChangeListener {
 			
 			pinout.setRenderer(SwingUtils.getCellRenderer(TubePanelGroup.class, new FieldFormat(TubePanelGroup.class), ListCellRenderer.class));
 			pinout.addActionListener((e)->{
-				try(final InputStream	is = ((TubePanelGroup)pinout.getSelectedItem()).getSvgURL().openStream()) {
-					picture.setPinout(is);
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
+				picture.setPinout((TubePanelGroup)pinout.getSelectedItem());
 			});
 			pinout.setSelectedIndex(0);
 			fillLocalizedStrings();

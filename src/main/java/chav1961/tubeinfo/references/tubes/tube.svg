@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:lc="https://librecad.org" xmlns:xlink="http://www.w3.org/1999/xlink" width="80mm" height="160mm" viewBox="0 0 80 160">
+    <g fill="none" stroke="black" stroke-width="1">
+        <line x1="10" y1="40" x2="10" y2="120"/>
+        <line x1="70" y1="40" x2="70" y2="120"/>
+        <path d="M70,40 A30,30 0 0,0 10,40 "/>
+        <path d="M10,120 A30,30 0 0,0 70,120 "/>
+        <line x1="30" y1="0" x2="30" y2="40"/>
+        <line x1="50" y1="40" x2="80" y2="40"/>
+        <line x1="60" y1="130" x2="80" y2="130"/>
+        <path d="M50,130 A10,10 0 0,0 30,130 "/>
+        <line x1="30" y1="130" x2="30" y2="160"/>
+        <line x1="50" y1="130" x2="50" y2="160"/>
+        <line x1="20" y1="40" x2="40" y2="40" stroke-width="100"/>
+        <line x1="50" y1="30" x2="50" y2="50" stroke-width="100"/>
+        <path d="M60,130 A20,20 0 0,0 20,130 " stroke-width="100"/>
+        <line x1="0" y1="60" x2="60" y2="60"/>
+        <line x1="20" y1="70" x2="80" y2="70"/>
+        <line x1="0" y1="80" x2="60" y2="80"/>
+        <line x1="20" y1="90" x2="80" y2="90"/>
+        <line x1="60" y1="100" x2="0" y2="100"/>
+    </g>
+</svg>

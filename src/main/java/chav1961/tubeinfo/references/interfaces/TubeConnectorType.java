@@ -22,6 +22,8 @@ public enum TubeConnectorType {
 	@LocaleResource(value="chav1961.calc.references.tubes.tubeConnectorType.an",tooltip="chav1961.calc.references.tubes.tubeConnectorType.an.tt")
 	GRID_5,
 	@LocaleResource(value="chav1961.calc.references.tubes.tubeConnectorType.an",tooltip="chav1961.calc.references.tubes.tubeConnectorType.an.tt")
+	SPECIAL,
+	@LocaleResource(value="chav1961.calc.references.tubes.tubeConnectorType.an",tooltip="chav1961.calc.references.tubes.tubeConnectorType.an.tt")
 	SHIELD_1,
 	@LocaleResource(value="chav1961.calc.references.tubes.tubeConnectorType.an",tooltip="chav1961.calc.references.tubes.tubeConnectorType.an.tt")
 	SHIELD_2;

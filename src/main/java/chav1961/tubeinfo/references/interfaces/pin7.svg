@@ -1,45 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
-   version="1.1"
-   id="svg5"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs2" />
-  <g
-     id="layer1">
-    <ellipse
-       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
-       id="path950"
-       cx="32.467739"
-       cy="34.596775"
-       rx="17.919353"
-       ry="18.274193" />
-    <ellipse
-       style="fill:#808080;stroke:#000000;stroke-width:0.264583;stroke-opacity:1;fill-opacity:1"
-       id="path952"
-       cx="21.645163"
-       cy="34.596775"
-       rx="2.8387096"
-       ry="3.016129" />
-    <ellipse
-       style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
-       id="path1266"
-       cx="27.145161"
-       cy="26.790321"
-       rx="3.016129"
-       ry="2.6612904" />
-    <ellipse
-       style="fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:0.216986;stroke-opacity:1"
-       id="path1266-6"
-       cx="34.241936"
-       cy="22.532259"
-       rx="2.1528308"
-       ry="2.5076697" />
-  </g>
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:lc="https://librecad.org" xmlns:xlink="http://www.w3.org/1999/xlink" width="60mm" height="60mm" viewBox="0 0 60 60">
+    <g fill="none" stroke="black" stroke-width="1">
+        <circle cx="30" cy="30" r="30"/>
+        <circle cx="15.85786438" cy="15.85786438" r="3"/>
+        <circle cx="10" cy="30" r="3"/>
+        <circle cx="15.85786438" cy="44.14213562" r="3"/>
+        <circle cx="44.14213562" cy="44.14213562" r="3"/>
+        <circle cx="50" cy="30" r="3"/>
+        <circle cx="44.14213562" cy="15.85786438" r="3"/>
+        <circle cx="30" cy="10" r="3"/>
+    </g>
 </svg>
