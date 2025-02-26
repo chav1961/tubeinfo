@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 import java.util.Locale;
 
 import javax.swing.JComboBox;
@@ -78,7 +79,7 @@ public class ConnScreen extends JPanel implements LocaleChangeListener {
 		fillLocalizedStrings();
 	}
 
-	public TubeConnector[] getConnectors() {
+	public List<TubeConnector> getConnectors() {
 		return picture.getConnectors();
 	}
 	

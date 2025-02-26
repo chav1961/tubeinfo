@@ -49,6 +49,8 @@ import chav1961.purelib.model.FieldFormat;
 import chav1961.purelib.ui.swing.SwingUtils;
 import chav1961.purelib.ui.swing.useful.JLocalizedOptionPane;
 import chav1961.purelib.ui.swing.useful.JStateString;
+import chav1961.tubeinfo.references.interfaces.TubeConnector;
+import chav1961.tubeinfo.references.interfaces.TubeConnectorType;
 import chav1961.tubeinfo.references.interfaces.TubeDescriptor;
 import chav1961.tubeinfo.references.interfaces.TubePanelGroup;
 import chav1961.tubeinfo.references.interfaces.TubeParameter;
@@ -86,6 +88,7 @@ public class FilterForm extends JPanel implements LoggerFacadeOwner {
 	private final JButton				removeParam = new JButton(MINUS_ICON);
 	private final JButton				pinouts = new JButton(PINOUTS_ICON);
 	private final JStateString			logger;
+	private final List<TubeConnector>	connectors = new ArrayList<>();
 	
 	public FilterForm(final Localizer localizer) {
 		super(new BorderLayout(5, 5));
@@ -255,6 +258,16 @@ public class FilterForm extends JPanel implements LoggerFacadeOwner {
 			
 			parms[index] = buildPredicate(item.parameter, item.value);
 		}
+		final Predicate<TubeConnector[]>	conns;
+		
+		if (!connectors.isEmpty()) {
+			final TubeConnector[]	conn = connectors.toArray(new TubeConnector[connectors.size()]);
+
+			conns = (d)->testConnectors(d, conn);
+		}
+		else {
+			conns = (d)->true;
+		}
 
 		return new RowFilter<TubesModel, Integer>() {
 			@Override
@@ -265,9 +278,48 @@ public class FilterForm extends JPanel implements LoggerFacadeOwner {
 						panels2Check.contains(desc.getPanelType().getGroup()) &&
 						testAbbr.test(desc.getAbbr()) &&
 						testDescr.test((s)->desc.getDescription()) > 0 &&
-						hasParameter(desc, parms);
+						hasParameter(desc, parms) &&
+						conns.test(desc.getConnectors());
 			}
 		};
+	}
+
+	private static boolean testConnectors(final TubeConnector[] current, final TubeConnector[] template) {
+		final Set<TubeConnectorType>	currentSet = new HashSet<>();
+		final Set<TubeConnectorType>	templateSet = new HashSet<>();
+		final Set<TubeConnectorType>	temp = new HashSet<>();
+		
+		for(TubeConnector item : current) {
+			currentSet.add(item.getType());
+		}
+		for(TubeConnector item : template) {
+			temp.add(item.getType());
+		}
+		templateSet.addAll(temp);
+		temp.removeAll(currentSet);
+		
+		if (!temp.isEmpty()) {
+			return false;
+		}
+		else {
+			int	count = 0;
+			
+			for(TubeConnectorType item : templateSet) {
+				for (TubeConnector left : current) {
+					if (left.getType() == item) {
+						for (TubeConnector right : template) {
+							if (right.getType() == item) {
+								if (left.getPinType() == right.getPinType() &&
+									left.getPin() == right.getPin()) {
+									count++;
+								}
+							}
+						}
+					}
+				}
+			}
+			return count == template.length;
+		}
 	}
 
 	private void insertParam() {
@@ -324,16 +376,16 @@ public class FilterForm extends JPanel implements LoggerFacadeOwner {
 	}
 
 	private void showPinout() {
+		connectors.clear();
 		try {
 			final ConnScreen cs = new ConnScreen(localizer);
 			
-			if (new JLocalizedOptionPane(localizer).confirm(this, cs, COL_NAME, JOptionPane.PLAIN_MESSAGE, JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION) {
-				
+			if (new JLocalizedOptionPane(localizer).confirm(this, cs, PINOUT_TITLE, JOptionPane.PLAIN_MESSAGE, JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION) {
+				connectors.addAll(cs.getConnectors());
 			}
 		} catch (ContentException e) {
 			getLogger().message(Severity.error, e.getLocalizedMessage());
 		}
-		
 	}
 	
 	private static boolean hasParameter(final TubeDescriptor desc, final Predicate<TubeDescriptor>[] parms) {

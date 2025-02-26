@@ -96,7 +96,7 @@ class ConnPicture extends JComponent implements MouseListener, MouseMotionListen
 		}
 	}
 	
-	TubeConnector[] getConnectors() {
+	List<TubeConnector> getConnectors() {
 		final List<TubeConnector>	result = new ArrayList<>();
 		
 		for(Line2D item : lines) {
@@ -127,7 +127,7 @@ class ConnPicture extends JComponent implements MouseListener, MouseMotionListen
 				}
 			}
 		}
-		return result.toArray(new TubeConnector[result.size()]);
+		return result;
 	}
 	
 	@Override
