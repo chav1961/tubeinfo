@@ -59,9 +59,9 @@
 		<key name="chav1961.tubesReference.preview.tab.maximum">#%1$d maximums</key>
 		<key name="chav1961.tubesReference.preview.tab.graphics">#%1$d graphics</key>
 		<key name="chav1961.tubesReference.preview.tab.usage">Usage</key>
-		<key name="chav1961.tubesReference.table.scheme">Pinout</key>
 		<key name="chav1961.tubesReference.table.panel">Panel</key>
 		<key name="chav1961.tubesReference.table.abbr">Part No</key>
+		<key name="chav1961.tubesReference.table.descr">Description</key>
 		<key name="chav1961.tubesReference.filterForm.title">Set filter</key>
 		<key name="chav1961.tubesReference.filterForm.abbr.name">Part No</key>
 		<key name="chav1961.tubesReference.filterForm.descr.name">Description</key>
@@ -101,6 +101,8 @@
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.myu.tt">Коэффициент усиления</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.s">Крутизна</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.s.tt">Крутизна</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.cathode.resistance">Сопротивленив в цепи катода</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.cathode.resistance.tt">Сопротивленив в цепи катода</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.temperature">Макс.температура</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.temperature.tt">Макс.температура</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.input.capacity">Входная емкость</key>
@@ -149,6 +151,8 @@
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.anode.current.tt">Ток анода</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.anode.voltage">Напряжение анода</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.anode.voltage.tt">Напряжение анода</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.grid2.voltage">Напряжение второй сетки</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.grid2.voltage.tt">Напряжение второй сетки</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.anode.voltage">Напряжение анода</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.anode.voltage.tt">Напряжение анода</key>
 		
@@ -247,9 +251,9 @@
 		<key name="chav1961.tubesReference.preview.tab.maximum">#%1$d максимум</key>
 		<key name="chav1961.tubesReference.preview.tab.graphics">#%1$d графики</key>
 		<key name="chav1961.tubesReference.preview.tab.usage">Применение</key>
-		<key name="chav1961.tubesReference.table.scheme">Разводка</key>
 		<key name="chav1961.tubesReference.table.panel">Панель</key>
 		<key name="chav1961.tubesReference.table.abbr">Тип</key>
+		<key name="chav1961.tubesReference.table.descr">Описание</key>
 		<key name="chav1961.tubesReference.filterForm.title">Установить фильтр</key>
 		<key name="chav1961.tubesReference.filterForm.abbr.name">Тип</key>
 		<key name="chav1961.tubesReference.filterForm.descr.name">Описание</key>
@@ -289,6 +293,8 @@
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.myu.tt">Коэффициент усиления</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.s">Крутизна</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.s.tt">Крутизна</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.cathode.resistance">Сопротивленив в цепи катода</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.cathode.resistance.tt">Сопротивленив в цепи катода</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.temperature">Макс.температура</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.temperature.tt">Макс.температура</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.input.capacity">Входная емкость</key>
@@ -337,6 +343,8 @@
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.anode.current.tt">Ток анода</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.anode.voltage">Напряжение анода</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.anode.voltage.tt">Напряжение анода</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.grid2.voltage">Напряжение второй сетки</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.grid2.voltage.tt">Напряжение второй сетки</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.anode.voltage">Напряжение анода</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.anode.voltage.tt">Напряжение анода</key>
 

@@ -47,11 +47,12 @@ class TubesTab extends JPanel implements LocaleChangeListener {
 		this.table.setCellSelectionEnabled(true);
 		this.table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.table.getSelectionModel().addListSelectionListener((e)->fireSelection());
-		this.table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		this.table.setAutoResizeMode(JTable.AUTO_RESIZE_LAST_COLUMN);
 		this.table.setRowHeight(32);
 		this.table.setDefaultRenderer(Icon.class, SwingUtils.getCellRenderer(Icon.class, new FieldFormat(Icon.class), TableCellRenderer.class));
 		this.table.setDefaultRenderer(TubePanelGroup.class, SwingUtils.getCellRenderer(TubePanelGroup.class, new FieldFormat(Icon.class), TableCellRenderer.class));
-		this.table.setDefaultRenderer(float[].class, SwingUtils.getCellRenderer(float[].class, new FieldFormat(float[].class), TableCellRenderer.class));
+		this.table.getColumnModel().getColumn(0).setMaxWidth(250);
+		this.table.getColumnModel().getColumn(1).setMaxWidth(300);
 		this.scroll = new JScrollPane(table);
 		
 		add(scroll, BorderLayout.CENTER);

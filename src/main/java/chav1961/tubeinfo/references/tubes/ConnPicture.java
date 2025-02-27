@@ -114,7 +114,9 @@ class ConnPicture extends JComponent implements MouseListener, MouseMotionListen
 			}
 			else {
 				for (PointAndType right : rightPoints) {
-					if (item.getP1().distanceSq(right.point) < POINT_AREA || item.getP2().distanceSq(right.point) < POINT_AREA) {
+					final Point	p = new Point(right.point.x + getWidth()/2, right.point.y);
+					
+					if (item.getP1().distanceSq(p) < POINT_AREA || item.getP2().distanceSq(p) < POINT_AREA) {
 						pat = right;
 						break;
 					}

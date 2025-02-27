@@ -255,6 +255,7 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 					usage.setText("");
 				}
 			} catch (LocalizationException | IOException e) {
+				e.printStackTrace();
 			} 
 			final LocaleResource	anno = InternalUtils.getLocaleResource(desc.getType());
 			

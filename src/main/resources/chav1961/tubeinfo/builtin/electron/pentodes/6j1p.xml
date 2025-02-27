@@ -54,8 +54,8 @@ Pin base with button bottom. Number of pins are 7.
 	    	</lang>
 	    </localizedKeys>
 		<parms>
-			<parm name="FILAMENT_CURRENT" number="1">185</parm>
-			<parm name="ANODE_CURRENT" number="1">7.7</parm>
+			<parm name="FILAMENT_CURRENT" number="1" ref="1,2,3,4">185</parm>
+			<parm name="ANODE_CURRENT" number="1" ref="1,2,3,4">7.7</parm>
 			<parm name="GRID_LEAK_CURRENT" number="1">0.1</parm>
 			<parm name="S" number="1">5.15</parm>
 			<parm name="NOISE_VOLTAGE" number="1">200</parm>
@@ -73,6 +73,20 @@ Pin base with button bottom. Number of pins are 7.
 			<parm name="MAX_GRID_1_RESISTANCE" number="1">1</parm>
 			<parm name="MAX_TEMPERATURE" number="1">80</parm>
 		</parms>
+		<modes>
+			<mode ref="1">
+				<parm name="FILAMENT_VOLTAGE">6.3</parm>
+			</mode>
+			<mode ref="2">
+				<parm name="ANODE_VOLTAGE">120</parm>
+			</mode>
+			<mode ref="3">
+				<parm name="GRID2_VOLTAGE">120</parm>
+			</mode>
+			<mode ref="4">
+				<parm name="CATHODE_RESISTANCE">200</parm>
+			</mode>
+		</modes>
 		<scheme>
 			<parm name="p1">6</parm>
 			<parm name="p2">1</parm>
@@ -82,15 +96,10 @@ Pin base with button bottom. Number of pins are 7.
 			<parm name="p6">5</parm>
 		</scheme> 
 		<corpus>
-			<parm name="p1">10</parm>
-			<parm name="p2">20</parm>
-			<parm name="p3">30</parm>
-			<parm name="p4">40</parm>
-			<parm name="p5">50</parm>
-			<parm name="p6">60</parm>
-			<parm name="p7">70</parm>
-			<parm name="p8">80</parm>
-			<parm name="p9">90</parm>
+			<parm name="p1">57</parm>
+			<parm name="p2">50</parm>
+			<parm name="p3">19</parm>
+			<parm name="p4">43</parm>
 		</corpus> 
 		<connectors>
 			<connector number="1" type="GRID_1" pin="1" pinType="ORDINAL"/>

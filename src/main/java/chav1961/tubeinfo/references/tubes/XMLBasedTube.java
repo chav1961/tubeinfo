@@ -134,7 +134,7 @@ public class XMLBasedTube implements TubeDescriptor, LocalizerOwner {
 							localizer.addKey(pair.getAttribute(ATTR_NAME), locale, pair.getTextContent());
 						}
 						for(int index = 0; index < helps.getLength(); index++) {
-							final Element	pair = (Element)keys.item(index);
+							final Element	pair = (Element)helps.item(index);
 							
 							localizer.addHelp(pair.getAttribute(ATTR_NAME), locale, pair.getTextContent());
 						}

@@ -3,6 +3,7 @@ package chav1961.tubeinfo.references.tubes;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -37,9 +38,11 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
 import chav1961.purelib.basic.CharUtils;
+import chav1961.purelib.basic.MimeType;
 import chav1961.purelib.basic.CharUtils.RelevanceFunction;
 import chav1961.purelib.basic.Utils;
 import chav1961.purelib.basic.exceptions.ContentException;
+import chav1961.purelib.basic.exceptions.LocalizationException;
 import chav1961.purelib.basic.exceptions.SyntaxException;
 import chav1961.purelib.basic.interfaces.LoggerFacade;
 import chav1961.purelib.basic.interfaces.LoggerFacadeOwner;
@@ -164,7 +167,11 @@ public class FilterForm extends JPanel implements LoggerFacadeOwner {
 			@Override
 			public boolean verify(final JComponent input) {
 				try{
-					CharUtils.parseListRanges(abbrValue.getText(), Predicate.class);
+					final String	value = abbrValue.getText().trim();
+					
+					if (!value.isEmpty()) {
+						CharUtils.parseListRanges(value, Predicate.class);
+					}
 					return true;
 				} catch (SyntaxException exc) {
 					getLogger().message(Severity.error, exc.getLocalizedMessage());
@@ -176,7 +183,11 @@ public class FilterForm extends JPanel implements LoggerFacadeOwner {
 			@Override
 			public boolean verify(final JComponent input) {
 				try{
-					CharUtils.parseListRanges(descValue.getText(), Predicate.class);
+					final String	value = descValue.getText().trim();
+					
+					if (!value.isEmpty()) {
+						CharUtils.parsceLuceneStyledQuery(value);
+					}
 					return true;
 				} catch (SyntaxException exc) {
 					getLogger().message(Severity.error, exc.getLocalizedMessage());
@@ -228,7 +239,7 @@ public class FilterForm extends JPanel implements LoggerFacadeOwner {
 			Predicate<String>	temp;
 			
 			try {
-				temp = CharUtils.parseListRanges(abbrValue.getText(), Predicate.class);
+				temp = CharUtils.parseListRanges(abbrValue.getText().toUpperCase(), Predicate.class);
 			} catch (SyntaxException e) {
 				temp = (s)->false;
 			}
@@ -244,12 +255,12 @@ public class FilterForm extends JPanel implements LoggerFacadeOwner {
 			try {
 				temp = CharUtils.parsceLuceneStyledQuery(descValue.getText());
 			} catch (SyntaxException e) {
-				temp = (f)->0;
+				temp = (f)->1;
 			}
 			testDescr = temp;
 		}
 		else {
-			testDescr = (f)->0;
+			testDescr = (f)->1;
 		}
 		final Predicate<TubeDescriptor>[]	parms = new Predicate[model.getRowCount()];
 
@@ -276,14 +287,25 @@ public class FilterForm extends JPanel implements LoggerFacadeOwner {
 				
 				return  types2Check.contains(desc.getType()) &&
 						panels2Check.contains(desc.getPanelType().getGroup()) &&
-						testAbbr.test(desc.getAbbr()) &&
-						testDescr.test((s)->desc.getDescription()) > 0 &&
+						testAbbr.test(desc.getAbbr().toUpperCase()) &&
 						hasParameter(desc, parms) &&
+						testDescr.test((s)->fromLocalizer(desc.getLocalizer(), desc.getDescription())) > 0 &&
 						conns.test(desc.getConnectors());
 			}
+
 		};
 	}
 
+	private String fromLocalizer(final Localizer localizer, final String description) {
+		try {
+			final String 	strDesc = Utils.fromResource(localizer.getContent(description, MimeType.MIME_CREOLE_TEXT, MimeType.MIME_HTML_TEXT));
+			
+			return strDesc.substring(strDesc.indexOf("<html>"));
+		} catch (LocalizationException | IllegalArgumentException | NullPointerException | IOException e) {
+			return description;
+		}
+	}
+	
 	private static boolean testConnectors(final TubeConnector[] current, final TubeConnector[] template) {
 		final Set<TubeConnectorType>	currentSet = new HashSet<>();
 		final Set<TubeConnectorType>	templateSet = new HashSet<>();

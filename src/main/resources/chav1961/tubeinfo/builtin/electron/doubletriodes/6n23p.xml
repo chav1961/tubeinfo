@@ -20,21 +20,21 @@ Service life of at least 1000 hours.
 	    		<help name="usage">
 ===Conversion mode based on the first harmonic of the local oscillator
 
-*Voltage at the anode, V **90**
-*Resistance in the grid circuit, kOhm **100**
-*Alternating voltage on the grid, V eff. **2.5**
-*Current in the anode circuit, mA **12.5**
-*Current in the grid circuit, uA **30**
+*Anode voltage, V **90**
+*Grid resistance, kOhm **100**
+*Alternating grid voltage, V eff. **2.5**
+*Anode circuit current, mA **12.5**
+*Grid circuit current, uA **30**
 *Conversion slope, mA/V **5**
 
-===Режим преобразования по второй гармонике гетеродина
+===Conversion mode based on the second harmonic of the local oscillator
 
-*Напряжение на аноде, В **90**
-*Сопротивление в цепи сетки, кОм **100**
-*Переменное напряжение на сетке, В эф. **6**
-*Ток в цепи анода, мА **9,5**
-*Ток в цепи сетки, мА **80**
-*Крутизна преобразования, мА/В **2,5**
+*Anode voltage, V **90**
+*Grid resistance, kOhm **100**
+*Alternating grid voltage, V eff. **6**
+*Anode circuit current, mA **9.5**
+*Grid circuit current, mA **80**
+*Conversion slope, mA/V **2.5**
 
 ====LITERATURE
 
@@ -100,6 +100,14 @@ Service life of at least 1000 hours.
 			<parm name="MAX_GRID_1_RESISTANCE" number="1">1</parm>
 			<parm name="MAX_TEMPERATURE" number="1">120</parm>
 		</parms>
+		<modes>
+			<mode ref="1">
+				<parm name="FILAMENT_VOLTAGE">6.3</parm>
+			</mode>
+			<mode ref="2">
+				<parm name="ANODE_VOLTAGE">250</parm>
+			</mode>
+		</modes>
 		<scheme>
 			<parm name="p1">1</parm>
 			<parm name="p2">2</parm>
@@ -112,15 +120,10 @@ Service life of at least 1000 hours.
 			<parm name="p9">9</parm>
 		</scheme> 
 		<corpus>
-			<parm name="p1">10</parm>
-			<parm name="p2">20</parm>
-			<parm name="p3">30</parm>
+			<parm name="p1">60</parm>
+			<parm name="p2">53</parm>
+			<parm name="p3">22.5</parm>
 			<parm name="p4">40</parm>
-			<parm name="p5">50</parm>
-			<parm name="p6">60</parm>
-			<parm name="p7">70</parm>
-			<parm name="p8">80</parm>
-			<parm name="p9">90</parm>
 		</corpus> 
 		<connectors>
 			<connector number="1" type="ANODE" pin="1" pinType="ORDINAL"/>

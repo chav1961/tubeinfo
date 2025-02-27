@@ -9,6 +9,8 @@ public enum TubeParameter {
 	MYU("μ", 100, TubeParameterUnit.NONE, false),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.s",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.s.tt")
 	S("S", 100, TubeParameterUnit.MA_V, false),
+	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.cathode.resistance",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.cathode.resistance.tt")
+	CATHODE_RESISTANCE("R<sub>cat</sub>", 100, TubeParameterUnit.OHM, false),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.max.temperature",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.max.temperature.tt")
 	MAX_TEMPERATURE("t<sub>max</sub>", 100, TubeParameterUnit.CELSIUS, true),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.input.capacity",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.input.capacity.tt")
@@ -57,6 +59,8 @@ public enum TubeParameter {
 	ANODE_CURRENT("I<sub>a</sub>", 100, TubeParameterUnit.MILLIAMPER, false),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.anode.voltage",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.anode.voltage.tt")
 	ANODE_VOLTAGE("U<sub>a</sub>", 100, TubeParameterUnit.VOLT, false),
+	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.grid2.voltage",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.grid2.voltage.tt")
+	GRID2_VOLTAGE("U<sub>g2</sub>", 100, TubeParameterUnit.VOLT, false),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.max.anode.voltage",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.max.anode.voltage.tt")
 	MAX_ANODE_VOLTAGE("U<sub>a.max</sub>", 100, TubeParameterUnit.VOLT, true);
 	
