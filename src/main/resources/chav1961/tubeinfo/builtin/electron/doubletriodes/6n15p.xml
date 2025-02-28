@@ -137,16 +137,14 @@ In superheterodyne receivers, the 6N15P tube can work well as a diode detector o
 				<parm name="ANODE_VOLTAGE">26</parm>
 			</mode>
 		</modes>
-		<scheme>
+		<scheme href="root://chav1961.tubeinfo.references.interfaces.TubesType/chav1961/tubeinfo/references/interfaces/double_triode2.svg">
 			<parm name="p1">1</parm>
 			<parm name="p2">6</parm>
-			<parm name="p3">7</parm>
-			<parm name="p4">3</parm>
-			<parm name="p5">4</parm>
-			<parm name="p6">2</parm>
-			<parm name="p7">5</parm>
-			<parm name="p8">7</parm>
-			<parm name="p9">нет</parm>
+			<parm name="p3">3</parm>
+			<parm name="p4">4</parm>
+			<parm name="p5">7</parm>
+			<parm name="p6">5</parm>
+			<parm name="p7">2</parm>
 		</scheme> 
 		<corpus>
 			<parm name="p1">57</parm>

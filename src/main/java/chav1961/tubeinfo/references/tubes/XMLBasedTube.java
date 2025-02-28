@@ -153,12 +153,11 @@ public class XMLBasedTube implements TubeDescriptor, LocalizerOwner {
 				else {
 					this.scheme = loadSVG(type.getSvgURL().toURI(), psScheme);
 				}
-
 				final NodeList 			corpusRef = root.getElementsByTagName(TAG_CORPUS);
 				final ParmSubstitutor	psCorpus = new ParmSubstitutor(((Element)corpusRef.item(0)).getElementsByTagName(TAG_PARM));
 				
-				if (((Element)scheme.item(0)).hasAttribute(ATTR_HREF)) {
-					this.corpusDraw = loadSVG(URI.create(((Element)scheme.item(0)).getAttribute(ATTR_HREF)), psCorpus);
+				if (((Element)corpusRef.item(0)).hasAttribute(ATTR_HREF)) {
+					this.corpusDraw = loadSVG(URI.create(((Element)corpusRef.item(0)).getAttribute(ATTR_HREF)), psCorpus);
 				}
 				else {
 					this.corpusDraw = loadSVG(corpus.getGroup().getSvgURL().toURI(), psCorpus);
