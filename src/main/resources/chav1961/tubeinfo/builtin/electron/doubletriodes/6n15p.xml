@@ -5,10 +5,6 @@
 	    	<lang name="en">
 	    		<key name="graphic1">Anode characteristics</key>
 	    		<key name="graphic1.tt">Averaged characteristics of the dependence of the anode current and grid current on the voltage at the anode of each triode.</key>
-	    		<key name="graphic2">Anode characteristics</key>
-	    		<key name="graphic2.tt">Dynamic characteristics of the dependence of the anode current on the grid voltage at various load resistances and an anode power source voltage of 250 V.</key>
-	    		<key name="graphic3">Anode-grid characteristics</key>
-	    		<key name="graphic3.tt">Dynamic characteristics of the dependence of the anode current on the grid voltage at various load resistances and an anode power source voltage of 250 V.</key>
 	    		<help name="description">
 A high-frequency double triode with a common cathode. Designed to amplify low-frequency voltage and generate high frequency. Can be used as a high-frequency amplifier and converter in ultra-short-wave equipment.
 Indirectly heated oxide cathode.
@@ -55,10 +51,6 @@ In superheterodyne receivers, the 6N15P tube can work well as a diode detector o
 	    	<lang name="ru">
 	    		<key name="graphic1">Анодные характеристики</key>
 	    		<key name="graphic1.tt">Усредненные характеристики зависимости тока анода и тока сетки от напряжения на аноде каждого триода</key>
-	    		<key name="graphic2">Анодные характеристики</key>
-	    		<key name="graphic2.tt">Анодные характеристики</key>
-	    		<key name="graphic3">Анодно-сеточные характеристики</key>
-	    		<key name="graphic3.tt">Анодно-сеточные характеристики</key>
 	    		<help name="description">
 Двойной триод высокой частоты с общим катодом. Предназначен для усиления напряжения низкой частоты и генерирования высокой частоты. Может быть использован как усилитель высокой частоты и преобразователь в аппаратуре ультракоротковолнового диапазона.
 Катод оксидный косвенного накала.
@@ -162,9 +154,7 @@ In superheterodyne receivers, the 6N15P tube can work well as a diode detector o
 			<connector number="0" type="CATHODE" pin="7" pinType="ORDINAL"/>
 		</connectors>
 		<graphics>
-			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="../6n23p-1.png"/>
-			<graphic name="graphic2" tooltip="graphic2.tt" number="1" href="../6n23p-2.png"/>
-			<graphic name="graphic3" tooltip="graphic3.tt" number="1" href="../6n23p-3.png"/>
+			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="../6n15p-1.png"/>
 		</graphics>
 	</tube>
 </tubes>

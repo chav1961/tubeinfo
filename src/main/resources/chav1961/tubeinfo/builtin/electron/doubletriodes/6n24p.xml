@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tubes>
+	<tube type="DOUBLE_TRIODE" abbr="6Н24П" corpus="TG" panel="PIN9" description="description" usage="usage">
+	    <localizedKeys>
+	    	<lang name="en">
+	    		<key name="graphic1">Anode characteristics</key>
+	    		<key name="graphic1.tt">Average characteristics of the dependence of transconductance, internal resistance, input resistance and noise resistance on anode current at an anode voltage of 90 V.</key>
+	    		<help name="description">
+Double triode. Designed to amplify high-frequency voltage in cascode circuits of widely used radio devices.
+Indirectly heated oxide cathode.
+Works in any position.
+Available in glass finger design.
+Service life of at least 1000 hours.
+9-pin base with button bottom.
+	    		</help>	    		
+	    		<help name="usage">
+===Application modes for cascode activation (I)
+
+*Anode voltage, V **120**
+*Grid voltage of the second triode, V **60**
+*Grid voltage of the first triode, V **—0.8**
+*Current in the anode circuit, mA **8**
+*Characteristic slope, ma/v **10.5**
+*Input impedance at a frequency of 200 MHz, Ohm **425**
+*Equivalent resistance of intra-lamp noise, Ohm **375**
+
+===Application modes for cascode activation (II)
+
+*Anode voltage, V **150**
+*Grid voltage of the second triode, V **75**
+*Grid voltage of the first triode, V **—1**
+*Current in the anode circuit, mA **10**
+*Characteristic slope, ma/v **11**
+*Input impedance at a frequency of 200 MHz, Ohm **400**
+*Equivalent resistance of intra-lamp noise, Ohm **360**
+
+===Application modes for cascode activation (III)
+
+*Anode voltage, V **180**
+*Grid voltage of the second triode, V **90**
+*Grid voltage of the first triode, V **—1.25**
+*Current in the anode circuit, mA **12**
+*Characteristic slope, ma/v **11.5**
+*Input impedance at a frequency of 200 MHz, Ohm **390**
+*Equivalent resistance of intra-lamp noise, Ohm **350**
+
+Note. The bias voltage on the grid is provided by a resistance in the cathode circuit of 680 ohms when a positive voltage of about 5-7 V is applied to the grid.
+    		</help>	    		
+	    	</lang>
+	    	<lang name="ru">
+	    		<key name="graphic1">Анодные характеристики</key>
+	    		<key name="graphic1.tt">Усредненные характеристики зависимости крутизны, внутреннего сопротивления, входного сопротивления и сопротивления шумов от тока анода при напряжении на аноде 90 В</key>
+	    		<help name="description">
+Двойной триод. Предназначен для усиления напряжения высокой частоты в каскодных схемах радиотехнических устройств широкого применения.
+Катод оксидный косвенного накала.
+Работает в любом положении.
+Выпускается в стекляпном пальчиковом оформлении.
+Срок службы не менее 1000 ч.
+Цоколь 9-штырьковый с пуговичным дном.
+	    		</help>	    		
+	    		<help name="usage">
+===Режимы применения при каскодном включении (I)
+
+*Напряжение на аноде, В **120**
+*Напряжение на сетке второго триода, В **60**
+*Напряжение на сетке первого триода, В **—0.8**
+*Ток в цепи анода, мА **8**
+*Крутизна характеристики, ма/в **10,5**
+*Входное сопротивление на частоте 200 Мгц, Ом **425**
+*Эквивалентное сопротивление внутриламповых шумов, Ом **375**
+
+===Режимы применения при каскодном включении (II)
+
+*Напряжение на аноде, В **150**
+*Напряжение на сетке второго триода, В **75**
+*Напряжение на сетке первого триода, В **—1**
+*Ток в цепи анода, мА **10**
+*Крутизна характеристики, ма/в **11**
+*Входное сопротивление на частоте 200 Мгц, Ом **400**
+*Эквивалентное сопротивление внутриламповых шумов, Ом **360**
+
+===Режимы применения при каскодном включении (III)
+
+*Напряжение на аноде, В **180**
+*Напряжение на сетке второго триода, В **90**
+*Напряжение на сетке первого триода, В **—1,25**
+*Ток в цепи анода, мА **12**
+*Крутизна характеристики, ма/в **11,5**
+*Входное сопротивление на частоте 200 Мгц, Ом **390**
+*Эквивалентное сопротивление внутриламповых шумов, Ом **350**
+
+Примечание. Напряжение смещения на сетке обеспечивается сопротивлением в цепи катода 680 ом при подаче положительного напряжения на сетку порядка 5—7 в.
+	    		</help>	    		
+	    	</lang>
+	    </localizedKeys>
+		<parms>
+			<parm name="FILAMENT_CURRENT" number="1" ref="1,2,3">300</parm>
+			<parm name="ANODE_CURRENT" number="1" ref="1,2,3">15</parm>
+			<parm name="S" number="1">12.5</parm>
+			<parm name="MYU" number="1">33</parm>
+			<parm name="NOISE_RESISTANCE" number="1">0.33</parm>
+			<parm name="INPUT_RESISTANCE" number="1">0.33</parm>
+			<parm name="INPUT_CAPACITY" number="1">3.9</parm>
+			<parm name="INPUT_CAPACITY" number="2">6.3</parm>
+			<parm name="OUTPUT_CAPACITY" number="1">2</parm>
+			<parm name="OUTPUT_CAPACITY" number="2">3.2</parm>
+			<parm name="TRANSFER_CAPACITY" number="1">1.3</parm>
+			<parm name="TRANSFER_CAPACITY" number="2">0.25</parm>
+			<parm name="ANODE_ANODE_CAPACITY" number="1">0.035</parm>
+			<parm name="MIN_FILAMENT_VOLTAGE" number="1">5.7</parm>
+			<parm name="MAX_FILAMENT_VOLTAGE" number="1">7</parm>
+			<parm name="MAX_ANODE_VOLTAGE" number="1">300</parm>
+			<parm name="MAX_CATHODE_CURRENT" number="1">20</parm>
+			<parm name="POWER_DISSIPATION" number="1">1.8</parm>
+			<parm name="MAX_GRID_1_RESISTANCE" number="1">1000</parm>
+		</parms>
+		<modes>
+			<mode ref="1">
+				<parm name="FILAMENT_VOLTAGE">6.3</parm>
+			</mode>
+			<mode ref="2">
+				<parm name="ANODE_VOLTAGE">90</parm>
+			</mode>
+			<mode ref="2">
+				<parm name="CATHODE_RESISTANCE">680</parm>
+			</mode>
+		</modes>
+		<scheme href="root://chav1961.tubeinfo.references.interfaces.TubesType/chav1961/tubeinfo/references/interfaces/double_triode3.svg">
+			<parm name="p1">3</parm>
+			<parm name="p2">2</parm>
+			<parm name="p3">1</parm>
+			<parm name="p4">4</parm>
+			<parm name="p5">5</parm>
+			<parm name="p6">7,8</parm>
+			<parm name="p7">6</parm>
+			<parm name="p8">9</parm>
+		</scheme> 
+		<corpus>
+			<parm name="p1">60</parm>
+			<parm name="p2">53</parm>
+			<parm name="p3">22.5</parm>
+			<parm name="p4">40</parm>
+		</corpus> 
+		<connectors>
+			<connector number="1" type="CATHODE" pin="1" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_1" pin="2" pinType="ORDINAL"/>
+			<connector number="1" type="ANODE" pin="3" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="4" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="5" pinType="ORDINAL"/>
+			<connector number="2" type="GRID_1" pin="6" pinType="ORDINAL"/>
+			<connector number="2" type="CATHODE" pin="7" pinType="ORDINAL"/>
+			<connector number="2" type="CATHODE" pin="8" pinType="ORDINAL"/>
+			<connector number="0" type="ANODE" pin="9" pinType="ORDINAL"/>
+		</connectors>
+		<graphics>
+			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="../6n24p-1.png"/>
+		</graphics>
+	</tube>
+</tubes>
