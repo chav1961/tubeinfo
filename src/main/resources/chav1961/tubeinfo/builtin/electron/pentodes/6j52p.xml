@@ -92,13 +92,14 @@ Pin base with button bottom. Number of pins are 9.
 			<parm name="p4">43</parm>
 		</corpus> 
 		<connectors>
-			<connector number="1" type="GRID_1" pin="1" pinType="ORDINAL"/>
-			<connector number="1" type="CATHODE" pin="2" pinType="ORDINAL"/>
-			<connector number="0" type="FILAMENT" pin="3" pinType="ORDINAL"/>
+			<connector number="1" type="CATHODE" pin="1" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_1" pin="2" pinType="ORDINAL"/>
+			<connector number="1" type="CATHODE" pin="3" pinType="ORDINAL"/>
 			<connector number="0" type="FILAMENT" pin="4" pinType="ORDINAL"/>
-			<connector number="1" type="ANODE" pin="5" pinType="ORDINAL"/>
-			<connector number="1" type="GRID_2" pin="6" pinType="ORDINAL"/>
-			<connector number="1" type="GRID_3" pin="7" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="5" pinType="ORDINAL"/>
+			<connector number="1" type="ANODE" pin="7" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_3" pin="8" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_2" pin="9" pinType="ORDINAL"/>
 		</connectors>
 		<graphics>
    			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="../6j52p-1.png"/>  
