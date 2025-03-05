@@ -9,6 +9,8 @@ public enum TubeParameter {
 	MYU("μ", 100, TubeParameterUnit.NONE, false),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.s",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.s.tt")
 	S("S", 100, TubeParameterUnit.MA_V, false),
+	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.s3",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.s3.tt")
+	S3("S", 100, TubeParameterUnit.MA_V, false),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.cathode.resistance",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.cathode.resistance.tt")
 	CATHODE_RESISTANCE("R<sub>cat</sub>", 100, TubeParameterUnit.OHM, false),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.max.temperature",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.max.temperature.tt")
@@ -47,8 +49,14 @@ public enum TubeParameter {
 	ANODE_VOLTAGE("U<sub>a</sub>", 100, TubeParameterUnit.VOLT, false),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.grid2.voltage",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.grid2.voltage.tt")
 	GRID2_VOLTAGE("U<sub>g2</sub>", 100, TubeParameterUnit.VOLT, false),
+	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.grid2.current",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.grid2.current.tt")
+	GRID2_CURRENT("I<sub>g2</sub>", 100, TubeParameterUnit.VOLT, false),
+	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.input.frequency",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.input.frequency.tt")
+	INPUT_FREQUENCY("F<sub>in</sub>", 100, TubeParameterUnit.MEGAHERTZ, false),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.power.dissipation",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.power.dissipation.tt")
 	POWER_DISSIPATION("P<sub>max</sub>", 100, TubeParameterUnit.WATT, true),
+	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.power.grid2.dissipation",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.power.grid2.dissipation.tt")
+	POWER_GRID2_DISSIPATION("P<sub>g2.max</sub>", 100, TubeParameterUnit.WATT, true),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.min.grid1.resistance",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.min.grid1.resistance.tt")
 	MIN_GRID_1_RESISTANCE("R<sub>g.min</sub>", 100, TubeParameterUnit.KOHM, true),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.max.grid1.resistance",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.max.grid1.resistance.tt")
@@ -63,6 +71,8 @@ public enum TubeParameter {
 	MAX_PULSE_CATHODE_CURRENT("U<sub>c.pulse.max</sub>", 100, TubeParameterUnit.AMPER, true),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.max.anode.voltage",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.max.anode.voltage.tt")
 	MAX_ANODE_VOLTAGE("U<sub>a.max</sub>", 100, TubeParameterUnit.VOLT, true),
+	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.max.grid2.voltage",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.max.grid2.voltage.tt")
+	MAX_GRID2_VOLTAGE("U<sub>g2.max</sub>", 100, TubeParameterUnit.VOLT, true),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.max.cathode.filament.voltage",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.max.cathode.filament.voltage.tt")
 	MAX_CATHODE_FILAMENT_VOLTAGE("U<sub>c/f.max</sub>", 100, TubeParameterUnit.VOLT, true);
 	

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Created with "sPlan" (http://www.abacom-online.de) -->
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="251" height="235">
-<title>pentode</title>
+<title>pentode 2</title>
 <defs>
 <style type="text/css">
 <![CDATA[
@@ -32,11 +32,12 @@ circle {stroke-linecap:round; stroke-linejoin:round}
 <polyline points="80.00 130.00 90.00 130.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
 <polyline points="100.00 130.00 110.00 130.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
 <polyline points="120.00 130.00 130.00 130.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
-<polyline points="135.00 145.00 145.00 135.00 145.00 100.00 140.00 100.00" fill="none" stroke="rgb(0,0,0)" stroke-width="1" />
+<polyline points="140.00 100.00 180.00 100.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
 <text x="45.00" y="104.00" font-family ="Arial" font-size ="17pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">${p1}</text>
 <text x="45.00" y="149.00" font-family ="Arial" font-size ="17pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">${p2}</text>
 <text x="50.00" y="184.00" font-family ="Arial" font-size ="17pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">${p3}</text>
 <text x="95.00" y="184.00" font-family ="Arial" font-size ="17pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">${p4}</text>
 <text x="135.00" y="184.00" font-family ="Arial" font-size ="17pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">${p5}</text>
 <text x="120.00" y="59.00" font-family ="Arial" font-size ="17pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">${p6}</text>
+<text x="160.00" y="90.00" font-family ="Arial" font-size ="17pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">${p7}</text>
 </svg>

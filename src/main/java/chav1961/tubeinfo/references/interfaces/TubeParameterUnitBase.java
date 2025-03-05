@@ -8,5 +8,6 @@ public enum TubeParameterUnitBase {
 	PICOFARADA,
 	A_V,
 	CELSIUS,
+	HERTZ,
 	WATT;	
 }

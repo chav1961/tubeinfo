@@ -101,6 +101,8 @@
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.myu.tt">Gain</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.s">Slope</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.s.tt">Slope</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.s3">Grid 3 slope</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.s3.tt">Grid 3 slope</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.cathode.resistance">Resistance in the cathode circuit</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.cathode.resistance.tt">Resistance in the cathode circuit</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.temperature">Max temperature</key>
@@ -131,6 +133,8 @@
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.internal.resistance.tt">Internal impedance</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.power.dissipation">Anode power dissipation</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.power.dissipation.tt">Anode power dissipation</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.power.grid2.dissipation">Grid 2 power dissipation</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.power.grid2.dissipation.tt">Grid 2 power dissipation</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.min.grid1.resistance">Minimum resistance in grid circuit 1</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.min.grid1.resistance.tt">Minimum resistance in grid circuit 1</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.grid1.resistance">Maximum resistance in grid circuit 1</key>
@@ -149,12 +153,18 @@
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.pulse.cathode.current.tt">Maximum pulse cathode current</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.anode.current">Anode current</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.anode.current.tt">Anode current</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.grid2.current">Grid 2 current</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.grid2.current.tt">Grid 2 current</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.input.frequency">Input frequency</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.input.frequency.tt">Input frequency</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.anode.voltage">Anode voltage</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.anode.voltage.tt">Anode voltage</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.grid2.voltage">Second grid voltage</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.grid2.voltage.tt">Second grid voltage</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.anode.voltage">Anode voltage</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.anode.voltage.tt">Anode voltage</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.grid2.voltage">Grid 2 voltage</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.grid2.voltage.tt">Grid 2 voltage</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.cathode.filament.voltage">Cathode-filament voltage</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.cathode.filament.voltage.tt">Cathode-filament voltage</key>
 		
@@ -184,6 +194,8 @@
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameterUnit.ma_v.tt">Milliampere/volt</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameterUnit.celsius">С</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameterUnit.celsius.tt">Celsius degree</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameterUnit.megahertz">MHz</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameterUnit.megahertz.tt">MegaHertz</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameterUnit.watt">W</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameterUnit.watt.tt">Watt</key>
 		
@@ -295,6 +307,8 @@
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.myu.tt">Коэффициент усиления</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.s">Крутизна</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.s.tt">Крутизна</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.s3">Крутизна по третьей сетке</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.s3.tt">Крутизна по третьей сетке</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.cathode.resistance">Сопротивленив в цепи катода</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.cathode.resistance.tt">Сопротивленив в цепи катода</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.temperature">Макс.температура</key>
@@ -325,6 +339,8 @@
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.internal.resistance.tt">Внутреннее сопротивление</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.power.dissipation">Рассеиваемая мощность анода</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.power.dissipation.tt">Рассеиваемая мощность анода</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.power.grid2.dissipation">Рассеиваемая мощность сетки 2</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.power.grid2.dissipation.tt">Рассеиваемая мощность сетки 2</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.min.grid1.resistance">Минимальное сопротивление в цепи сетки 1</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.min.grid1.resistance.tt">Минимальное сопротивление в цепи сетки 1</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.grid1.resistance">Максимальное сопротивление в цепи сетки 1</key>
@@ -343,12 +359,18 @@
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.pulse.cathode.current.tt">Максимальный ток катода в импульсе</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.anode.current">Ток анода</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.anode.current.tt">Ток анода</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.grid2.current">Ток второй сетки</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.grid2.current.tt">Ток второй сетки</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.input.frequency">Входная частота</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.input.frequency.tt">Входная частота</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.anode.voltage">Напряжение анода</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.anode.voltage.tt">Напряжение анода</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.grid2.voltage">Напряжение второй сетки</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.grid2.voltage.tt">Напряжение второй сетки</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.anode.voltage">Напряжение анода</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.anode.voltage.tt">Напряжение анода</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.grid2.voltage">Напряжение сетки 2</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.grid2.voltage.tt">Напряжение сетки 2</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.cathode.filament.voltage">Напряжение катод-подогреватель</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.cathode.filament.voltage.tt">Напряжение катод-подогреватель</key>
 
@@ -378,6 +400,8 @@
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameterUnit.ma_v.tt">Миллиампер/вольт</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameterUnit.celsius">С</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameterUnit.celsius.tt">Градус Цельсия</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameterUnit.megahertz">Мгц</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameterUnit.megahertz.tt">Мегагерц</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameterUnit.watt">W</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameterUnit.watt.tt">Ватт</key>
 

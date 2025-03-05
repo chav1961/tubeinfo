@@ -31,6 +31,8 @@ public enum TubeParameterUnit {
 	MA_V(TubeParameterUnitBase.A_V, 1.0f),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameterUnit.celsius",tooltip="chav1961.tubeinfo.references.tubes.tubeParameterUnit.celsius.tt")
 	CELSIUS(TubeParameterUnitBase.CELSIUS, 1.0f),
+	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameterUnit.megahertz",tooltip="chav1961.tubeinfo.references.tubes.tubeParameterUnit.megahertz.tt")
+	MEGAHERTZ(TubeParameterUnitBase.HERTZ, 1000000.0f),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameterUnit.watt",tooltip="chav1961.tubeinfo.references.tubes.tubeParameterUnit.watt.tt")
 	WATT(TubeParameterUnitBase.WATT, 1.0f);
 	

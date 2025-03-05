@@ -99,15 +99,10 @@ The schemes for using the 6N2P lamp and the 6N9S lamp are the same.
 			<parm name="p9">9</parm>
 		</scheme> 
 		<corpus>
-			<parm name="p1">10</parm>
-			<parm name="p2">20</parm>
-			<parm name="p3">30</parm>
+			<parm name="p1">60</parm>
+			<parm name="p2">53</parm>
+			<parm name="p3">22.5</parm>
 			<parm name="p4">40</parm>
-			<parm name="p5">50</parm>
-			<parm name="p6">60</parm>
-			<parm name="p7">70</parm>
-			<parm name="p8">80</parm>
-			<parm name="p9">90</parm>
 		</corpus> 
 		<connectors>
 			<connector number="1" type="ANODE" pin="1" pinType="ORDINAL"/>

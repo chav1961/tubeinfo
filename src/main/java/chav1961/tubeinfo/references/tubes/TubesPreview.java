@@ -197,25 +197,23 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 	}
 	
 	private String buildModeDescriptor(final TubeDescriptor desc) {
-		final StringBuilder	sb = new StringBuilder("<html><body><ol>");
+		final StringBuilder	sb = new StringBuilder("<html><body><p>");
 		
 		for(int index = 0; index < desc.numberOfModes(); index++) {
 			final TubeParameter[]	p = desc.getMode(index);
 			final float[]			v = desc.getModeValue(index);
 			
-			sb.append("<li>");			
 			for(int pIndex = 0; pIndex < p.length; pIndex++) {
-				sb.append(p[pIndex].getAbbr()).append(" = ").append(v[pIndex]);
+				sb.append(index+1).append("). <b>").append(p[pIndex].getAbbr()).append("</b> = ").append(v[pIndex]).append(' ');
 				try {
 					sb.append(localizer.getValue(TubeParameterUnit.class.getField(p[pIndex].getUnit().name()).getAnnotation(LocaleResource.class).value()));
 				} catch (LocalizationException | NoSuchFieldException e) {
 					e.printStackTrace();
 				}
-				sb.append(" ");
+				sb.append("&nbsp;&nbsp;&nbsp;");
 			}
-			sb.append("</li>");
 		}
-		return sb.append("</ol></body></html>").toString();
+		return sb.append("</p></body></html>").toString();
 	}
 
 	private Collection<NamedValue<Float>> buildList(final TubeParameter[] parameters, final float[] values, final boolean isMaximum) {
