@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tubes>
+	<tube type="PENTODE" abbr="6П14П" corpus="TG" panel="PIN9" description="description" usage="usage">
+	    <localizedKeys>
+	    	<lang name="en">
+	    		<key name="graphic1">Load characteristics</key>
+	    		<key name="graphic1.tt">Averaged characteristics of the dependence of the main parameters on the load resistance at a voltage on the anode and the second grid of 250 V, a voltage on the first grid of -6 V and an alternating signal voltage on the first grid of 3.4 V eff.</key>
+	    		<key name="graphic2">Anode-grid characteristics</key>
+	    		<key name="graphic2.tt">Averaged characteristics of the dependence of the anode current and the second grid current on the voltage on the first grid.</key>
+	    		<key name="graphic3">Load characteristics</key>
+	    		<key name="graphic3.tt">Averaged characteristics of the dependence of the main parameters on the alternating voltage on the first grid with a voltage on the anode and the second grid of 250 V, a bias voltage of -6 V and a load resistance of 2500 Ohm.</key>
+	    		<key name="graphic4">Anode characteristics</key>
+	    		<key name="graphic4.tt">Averaged characteristics of the dependence of the anode current and the second grid current on the anode voltage at a voltage on the second grid of 250 V.</key>
+	    		<key name="graphic5">Scheme 1</key>
+	    		<key name="graphic5.tt">Single-ended output stage of the power amplifier</key>
+	    		<key name="graphic6">Scheme 2</key>
+	    		<key name="graphic6.tt">Push-pull output stage of the power amplifier</key>
+	    		<help name="description">
+Output pentode.
+Designed to amplify low frequency power.
+Used in single-stroke and push-pull output circuits of receivers and low frequency amplifiers.
+Works in any position.
+Manufactured in a glass finger design.
+Service life of at least 1000 hours.
+Pin base with button bottom. Number of pins are 9.
+	    		</help>	    		
+	    		<help name="usage">
+The use of the 6P14P lamp in combination with the 6ZhZP lamp (see graphs, diagram 1)
+gives good results. The frequency response in this case
+has limits from 40 to 8000 Hz with increases at frequencies of 70 and 7000 Hz.
+
+The output power at an anode voltage of 300 V and a screen grid voltage of 275 V has a power of about 5 W. The high gain of the circuit allows 
+to exclude the shunt capacitor from the cathode circuit, which additionally 
+introduces negative current feedback. Due to the small voltage drop 
+on the cathode resistor of the 6P14P lamp (only 6 V), this 
+resistance can be used with a power of 0.5 W.
+
+The output transformer (see graphs, diagram 1) has the following data:
+winding I - 2500 turns of PE wire O.16 mm: winding II - 61 turns of wire PSHD 1.2 mm, 
+Iron square 6.25 cm2.
+
+The output transformer (see graphs, diagram 2) has the following data:
+winding I - 2 x 1500 turns of PE wire O.16 mm: winding II - 140
+turns of PE wire 0.7 mm for a load of 16 ohms, Iron cross-section 6.25 cm2.
+The output power of the amplifier with a harmonic coefficient of 1.5% is 12 W.
+
+==== LITERATURE
+
+*Azatyan A., Output pentode 6P14P, "Radio", 1958, No. 1
+*Azatyan A., Pentode 6P14P in the final stage, "Radio", 1958, No. 4
+*Moshchakov V., Two-channel amplifier, "Radio", 1961, No. 5
+*Pyshkin. E, Replacing the 6P14P tube with an EL-84 and 6Ts10P with a 6D14P, "Radio", 1964, No. 6
+*Smirnov V, High-quality amplifier, "Radio", 1960, No. 9
+*Shalimov I.. Transmitter for "fox hunting", "Radio", 1962, No. 11
+*Yuzhin A, Radio station IA 144-146 MHz, "Radio", 1960, No. 4
+				</help>	    		
+	    	</lang>
+	    	<lang name="ru">
+	    		<key name="graphic1">Нагрузочные характеристики</key>
+	    		<key name="graphic1.tt">Усредненные характеристики зависимости основных параметров от сопротивления нагрузки при напряжении на аноде и второй сетке 250 В, напряжении на первой сетке -6 В и переменном напряжении сигнала на первой сетке 3.4 В эфф.</key>
+	    		<key name="graphic2">Анодно-сеточные характеристики</key>
+	    		<key name="graphic2.tt">Усредненные характеристики зависимости тока анода и тока второй сетки от напряжения на первой сетке.</key>
+	    		<key name="graphic3">Нагрузочные характеристики</key>
+	    		<key name="graphic3.tt">Усредненные характеристики зависимости основных параметров от переменного напряжения на первой сетке при напряжении на аноде и второй сетке 250 В, напряжении смещения -6 В и сопротивлении нагрузки 2500 Ом.</key>
+	    		<key name="graphic4">Анодные характеристики</key>
+	    		<key name="graphic4.tt">Усредненные характеристики зависимости тока анода и отка второй сетки от напряжения на аноде при напряжении на второй сетке 250 В.</key>
+	    		<key name="graphic5">Схема 1</key>
+	    		<key name="graphic5.tt">Однотактный выходной каскад УНЧ</key>
+	    		<key name="graphic6">Схема 2</key>
+	    		<key name="graphic6.tt">Двухтактный выходной каскад УНЧ</key>
+	    		<help name="description">
+Выходной пентод.
+Предназначен для усиления мощности низкой частоты.
+Применяется в выходных однотактных и двухтактных схемах приемников и усилителей низкой частоты.
+Работает в любом положении.
+Выпускается в стеклянном пальчиковом оформлении.
+Срок службы не менее 1000 часов.
+Цоколь штырьковый с пуговичным дном. Штырьков 9.
+	    		</help>	    		
+	    		<help name="usage">
+Применение лампы 6П14П в сочетании с лампой 6ЖЗП (см графики, схема 1)
+дает хорошие результаты. Частотная характеристика в этом случае
+имеет пределы от 40 до 8000 гц с подъемами на частотах 70 и 7000 гц.
+
+Выходная мощность при напряжении на аноде 300 в и на экранной сетке
+275 В имеет мощность порядка 5 Вт. Большое усиление схемы позволяет
+исключить из цепи катода шунтирующий конденсатор, чем дополнительно 
+вводится отрицательная обратная связь по току. За счет малого падения 
+напряжения на катодном резисторе лампы 6П14П (всего 6 В) это 
+сопротивление можно применять мощностью 0,5 Вт.
+
+Выходной трансформатор (см графики, схема 1) имеет следующие данные:
+обмотка I - 2500 витков провода ПЭ О.16 мм: обмотка II — 61 
+виток провода ПШД 1.2 мм, Железо сечением 6.25 см2.
+
+Выходной трансформатор (см графики, схема 2) имеет следующие данные:
+обмотка I - 2 х 1500 витков провода ПЭ О.16 мм: обмотка II — 140 
+виток провода ПЭ 0.7 мм для нагрузки в 16 ом, Железо сечением 6.25 см2.
+Выходная мощность усилителя при козффициевте гармоник 1,5% равна 12 Вт.
+
+==== ЛИТЕРАТУРА
+
+*Азатьян А., Выходной пентод 6П14П, «Радио», 1958, № 1
+*Азатьян А., Пентод 6П14П в оконечном каскаде, «Радио», 1958, № 4
+*Мощаков В., Двухканальный усилитель, «Радио», 1961, № 5
+*Пышкин. Е, Замена лампы 6П14П на EL-84 и 6Ц10П на 6Д14П, «Радио», 1964, № 6
+*Смирнов В, Высококачественный усилитель, «Радио», 1960, № 9
+*Шалимов И.. Передатчик для «охоты на лис», «Радио», 1962, № 11
+*Южин А, Радиостанция иа 144-146 Мгц, «Радио», 1960, № 4
+	    		</help>	    		
+	    	</lang>
+	    </localizedKeys>
+		<parms>
+			<parm name="FILAMENT_CURRENT" number="1" ref="1,2,3,4">760</parm>
+			<parm name="ANODE_CURRENT" number="1" ref="1,2,3,4">48</parm>
+			<parm name="GRID2_CURRENT" number="1">7</parm>
+			<parm name="S" number="1">11.3</parm>
+			<parm name="MYU" number="1">20</parm>
+			<parm name="MIN_FILAMENT_VOLTAGE" number="1">5.7</parm>
+			<parm name="MAX_FILAMENT_VOLTAGE" number="1">6.9</parm>
+			<parm name="MAX_ANODE_VOLTAGE" number="1">300</parm>
+			<parm name="MAX_GRID2_VOLTAGE" number="1">300</parm>
+			<parm name="MAX_CATHODE_CURRENT" number="1">66</parm>
+			<parm name="POWER_DISSIPATION" number="1">12</parm>
+			<parm name="POWER_GRID2_DISSIPATION" number="1">2</parm>
+			<parm name="MAX_CATHODE_FILAMENT_VOLTAGE" number="1">100</parm>
+			<parm name="MAX_GRID_1_RESISTANCE" number="1">1000</parm>
+		</parms>
+		<modes>
+			<mode ref="1">
+				<parm name="FILAMENT_VOLTAGE">6.3</parm>
+			</mode>
+			<mode ref="2">
+				<parm name="ANODE_VOLTAGE">250</parm>
+			</mode>
+			<mode ref="3">
+				<parm name="GRID2_VOLTAGE">250</parm>
+			</mode>
+			<mode ref="4">
+				<parm name="CATHODE_RESISTANCE">120</parm>
+			</mode>
+		</modes>
+		<scheme>
+			<parm name="p1">9</parm>
+			<parm name="p2">2</parm>
+			<parm name="p3">3</parm>
+			<parm name="p4">4</parm>
+			<parm name="p5">5</parm>
+			<parm name="p6">7</parm>
+		</scheme> 
+		<corpus>
+			<parm name="p1">78</parm>
+			<parm name="p2">73</parm>
+			<parm name="p3">22.5</parm>
+			<parm name="p4">66</parm>
+		</corpus> 
+		<connectors>
+			<connector number="1" type="GRID_1" pin="2" pinType="ORDINAL"/>
+			<connector number="1" type="CATHODE" pin="3" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="4" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="5" pinType="ORDINAL"/>
+			<connector number="1" type="ANODE" pin="7" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_2" pin="9" pinType="ORDINAL"/>
+		</connectors>
+		<graphics>
+   			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="../6p14p-1.png"/>  
+   			<graphic name="graphic2" tooltip="graphic2.tt" number="1" href="../6p14p-2.png"/>  
+   			<graphic name="graphic3" tooltip="graphic3.tt" number="1" href="../6p14p-3.png"/>  
+   			<graphic name="graphic4" tooltip="graphic4.tt" number="1" href="../6p14p-4.png"/>  
+   			<graphic name="graphic5" tooltip="graphic5.tt" number="1" href="../6p14p-5.png"/>  
+   			<graphic name="graphic6" tooltip="graphic6.tt" number="1" href="../6p14p-6.png"/>  
+		</graphics>
+	</tube>
+</tubes>

@@ -41,7 +41,7 @@ The 6P15P pentode is an analogue of the 6P9 pentode, so they are interchangeable
 			<parm name="ANODE_CURRENT" number="1" ref="1,2,3,4">30</parm>
 			<parm name="GRID2_CURRENT" number="1">4.5</parm>
 			<parm name="S" number="1">14.7</parm>
-			<parm name="INTERNAL_RESISTANCE" number="1" ref="5">100</parm>
+			<parm name="INTERNAL_RESISTANCE" number="1">100</parm>
 			<parm name="INPUT_CAPACITY" number="1">13.5</parm>
 			<parm name="OUTPUT_CAPACITY" number="1">7</parm>
 			<parm name="TRANSFER_CAPACITY" number="1">0.07</parm>
