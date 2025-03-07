@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tubes>
+	<tube type="HEPTODE" abbr="6А2П" corpus="TG" panel="PIN7" description="description" usage="usage">
+	    <localizedKeys>
+	    	<lang name="en">
+	    		<key name="graphic1">Anode characteristics</key>
+	    		<key name="graphic1.tt">Averaged characteristics of the dependence of the anode current on the anode voltage at a voltage on the first grid of 0 V.</key>
+	    		<key name="graphic2">Anode-grid characteristics</key>
+	    		<key name="graphic2.tt">Averaged characteristics of the increase in the anode current and the slope of the heterodyne characteristic from the voltage on the first grid at a voltage on the anode, second and fourth grids of 100 V, and a voltage on the third grid of 0 V.</key>
+	    		<key name="graphic3">Application diagram</key>
+	    		<key name="graphic3.tt">Scheme of application of the 6A2P lamp as a converter with a heterodyne, made according to a three-point scheme.</key>
+	    		<help name="description">
+Heptode converter.
+Designed for frequency conversion.
+Used in super-heterodyne receivers and measuring equipment for network power supply.
+Indirectly heated oxide cathode.
+Works in any position.
+Manufactured in a glass finger design.
+Service life of at least 500 hours.
+7-pin base with a button bottom.
+	    		</help>	    		
+	    		<help name="usage">
+It is recommended to use the 6A2P heptode according to the circuit shown in the figure (see graphs). 
+The anode of the heterodyne is the second and fourth grids, which are grounded at high frequency by 
+a capacitor of at least 0.25 μF. Between the cathode and the chassis, the high-frequency voltage 
+should be within 1.4-2.2 V. The voltage should be measured by devices such as VKS-7 or VLU-2.
+
+The correctness of the mode that provides the greatest steepness of the conversion is best 
+checked by the value of the local oscillator grid current from the grounded end of the wire; 
+a DC milliammeter should be connected to the break in the wire at point A. When rebuilding the 
+local oscillator within the boundaries of any range, the first grid current should be within 0.4-0.8 mA.
+
+In a three-point circuit, with a correctly selected mode and optimal tap of the heterodyne circuit, its 
+frequency depends very little on changes in supply voltages, in connection with which there is no need 
+to stabilize the supply voltages of the heterodyne in the frequency range up to 30 MHz. The 6A2P heptode 
+can also operate in the ultra-short-wave frequency range.
+
+The 6A2P heptode is interchangeable with a similar 6A7 or 6A10 heptode. To do this, you need to replace 
+the tube socket, and then adjust the heterodyne circuits.
+
+==== LITERATURE
+
+*Car receiver, "Radio", 1956, No. 9
+*Mixer device, "Radio", 1963, No. 9
+*New radio tubes, "Radio", 1952, No. 10
+*Radio "Estonia", "Radio", 1956, No. 7.
+*Shatukh I., Portable combination device, "Radio", 1958, No. 10
+    		</help>	    		
+	    	</lang>
+	    	<lang name="ru">
+	    		<key name="graphic1">Анодные характеристики</key>
+	    		<key name="graphic1.tt">Усредненные характеристики зависимости тока анода от напряжения на аноде при напряжениина первой сетке 0 В.</key>
+	    		<key name="graphic2">Анодно-сеточные характеристики</key>
+	    		<key name="graphic2.tt">Усредненные характеристики завысимости тока анода и крутизны характеристики гетеродина от напряжения на первой сетке при напряжении на аноде, второй и четвертой сетках 100 В, напряжении на третьей сетке 0 В.</key>
+	    		<key name="graphic3">Схема применения</key>
+	    		<key name="graphic3.tt">Схема применения лампы 6А2П в качестве преобразователя с гетеродином, выполненным по трехточечной схеме.</key>
+	    		<help name="description">
+Гептод-преобразователь.	    		
+Предназначен дя преобразования частоты.
+Применяется в супергетеродинных приемниках и измерительной аппаратуре сетевого питания.
+Катод оксидный косвенного накала.
+Работает в любом положении.
+Выпускается в стеклянном пальчиковом оформлении.
+Срок службы не менее 500 ч.
+Цоколь 7 штырьковый с пуговичным дном.
+	    		</help>	    		
+	    		<help name="usage">
+Гептод 6А2П рекомендуется использовать по схеме, изображенной
+на раисунке (см графики). Анодом гетеродина являются вторая и четвертая сетки,
+которые по высокой частоте заземляются конденсатором величиной не менее 0,25 мкф.
+Между катодом и шасси напряжение высокой частоты должно быть в пределах 1,4—2,2 В.
+Напряжение должно измеряться приборами типа ВКС-7 или ВЛУ-2.
+ 
+Правильность режима, обеспечивающего наибольшую крутизну преобразования, лучше 
+всего проверять по величине тока сетки гетеродина со стороны заземленного конца
+в разрыв провода в точке А нужно включить миллиамперметр постоянного тока. 
+При перестройке гетеродина в границах любого диапазона ток первой сетки должен
+быть в пределах 0,4-0,8 мА.
+
+В трехточечной схеме при правильно подобранном режиме и оптимальном отводе контура
+гетеродина частота его очень мало зависит от изменения питающих напряжений, в связи
+с чем отпадает стабилизация питающих напряжений гетеродина в диапазоне частот вплоть
+до 30 мГц Гептод 6А2П может также работать в ультракоротковолновом диапазоне частот.
+
+Гептод 6А2П взаимозаменяемый аналогичным гептодом 6А7 или 6А10. Для этого необходимо заменить ламповую панельку, а затем
+подстроить контуры гетеродина.
+
+==== ЛИТЕРАТУРА
+
+*Автомобильный приемник, «Радио», 1956, № 9
+*Микшерное устройство, «Радио», 1963, № 9
+*Новые радиолампы, «Радио», 1952, № 10
+*Радиола «Эстония», «Радио», 1956, № 7.
+*Шатух И., Портативный комбинированный прибор, «Радио», 1958, № 10
+	    		</help>	    		
+	    	</lang>
+	    </localizedKeys>
+		<parms>
+			<parm name="FILAMENT_CURRENT" number="1" ref="1,2,3">300</parm>
+			<parm name="ANODE_CURRENT" number="1" ref="1,2,3">3</parm>
+			<parm name="GRID2_CURRENT" number="1" ref="1,2,3">7</parm>
+			<parm name="GRID_LEAK_CURRENT" number="1">500</parm>
+			<parm name="S" number="1">4.5</parm>
+			<parm name="INTERNAL_RESISTANCE" number="1">800</parm>
+			<parm name="INPUT_CAPACITY" number="1">7</parm>
+			<parm name="OUTPUT_CAPACITY" number="1">8.6</parm>
+			<parm name="TRANSFER_CAPACITY" number="1">0.3</parm>
+			<parm name="MIN_FILAMENT_VOLTAGE" number="1">5.7</parm>
+			<parm name="MAX_FILAMENT_VOLTAGE" number="1">6.9</parm>
+			<parm name="MAX_ANODE_VOLTAGE" number="1">330</parm>
+			<parm name="MAX_GRID2_VOLTAGE" number="1">110</parm>
+			<parm name="MIN_GRID_1_RESISTANCE" number="1">20</parm>
+			<parm name="MAX_GRID_1_RESISTANCE" number="1">0.5</parm>
+			<parm name="POWER_DISSIPATION" number="1">1.1</parm>
+			<parm name="POWER_GRID2_DISSIPATION" number="1">1.1</parm>
+			<parm name="MAX_CATHODE_FILAMENT_VOLTAGE" number="1">100</parm>
+		</parms>
+		<modes>
+			<mode ref="1">
+				<parm name="FILAMENT_VOLTAGE">6.3</parm>
+			</mode>
+			<mode ref="2">
+				<parm name="ANODE_VOLTAGE">250</parm>
+			</mode>
+			<mode ref="3">
+				<parm name="GRID2_VOLTAGE">100</parm>
+			</mode>
+		</modes>
+		<scheme>
+			<parm name="p1">7</parm>
+			<parm name="p2">1</parm>
+			<parm name="p3">3</parm>
+			<parm name="p4">4</parm>
+			<parm name="p5">2</parm>
+			<parm name="p6">6</parm>
+			<parm name="p7">5</parm>
+		</scheme> 
+		<corpus>
+			<parm name="p1">57</parm>
+			<parm name="p2">50</parm>
+			<parm name="p3">19</parm>
+			<parm name="p4">49</parm>
+		</corpus> 
+		<connectors>
+			<connector number="1" type="GRID_1" pin="1" pinType="ORDINAL"/>
+			<connector number="1" type="CATHODE" pin="2" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="3" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="4" pinType="ORDINAL"/>
+			<connector number="1" type="ANODE" pin="5" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_2" pin="6" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_3" pin="7" pinType="ORDINAL"/>
+		</connectors>
+		<graphics>
+			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="../6a2p-1.png"/>
+			<graphic name="graphic2" tooltip="graphic2.tt" number="1" href="../6a2p-2.png"/>
+			<graphic name="graphic3" tooltip="graphic3.tt" number="1" href="../6a2p-3.png"/>
+		</graphics>
+	</tube>
+</tubes>
