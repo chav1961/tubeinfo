@@ -26,7 +26,7 @@ public enum TubesType {
 	@LocaleResource(value="chav1961.tubeinfo.references.interfaces.tubesType.doublePentode",tooltip="chav1961.tubeinfo.references.interfaces.tubesType.doublePentode.tt",icon="doublePentode.png")
 	DOUBLE_PENTODE(1, 2, "double_triode.svg"),
 	@LocaleResource(value="chav1961.tubeinfo.references.interfaces.tubesType.triodePentode",tooltip="chav1961.tubeinfo.references.interfaces.tubesType.triodePentode.tt",icon="triodePentode.png")
-	TRIODE_PENTODE(2, 1, "double_triode.svg"),
+	TRIODE_PENTODE(2, 1, "triode_pentode.svg"),
 	@LocaleResource(value="chav1961.tubeinfo.references.interfaces.tubesType.heptode",tooltip="chav1961.tubeinfo.references.interfaces.tubesType.heptode.tt",icon="heptode.png")
 	HEPTODE(1, 1, "heptode.svg"),
 	@LocaleResource(value="chav1961.tubeinfo.references.interfaces.tubesType.triodeHeptode",tooltip="chav1961.tubeinfo.references.interfaces.tubesType.triodeHeptode.tt",icon="triodeHeptode.png")

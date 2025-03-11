@@ -265,9 +265,11 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 				if (index < desc.getType().getNumberOfLampTypes()) {
 					final Graphic[]	g = desc.getGraphics(index+1);
 					
-					for(int gIndex = 0; gIndex < graphics[index].length; gIndex++) {
-						graphics[index][gIndex].setText(localizer.getValue(g[gIndex].getTitle()));
-						graphics[index][gIndex].setToolTipText(localizer.getValue(g[gIndex].getTooltip()));
+					if (graphics[index] != null) {
+						for(int gIndex = 0; gIndex < graphics[index].length; gIndex++) {
+							graphics[index][gIndex].setText(localizer.getValue(g[gIndex].getTitle()));
+							graphics[index][gIndex].setToolTipText(localizer.getValue(g[gIndex].getTooltip()));
+						}
 					}
 				}
 			}
