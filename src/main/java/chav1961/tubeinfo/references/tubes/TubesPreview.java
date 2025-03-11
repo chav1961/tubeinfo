@@ -171,7 +171,7 @@ class TubesPreview extends JPanel implements LocaleChangeListener {
 						this.graphics[index][gIndex] = label;
 						gallery.add(label);
 					}
-					tabArea.addTab("", gallery);
+					tabArea.addTab("", new JScrollPane(gallery));
 					tabDesc.add(new TabDesc(tabNo++, TabType.GRAPHICS, index+1));
 				}
 			}

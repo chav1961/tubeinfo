@@ -3,53 +3,45 @@
 	<tube type="TRIODE_PENTODE" abbr="6Ф12П" corpus="TG" panel="PIN9" description="description" usage="usage">
 	    <localizedKeys>
 	    	<lang name="en">
-	    		<key name="graphic1">Anode characteristics</key>
-	    		<key name="graphic1.tt">Averaged characteristics of the dependence of the anode current and the second grid current on the voltage at the anode at a voltage on the second grid of 120 V.</key>
+	    		<key name="graphic1">Anode characteristics of a triode</key>
+	    		<key name="graphic1.tt">Averaged characteristics of the dependence of the anode current on the anode voltage</key>
+	    		<key name="graphic2">Anode-grid characteristics of the triode</key>
+	    		<key name="graphic2.tt">Averaged characteristics of the dependence of the anode current and the slope of the characteristic on the voltage on the first grid</key>
+	    		<key name="graphic3">Anode characteristics of a pentode</key>
+	    		<key name="graphic3.tt">Averaged characteristics of the dependence of the anode current on the anode voltage at a voltage on the second grid of 150 V</key>
+	    		<key name="graphic4">Anode-grid characteristics of a pentode</key>
+	    		<key name="graphic4.tt">Averaged characteristics of the dependence of the anode current and the slope of the characteristic on the voltage on the first grid at an anode voltage of 150 V</key>
 	    		<help name="description">
-High frequency pentode with short response. 
-Designed for broadband high frequency voltage amplification.
-It is used in ultra-short wave and television equipment.
+High frequency pentode with short characteristic.
+The main purpose is to work in frequency-converting stages and high-frequency and low-frequency voltage amplifiers in devices of wide application.
 Indirectly heated oxide cathode.
 Works in any position.
-Available in glass finger design.
-Service life of at least 500 hours.
-Pin base with button bottom. Number of pins are 7.
-	    		</help>	    		
+Produced in glass finger design.
+Service life is not less than 2000 hours.
+Pin base with button bottom. Pins 9.
+				</help>	    		
 	    		<help name="usage">
-==== LITERATURE
-	    		
-*Bogosyan A., Receiver at 28-29.7 MHz, “Radio”, 1961, No. 5.
-*Vasilishchenko V., Amateur VHF receiver, “Radio”, 1955, No. 3.
-*Gumelya V., HF path of combined receivers, “Radio”, 1955, No. 3.
-*Dzhunkovsky G., Converter KPK-1, “Radio”, 1960, No. 5.
-*Dzhunkovsky G., High frequency amplifier, “Radio”, 1964, No. 12.
-*Sharkatov S. et al., Broadband antenna amplifier, “Radio”, 1961 No. 10.
-*Ephrussi Y., Intermediate frequency amplifier of the TV output circuit, “Radio”, 1956, No. 8.    			
-			</help>	    		
+				</help>	    		
 	    	</lang>
 	    	<lang name="ru">
-	    		<key name="graphic1">Анодные характеристики</key>
-	    		<key name="graphic1.tt">Усредненные характеристики зависимости тока анода и тока второй сетки от напряжения на аноде при напряжении на второй сетке 120 В</key>
+	    		<key name="graphic1">Анодные характеристики триода</key>
+	    		<key name="graphic1.tt">Усредненные характеристики зависимости тока анода от напряжения на аноде</key>
+	    		<key name="graphic2">Анодно-сеточные характеристики триода</key>
+	    		<key name="graphic2.tt">Усредненные характеристики зависимости тока анода и крутизны хакатеристики от напряжения на первой сетке</key>
+	    		<key name="graphic3">Анодные характеристики пентода</key>
+	    		<key name="graphic3.tt">Усредненные характеристики зависимости тока анода от напряжения на аноде при напряжении на второй сетке 150 В</key>
+	    		<key name="graphic4">Анодно-сеточные характеристики пентода</key>
+	    		<key name="graphic4.tt">Усредненные характеристики зависимости тока анода и крутизны хакатеристики от напряжения на первой сетке при напряжении на аноде 150 В</key>
 	    		<help name="description">
 Пентод высокой частоты с короткой характеристикой. 
-Предназначен для широкополосного усиления напряжения высокой частоты.
-Применяется в ультракоротковолновой и телевизионной аппаратуре.
+Основное назначение — работа в частотопреобразовательных каскадах и усилителях напряжения высокой частоты и низкой частоты в устройствах широкого применения.
 Катод оксидный косвенного накала.
 Работает в любом положении.
 Выпускается в стеклянном пальчиковом оформлении.
-Срок службы не менее 500 часов.
-Цоколь штырьковый с пуговичным дном. Штырьков 7.
+Срок службы не менее 2000 часов.
+Цоколь штырьковый с пуговичным дном. Штырьков 9.
 	    		</help>	    		
 	    		<help name="usage">
-====ЛИТЕРАТУРА
-
-*Богосян А., Приемник на 28—29,7 Мгц, «Радио», 1961, № 5.
-*Василищенко В., Любительский УКВ приомник, «Радио», 1955, № 3.
-*Гумеля В., ВЧ тракт комбинированних приемников, «Радио», 1955,  № 3.
-*Джунковский Г., Конвертор КПК-1, «Радио», 1960, № 5.
-*Джунковский Г., Усилитель высокой частоты, «Радио», 1964, № 12.
-*Шаркатов С. и др., Широкополосный антенный усилитель, «Радио», 1961 № 10.
-*Эфрусси Я., Усилитель промежуточной частоты выдеотракта телевизора, «Радио», 1956, №8.
 	    		</help>	    		
 	    	</lang>
 	    </localizedKeys>
@@ -59,18 +51,26 @@ Pin base with button bottom. Number of pins are 7.
 			<parm name="GRID2_CURRENT" number="1" ref="1,2,3">2.2</parm>
 			<parm name="S" number="1">15</parm>
 			<parm name="GRID_LEAK_CURRENT" number="1">0.3</parm>
+			<parm name="INPUT_RESISTANCE" number="1" ref="4">1</parm>
+			<parm name="NOISE_RESISTANCE" number="1">250</parm>
+			<parm name="NOISE_VOLTAGE" number="1">150</parm>
+			<parm name="CATHODE_RESISTANCE" number="1">68</parm>
 			<parm name="CATHODE_FILAMENT_LEAK_CURRENT" number="1">20</parm>
-			<parm name="INPUT_CAPACITY" number="1">7</parm>
+			<parm name="INPUT_CAPACITY" number="1">6.6</parm>
 			<parm name="OUTPUT_CAPACITY" number="1">1.9</parm>
 			<parm name="TRANSFER_CAPACITY" number="1">0.02</parm>
 			<parm name="ANODE_CURRENT" number="2" ref="1,2,3">16</parm>
 			<parm name="S" number="2">15</parm>
 			<parm name="GRID_LEAK_CURRENT" number="2">0.3</parm>
+			<parm name="INPUT_RESISTANCE" number="1" ref="4">1</parm>
+			<parm name="NOISE_RESISTANCE" number="2">130</parm>
+			<parm name="NOISE_VOLTAGE" number="2">150</parm>
+			<parm name="CATHODE_RESISTANCE" number="2">68</parm>
 			<parm name="CATHODE_FILAMENT_LEAK_CURRENT" number="2">20</parm>
 			<parm name="MYU" number="2">80</parm>
-			<parm name="INPUT_CAPACITY" number="1">4.5</parm>
+			<parm name="INPUT_CAPACITY" number="1">4.6</parm>
 			<parm name="OUTPUT_CAPACITY" number="1">0.26</parm>
-			<parm name="TRANSFER_CAPACITY" number="1">2</parm>
+			<parm name="TRANSFER_CAPACITY" number="1">1.6</parm>
 			<parm name="MIN_FILAMENT_VOLTAGE" number="1">5.7</parm>
 			<parm name="MAX_FILAMENT_VOLTAGE" number="1">7.0</parm>
 			<parm name="MAX_CATHODE_FILAMENT_VOLTAGE" number="1">100</parm>			
@@ -94,6 +94,9 @@ Pin base with button bottom. Number of pins are 7.
 			<mode ref="3">
 				<parm name="GRID2_VOLTAGE">150</parm>
 			</mode>
+			<mode ref="4">
+				<parm name="INPUT_FREQUENCY">100</parm>
+			</mode>
 		</modes>
 		<scheme>
 			<parm name="p1">8</parm>
@@ -110,7 +113,7 @@ Pin base with button bottom. Number of pins are 7.
 			<parm name="p1">57</parm>
 			<parm name="p2">50</parm>
 			<parm name="p3">22.5</parm>
-			<parm name="p4">43</parm>
+			<parm name="p4">40</parm>
 		</corpus> 
 		<connectors>
 			<connector number="2" type="GRID_1" pin="1" pinType="ORDINAL"/>
@@ -124,7 +127,10 @@ Pin base with button bottom. Number of pins are 7.
 			<connector number="2" type="ANODE" pin="9" pinType="ORDINAL"/>
 		</connectors>
 		<graphics>
-<!--  			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="../6f12p-1.png"/>  -->  
+  			<graphic name="graphic1" tooltip="graphic1.tt" number="2" href="../6f12p-1.png"/>  
+  			<graphic name="graphic2" tooltip="graphic2.tt" number="2" href="../6f12p-2.png"/>  
+  			<graphic name="graphic3" tooltip="graphic3.tt" number="1" href="../6f12p-3.png"/>  
+  			<graphic name="graphic4" tooltip="graphic4.tt" number="1" href="../6f12p-4.png"/>  
 		</graphics>
 	</tube>
 </tubes>
