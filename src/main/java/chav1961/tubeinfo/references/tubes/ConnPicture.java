@@ -13,8 +13,6 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Line2D;
-import java.awt.geom.Point2D;
-import java.io.IOError;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;

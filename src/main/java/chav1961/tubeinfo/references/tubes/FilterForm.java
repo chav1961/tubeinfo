@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.DoublePredicate;
 import java.util.function.Predicate;
-import java.util.regex.Pattern;
 
 import javax.swing.DefaultListModel;
 import javax.swing.Icon;
@@ -38,15 +37,15 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
 import chav1961.purelib.basic.CharUtils;
-import chav1961.purelib.basic.MimeType;
 import chav1961.purelib.basic.CharUtils.RelevanceFunction;
+import chav1961.purelib.basic.MimeType;
 import chav1961.purelib.basic.Utils;
 import chav1961.purelib.basic.exceptions.ContentException;
 import chav1961.purelib.basic.exceptions.LocalizationException;
 import chav1961.purelib.basic.exceptions.SyntaxException;
 import chav1961.purelib.basic.interfaces.LoggerFacade;
-import chav1961.purelib.basic.interfaces.LoggerFacadeOwner;
 import chav1961.purelib.basic.interfaces.LoggerFacade.Severity;
+import chav1961.purelib.basic.interfaces.LoggerFacadeOwner;
 import chav1961.purelib.i18n.interfaces.Localizer;
 import chav1961.purelib.model.FieldFormat;
 import chav1961.purelib.ui.swing.SwingUtils;
