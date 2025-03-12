@@ -52,7 +52,7 @@ Pin base with button bottom. Pins 9.
 			<parm name="S" number="1">15</parm>
 			<parm name="GRID_LEAK_CURRENT" number="1">0.3</parm>
 			<parm name="INPUT_RESISTANCE" number="1" ref="4">1</parm>
-			<parm name="NOISE_RESISTANCE" number="1">250</parm>
+			<parm name="NOISE_RESISTANCE" number="1">0.25</parm>
 			<parm name="NOISE_VOLTAGE" number="1">150</parm>
 			<parm name="CATHODE_RESISTANCE" number="1">68</parm>
 			<parm name="CATHODE_FILAMENT_LEAK_CURRENT" number="1">20</parm>
@@ -63,14 +63,14 @@ Pin base with button bottom. Pins 9.
 			<parm name="S" number="2">15</parm>
 			<parm name="GRID_LEAK_CURRENT" number="2">0.3</parm>
 			<parm name="INPUT_RESISTANCE" number="1" ref="4">1</parm>
-			<parm name="NOISE_RESISTANCE" number="2">130</parm>
+			<parm name="NOISE_RESISTANCE" number="2">0.13</parm>
 			<parm name="NOISE_VOLTAGE" number="2">150</parm>
 			<parm name="CATHODE_RESISTANCE" number="2">68</parm>
 			<parm name="CATHODE_FILAMENT_LEAK_CURRENT" number="2">20</parm>
 			<parm name="MYU" number="2">80</parm>
-			<parm name="INPUT_CAPACITY" number="1">4.6</parm>
-			<parm name="OUTPUT_CAPACITY" number="1">0.26</parm>
-			<parm name="TRANSFER_CAPACITY" number="1">1.6</parm>
+			<parm name="INPUT_CAPACITY" number="2">4.6</parm>
+			<parm name="OUTPUT_CAPACITY" number="2">0.26</parm>
+			<parm name="TRANSFER_CAPACITY" number="2">1.6</parm>
 			<parm name="MIN_FILAMENT_VOLTAGE" number="1">5.7</parm>
 			<parm name="MAX_FILAMENT_VOLTAGE" number="1">7.0</parm>
 			<parm name="MAX_CATHODE_FILAMENT_VOLTAGE" number="1">100</parm>			
