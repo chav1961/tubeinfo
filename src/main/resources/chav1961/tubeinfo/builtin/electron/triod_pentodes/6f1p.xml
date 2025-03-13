@@ -137,7 +137,7 @@ The 6F1P triode-pentode used in the converter stage of a radio broadcast receive
 			<connector number="2" type="GRID_1" pin="9" pinType="ORDINAL"/>
 		</connectors>
 		<graphics>
-  			<graphic name="graphic1" tooltip="graphic1.tt" number="2" href="../6f1p-1.png"/>  
+  			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="../6f1p-1.png"/>  
   			<graphic name="graphic2" tooltip="graphic2.tt" number="2" href="../6f1p-2.png"/>  
 		</graphics>
 	</tube>
