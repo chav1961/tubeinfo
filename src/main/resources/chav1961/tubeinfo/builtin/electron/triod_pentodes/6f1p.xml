@@ -8,7 +8,7 @@
 	    		<key name="graphic2">Anode-grid characteristics of the triode</key>
 	    		<key name="graphic2.tt">Averaged characteristics of the dependence of the anode current on the anode voltage of the triode</key>
 	    		<help name="description">
-High frequency pentode with short characteristic. 
+High frequency triode-pentode with short characteristic. 
 Designed to work as a heterodyne and a converter of superheterodyne receivers. 
 Can be used in intermediate frequency amplification circuits and in low frequency preliminary cascades.Indirectly heated oxide cathode.
 Works in any position.
@@ -34,7 +34,7 @@ The 6F1P triode-pentode used in the converter stage of a radio broadcast receive
 	    		<key name="graphic2">Анодные характеристики триода</key>
 	    		<key name="graphic2.tt">Усредненные характеристики зависимости тока анода от напряжения на аноде триода</key>
 	    		<help name="description">
-Пентод высокой частоты с короткой характеристикой. 
+Триод-пентод высокой частоты с короткой характеристикой. 
 Предназначен для работы в качестве гетеродина, и преобразователя супергетеродинных приемников.
 Может быть использован в схемах усиления промежуточной частоты и в предварительных каскадах низкой частоты.
 Катод оксидный косвенного накала.
