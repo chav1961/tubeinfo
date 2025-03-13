@@ -12,7 +12,7 @@
 	    		<key name="graphic4">Anode-grid characteristics of a pentode</key>
 	    		<key name="graphic4.tt">Averaged characteristics of the dependence of the anode current and the slope of the characteristic on the voltage on the first grid at an anode voltage of 150 V</key>
 	    		<help name="description">
-High frequency pentode with short characteristic.
+High frequency triode-pentode with short characteristic.
 The main purpose is to work in frequency-converting stages and high-frequency and low-frequency voltage amplifiers in devices of wide application.
 Indirectly heated oxide cathode.
 Works in any position.
@@ -33,7 +33,7 @@ Pin base with button bottom. Pins 9.
 	    		<key name="graphic4">Анодно-сеточные характеристики пентода</key>
 	    		<key name="graphic4.tt">Усредненные характеристики зависимости тока анода и крутизны хакатеристики от напряжения на первой сетке при напряжении на аноде 150 В</key>
 	    		<help name="description">
-Пентод высокой частоты с короткой характеристикой. 
+Триод-пентод высокой частоты с короткой характеристикой. 
 Основное назначение — работа в частотопреобразовательных каскадах и усилителях напряжения высокой частоты и низкой частоты в устройствах широкого применения.
 Катод оксидный косвенного накала.
 Работает в любом положении.
