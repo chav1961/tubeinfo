@@ -9,8 +9,7 @@
 	    		<key name="graphic2.tt">Averaged characteristics of the dependence of the anode current on the anode voltage of the triode</key>
 	    		<help name="description">
 Output triode-pentode.
-Designed for operation in low-frequency amplifiers and in frame scanning units of television receivers.
-Can be used in converter stages of superheterodyne receivers.
+Designed for operation in frame scanning units of television devices of wide application with a beam deflection angle of 110°.
 Indirectly heated oxide cathode.
 Works in any position.
 Manufactured in a glass finger design.
@@ -27,12 +26,11 @@ Pin base with button bottom. Pins 9.
 	    		<key name="graphic2.tt">Усредненные характеристики зависимости тока анода от напряжения на аноде триода</key>
 	    		<help name="description">
 Выходной триод-пентод. 
-Предназначен для работы в усилителях низкой частоты и в блоках кадровой разверки телевизионных примеников.
-МОжет быть использован в преобразовательных каскадах супергетеродинных приемников.
+Предназначен для работы в блоках кадровой развертки телевизионных устройств широкого применения с углом отклонения луча 110°.
 Катод оксидный косвенного накала.
 Работает в любом положении.
 Выпускается в стеклянном пальчиковом оформлении.
-Срок службы не менее 500 часов.
+Срок службы не менее 1500 часов.
 Цоколь штырьковый с пуговичным дном. Штырьков 9.
 	    		</help>	    		
 	    		<help name="usage">
@@ -40,79 +38,81 @@ Pin base with button bottom. Pins 9.
 	    	</lang>
 	    </localizedKeys>
 		<parms>
-			<parm name="FILAMENT_CURRENT" number="1" ref="1,3,4">850</parm>
+			<parm name="FILAMENT_CURRENT" number="1" ref="1,3,4">900</parm>
 			<parm name="ANODE_CURRENT" number="1" ref="1,3,4">41</parm>
-			<parm name="GRID2_CURRENT" number="1" ref="1,3,4">14</parm>
-			<parm name="S" number="1">7</parm>
-			<parm name="INTERNAL_RESISTANCE" number="1">15</parm>
-			<parm name="INPUT_CAPACITY" number="1">9.3</parm>
-			<parm name="OUTPUT_CAPACITY" number="1">8.5</parm>
-			<parm name="TRANSFER_CAPACITY" number="1">0.3</parm>
-			<parm name="ANODE_CURRENT" number="2" ref="1,2">2.5</parm>
-			<parm name="S" number="2">2.5</parm>
-			<parm name="MYU" number="2">75</parm>
-			<parm name="INPUT_CAPACITY" number="2">2.2</parm>
-			<parm name="OUTPUT_CAPACITY" number="2">0.4</parm>
-			<parm name="TRANSFER_CAPACITY" number="2">3.7</parm>
+			<parm name="GRID2_CURRENT" number="1" ref="1,3,4">2.7</parm>
+			<parm name="S" number="1">7.5</parm>
+			<parm name="INTERNAL_RESISTANCE" number="1">23</parm>
+			<parm name="CATHODE_RESISTANCE" number="1">340</parm>
+			<parm name="INPUT_CAPACITY" number="1">11.7</parm>
+			<parm name="OUTPUT_CAPACITY" number="1">8.8</parm>
+			<parm name="TRANSFER_CAPACITY" number="1">0.6</parm>
+			<parm name="ANODE_CURRENT" number="2" ref="1,2">5.5</parm>
+			<parm name="S" number="2">7</parm>
+			<parm name="MYU" number="2">70</parm>
+			<parm name="CATHODE_RESISTANCE" number="1">160</parm>
+			<parm name="INPUT_CAPACITY" number="2">3.5</parm>
+			<parm name="OUTPUT_CAPACITY" number="2">0.5</parm>
+			<parm name="TRANSFER_CAPACITY" number="2">1.8</parm>
 			<parm name="MIN_FILAMENT_VOLTAGE" number="1">5.7</parm>
-			<parm name="MAX_FILAMENT_VOLTAGE" number="1">6.9</parm>
-			<parm name="MAX_CATHODE_FILAMENT_VOLTAGE" number="1">100</parm>			
-			<parm name="MAX_ANODE_VOLTAGE" number="1">275</parm>
+			<parm name="MAX_FILAMENT_VOLTAGE" number="1">7.0</parm>
+			<parm name="MAX_CATHODE_FILAMENT_VOLTAGE" number="1">100</parm>
+			<parm name="MAX_ANODE_VOLTAGE" number="1">300</parm>
 			<parm name="MAX_GRID2_VOLTAGE" number="1">250</parm>
 			<parm name="MAX_ANODE_VOLTAGE" number="2">250</parm>
 			<parm name="MAX_CATHODE_CURRENT" number="1">60</parm>
 			<parm name="MAX_CATHODE_CURRENT" number="2">15</parm>
-			<parm name="MAX_GRID_1_RESISTANCE" number="1">500</parm>			
+			<parm name="MAX_GRID_1_RESISTANCE" number="1">1000</parm>			
 			<parm name="MAX_GRID_1_RESISTANCE" number="2">1000</parm>			
-			<parm name="POWER_DISSIPATION" number="1">8</parm>
-			<parm name="POWER_GRID2_DISSIPATION" number="1">2.5</parm>
-			<parm name="POWER_DISSIPATION" number="2">1</parm>
+			<parm name="POWER_DISSIPATION" number="1">9</parm>
+			<parm name="POWER_GRID2_DISSIPATION" number="1">2</parm>
+			<parm name="POWER_DISSIPATION" number="2">0.5</parm>
 		</parms>
 		<modes>
 			<mode ref="1">
 				<parm name="FILAMENT_VOLTAGE">6.3</parm>
 			</mode>
 			<mode ref="2">
-				<parm name="ANODE_VOLTAGE">170</parm>
+				<parm name="ANODE_VOLTAGE">100</parm>
 			</mode>
 			<mode ref="3">
-				<parm name="ANODE_VOLTAGE">170</parm>
+				<parm name="ANODE_VOLTAGE">185</parm>
 			</mode>
 			<mode ref="4">
-				<parm name="GRID2_VOLTAGE">170</parm>
+				<parm name="GRID2_VOLTAGE">185</parm>
 			</mode>
 		</modes>
 		<scheme>
 			<parm name="p1">7</parm>
-			<parm name="p2">3</parm>
-			<parm name="p3">2</parm>
+			<parm name="p2">9</parm>
+			<parm name="p3">8</parm>
 			<parm name="p4">4</parm>
 			<parm name="p5">5</parm>
-			<parm name="p6">8</parm>
-			<parm name="p7">1</parm>
-			<parm name="p8">9</parm>
+			<parm name="p6">3</parm>
+			<parm name="p7">2</parm>
+			<parm name="p8">1</parm>
 			<parm name="p9">6</parm>
 		</scheme> 
 		<corpus>
-			<parm name="p1">77</parm>
-			<parm name="p2">70</parm>
+			<parm name="p1">80</parm>
+			<parm name="p2">65</parm>
 			<parm name="p3">22.5</parm>
 			<parm name="p4">60</parm>
 		</corpus> 
 		<connectors>
-			<connector number="2" type="GRID_1" pin="1" pinType="ORDINAL"/>
-			<connector number="1" type="CATHODE" pin="2" pinType="ORDINAL"/>
-			<connector number="1" type="GRID_1" pin="3" pinType="ORDINAL"/>
+			<connector number="2" type="ANODE" pin="1" pinType="ORDINAL"/>
+			<connector number="2" type="GRID_1" pin="2" pinType="ORDINAL"/>
+			<connector number="2" type="CATHODE" pin="3" pinType="ORDINAL"/>
 			<connector number="0" type="FILAMENT" pin="4" pinType="ORDINAL"/>
 			<connector number="0" type="FILAMENT" pin="5" pinType="ORDINAL"/>
 			<connector number="1" type="ANODE" pin="6" pinType="ORDINAL"/>
 			<connector number="1" type="GRID_2" pin="7" pinType="ORDINAL"/>
-			<connector number="2" type="CATHODE" pin="8" pinType="ORDINAL"/>
-			<connector number="2" type="ANODE" pin="9" pinType="ORDINAL"/>
+			<connector number="1" type="CATHODE" pin="8" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_1" pin="9" pinType="ORDINAL"/>
 		</connectors>
 		<graphics>
-  			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="../6f3p-1.png"/>  
-  			<graphic name="graphic2" tooltip="graphic2.tt" number="2" href="../6f3p-2.png"/>  
+  			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="../6f5p-1.png"/>  
+  			<graphic name="graphic2" tooltip="graphic2.tt" number="2" href="../6f5p-2.png"/>  
 		</graphics>
 	</tube>
 </tubes>
