@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tubes>
+	<tube type="TRIODE_HEPTODE" abbr="6И1П" corpus="TG" panel="PIN9" description="description" usage="usage">
+	    <localizedKeys>
+	    	<lang name="en">
+	    		<key name="graphic1">Anode characteristics of a triode</key>
+	    		<key name="graphic1.tt">Averaged characteristics of the dependence of the anode current on the anode voltage</key>
+	    		<key name="graphic2">Conversion characteristics</key>
+	    		<key name="graphic2.tt">Averaged characteristics of the dependence of the slope of the conversion on the voltage on the first grid of the heptode at a voltage on the anode of the heptode of 250 V, a voltage on the anode of the triode of 100 V, a voltage on the third grid of 0 V, a voltage on the third grid of the heptode and the grid of the triode of 8.5 V eff, and a resistance on the third grid of the heptode and the grid of the triode of 47 kΩ.</key>
+	    		<help name="description">
+Triode-heptode.
+Designed for frequency conversion with simultaneous automatic gain control. Used in network superheterodyne receivers.Indirectly heated oxide cathode.
+Works in any position.
+Produced in glass finger design.
+Service life is not less than 2000 hours.
+Pin base with button bottom. Pins 9.
+				</help>	    		
+	    		<help name="usage">
+The 6I1P triode-heptode can be used in various circuits. In VHF receivers, the triode tube can be used as a frequency converter with a low noise level. The triode can also be used to amplify low-frequency voltage with a gain factor of the cascade of no more than 10.
+	    		
+The heptode part of the 6I1P tube can be used to amplify high or intermediate frequencies. In this case, the third grid of the heptode is connected to the cathode, and then the heptode part of the tube is transformed into a high-frequency pentode with an extended characteristic.
+
+When using a 6I1P tube in the converter cascade, the hoterodyne voltage is fed to the third grid of the heptode, and the input signal and AGC voltage to the first.
+				</help>	    		
+	    	</lang>
+	    	<lang name="ru">
+	    		<key name="graphic1">Анодные характеристики триода</key>
+	    		<key name="graphic1.tt">Усредненные характеристики зависимости тока анода от напряжения на аноде</key>
+	    		<key name="graphic2">Характеристики преобразования</key>
+	    		<key name="graphic2.tt">Усредненные характеристики зависимости крутизны преобразования от напряжения на первой сетке гептода при напряжении на аноде гептода 250 В, 
+напряжении на аноде триода 100 В, напряжении на третьей сетке 0 В, напряжении на третьей сетке гептода и сетке триода 8.5 В эфф, и сопротивлении
+на третьей сетке гептода и сетке триода 47 ком.</key>
+	    		<help name="description">
+Триод-гептод.
+Предназначен для преобразования частоты с одновременным автоматическим регулированием усиления. Применяется в сетевых супергетеродинных приемниках.
+Катод оксидный косвенного накала.
+Работает в любом положении.
+Выпускается в стеклянном пальчиковом оформлении.
+Срок службы не менее 750 часов.
+Цоколь штырьковый с пуговичным дном. Штырьков 9.
+	    		</help>	    		
+	    		<help name="usage">
+Триод-гептод 6И1П можно применять в различных схемах. В УКВ
+приемниках триод лампы можно применять как преобразователь частоты, имеющий низкий уровень шумов.
+Триод также можно применять для усиления напряжения низкой частоты при коэффициенте усиления каскада но более 10.
+
+Гептодную часть лампы 6И1П можно применять для усиления высокой или промежуточной частоты. При этом третью сетку гептода
+соединяют с катодом, и тогда гептодная часть лампы преобразуется в высокочастотный пентод с удлиненной характеристикой.
+
+При использовании лампы 6И1П в преобразовательном каскаде
+напряжение готеродина подается на третью сетку гептода, а входной
+сигнал и напряжение АРУ — на первую.
+
+====ЛИТЕРАТУРА
+
+*Азатьян 4., Применение лампы 6И1П, «Радио», 1951, № 1
+*Азатьян А., Триод-гептод 6И1П, «Радио», 1956, № 12
+*Борноволоков. Э., Преобразвоатели частоты, «Радио», 1963, № 1
+*Гумеля Е., ВЧ тракт комбинировянных присмпиков, «Радио», 1958, № 4
+*Давыдов Г.,Сергеев С., Малоламиовые приемники, «Радио», 1958, № 4
+*Нейман В., Об одном метод настройки готеродина, «Радио», 1962, № 1
+*Односеточные преобразователи частоты в радиовещательных приемниках, «Радио», 1954, № 10
+*Сворень Р.,Болышов В., Супергетеродин на новых дампах, «Радио», 1957, № 1
+*Стахов Е., Приставка для приема УКВ ЧМ, «Радио», 1960, № 9
+*Чубарь А, Генератор качающейся частоты, «Радио», 1959, № 11
+	    		</help>	    		
+	    	</lang>
+	    </localizedKeys>
+		<parms>
+			<parm name="FILAMENT_CURRENT" number="1" ref="1,2,3">300</parm>
+			<parm name="ANODE_CURRENT" number="1" ref="1,2,3">3.3</parm>
+			<parm name="GRID2_CURRENT" number="1" ref="1,2,3">6</parm>
+			<parm name="S" number="1">0.77</parm>
+			<parm name="GRID_LEAK_CURRENT" number="1">200</parm>
+			<parm name="INTERNAL_RESISTANCE" number="1" ref="4">1</parm>
+			<parm name="INPUT_CAPACITY" number="1">5.3</parm>
+			<parm name="OUTPUT_CAPACITY" number="1">7.4</parm>
+			<parm name="TRANSFER_CAPACITY" number="1">0.006</parm>
+			<parm name="ANODE_CURRENT" number="2" ref="1,2,3">16</parm>
+			<parm name="S" number="2">3.7</parm>
+			<parm name="MYU" number="2">25</parm>
+			<parm name="INPUT_CAPACITY" number="2">2.6</parm>
+			<parm name="OUTPUT_CAPACITY" number="2">2.3</parm>
+			<parm name="TRANSFER_CAPACITY" number="2">1.0</parm>
+			<parm name="MIN_FILAMENT_VOLTAGE" number="1">5.7</parm>
+			<parm name="MAX_FILAMENT_VOLTAGE" number="1">7.0</parm>
+			<parm name="MAX_CATHODE_FILAMENT_VOLTAGE" number="1">100</parm>			
+			<parm name="MAX_ANODE_VOLTAGE" number="1">300</parm>
+			<parm name="MAX_GRID2_VOLTAGE" number="1">300</parm>
+			<parm name="MAX_ANODE_VOLTAGE" number="2">250</parm>
+			<parm name="MAX_CATHODE_CURRENT" number="1">12.5</parm>
+			<parm name="MAX_CATHODE_CURRENT" number="2">6.5</parm>
+			<parm name="MAX_GRID1_RESISTANCE" number="1">2000</parm>
+			<parm name="MAX_GRID1_RESISTANCE" number="2">500</parm>
+			<parm name="POWER_DISSIPATION" number="1">1.7</parm>
+			<parm name="POWER_GRID2_DISSIPATION" number="1">1</parm>
+			<parm name="POWER_DISSIPATION" number="2">0.8</parm>
+		</parms>
+		<modes>
+			<mode ref="1">
+				<parm name="FILAMENT_VOLTAGE">6.3</parm>
+			</mode>
+			<mode ref="2">
+				<parm name="ANODE_VOLTAGE">250</parm>
+			</mode>
+			<mode ref="3">
+				<parm name="GRID2_VOLTAGE">100</parm>
+			</mode>
+			<mode ref="4">
+				<parm name="ANODE_VOLTAGE">100</parm>
+			</mode>
+		</modes>
+		<scheme>
+			<parm name="p1">7</parm>
+			<parm name="p2">6</parm>
+			<parm name="p3">4</parm>
+			<parm name="p4">5</parm>
+			<parm name="p5">3</parm>
+			<parm name="p6">9</parm>
+			<parm name="p7">8</parm>
+			<parm name="p8">6</parm>
+			<parm name="p9">1</parm>
+		</scheme> 
+		<corpus>
+			<parm name="p1">78</parm>
+			<parm name="p2">70</parm>
+			<parm name="p3">22.5</parm>
+			<parm name="p4">63</parm>
+		</corpus> 
+		<connectors>
+			<connector number="1" type="GRID_4" pin="1" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_1" pin="2" pinType="ORDINAL"/>
+			<connector number="1" type="CATHODE" pin="3" pinType="ORDINAL"/>
+			<connector number="2" type="CATHODE" pin="3" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="4" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="5" pinType="ORDINAL"/>
+			<connector number="1" type="ANODE" pin="6" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_3" pin="7" pinType="ORDINAL"/>
+			<connector number="2" type="ANODE" pin="8" pinType="ORDINAL"/>
+			<connector number="2" type="GRID_1" pin="9" pinType="ORDINAL"/>
+		</connectors>
+		<graphics>
+  			<graphic name="graphic1" tooltip="graphic1.tt" number="2" href="../6i1p-1.png"/>  
+  			<graphic name="graphic2" tooltip="graphic2.tt" number="2" href="../6i1p-2.png"/>  
+		</graphics>
+	</tube>
+</tubes>
