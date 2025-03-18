@@ -90,8 +90,8 @@ When using a 6I1P tube in the converter cascade, the hoterodyne voltage is fed t
 			<parm name="MAX_ANODE_VOLTAGE" number="2">250</parm>
 			<parm name="MAX_CATHODE_CURRENT" number="1">12.5</parm>
 			<parm name="MAX_CATHODE_CURRENT" number="2">6.5</parm>
-			<parm name="MAX_GRID1_RESISTANCE" number="1">2000</parm>
-			<parm name="MAX_GRID1_RESISTANCE" number="2">500</parm>
+			<parm name="MAX_GRID_1_RESISTANCE" number="1">2000</parm>
+			<parm name="MAX_GRID_1_RESISTANCE" number="2">500</parm>
 			<parm name="POWER_DISSIPATION" number="1">1.7</parm>
 			<parm name="POWER_GRID2_DISSIPATION" number="1">1</parm>
 			<parm name="POWER_DISSIPATION" number="2">0.8</parm>
