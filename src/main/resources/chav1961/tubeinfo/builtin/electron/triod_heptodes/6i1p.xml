@@ -7,6 +7,8 @@
 	    		<key name="graphic1.tt">Averaged characteristics of the dependence of the anode current on the anode voltage</key>
 	    		<key name="graphic2">Conversion characteristics</key>
 	    		<key name="graphic2.tt">Averaged characteristics of the dependence of the slope of the conversion on the voltage on the first grid of the heptode at a voltage on the anode of the heptode of 250 V, a voltage on the anode of the triode of 100 V, a voltage on the third grid of 0 V, a voltage on the third grid of the heptode and the grid of the triode of 8.5 V eff, and a resistance on the third grid of the heptode and the grid of the triode of 47 kΩ.</key>
+	    		<key name="graphic3">Schematic diagram of the converter cascade</key>
+	    		<key name="graphic3.tt">Schematic diagram of the conversion stage on the 6I1P lamp</key>	    		
 	    		<help name="description">
 Triode-heptode.
 Designed for frequency conversion with simultaneous automatic gain control. Used in network superheterodyne receivers.Indirectly heated oxide cathode.
@@ -30,6 +32,8 @@ When using a 6I1P tube in the converter cascade, the hoterodyne voltage is fed t
 	    		<key name="graphic2.tt">Усредненные характеристики зависимости крутизны преобразования от напряжения на первой сетке гептода при напряжении на аноде гептода 250 В, 
 напряжении на аноде триода 100 В, напряжении на третьей сетке 0 В, напряжении на третьей сетке гептода и сетке триода 8.5 В эфф, и сопротивлении
 на третьей сетке гептода и сетке триода 47 ком.</key>
+	    		<key name="graphic3">Схема преобразовательного каскада</key>
+	    		<key name="graphic3.tt">Схема преобразовательного каскада на лампе 6И1П.</key>
 	    		<help name="description">
 Триод-гептод.
 Предназначен для преобразования частоты с одновременным автоматическим регулированием усиления. Применяется в сетевых супергетеродинных приемниках.
@@ -90,8 +94,8 @@ When using a 6I1P tube in the converter cascade, the hoterodyne voltage is fed t
 			<parm name="MAX_ANODE_VOLTAGE" number="2">250</parm>
 			<parm name="MAX_CATHODE_CURRENT" number="1">12.5</parm>
 			<parm name="MAX_CATHODE_CURRENT" number="2">6.5</parm>
-			<parm name="MAX_GRID1_RESISTANCE" number="1">2000</parm>
-			<parm name="MAX_GRID1_RESISTANCE" number="2">500</parm>
+			<parm name="MAX_GRID_1_RESISTANCE" number="1">2000</parm>
+			<parm name="MAX_GRID_1_RESISTANCE" number="2">500</parm>
 			<parm name="POWER_DISSIPATION" number="1">1.7</parm>
 			<parm name="POWER_GRID2_DISSIPATION" number="1">1</parm>
 			<parm name="POWER_DISSIPATION" number="2">0.8</parm>
@@ -112,7 +116,7 @@ When using a 6I1P tube in the converter cascade, the hoterodyne voltage is fed t
 		</modes>
 		<scheme>
 			<parm name="p1">7</parm>
-			<parm name="p2">6</parm>
+			<parm name="p2">2</parm>
 			<parm name="p3">4</parm>
 			<parm name="p4">5</parm>
 			<parm name="p5">3</parm>
@@ -141,7 +145,8 @@ When using a 6I1P tube in the converter cascade, the hoterodyne voltage is fed t
 		</connectors>
 		<graphics>
   			<graphic name="graphic1" tooltip="graphic1.tt" number="2" href="../6i1p-1.png"/>  
-  			<graphic name="graphic2" tooltip="graphic2.tt" number="2" href="../6i1p-2.png"/>  
+  			<graphic name="graphic2" tooltip="graphic2.tt" number="1" href="../6i1p-2.png"/>  
+  			<graphic name="graphic3" tooltip="graphic3.tt" number="1" href="../6i1p-3.png"/>  
 		</graphics>
 	</tube>
 </tubes>
