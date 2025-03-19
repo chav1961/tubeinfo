@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tubes>
+	<tube type="PENTODE" abbr="6П18П" corpus="TG" panel="PIN9" description="description" usage="usage">
+	    <localizedKeys>
+	    	<lang name="en">
+	    		<key name="graphic1">Anode characteristics</key>
+	    		<key name="graphic1.tt">Averaged characteristics of the dependence of the anode current on the anode voltage in a triode connection</key>
+	    		<key name="graphic2">Anode characteristics</key>
+	    		<key name="graphic2.tt">Averaged characteristics of the dependence of the anode current and the second grid current on the anode voltage at a voltage on the second grid of 170 V.</key>
+	    		<key name="graphic3">Anode-grid characteristics</key>
+	    		<key name="graphic3.tt">Averaged characteristics of the dependence of the anode current, the second grid current, the output power and the nonlinear distortion coefficient on the alternating voltage on the first grid.</key>
+	    		<key name="graphic4">Load characteristics</key>
+	    		<key name="graphic4.tt">Averaged characteristics of the dependence of the anode current, second grid current, output power and nonlinear distortion coefficient on the value of the load resistance.</key>
+	    		<help name="description">
+Output pentode.
+Designed to amplify power in the low-frequency output stages of super-heterodyne broadcast receivers.
+Can be used as an output stage of frame scanning of television receivers.Works in any position.
+Manufactured in a glass finger design.
+Service life of at least 750 hours.
+Pin base with button bottom. Number of pins are 9.
+	    		</help>	    		
+	    		<help name="usage">
+The 6P18P pentode, used as a final frame scanning amplifier, provides a normal vertical size for the Z5LK2B and 43LK2B kinescopes at anode and second grid voltages of 200-220 V.
+
+The 6P18P pentode, used in the low-frequency power output stage, can be effectively replaced by the 6P14P tube. It can also be replaced by 6P1P and 6P6S tubes.
+
+====LITERATURE
+Kononovich L., Low-frequency amplifiers without an output transformer, "Radno", 1959, No. 6
+Kononovich L., Low-frequency stereophonic amplifiers, "Radio", 1960, No. 1
+Sorvin E., Output pentode 6P18P, "Radio", 1958, No. 12				</help>	    		
+	    	</lang>
+	    	<lang name="ru">
+	    		<key name="graphic1">Анодные характеристики</key>
+	    		<key name="graphic1.tt">Усредненные характеристики зависимости тока анода от напряжения на аноде в триодном включении</key>
+	    		<key name="graphic2">Анодные характеристики</key>
+	    		<key name="graphic2.tt">Усредненные характеристики зависимости тока анода и тока второй сетки от напряжения на аноде при напряжении на второй сетке 170 В.</key>
+	    		<key name="graphic3">Анодно-сеточные характеристики</key>
+	    		<key name="graphic3.tt">Усредненные характеристики зависимости тока анода, тока второй сетки, выходной мощности и коеффициента нелинейных искажений от переменного напряжения на первой сетке.</key>
+	    		<key name="graphic4">Нагрузочные характеристики</key>
+	    		<key name="graphic4.tt">Усредненные характеристики зависимости тока анода, тока второй сетки, выходной мощности и коеффициента нелинейных искажений от величины сопротивления нагрузки.</key>
+	    		<help name="description">
+Выходной пентод.
+Предназначен для усиления мощности в выходных каскадах низкой частоты супергетероданиых вещательных приомников.
+Может применяться в качество выходного каскада кадровой развертки телевизионных приемников.
+Работает в любом положении.
+Выпускается в стеклянном пальчиковом оформлении.
+Срок службы не менее 750 часов.
+Цоколь штырьковый с пуговичным дном. Штырьков 9.
+	    		</help>	    		
+	    		<help name="usage">
+Пентод 6П18П, применяемый в качестве оконечного усилителя кадровой развертки, обеспечивает при напряжениях на аноде и второй сетке 200-220 В нормальный размер по вертикали для кинескопов З5ЛК2Б и 43ЛК2Б.
+
+Пентод 6П18П, применяемый в оконечном каскаде мощности низкой частоты, может быть эффективно заменен лампой 6П14П. Возможна также замена лампами 6П1П и 6П6С.
+
+====ЛИТЕРАТУРА
+*Кононович Л., Усилители НЧ без выходного трансформатора, «Радно», 1959, № 6
+*Кононович Л., Стервофонические усилители низкой частоты, «Радио», 1960, № 1
+*Сорвин Е., Выходной пентод 6П18П, «Радио», 1958, № 12
+	    		</help>	    		
+	    	</lang>
+	    </localizedKeys>
+		<parms>
+			<parm name="FILAMENT_CURRENT" number="1" ref="1,2,3,4">750</parm>
+			<parm name="ANODE_CURRENT" number="1" ref="1,2,3,4">53</parm>
+			<parm name="GRID2_CURRENT" number="1">8</parm>
+			<parm name="S" number="1">11.0</parm>
+			<parm name="MYU" number="1">15</parm>
+			<parm name="MIN_FILAMENT_VOLTAGE" number="1">5.7</parm>
+			<parm name="MAX_FILAMENT_VOLTAGE" number="1">7.0</parm>
+			<parm name="MAX_ANODE_VOLTAGE" number="1">250</parm>
+			<parm name="MAX_GRID2_VOLTAGE" number="1">250</parm>
+			<parm name="MAX_CATHODE_CURRENT" number="1">75</parm>
+			<parm name="POWER_DISSIPATION" number="1">12</parm>
+			<parm name="POWER_GRID2_DISSIPATION" number="1">2.5</parm>
+			<parm name="MAX_CATHODE_FILAMENT_VOLTAGE" number="1">100</parm>
+			<parm name="MAX_GRID_1_RESISTANCE" number="1">500</parm>
+		</parms>
+		<modes>
+			<mode ref="1">
+				<parm name="FILAMENT_VOLTAGE">6.3</parm>
+			</mode>
+			<mode ref="2">
+				<parm name="ANODE_VOLTAGE">170</parm>
+			</mode>
+			<mode ref="3">
+				<parm name="GRID2_VOLTAGE">170</parm>
+			</mode>
+			<mode ref="4">
+				<parm name="CATHODE_RESISTANCE">110</parm>
+			</mode>
+		</modes>
+		<scheme>
+			<parm name="p1">9</parm>
+			<parm name="p2">2</parm>
+			<parm name="p3">3</parm>
+			<parm name="p4">4</parm>
+			<parm name="p5">5</parm>
+			<parm name="p6">7</parm>
+		</scheme> 
+		<corpus>
+			<parm name="p1">78</parm>
+			<parm name="p2">73</parm>
+			<parm name="p3">22.5</parm>
+			<parm name="p4">66</parm>
+		</corpus> 
+		<connectors>
+			<connector number="1" type="GRID_1" pin="2" pinType="ORDINAL"/>
+			<connector number="1" type="CATHODE" pin="3" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="4" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="5" pinType="ORDINAL"/>
+			<connector number="1" type="ANODE" pin="7" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_2" pin="9" pinType="ORDINAL"/>
+		</connectors>
+		<graphics>
+   			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="../6p18p-1.png"/>  
+   			<graphic name="graphic2" tooltip="graphic2.tt" number="1" href="../6p18p-2.png"/>  
+   			<graphic name="graphic3" tooltip="graphic3.tt" number="1" href="../6p18p-3.png"/>  
+   			<graphic name="graphic4" tooltip="graphic4.tt" number="1" href="../6p18p-4.png"/>  
+		</graphics>
+	</tube>
+</tubes>
