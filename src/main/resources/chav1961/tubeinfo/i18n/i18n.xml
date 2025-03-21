@@ -29,6 +29,8 @@
 		<key name="chav1961.tubeinfo.references.interfaces.tubesType.doubleTriode.tt">Double triode</key>
 		<key name="chav1961.tubeinfo.references.interfaces.tubesType.tetrode">Tetrode</key>
 		<key name="chav1961.tubeinfo.references.interfaces.tubesType.tetrode.tt">Tetrode</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.rayTetrode">Ray tetrode</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.rayTetrode.tt">Ray tetrode</key>
 		<key name="chav1961.tubeinfo.references.interfaces.tubesType.doubleTetrode">Double tetrode</key>
 		<key name="chav1961.tubeinfo.references.interfaces.tubesType.doubleTetrode.tt">Double tetrode</key>
 		<key name="chav1961.tubeinfo.references.interfaces.tubesType.pentode">Pentode</key>
@@ -236,6 +238,8 @@
 		<key name="chav1961.tubeinfo.references.interfaces.tubesType.doubleTriode.tt">Двойной триод</key>
 		<key name="chav1961.tubeinfo.references.interfaces.tubesType.tetrode">Тетрод</key>
 		<key name="chav1961.tubeinfo.references.interfaces.tubesType.tetrode.tt">Тетрод</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.rayTetrode">Лучевой тетрод</key>
+		<key name="chav1961.tubeinfo.references.interfaces.tubesType.rayTetrode.tt">Лучевой тетрод</key>
 		<key name="chav1961.tubeinfo.references.interfaces.tubesType.doubleTetrode">Двойной тетрод</key>
 		<key name="chav1961.tubeinfo.references.interfaces.tubesType.doubleTetrode.tt">Двойной тетрод</key>
 		<key name="chav1961.tubeinfo.references.interfaces.tubesType.pentode">Пентод</key>

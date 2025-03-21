@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with "sPlan" (http://www.abacom-online.de) -->
+<svg version="1.1" baseProfile="full"
+xmlns="http://www.w3.org/2000/svg"
+width="405" height="295">
+<title>raw_tetrode</title>
+<defs>
+<style type="text/css">
+<![CDATA[
+polyline {stroke-linecap:round; stroke-linejoin:round}
+polygon {stroke-linecap:round; stroke-linejoin:round}
+path {stroke-linecap:round; stroke-linejoin:round}
+circle {stroke-linecap:round; stroke-linejoin:round}
+]]>
+</style>
+</defs>
+<path fill="rgb(255,255,255)" stroke="rgb(0,0,0)" stroke-width="3" d=" M 105 120 C 105 70 155 70 155 70 L 155 70 L 155 70 C 205 70 205 120 205 120 L 205 170 L 205 170 C 205 220 155 220 155 220 L 155 220 L 155 220 C 105 220 105 170 105 170 L 105 120 Z" />
+<polyline points="135.00 95.00 175.00 95.00" fill="none" stroke="rgb(0,0,0)" stroke-width="4" />
+<polyline points="155.00 95.00 155.00 45.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="125.00 105.00 115.00 115.00" fill="none" stroke="rgb(0,0,0)" stroke-width="5" />
+<polyline points="185.00 105.00 195.00 115.00" fill="none" stroke="rgb(0,0,0)" stroke-width="5" />
+<polyline points="115.00 115.00 115.00 180.00 195.00 180.00 195.00 115.00" fill="none" stroke="rgb(0,0,0)" stroke-width="1" />
+<polyline points="125.00 160.00 80.00 160.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="125.00 160.00 140.00 160.00" fill="none" stroke="rgb(0,0,0)" stroke-width="3" />
+<polyline points="148.00 160.00 162.00 160.00" fill="none" stroke="rgb(0,0,0)" stroke-width="3" />
+<polyline points="170.00 160.00 185.00 160.00" fill="none" stroke="rgb(0,0,0)" stroke-width="3" />
+<polyline points="230.00 135.00 185.00 135.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="125.00 135.00 140.00 135.00" fill="none" stroke="rgb(0,0,0)" stroke-width="3" />
+<polyline points="148.00 135.00 162.00 135.00" fill="none" stroke="rgb(0,0,0)" stroke-width="3" />
+<polyline points="170.00 135.00 185.00 135.00" fill="none" stroke="rgb(0,0,0)" stroke-width="3" />
+<polyline points="230.00 180.00 195.00 180.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<path fill="none" stroke="rgb(0,0,0)" stroke-width="2" d=" M 170.00 220.00 Q 170.00 220.00 169.86 218.54 Q 169.71 217.07 169.29 215.67 Q 168.86 214.26 168.17 212.96 Q 167.47 211.67 166.54 210.53 Q 165.61 209.39 164.47 208.46 Q 163.33 207.53 162.04 206.83 Q 160.74 206.14 159.33 205.71 Q 157.93 205.29 156.46 205.14 Q 155.00 205.00 153.54 205.14 Q 152.07 205.29 150.67 205.71 Q 149.26 206.14 147.96 206.83 Q 146.67 207.53 145.53 208.46 Q 144.39 209.39 143.46 210.53 Q 142.53 211.67 141.83 212.96 Q 141.14 214.26 140.71 215.67 Q 140.29 217.07 140.14 218.54 Q 140.00 220.00 140.00 220.00 L 140.00 220.00" />
+<polyline points="140.00 220.00 140.00 255.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="170.00 220.00 170.00 255.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<path fill="none" stroke="rgb(0,0,0)" stroke-width="5" d=" M 188.60 208.00 Q 188.63 208.00 188.31 206.05 Q 187.99 204.10 187.04 202.22 Q 186.10 200.35 184.56 198.62 Q 183.02 196.89 180.94 195.37 Q 178.87 193.86 176.34 192.61 Q 173.82 191.37 170.94 190.45 Q 168.06 189.52 164.93 188.95 Q 161.80 188.38 158.55 188.19 Q 155.30 188.00 152.05 188.19 Q 148.80 188.38 145.67 188.95 Q 142.54 189.52 139.66 190.45 Q 136.78 191.37 134.26 192.61 Q 131.73 193.86 129.66 195.37 Q 127.58 196.89 126.04 198.62 Q 124.50 200.35 123.56 202.22 Q 122.61 204.10 122.29 206.05 Q 121.97 208.00 121.98 208.00 L 122.00 208.00" />
+<polyline points="122.00 210.00 80.00 210.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<text x="40.00" y="149.00" font-family ="Arial" font-size ="21pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">${p1}</text>
+<text x="45.00" y="199.00" font-family ="Arial" font-size ="21pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">${p2}</text>
+<text x="120.00" y="244.00" font-family ="Arial" font-size ="21pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">${p3}</text>
+<text x="175.00" y="244.00" font-family ="Arial" font-size ="21pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">${p4}</text>
+<text x="210.00" y="169.00" font-family ="Arial" font-size ="21pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">${p5}</text>
+<text x="210.00" y="124.00" font-family ="Arial" font-size ="21pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">${p6}</text>
+<text x="165.00" y="64.00" font-family ="Arial" font-size ="21pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">${p7}</text>
+</svg>
