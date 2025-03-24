@@ -32,7 +32,7 @@ Special base. Pins 9.
 	    	</lang>
 	    </localizedKeys>
 		<parms>
-			<parm name="FILAMENT_CURRENT" number="1" ref="1,2,3,4">2000</parm>
+			<parm name="FILAMENT_CURRENT" number="1" ref="1,2,3,4">2</parm>
 			<parm name="ANODE_CURRENT" number="1" ref="1,2,3,4">120</parm>
 			<parm name="S" number="1">20.0</parm>
 			<parm name="GRID_LEAK_CURRENT" number="1">1</parm>			
