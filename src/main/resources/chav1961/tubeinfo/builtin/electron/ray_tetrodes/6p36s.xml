@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tubes>
-	<tube type="RAY_TETRODE" abbr="6П36C" corpus="TG" panel="PIN9" description="description" usage="usage">
+	<tube type="BEAM_TETRODE" abbr="6П36C" corpus="TG" panel="PIN9" description="description" usage="usage">
 	    <localizedKeys>
 	    	<lang name="en">
 	    		<key name="graphic1">Anode characteristics</key>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tubes>
+	<tube type="BEAM_TETRODE" abbr="6П41C" corpus="TG" panel="PIN9" description="description" usage="usage">
+	    <localizedKeys>
+	    	<lang name="en">
+	    		<help name="description">
+Output beam tetrode.
+The main purpose is to work in frame and line scanning units of television devices, power amplifiers and oscillation generators. Works in any position.Works in any position.
+Manufactured in a glass finger design.
+Service life of at least 1500 hours.
+Special base. Pins 9.
+	    		</help>	    		
+	    		<help name="usage">
+====RECOMMENDED APPLICATION MODES
+
+=====1. Single-ended gain mode equivalent to frame scan mode (class A)
+
+Anode power supply voltage 230 V
+Grid voltage of the second 170 V
+Grid voltage of the first minus 24 V
+Alternating voltage of the first grid 7 V (eff.)
+Anode load resistance 5 kΩ
+Anode current 45 mA
+Grid current of the second 5 mA
+Output power 4 W
+Harmonic distortion coefficient 6%
+
+=====2. Push-pull power amplification mode (class B)
+
+Anode power supply voltage 500 V
+Grid power supply voltage of the second 170 V
+Grid voltage of the first minus 35 V
+Alternating voltage of the first grid. 24 V (eff.)
+Load resistance between anodes. 8 kΩ
+Resistance in the grid circuit of the second of each tube 470 ohms
+Anode current 2x80 mA
+Grid current of the second 2x8 mA
+Output power 60 W
+Nonlinear distortion coefficient about 10%	    		
+	    		</help>	    		
+	    	</lang>
+	    	<lang name="ru">
+	    		<help name="description">
+Выходной лучевой тетрод.
+Основное назначение — работа в блоках кадровой и строчной развертки телевизионных устройств, усилителях мощности и генераторах колебаний.Работает в любом положении.
+Выпускается в стеклянном пальчиковом оформлении.
+Срок службы не менее 1500 часов.
+Цоколь специальный. Штырьков 9.
+	    		</help>	    		
+	    		<help name="usage">
+====РЕКОМЕНДУЕМЫЕ РЕЖИМЫ ПРИМЕНЕНИЯ
+
+=====1. Режим однотактного усиления эквивалентный режиму кадровой развертки (класс А)
+
+Напряжение источника питания анода 230 В
+Напряжение сетки второй 170 В
+Напряжение сетки первой минус 24 В
+Переменное напряжение сетки первой 7 в (эфф.)
+Сопротивление анодной нагрузки 5 ком
+Ток анода 45 ма
+Ток сетки второй 5 ма
+Выходная мощность 4 вт
+Коэффициент нелинейных искажений 6%
+
+=====2. Режим двухтактного усиления мощности (класс В)
+
+Напряжение источника питания анода  500 в
+Напряжение источника питания сетки второй 170 в
+Напряжение сетки первой минус 35 в
+Переменное напряжение сетки первой. 24 в (эфф.)
+Сопротивление нагрузки между анодами. 8 ком
+Сопротивление в цепи сетки второй каждой лампы 470 ом
+Ток анода 2х80 ма
+Ток сетки второй 2х8 ма
+Выходная мощность 60 вт
+Коэффициент нелинейных искажений около 10%
+	    		</help>	    		
+	    	</lang>
+	    </localizedKeys>
+		<parms>
+			<parm name="FILAMENT_CURRENT" number="1" ref="1,2,3">1.1</parm>
+			<parm name="ANODE_CURRENT" number="1" ref="1,2,3">66</parm>
+			<parm name="GRID2_CURRENT" number="1" ref="1,2,3">2.7</parm>
+			<parm name="CATHODE_RESISTANCE" number="1" ref="1,2,3">300</parm>
+			<parm name="S" number="1">8.4</parm>
+			<parm name="INTERNAL_RESISTANCE" number="1">12</parm>
+			<parm name="GRID_LEAK_CURRENT" number="1">1</parm>
+			<parm name="NOISE_VOLTAGE" number="1">500</parm>
+			<parm name="INPUT_CAPACITY" number="1">23</parm>
+			<parm name="OUTPUT_CAPACITY" number="1">10.5</parm>
+			<parm name="TRANSFER_CAPACITY" number="1">0.5</parm>
+			<parm name="MIN_FILAMENT_VOLTAGE" number="1">5.7</parm>
+			<parm name="MAX_FILAMENT_VOLTAGE" number="1">6.9</parm>
+			<parm name="MAX_ANODE_VOLTAGE" number="1">400</parm>
+			<parm name="MAX_GRID2_VOLTAGE" number="1">350</parm>
+			<parm name="MAX_CATHODE_CURRENT" number="1">100</parm>
+			<parm name="POWER_DISSIPATION" number="1">14</parm>
+			<parm name="POWER_GRID2_DISSIPATION" number="1">2</parm>
+			<parm name="MAX_CATHODE_FILAMENT_VOLTAGE" number="1">100</parm>
+		</parms>
+		<modes>
+			<mode ref="1">
+				<parm name="FILAMENT_VOLTAGE">6.3</parm>
+			</mode>
+			<mode ref="2">
+				<parm name="ANODE_VOLTAGE">190</parm>
+			</mode>
+			<mode ref="3">
+				<parm name="GRID2_VOLTAGE">190</parm>
+			</mode>
+		</modes>
+		<scheme>
+			<parm name="p1">2,6</parm>
+			<parm name="p2">3</parm>
+			<parm name="p3">4</parm>
+			<parm name="p4">5</parm>
+			<parm name="p5">3</parm>
+			<parm name="p6">1,7</parm>
+			<parm name="p7">9</parm>
+		</scheme> 
+		<corpus>
+			<parm name="p1">115</parm>
+			<parm name="p2">105</parm>
+			<parm name="p3">45</parm>
+			<parm name="p4">80</parm>
+		</corpus> 
+		<connectors>
+			<connector number="1" type="GRID_2" pin="1" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_1" pin="2" pinType="ORDINAL"/>
+			<connector number="1" type="CATHODE" pin="3" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="4" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="5" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_1" pin="6" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_2" pin="7" pinType="ORDINAL"/>
+			<connector number="1" type="ANODE" pin="9" pinType="ORDINAL"/>
+		</connectors>
+	</tube>
+</tubes>
