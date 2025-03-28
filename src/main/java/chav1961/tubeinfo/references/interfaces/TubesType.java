@@ -14,7 +14,7 @@ public enum TubesType {
 	@LocaleResource(value="chav1961.tubeinfo.references.interfaces.tubesType.doubleDiode",tooltip="chav1961.tubeinfo.references.interfaces.tubesType.doubleDiode.tt",icon="doubleDiode.png")
 	DOUBLE_DIODE(1, 2, "double_triode.svg"),
 	@LocaleResource(value="chav1961.tubeinfo.references.interfaces.tubesType.triode",tooltip="chav1961.tubeinfo.references.interfaces.tubesType.triode.tt",icon="triode.png")
-	TRIODE(1, 1, "double_triode.svg"),
+	TRIODE(1, 1, "triode.svg"),
 	@LocaleResource(value="chav1961.tubeinfo.references.interfaces.tubesType.doubleTriode",tooltip="chav1961.tubeinfo.references.interfaces.tubesType.doubleTriode.tt",icon="doubleTriode.png")
 	DOUBLE_TRIODE(1, 2, "double_triode.svg"),
 	@LocaleResource(value="chav1961.tubeinfo.references.interfaces.tubesType.tetrode",tooltip="chav1961.tubeinfo.references.interfaces.tubesType.tetrode.tt",icon="tethrode.png")

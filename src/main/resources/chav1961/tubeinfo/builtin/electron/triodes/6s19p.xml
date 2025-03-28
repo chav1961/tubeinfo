@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tubes>
+	<tube type="TRIODE" abbr="6С19П" corpus="TG" panel="PIN9" description="description" usage="usage">
+	    <localizedKeys>
+	    	<lang name="en">
+	    		<key name="graphic1">Anode characteristics</key>
+	    		<key name="graphic1.tt">Averaged characteristics of the dependence of the anode current and grid current on the voltage at the anode of each triode.</key>
+	    		<help name="description">
+A high-frequency double triode with a common cathode. Designed to amplify low-frequency voltage and generate high frequency. Can be used as a high-frequency amplifier and converter in ultra-short-wave equipment.
+Indirectly heated oxide cathode.
+Works in any position.
+Manufactured in a glass finger design.
+Service life of at least 500 hours.
+7-pin base with a button bottom.
+	    		</help>	    		
+	    		<help name="usage">
+===Recommended operating mode of the 6N15P tube in a class A amplifier (for each triode):
+
+*Anode voltage, V **100**
+*Cathode circuit resistance for automatic bias, Ohm **50**
+*Current in the anode cio, mA **8.5**
+*Gain **38**
+*Characteristic slope, mA/V **5.3**
+*Internal resistance, Ohm **7100**
+
+Note: It is not recommended to use a fixed bias in this mode. The cathode resistance of 50 ohms is common to both triodes. The resistance in the grid circuit should not exceed 500 kohms.
+
+===Recommended operating mode of the 6N15P tube for a class C generator and amplifier (both triodes are connected in a push-pull circuit)
+
+*Anode voltage, V **150**
+*Grid bias voltage, V **—10**
+*Anode circuit current, mA **30**
+*Grid circuit current, mA **16**
+*Grid dissipated power, W **0.35**
+*Maximum output power, W **3.5**
+
+Note: The grid bias voltage can be generated either from a fixed source, or by means of a 220 ohm cathode resistance, or by means of a 625 ohm grid resistance.
+
+In superheterodyne receivers, the 6N15P tube can work well as a diode detector or an AGC detector. In this case, the grids must be connected to the anodes.
+
+====LITERATURE
+
+*Belevich G., Radio station for 420-435 MHz, "Radio", 1960, No. 8.
+*Gaft M., Triode converter, "Radio", 1955, No. 2.
+*Leontyev V., Quartz generators for 144-146 MHz, "Radio", 1964.
+*Stanchits A., Set-top box-converter of television channels, "Radio", 1961, No. 6.
+*Tutorsky O., Antenna amplifier, "Radio", 1952, No. 12.
+*Sheiko V., Burko G., Converter for 420-435 MHz, "Radio", 1960, No. 6.
+    		</help>	    		
+	    	</lang>
+	    	<lang name="ru">
+	    		<key name="graphic1">Анодные характеристики</key>
+	    		<key name="graphic1.tt">Усредненные характеристики зависимости тока анода и тока сетки от напряжения на аноде каждого триода</key>
+	    		<help name="description">
+Триод.	    		
+Предназначен для работы в качестве регулирующей лампы в электронных стабилизаторах напряжения.
+Катод оксидный косвенного накала.
+Работает в любом положении.
+Выпускается в стеклянном пальчиковом оформлении.
+Срок службы не менее 500 ч.
+Цоколь 9-штырьковый с пуговичным дном.
+	    		</help>	    		
+	    		<help name="usage">
+При использовании лампы в схемах электронных стабилизаторов напряжения в качестве регулирующей, величина сопротивления в цепи сетки, являющегося одновременно нагрузкой в цепи анода усилительной лампы, не должна превышать 1.5. Мом.
+
+====Рекомендуемые предельно допустимые средние значения тока в цепи анода при паралелльной работе триодов 6С19П (при сопротивлениях в цепи катода):
+|=Число триодов|=0 Ом|=50 Ом|=100 Ом|=130 Ом|=200 Ом|=250 Ом|
+|1|110|110|110|110|110|110|110|
+|2|82|89|94|96|97|99|100|
+|3|73|83|88|91|92|95|97|
+|4|68|79|86|88|90|93|95|
+|5|65|77|84|87|89|91|94|
+
+====Рекомендуемые предельно допустимые значения мощности, рассеиваемой анодом, при параллельной работе триодов 6С19П (при сопротивлениях в цепи катода):
+|=Число триодов|=0 Ом|=50 Ом|=100 Ом|=130 Ом|=200 Ом|=250 Ом|
+|1|11|11|11|11|11|11|11|
+|2|8,2|8,9|9,4|9,6|9,7|9,9|10|
+|3|7,3|8,3|8,8|9,1|9,2|9,5|9,7|
+|4|6,8|7,9|8,6|8,8|9,0|9,3|9,5|
+|5|6,5|7,7|8,4|8,7|8,9|9,1|9,4|
+	    		</help>	    		
+	    	</lang>
+	    </localizedKeys>
+		<parms>
+			<parm name="FILAMENT_CURRENT" number="1" ref="1,2,3">1000</parm>
+			<parm name="ANODE_CURRENT" number="1" ref="1,2,3">9</parm>
+			<parm name="S" number="1" ref="2">7.5</parm>
+			<parm name="INTERNAL_RESISTANCE" number="1" ref="2">0.35</parm>
+			<parm name="INPUT_CAPACITY" number="1">6.5</parm>
+			<parm name="OUTPUT_CAPACITY" number="1">2.5</parm>
+			<parm name="TRANSFER_CAPACITY" number="1">8</parm>
+			<parm name="MIN_FILAMENT_VOLTAGE" number="1">5.7</parm>
+			<parm name="MAX_FILAMENT_VOLTAGE" number="1">6.9</parm>
+			<parm name="MAX_ANODE_VOLTAGE" number="1" ref="4">350</parm>
+			<parm name="MAX_ANODE_VOLTAGE" number="1" ref="5">200</parm>
+			<parm name="POWER_DISSIPATION" number="1">11</parm>
+			<parm name="MAX_GRID_1_RESISTANCE" number="1">100</parm>
+			<parm name="MAX_CATHODE_FILAMENT_VOLTAGE" number="1">250</parm>
+		</parms>
+		<modes>
+			<mode ref="1">
+				<parm name="FILAMENT_VOLTAGE">6.3</parm>
+			</mode>
+			<mode ref="2">
+				<parm name="ANODE_VOLTAGE">110</parm>
+			</mode>
+			<mode ref="3">
+				<parm name="CATHODE_RESISTANCE">130</parm>
+			</mode>
+			<mode ref="4">
+				<parm name="POWER_DISSIPATION">7</parm>
+			</mode>
+			<mode ref="5">
+				<parm name="POWER_DISSIPATION">11</parm>
+			</mode>
+		</modes>
+		<scheme>
+			<parm name="p1">2,7</parm>
+			<parm name="p2">4</parm>
+			<parm name="p3">5</parm>
+			<parm name="p4">9</parm>
+			<parm name="p5">1,3,6,8</parm>
+		</scheme> 
+		<corpus>
+			<parm name="p1">72</parm>
+			<parm name="p2">65</parm>
+			<parm name="p3">22.5</parm>
+			<parm name="p4">55</parm>
+		</corpus> 
+		<connectors>
+			<connector number="1" type="ANODE" pin="1" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_1" pin="2" pinType="ORDINAL"/>
+			<connector number="1" type="ANODE" pin="3" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="4" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="5" pinType="ORDINAL"/>
+			<connector number="1" type="ANODE" pin="6" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_1" pin="7" pinType="ORDINAL"/>
+			<connector number="1" type="ANODE" pin="8" pinType="ORDINAL"/>
+			<connector number="1" type="CATHODE" pin="7" pinType="ORDINAL"/>
+		</connectors>
+		<graphics>
+			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="../6s19p-1.png"/>
+			<graphic name="graphic2" tooltip="graphic2.tt" number="1" href="../6s19p-2.png"/>
+			<graphic name="graphic3" tooltip="graphic3.tt" number="1" href="../6s19p-3.png"/>
+		</graphics>
+	</tube>
+</tubes>
