@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tubes>
+	<tube type="PENTODE" abbr="6Ж9П" corpus="TG" panel="PIN9" description="description" usage="usage">
+	    <localizedKeys>
+	    	<lang name="en">
+	    		<key name="graphic1">Anode characteristics</key>
+	    		<key name="graphic1.tt">Averaged characteristics of the dependence of the anode current on the anode voltage at a voltage on the second grid of 150 V.</key>
+	    		<help name="description">
+High frequency pentode with short characteristic.
+Designed for broadband amplification of high frequency voltage.
+Manufactured in glass finger design.
+Service life of at least 5000 hours.
+Pin base with button bottom. Pins 9.
+	    		</help>	    		
+	    		<help name="usage">
+==== LITERATURE
+
+*Boyajan A., Aperiodic high-frequency amplifier, "Radio", 1965, No. 1
+*Efremenkov M., 6Zh9P in cascade amplifiers, "Radio", 1965, No. 4.
+*Tintakyan A., Pentode 6Zh9P in television, "Radio", 1963, No. 5.
+				</help>	    		
+	    	</lang>
+	    	<lang name="ru">
+	    		<key name="graphic1">Анодные характеристики</key>
+	    		<key name="graphic1.tt">Усредненные характеристики зависимости тока анода от напряжения на аноде при напряжении на второй сетке 150 В</key>
+	    		<help name="description">
+Пентод высокой частоты с короткой характеристикой.
+Предназначен для широкополосного усиления напряжения высокой частоты.
+Выпускается в стеклянном пальчиковом оформлении.
+Срок службы не менее 5000 часов.
+Цоколь штырьковый с пуговичным дном. Штырьков 9.
+	    		</help>	    		
+	    		<help name="usage">
+==== ЛИТЕРАТУРА
+
+*Бояджан А., Апериодический усвлитоль высокой частоты, «Радио», 1965, № 1
+*Ефременков М., 6Ж9П в каскадных усилителях, «Радио», 1965, № 4.
+*Тинтакян А., Пентод 6Ж9П в телевизоре, «Радио», 1963, № 5.
+	    		</help>	    		
+	    	</lang>
+	    </localizedKeys>
+		<parms>
+			<parm name="FILAMENT_CURRENT" number="1" ref="1,2,3,4">300</parm>
+			<parm name="ANODE_CURRENT" number="1" ref="1,2,3,4">15.5</parm>
+			<parm name="GRID2_CURRENT" number="1">4.5</parm>
+			<parm name="S" number="1">17.5</parm>
+			<parm name="INPUT_RESISTANCE" number="1" ref="5">0.7</parm>
+			<parm name="INTERNAL_RESISTANCE" number="1">150</parm>
+			<parm name="NOISE_RESISTANCE" number="1">0.55</parm>
+			<parm name="INPUT_CAPACITY" number="1">8.5</parm>
+			<parm name="OUTPUT_CAPACITY" number="1">3.5</parm>
+			<parm name="TRANSFER_CAPACITY" number="1">0.03</parm>
+			<parm name="MIN_FILAMENT_VOLTAGE" number="1">5.7</parm>
+			<parm name="MAX_FILAMENT_VOLTAGE" number="1">7.0</parm>
+			<parm name="MAX_ANODE_VOLTAGE" number="1">250</parm>
+			<parm name="MAX_GRID2_VOLTAGE" number="1">160</parm>
+			<parm name="MAX_CATHODE_CURRENT" number="1">35</parm>
+			<parm name="POWER_DISSIPATION" number="1">3</parm>
+			<parm name="POWER_GRID2_DISSIPATION" number="1">0.75</parm>
+			<parm name="MAX_CATHODE_FILAMENT_VOLTAGE" number="1">100</parm>
+			<parm name="MAX_GRID_1_RESISTANCE" number="1">1000</parm>
+		</parms>
+		<modes>
+			<mode ref="1">
+				<parm name="FILAMENT_VOLTAGE">6.3</parm>
+			</mode>
+			<mode ref="2">
+				<parm name="ANODE_VOLTAGE">100</parm>
+			</mode>
+			<mode ref="3">
+				<parm name="GRID2_VOLTAGE">150</parm>
+			</mode>
+			<mode ref="4">
+				<parm name="CATHODE_RESISTANCE">80</parm>
+			</mode>
+			<mode ref="5">
+				<parm name="INPUT_FREQUENCY">60</parm>
+			</mode>
+		</modes>
+		<scheme href="root://chav1961.tubeinfo.references.interfaces.TubesType/chav1961/tubeinfo/references/interfaces/pentode2.svg">
+			<parm name="p1">9</parm>
+			<parm name="p2">2</parm>
+			<parm name="p3">1,3</parm>
+			<parm name="p4">4</parm>
+			<parm name="p5">5</parm>
+			<parm name="p6">7</parm>
+			<parm name="p7">8</parm>
+		</scheme> 
+		<corpus>
+			<parm name="p1">57</parm>
+			<parm name="p2">50</parm>
+			<parm name="p3">22.5</parm>
+			<parm name="p4">43</parm>
+		</corpus> 
+		<connectors>
+			<connector number="1" type="CATHODE" pin="1" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_1" pin="2" pinType="ORDINAL"/>
+			<connector number="1" type="CATHODE" pin="3" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="4" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="5" pinType="ORDINAL"/>
+			<connector number="1" type="ANODE" pin="7" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_3" pin="8" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_2" pin="9" pinType="ORDINAL"/>
+		</connectors>
+		<graphics>
+   			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="../6j9p-1.png"/>  
+		</graphics>
+	</tube>
+</tubes>
