@@ -34,7 +34,7 @@ public enum TubesType {
 	@LocaleResource(value="chav1961.tubeinfo.references.interfaces.tubesType.triodeHeptode",tooltip="chav1961.tubeinfo.references.interfaces.tubesType.triodeHeptode.tt",icon="triodeHeptode.png")
 	TRIODE_HEPTODE(2, 1, "triode_heptode.svg"),
 	@LocaleResource(value="chav1961.tubeinfo.references.interfaces.tubesType.special",tooltip="chav1961.tubeinfo.references.interfaces.tubesType.special.tt",icon="special.png")
-	SPECIAL(2, 1, "double_triode.svg");
+	SPECIAL(2, 1, "special.svg");
 	
 	private final URL	reference;
 	private final int	numberOfLampTypes;
