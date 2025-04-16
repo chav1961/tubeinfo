@@ -47,6 +47,10 @@ public enum TubeParameter {
 	ANODE_CURRENT("I<sub>a</sub>", 100, TubeParameterUnit.MILLIAMPER, false),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.anode.voltage",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.anode.voltage.tt")
 	ANODE_VOLTAGE("U<sub>a</sub>", 100, TubeParameterUnit.VOLT, false),
+	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.crater.current",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.crater.current.tt")
+	CRATER_CURRENT("I<sub>cr</sub>", 100, TubeParameterUnit.MILLIAMPER, false),
+	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.crater.voltage",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.crater.voltage.tt")
+	CRATER_VOLTAGE("U<sub>cr</sub>", 100, TubeParameterUnit.VOLT, false),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.grid2.voltage",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.grid2.voltage.tt")
 	GRID2_VOLTAGE("U<sub>g2</sub>", 100, TubeParameterUnit.VOLT, false),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.grid2.current",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.grid2.current.tt")

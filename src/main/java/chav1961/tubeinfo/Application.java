@@ -48,11 +48,11 @@ public class Application extends JFrame implements LocalizerOwner, LoggerFacadeO
 	public static final String	MESSAGE_READY = "chav1961.tubesReference.message.ready";
 	private static final int	MAX_TABS = 3;
 	
-	private final Localizer					localizer;
-	private final JTabbedPane				tabs = new JTabbedPane();
-	private final JStateString				state;
-	private JCloseableTab					helpTab = null; 
-	private JCreoleHelpWindow				helpWindow = null;	
+	private final Localizer		localizer;
+	private final JTabbedPane	tabs = new JTabbedPane();
+	private final JStateString	state;
+	private JCloseableTab		helpTab = null; 
+	private JCreoleHelpWindow	helpWindow = null;	
 	
 	public Application(final CountDownLatch latch, final ContentMetadataInterface mdi, final File contentDir) {
 		if (latch == null) {

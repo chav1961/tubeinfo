@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tubes>
+	<tube type="SPECIAL" abbr="6Е3П" corpus="TG" panel="PIN9" description="description" usage="usage">
+	    <localizedKeys>
+	    	<lang name="en">
+	    		<help name="description">
+Electronic light indicator.
+Designed to indicate tuning in stereophonic tape recorders.
+Can be used to indicate tuning in superheterodyne receivers and in measuring equipment.Produced in glass finger design.
+Service life is not less than 500 hours.
+Pin base with button bottom. Pins 9.
+The light screen is made in the form of blue glow flaps located along the vertical axis of the lamp.
+				</help>	    		
+	    		<help name="usage">
+====LITERATURE
+
+*Ganzburg M., Stereophonic Magiphone "Yauza-10", "Radio", 1963, No. 2
+*Shleissner R., Repair of Household Tape Recorders, "Light Industry", 1965, No. 2
+				</help>	    		
+	    	</lang>
+	    	<lang name="ru">
+	    		<help name="description">
+Электронно-световой индикатор.
+Предназначен для индикации настройки в стереофонических магнитофонах. 
+Может быть применен для индикации настройки в супергетеродинных приемниках и в измерительной аппаратуре.
+Катод оксидный косвенного накала.
+Работает в любом положении.
+Выпускается в стеклянном пальчиковом оформлении.
+Срок службы не менее 500 часов.
+Цоколь штырьковый с пуговичным дном. Штырьков 9.
+Световой экран выполнен в виде створок голубого свечения, расположенных вдоль вертикальной оси лампы.
+	    		</help>	    		
+	    		<help name="usage">
+====ЛИТЕРАТУРА
+
+*Ганзбург М., Стереофонический магиитофом «Яуза-10», «Радио», 1963, № 2
+*Шлейснер Р., Ремонт бытовых магнитофонов, «Легкая индустрия», 1965, № 2
+	    		</help>	    		
+	    	</lang>
+	    </localizedKeys>
+		<parms>
+			<parm name="FILAMENT_CURRENT" number="1" ref="1,2,3">270</parm>
+			<parm name="ANODE_CURRENT" number="1" ref="1,2,3">0.35</parm>
+			<parm name="CRATER_CURRENT" number="1" ref="1,2,3">4</parm>
+			<parm name="S" number="1">0.5</parm>
+			<parm name="MYU" number="1">245</parm>
+			<parm name="MIN_FILAMENT_VOLTAGE" number="1">5.7</parm>
+			<parm name="MAX_FILAMENT_VOLTAGE" number="1">7.0</parm>
+			<parm name="MAX_ANODE_VOLTAGE" number="1">300</parm>
+			<parm name="MAX_CATHODE_CURRENT" number="1">3</parm>
+			<parm name="POWER_DISSIPATION" number="1">0.5</parm>
+			<parm name="MAX_TEMPERATURE" number="1">120</parm>
+		</parms>
+		<modes>
+			<mode ref="1">
+				<parm name="FILAMENT_VOLTAGE">6.3</parm>
+			</mode>
+			<mode ref="2">
+				<parm name="ANODE_VOLTAGE">250</parm>
+			</mode>
+			<mode ref="3">
+				<parm name="CRATER_VOLTAGE">250</parm>
+			</mode>
+		</modes>
+		<scheme>
+			<parm name="p1">1</parm>
+			<parm name="p2">4</parm>
+			<parm name="p3">5</parm>
+			<parm name="p4">3</parm>
+			<parm name="p5">2,6,8</parm>
+			<parm name="p6">7,9</parm>
+		</scheme> 
+		<corpus>
+			<parm name="p1">70</parm>
+			<parm name="p2">65</parm>
+			<parm name="p3">22.5</parm>
+			<parm name="p4">54</parm>
+		</corpus> 
+		<connectors>
+			<connector number="1" type="GRID_1" pin="1" pinType="ORDINAL"/>
+			<connector number="1" type="ANODE" pin="2" pinType="ORDINAL"/>
+			<connector number="1" type="CATHODE" pin="3" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="4" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="5" pinType="ORDINAL"/>
+			<connector number="1" type="ANODE" pin="6" pinType="ORDINAL"/>
+			<connector number="1" type="ANODE" pin="7" pinType="ORDINAL"/>
+			<connector number="1" type="ANODE" pin="8" pinType="ORDINAL"/>
+			<connector number="1" type="ANODE" pin="9" pinType="ORDINAL"/>
+		</connectors>
+	</tube>
+</tubes>
