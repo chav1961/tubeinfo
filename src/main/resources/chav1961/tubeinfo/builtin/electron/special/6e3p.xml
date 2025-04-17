@@ -43,7 +43,7 @@ The light screen is made in the form of blue glow flaps located along the vertic
 			<parm name="ANODE_CURRENT" number="1" ref="1,2,3">0.35</parm>
 			<parm name="CRATER_CURRENT" number="1" ref="1,2,3">4</parm>
 			<parm name="S" number="1">0.5</parm>
-			<parm name="MYU" number="1">245</parm>
+			<parm name="MYU" number="1">24</parm>
 			<parm name="MIN_FILAMENT_VOLTAGE" number="1">5.7</parm>
 			<parm name="MAX_FILAMENT_VOLTAGE" number="1">7.0</parm>
 			<parm name="MAX_ANODE_VOLTAGE" number="1">300</parm>
