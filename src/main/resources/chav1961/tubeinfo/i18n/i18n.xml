@@ -91,11 +91,15 @@
 
 		<key name="chav1961s.tubes.tubePanelGroup.pin7">PIN7</key>
 		<key name="chav1961s.tubes.tubePanelGroup.pin7.tt">PIN7</key>
+		<key name="chav1961s.tubes.tubePanelGroup.pin8">PIN8</key>
+		<key name="chav1961s.tubes.tubePanelGroup.pin8.tt">PIN8</key>
 		<key name="chav1961s.tubes.tubePanelGroup.pin9">PIN9</key>
 		<key name="chav1961s.tubes.tubePanelGroup.pin9.tt">PIN9</key>
 
 		<key name="chav1961s.tubes.tubePanelType.pin7">PIN7</key>
 		<key name="chav1961s.tubes.tubePanelType.pin7.tt">PIN7</key>
+		<key name="chav1961s.tubes.tubePanelType.pin8">PIN8</key>
+		<key name="chav1961s.tubes.tubePanelType.pin8.tt">PIN8</key>
 		<key name="chav1961s.tubes.tubePanelType.pin9">PIN9</key>
 		<key name="chav1961s.tubes.tubePanelType.pin9.tt">PIN9</key>
 
@@ -303,11 +307,15 @@
 
 		<key name="chav1961s.tubes.tubePanelGroup.pin7">PIN7</key>
 		<key name="chav1961s.tubes.tubePanelGroup.pin7.tt">PIN7</key>
+		<key name="chav1961s.tubes.tubePanelGroup.pin8">PIN8</key>
+		<key name="chav1961s.tubes.tubePanelGroup.pin8.tt">PIN8</key>
 		<key name="chav1961s.tubes.tubePanelGroup.pin9">PIN9</key>
 		<key name="chav1961s.tubes.tubePanelGroup.pin9.tt">PIN9</key>
 
 		<key name="chav1961s.tubes.tubePanelType.pin7">PIN7</key>
 		<key name="chav1961s.tubes.tubePanelType.pin7.tt">PIN7</key>
+		<key name="chav1961s.tubes.tubePanelType.pin8">PIN8</key>
+		<key name="chav1961s.tubes.tubePanelType.pin8.tt">PIN8</key>
 		<key name="chav1961s.tubes.tubePanelType.pin9">PIN9</key>
 		<key name="chav1961s.tubes.tubePanelType.pin9.tt">PIN9</key>
 
