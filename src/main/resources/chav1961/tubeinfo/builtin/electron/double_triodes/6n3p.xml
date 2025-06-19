@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tubes>
+	<tube type="DOUBLE_TRIODE" abbr="6Н3П" corpus="TG" panel="PIN9" description="description" usage="usage">
+	    <localizedKeys>
+	    	<lang name="en">
+	    		<key name="graphic1">Anode-grid characteristics</key>
+	    		<key name="graphic1.tt">Averaged characteristics of the dependence of the anode current on the grid voltage at various load resistances and an anode power source voltage of 250 V.</key>
+	    		<key name="graphic2">Anode characteristics</key>
+	    		<key name="graphic2.tt">Averaged characteristics of the dependence of the anode current and grid current on the voltage at the anode of each triode.</key>
+	    		<key name="graphic3">Anode-grid characteristics</key>
+	    		<key name="graphic3.tt">Averaged characteristics of the dependence of the anode current on the grid voltage at various load resistances and an anode power source voltage of 150 V.</key>
+	    		<help name="description">
+Designed to amplify voltage and generate high-frequency oscillations.
+It is used in receivers operating in the ultra-short wave range as a high-frequency amplifier with a grounded grid, as well as a mixer and a teterodyne. It can be used in low-power VHF receivers, pulse circuits and low-frequency pre-amplification cascades.
+Indirectly heated oxide cathode.
+Works in any position.
+Available in glass finger design.
+Service life of at least 500 hours.
+9 pin base with button bottom.
+	    		</help>	    		
+	    		<help name="usage">
+A circuit tuned to the signal frequency is included in the anode circuit of the high-frequency triode cascade. The amplified voltage is fed through a capacitor to the mid-range of the feedback coil of the triode frequency converter. The inductive coil is connected to the heterodyne circuit. The intermediate frequency voltage is released on the circuit — the second circuit of the bandpass filter.
+
+When designing, it is necessary to strictly adhere to the symmetry of both halves of the coil. In order to increase the gain at the intermediate frequency, it is necessary to make the so-called overcompensation of the bridge, i.e. to increase the voltage of the positive feedback taken from the capacitor. In order to do this, it is necessary to set the capacitor capacity less than necessary.
+
+To avoid self-excitation of the converter at the intermediate frequency, it is not allowed to increase the overcompensation significantly. Overcompensation makes it possible to increase the gain of the cascade by two or three times without self-excitation when replacing lamps and changing the power supply voltage.
+
+==== LITERATURE
+
+*Artemyev A., Double triode 6N3P, "Radio", 1955, No. 5
+*Demidasyuk I., Transmitter for a beginner shortwave radio operator, "Radio", 1960, No. 3
+*Eseyev N., VHF attachment to a radio broadcast receiver, "Radio", 1960, No. 2
+*Kamalyagin A., How to receive work on SSB, "Radio", 1960, No. 11
+*Kostandi G., Levenstern I., Frequency converters for meter waves, "Radio", 1955, No. 4
+*Kostandi G., Levenstern I., Triode amplifiers for meter waves, "Radio", 1955, No. 3
+*Penkin D., Highly sensitive converter for 28-29.7 MHz, "Radio", 1962, No. 6
+*Radio station for 144-146 MHz, "Radio", 1956, No. 6
+*Radio station for 420-425 MHz, "Radio", 1956, No. 8
+*Sobolev N., Cascode circuit in a low-frequency amplifier, "Radio", 1962, No. 2
+*Circuit of heterodyne resonance indicators, "Radio", 1958, No. 8
+*Chubar A., ​​Sweep frequency generator, "Radio", 1959, No. 11
+	    		
+				</help>	    		
+	    	</lang>
+	    	<lang name="ru">
+	    		<key name="graphic1">Анодные характеристики</key>
+	    		<key name="graphic1.tt">Усредненные характеристики зависимости тока анода и тока сетки от напряжения на аноде каждого триода</key>
+	    		<key name="graphic2">Анодные характеристики</key>
+	    		<key name="graphic2.tt">Усредненные характеристики зависимости тока анода и тока сетки от напряжения на аноде каждого триода</key>
+	    		<key name="graphic3">Анодно-сеточные характеристики</key>
+	    		<key name="graphic3.tt">Усредненные характеристики зависимости тока анода от напряжения на сетке при различных сопротивлениях нагрузки и напряжении источника анодного питания 150 В.</key>
+	    		<help name="description">
+Предназначен для усиления напряжения и генерирования колебаний высокой частоты.
+Применяется в приемниках, работающих в диапазоне ультракоротких волн, как усилитель высокой частоты с заземленной сеткой, а так же как смеситель и тетеродин. Может
+быть использован в маломощных УКВ приемииках, импульсных схемах и каскадах предварительного усиления низкой частоты.
+Катод оксидный косвенного накала.
+Работает в любом положении.
+Выпускается в стеклянном пальчиковом оформлении.
+Срок службы не менее 500 ч.
+Цоколь 9 штырьковый с пуговичным дном.
+	    		</help>	    		
+	    		<help name="usage">
+В анодную цепь триода каскада высокой частоты включен контур, который настраивается на частоту сигнада. Усиленное напряжение подается через конденсатор на среднюю точну катушки
+обратной связи триодного преобразователя частоты. Катушка индуктивио связана с контуром гетородина. Напряженние промежуточной частоты выделяется на контуре — втором контуре полосового фильтра. 
+
+При конструировании нужно строго прядерживаться симметрии обеих половин катушки. Дая того чтобы увеличить усиление по промежуточной частоте, нужно сделать так называемую перекомпенсацию моста, 
+т.е. повысить напряжение положительной обратной связи, снимаемой с конденсатора. Дая этого исобходимо установить емкость конденсатора меньше необходимой.
+
+Во избежание самовозбуждения преобразователя по промежуточной частоте значительно увеличивать перекомпенсацию нельзя. Перекомпенсация дает возможность в два-три раза увеличить усиление 
+каскада без самовозбуждения при замене ламп и смене напряжения источника питания.
+
+==== ЛИТЕРАТУРА
+
+*Артемьев А., Двойной триод 6Н3П, "Радио", 1955, № 5
+*Демидасюк И., Передатчик начинающего коротковолновика, "Радио", 1960, № 3
+*Есеев Н., УКВ-приставка в радиовещательному приемнику, "Радио", 1960, № 2
+*Камалягин А., Как принимать работу на SSB, "Радио", 1960, № 11
+*Костанди Г., Левенстерн И., Преобразователи частот метровых волн, "Радио", 1955, № 4
+*Костанди Г., Левенстерн И., Триодные усилители для метровых волн, "Радио", 1955, № 3
+*Пенкин Д., Высокочувствительный конвертор на 28-29.7 Мгц, "Радио", 1962, № 6
+*Радиостанция на 144-146 Мгц, "Радио", 1956, № 6
+*Радиостанция на 420-425 Мгц, "Радио", 1956, № 8
+*Соболев Н., Каскодная схема в усилителе НЧ, "Радио", 1962, № 2
+*Схема гетеродинных индикаторов резонанса, "Радио", 1958, № 8
+*Чубарь А., Генератор качающейся частоты, "Радио", 1959, № 11	    		
+				</help>	    		
+	    	</lang>
+	    </localizedKeys>
+		<parms>
+			<parm name="FILAMENT_CURRENT" number="1" ref="1,2">340</parm>
+			<parm name="ANODE_CURRENT" number="1">8.5</parm>
+			<parm name="S" number="1">5.9</parm>
+			<parm name="MYU" number="1">36</parm>
+			<parm name="INPUT_RESISTANCE" number="1" ref="3">15</parm>
+			<parm name="INPUT_RESISTANCE" number="1" ref="4">2</parm>
+			<parm name="NOISE_RESISTANCE" number="1">0.7</parm>
+			<parm name="NOISE_VOLTAGE" number="1">100</parm>
+			<parm name="INPUT_CAPACITY" number="1">2.7</parm>
+			<parm name="OUTPUT_CAPACITY" number="1">1.55</parm>
+			<parm name="TRANSFER_CAPACITY" number="1">1.6</parm>
+			<parm name="ANODE_ANODE_CAPACITY" number="1">0.13</parm>
+			<parm name="MIN_FILAMENT_VOLTAGE" number="1">5</parm>
+			<parm name="MAX_FILAMENT_VOLTAGE" number="1">7</parm>
+			<parm name="MAX_ANODE_VOLTAGE" number="1">300</parm>
+			<parm name="MAX_CATHODE_CURRENT" number="1">18</parm>
+			<parm name="POWER_DISSIPATION" number="1">1.5</parm>
+			<parm name="MAX_GRID_1_RESISTANCE" number="1">1.0</parm>
+			<parm name="MAX_CATHODE_FILAMENT_VOLTAGE" number="1">100</parm>
+		</parms>
+		<modes>
+			<mode ref="1">
+				<parm name="FILAMENT_VOLTAGE">6.3</parm>
+			</mode>
+			<mode ref="2">
+				<parm name="ANODE_VOLTAGE">150</parm>
+			</mode>
+			<mode ref="3">
+				<parm name="INPUT_FREQUENCY">50</parm>
+			</mode>
+			<mode ref="4">
+				<parm name="INPUT_FREQUENCY">100</parm>
+			</mode>
+		</modes>
+		<scheme>
+			<parm name="p1">4</parm>
+			<parm name="p2">3</parm>
+			<parm name="p3">2</parm>
+			<parm name="p4">1</parm>
+			<parm name="p5">9</parm>
+			<parm name="p6">6</parm>
+			<parm name="p7">7</parm>
+			<parm name="p8">8</parm>
+			<parm name="p9">5</parm>
+		</scheme> 
+		<corpus>
+			<parm name="p1">49</parm>
+			<parm name="p2">40</parm>
+			<parm name="p3">22.5</parm>
+			<parm name="p4">35</parm>
+		</corpus> 
+		<connectors>
+			<connector number="0" type="FILAMENT" pin="1" pinType="ORDINAL"/>
+			<connector number="1" type="CATHODE" pin="2" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_1" pin="3" pinType="ORDINAL"/>
+			<connector number="1" type="ANODE" pin="4" pinType="ORDINAL"/>
+			<connector number="0" type="SHIELD_1" pin="5" pinType="ORDINAL"/>
+			<connector number="2" type="ANODE" pin="6" pinType="ORDINAL"/>
+			<connector number="2" type="GRID_1" pin="7" pinType="ORDINAL"/>
+			<connector number="2" type="CATHODE" pin="8" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="9" pinType="ORDINAL"/>
+		</connectors>
+		<graphics>
+			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="../6n3p-1.png"/>
+			<graphic name="graphic2" tooltip="graphic2.tt" number="1" href="../6n3p-2.png"/>
+			<graphic name="graphic3" tooltip="graphic3.tt" number="1" href="../6n3p-3.png"/>
+		</graphics>
+	</tube>
+</tubes>
