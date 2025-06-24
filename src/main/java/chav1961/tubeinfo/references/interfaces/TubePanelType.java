@@ -11,6 +11,10 @@ public enum TubePanelType {
 	PIN8(TubePanelGroup.PIN8),
 	@LocaleResource(value="chav1961.calc.references.tubes.tubePanelType.pin9",tooltip="chav1961.calc.references.tubes.tubePanelType.pin9.tt")
 	PIN9(TubePanelGroup.PIN9),
+	@LocaleResource(value="chav1961.calc.references.tubes.tubePanelType.pin9",tooltip="chav1961.calc.references.tubes.tubePanelType.pin9.tt")
+	PIN10(TubePanelGroup.PIN10),
+	@LocaleResource(value="chav1961.calc.references.tubes.tubePanelType.pin9",tooltip="chav1961.calc.references.tubes.tubePanelType.pin9.tt")
+	PIN10_F(TubePanelGroup.PIN10_F),
 	;
 	
 	private final TubePanelGroup	group;

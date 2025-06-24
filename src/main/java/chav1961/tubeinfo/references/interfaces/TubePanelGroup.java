@@ -14,6 +14,10 @@ public enum TubePanelGroup {
 	PIN8("pin9.svg", new Pin(1, 61, 154), new Pin(2, 37, 121), new Pin(3, 36, 79), new Pin(4, 61, 45), new Pin(5, 100, 34), new Pin(6, 139, 46), new Pin(7, 164, 80), new Pin(8, 163, 121), new Pin(9, 139, 154)),
 	@LocaleResource(value="chav1961s.tubes.tubePanelGroup.pin9",tooltip="chav1961s.tubes.tubePanelGroup.pin9.tt",icon="root://chav1961.tubeinfo.references.interfaces.TubePanelGroup/chav1961/tubeinfo/references/interfaces/pin9.png")
 	PIN9("pin9.svg", new Pin(1, 61, 154), new Pin(2, 37, 121), new Pin(3, 36, 79), new Pin(4, 61, 45), new Pin(5, 100, 34), new Pin(6, 139, 46), new Pin(7, 164, 80), new Pin(8, 163, 121), new Pin(9, 139, 154)),
+	@LocaleResource(value="chav1961s.tubes.tubePanelGroup.pin9",tooltip="chav1961s.tubes.tubePanelGroup.pin9.tt",icon="root://chav1961.tubeinfo.references.interfaces.TubePanelGroup/chav1961/tubeinfo/references/interfaces/pin9.png")
+	PIN10("pin9.svg", new Pin(1, 61, 154), new Pin(2, 37, 121), new Pin(3, 36, 79), new Pin(4, 61, 45), new Pin(5, 100, 34), new Pin(6, 139, 46), new Pin(7, 164, 80), new Pin(8, 163, 121), new Pin(9, 139, 154)),
+	@LocaleResource(value="chav1961s.tubes.tubePanelGroup.pin9",tooltip="chav1961s.tubes.tubePanelGroup.pin9.tt",icon="root://chav1961.tubeinfo.references.interfaces.TubePanelGroup/chav1961/tubeinfo/references/interfaces/pin9.png")
+	PIN10_F("pin9.svg", new Pin(1, 61, 154), new Pin(2, 37, 121), new Pin(3, 36, 79), new Pin(4, 61, 45), new Pin(5, 100, 34), new Pin(6, 139, 46), new Pin(7, 164, 80), new Pin(8, 163, 121), new Pin(9, 139, 154)),
 	;
 	
 	private final String	svgDraw;
