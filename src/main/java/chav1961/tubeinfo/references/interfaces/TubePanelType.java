@@ -6,6 +6,8 @@ import chav1961.purelib.i18n.interfaces.LocaleResourceLocation;
 @LocaleResourceLocation("i18n:xml:root://chav1961.calc.references.interfaces.TubePanelType/chav1961/tubeinfo/i18n/i18n.xml")
 public enum TubePanelType {
 	@LocaleResource(value="chav1961.calc.references.tubes.tubePanelType.pin7",tooltip="chav1961.calc.references.tubes.tubePanelType.pin7.tt")
+	PIN_NOUV(TubePanelGroup.PIN_NOUV),
+	@LocaleResource(value="chav1961.calc.references.tubes.tubePanelType.pin7",tooltip="chav1961.calc.references.tubes.tubePanelType.pin7.tt")
 	PIN7(TubePanelGroup.PIN7),
 	@LocaleResource(value="chav1961.calc.references.tubes.tubePanelType.pin8",tooltip="chav1961.calc.references.tubes.tubePanelType.pin8.tt")
 	PIN8(TubePanelGroup.PIN8),

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tubes>
+	<tube type="TRIODE" abbr="6С51Н" corpus="TG" panel="PIN_NOUV" description="description" usage="usage">
+	    <localizedKeys>
+	    	<lang name="en">
+	    		<key name="graphic1">Anode characteristics</key>
+	    		<key name="graphic1.tt">Averaged characteristics of the dependence of the anode current on the voltage at the anode.</key>
+	    		<help name="description">
+Triode. 
+Designed to generate and amplify oscillations in the range from infra-low to ultra-high frequencies, 
+Can operate in pulse circuits.
+It is produced in a metal-ceramic design with two types of terminals: with flexible terminals - for connection to the circuit by soldering; with rigid terminals (pins) - for installation in a special lamp panel.
+Indirectly heated oxide cathode.
+Works in any position.
+Service life of at least 2000 hours.
+	    		</help>	    		
+	    		<help name="usage">
+====Basic electrical data at low anode voltage:
+
+*Anode voltage - **27** V
+*Grid bias voltage - **-0.5** V
+*Anode current cutoff voltage - **-2.7** V
+*Anode circuit current - **5** mA
+*Characteristic slope - **10** mA/V
+
+====Main electrical data in mixer mode:
+
+*Anode voltage - **50** V
+*Grid voltage from local oscillator - **0.7** V eff
+*Conversion slope - **5.2** mA/V
+*Internal resistance - **5** kOhm
+	
+	    		</help>	    		
+	    	</lang>
+	    	<lang name="ru">
+	    		<key name="graphic1">Анодные характеристики</key>
+	    		<key name="graphic1.tt">Усредненные характеристики зависимости тока анода от напряжения на аноде</key>
+	    		<help name="description">
+Триод.	    		
+Предназначен для генерирования и усиления колебаний в диапазоне от инфранизких до сверхвысоких частот, 
+Может работать в импульсных схемах.
+Выпускается в металлокерамическом оформлении с двумя вариантами выводов: с гибкими выводами — для соединения со схемой при помощь пайки; с жесткими выводами (штырьнами) — для установки в специальной ламповой панели.
+Катод оксидный косвенного накала.
+Работает в любом положении.
+Срок службы не менее 2000 ч.
+	    		</help>	    		
+	    		<help name="usage">
+====Основные электрические данные при низком анодном напряжении:
+
+*Напряжение на аноде - **27** В
+*Напряжение смещения на сетке - **-0.5** В
+*Напряжение отсечки анодного тока - **-2.7** В
+*Ток в цепи анода - **5** мА
+*Крутизна характеристики - **10** мА/В
+
+====Основные электрические данные в смесительном режиме:
+
+*Напряжение на аноде - **50** В
+*Напряжение на сетке, поступающее от гетеродина - **0.7** В эфф
+*Крутизна преобразования - **5.2** мА/В
+*Внутреннее сопротивление - **5** кОм	    		
+	    		</help>	    		
+	    	</lang>
+	    </localizedKeys>
+		<parms>
+			<parm name="FILAMENT_CURRENT" number="1" ref="1,2,3">130</parm>
+			<parm name="ANODE_CURRENT" number="1" ref="1,2,3">10</parm>
+			<parm name="S" number="1" ref="2">11.5</parm>
+			<parm name="MYU" number="1" ref="2">32</parm>
+			<parm name="INPUT_RESISTANCE" number="1" ref="4">7</parm>
+			<parm name="INPUT_RESISTANCE" number="1" ref="5">2.5</parm>
+			<parm name="NOISE_RESISTANCE" number="1">0.4</parm>
+			<parm name="NOISE_VOLTAGE" number="1">0.5</parm>
+			<parm name="INPUT_CAPACITY" number="1">6</parm>
+			<parm name="OUTPUT_CAPACITY" number="1">1.8</parm>
+			<parm name="TRANSFER_CAPACITY" number="1">1.7</parm>
+			<parm name="MIN_FILAMENT_VOLTAGE" number="1">5.7</parm>
+			<parm name="MAX_FILAMENT_VOLTAGE" number="1">7</parm>
+			<parm name="MAX_ANODE_VOLTAGE" number="1">110</parm>
+			<parm name="POWER_DISSIPATION" number="1">1.2</parm>
+			<parm name="POWER_GRID2_DISSIPATION" number="1">0.2</parm>
+			<parm name="MAX_GRID_1_RESISTANCE" number="1">1000</parm>
+			<parm name="MAX_CATHODE_CURRENT" number="1">15</parm>
+		</parms>
+		<modes>
+			<mode ref="1">
+				<parm name="FILAMENT_VOLTAGE">6.3</parm>
+			</mode>
+			<mode ref="2">
+				<parm name="ANODE_VOLTAGE">75</parm>
+			</mode>
+			<mode ref="3">
+				<parm name="CATHODE_RESISTANCE">130</parm>
+			</mode>
+			<mode ref="4">
+				<parm name="INPUT_FREQUENCY">60</parm>
+			</mode>
+			<mode ref="5">
+				<parm name="INPUT_FREQUENCY">100</parm>
+			</mode>
+		</modes>
+		<scheme>
+			<parm name="p1">6,7,8</parm>
+			<parm name="p2">1</parm>
+			<parm name="p3">2</parm>
+			<parm name="p4">3,4,5</parm>
+			<parm name="p5">9,10,11</parm>
+		</scheme> 
+		<corpus>
+			<parm name="p1">20</parm>
+			<parm name="p2">15</parm>
+			<parm name="p3">11</parm>
+			<parm name="p4">15</parm>
+		</corpus> 
+		<connectors>
+			<connector number="0" type="FILAMENT" pin="1" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="2" pinType="ORDINAL"/>
+			<connector number="1" type="CATHODE" pin="3" pinType="ORDINAL"/>
+			<connector number="1" type="CATHODE" pin="4" pinType="ORDINAL"/>
+			<connector number="1" type="CATHODE" pin="5" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_1" pin="6" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_1" pin="7" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_1" pin="8" pinType="ORDINAL"/>
+			<connector number="1" type="ANODE" pin="9" pinType="ORDINAL"/>
+			<connector number="1" type="ANODE" pin="10" pinType="ORDINAL"/>
+			<connector number="1" type="ANODE" pin="11" pinType="ORDINAL"/>
+		</connectors>
+		<graphics>
+			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="../6s51n-1.png"/>
+		</graphics>
+	</tube>
+</tubes>

@@ -5,6 +5,10 @@
 	    	<lang name="en">
 	    		<key name="graphic1">Anode characteristics</key>
 	    		<key name="graphic1.tt">Averaged characteristics of the dependence of the anode current and grid current on the voltage at the anode of each triode.</key>
+	    		<key name="graphic2">Anode characteristics</key>
+	    		<key name="graphic2.tt">Averaged characteristics of the dependence of the anode current and grid current on the voltage at the anode of each triode.</key>
+	    		<key name="graphic3">Anode characteristics</key>
+	    		<key name="graphic3.tt">Averaged characteristics of the dependence of the anode current and grid current on the voltage at the anode of each triode.</key>
 	    		<help name="description">
 A high-frequency double triode with a common cathode. Designed to amplify low-frequency voltage and generate high frequency. Can be used as a high-frequency amplifier and converter in ultra-short-wave equipment.
 Indirectly heated oxide cathode.
@@ -14,43 +18,32 @@ Service life of at least 500 hours.
 7-pin base with a button bottom.
 	    		</help>	    		
 	    		<help name="usage">
-===Recommended operating mode of the 6N15P tube in a class A amplifier (for each triode):
+When using the lamp in electronic voltage stabilizer circuits as a regulator, the resistance value in the grid circuit, which is also a load in the anode circuit of the amplifier lamp, should not exceed 1.5 Mohm.
 
-*Anode voltage, V **100**
-*Cathode circuit resistance for automatic bias, Ohm **50**
-*Current in the anode cio, mA **8.5**
-*Gain **38**
-*Characteristic slope, mA/V **5.3**
-*Internal resistance, Ohm **7100**
+====Recommended maximum permissible average current values ​​in the anode circuit during parallel operation of 6S19P triodes (with resistances in the cathode circuit):
+|=Number of Triodes|=0 Ohm|=50 Ohm|=100 Ohm|=130 Ohm|=200 Ohm|=250 Ohm|
+|1|110|110|110|110|110|110|110|
+|2|82|89|94|96|97|99|100|
+|3|73|83|88|91|92|95|97|
+|4|68|79|86|88|90|93|95|
+|5|65|77|84|87|89|91|94|
 
-Note: It is not recommended to use a fixed bias in this mode. The cathode resistance of 50 ohms is common to both triodes. The resistance in the grid circuit should not exceed 500 kohms.
-
-===Recommended operating mode of the 6N15P tube for a class C generator and amplifier (both triodes are connected in a push-pull circuit)
-
-*Anode voltage, V **150**
-*Grid bias voltage, V **—10**
-*Anode circuit current, mA **30**
-*Grid circuit current, mA **16**
-*Grid dissipated power, W **0.35**
-*Maximum output power, W **3.5**
-
-Note: The grid bias voltage can be generated either from a fixed source, or by means of a 220 ohm cathode resistance, or by means of a 625 ohm grid resistance.
-
-In superheterodyne receivers, the 6N15P tube can work well as a diode detector or an AGC detector. In this case, the grids must be connected to the anodes.
-
-====LITERATURE
-
-*Belevich G., Radio station for 420-435 MHz, "Radio", 1960, No. 8.
-*Gaft M., Triode converter, "Radio", 1955, No. 2.
-*Leontyev V., Quartz generators for 144-146 MHz, "Radio", 1964.
-*Stanchits A., Set-top box-converter of television channels, "Radio", 1961, No. 6.
-*Tutorsky O., Antenna amplifier, "Radio", 1952, No. 12.
-*Sheiko V., Burko G., Converter for 420-435 MHz, "Radio", 1960, No. 6.
-    		</help>	    		
+====Recommended maximum permissible values ​​of power dissipated by the anode during parallel operation of 6S19P triodes (with resistances in the cathode circuit):
+|=Number of Triodes|=0 Ohm|=50 Ohm|=100 Ohm|=130 Ohm|=200 Ohm|=250 Ohm|
+|1|11|11|11|11|11|11|
+|2|8.2|8.9|9.4|9.6|9.7|9.9|10|
+|3|7.3|8.3|8.8|9.1|9.2|9.5|9.7|
+|4|6.8|7.9|8.6|8.8|9.0|9.3|9.5|
+|5|6.5|7.7|8.4|8.7|8.9|9.1|9.4|
+    			</help>	    		
 	    	</lang>
 	    	<lang name="ru">
 	    		<key name="graphic1">Анодные характеристики</key>
 	    		<key name="graphic1.tt">Усредненные характеристики зависимости тока анода и тока сетки от напряжения на аноде каждого триода</key>
+	    		<key name="graphic2">Анодные характеристики</key>
+	    		<key name="graphic2.tt">Усредненные характеристики зависимости тока анода и тока сетки от напряжения на аноде каждого триода</key>
+	    		<key name="graphic3">Анодные характеристики</key>
+	    		<key name="graphic3.tt">Усредненные характеристики зависимости тока анода и тока сетки от напряжения на аноде каждого триода</key>
 	    		<help name="description">
 Триод.	    		
 Предназначен для работы в качестве регулирующей лампы в электронных стабилизаторах напряжения.
