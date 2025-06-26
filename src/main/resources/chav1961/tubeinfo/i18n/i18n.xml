@@ -129,6 +129,8 @@
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.catchode.filament.leak.current.tt">Cathode-filament leakage current</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.grid.leak.current">Grid leakage current</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.grid.leak.current.tt">Grid leakage current</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.lownoise.voltage">Low frequency noise voltage</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.lownoise.voltage.tt">Low frequency noise voltage</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.noise.voltage">Vibration noise voltage</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.noise.voltage.tt">Vibration noise voltage</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.noise.resistance">Eq. noise resistance</key>
@@ -139,6 +141,8 @@
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.internal.resistance.tt">Internal impedance</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.power.dissipation">Anode power dissipation</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.power.dissipation.tt">Anode power dissipation</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.power.grid1.dissipation">Grid 1 power dissipation</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.power.grid1.dissipation.tt">Grid 1 power dissipation</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.power.grid2.dissipation">Grid 2 power dissipation</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.power.grid2.dissipation.tt">Grid 2 power dissipation</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.min.grid1.resistance">Minimum resistance in grid circuit 1</key>
@@ -345,6 +349,8 @@
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.catchode.filament.leak.current.tt">Ток утечки катод-подогреватель</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.grid.leak.current">Ток утечки сетки</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.grid.leak.current.tt">Ток утечки сетки</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.lownoise.voltage">Напряжение низкочастотных рошумов</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.lownoise.voltage.tt">Напряжение низкочастотных шумов</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.noise.voltage">Напряжение виброшумов</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.noise.voltage.tt">Напряжение виброшумов</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.noise.resistance">Экв.сопротивление шумов</key>
@@ -355,6 +361,8 @@
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.internal.resistance.tt">Внутреннее сопротивление</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.power.dissipation">Рассеиваемая мощность анода</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.power.dissipation.tt">Рассеиваемая мощность анода</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.power.grid1.dissipation">Рассеиваемая мощность сетки 1</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.power.grid1.dissipation.tt">Рассеиваемая мощность сетки 1</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.power.grid2.dissipation">Рассеиваемая мощность сетки 2</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.power.grid2.dissipation.tt">Рассеиваемая мощность сетки 2</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.min.grid1.resistance">Минимальное сопротивление в цепи сетки 1</key>

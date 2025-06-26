@@ -33,6 +33,8 @@ public enum TubeParameter {
 	GRID_LEAK_CURRENT("I<sub>g</sub>", 100, TubeParameterUnit.MICROAMPER, false),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.noise.voltage",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.noise.voltage.tt")
 	NOISE_VOLTAGE("U<sub>noise</sub>", 100, TubeParameterUnit.MILLIVOLT, false),
+	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.lownoise.voltage",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.lownoise.voltage.tt")
+	LOW_NOISE_VOLTAGE("U<sub>low noise</sub>", 100, TubeParameterUnit.MILLIVOLT, false),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.noise.resistance",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.noise.resistance.tt")
 	NOISE_RESISTANCE("R<sub>noise</sub>", 100, TubeParameterUnit.KOHM, false),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.input.resistance",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.input.resistance.tt")
@@ -59,6 +61,8 @@ public enum TubeParameter {
 	INPUT_FREQUENCY("F<sub>in</sub>", 100, TubeParameterUnit.MEGAHERTZ, false),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.power.dissipation",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.power.dissipation.tt")
 	POWER_DISSIPATION("P<sub>max</sub>", 100, TubeParameterUnit.WATT, true),
+	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.power.grid1.dissipation",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.power.grid1.dissipation.tt")
+	POWER_GRID1_DISSIPATION("P<sub>g1.max</sub>", 100, TubeParameterUnit.WATT, true),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.power.grid2.dissipation",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.power.grid2.dissipation.tt")
 	POWER_GRID2_DISSIPATION("P<sub>g2.max</sub>", 100, TubeParameterUnit.WATT, true),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.min.grid1.resistance",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.min.grid1.resistance.tt")

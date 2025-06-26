@@ -1,79 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tubes>
-	<tube type="TRIODE" abbr="6С51Н" corpus="TG" panel="PIN_NOUV" description="description" usage="usage">
+	<tube type="TRIODE" abbr="6С52Н" corpus="TG" panel="PIN_NOUV" description="description" usage="usage">
 	    <localizedKeys>
 	    	<lang name="en">
 	    		<key name="graphic1">Anode characteristics</key>
 	    		<key name="graphic1.tt">Averaged characteristics of the dependence of the anode current on the voltage at the anode.</key>
 	    		<help name="description">
-Triode. 
-Designed to generate and amplify oscillations in the range from infra-low to ultra-high frequencies, 
-Can operate in pulse circuits.
-It is produced in a metal-ceramic design with two types of terminals: with flexible terminals - for connection to the circuit by soldering; with rigid terminals (pins) - for installation in a special lamp panel.
+Triode
+Designed to generate and amplify oscillations in the range from infra-low to ultra-high frequencies. Can operate in pulse circuits.
+Manufactured in a metal-ceramic design with two types of terminals: with flexible terminals - for connection to the circuit by soldering;
+with rigid terminals (pins) - for installation in a special lamp socket.
 Indirectly heated oxide cathode.
 Works in any position.
 Service life of at least 2000 hours.
 	    		</help>	    		
 	    		<help name="usage">
-====Basic electrical data at low anode voltage:
+====Main electrical data at low anode voltage (in autogenerator mode at a frequency of 400 MHz):
 
 *Anode voltage - **27** V
-*Grid bias voltage - **-0.5** V
-*Anode current cutoff voltage - **-2.7** V
-*Anode circuit current - **5** mA
-*Characteristic slope - **10** mA/V
+*Anode circuit current - **10** mA
+*Output power - **30** mW
+*Anode current cutoff voltage - **-1.5** V
 
 ====Main electrical data in mixer mode:
 
-*Anode voltage - **50** V
-*Grid voltage from local oscillator - **0.7** V eff
+*Anode voltage - **80—90** V
+*Grid bias voltage - **-1.1** V
+*Grid voltage from heterodyne - **0.8** V eff
 *Conversion slope - **5.2** mA/V
-*Internal resistance - **5** kOhm
-	
-	    		</help>	    		
+*Internal resistance - **9** kOhm	    		</help>	    		
 	    	</lang>
 	    	<lang name="ru">
 	    		<key name="graphic1">Анодные характеристики</key>
 	    		<key name="graphic1.tt">Усредненные характеристики зависимости тока анода от напряжения на аноде</key>
 	    		<help name="description">
-Триод.	    		
-Предназначен для генерирования и усиления колебаний в диапазоне от инфранизких до сверхвысоких частот, 
-Может работать в импульсных схемах.
-Выпускается в металлокерамическом оформлении с двумя вариантами выводов: с гибкими выводами — для соединения со схемой при помощь пайки; с жесткими выводами (штырьнами) — для установки в специальной ламповой панели.
+Триод
+Предназначен для генерирования и усиления колебаний в диапазоне от инфранизких до сверхвысоких частот. Может работать в импульсных схемах.
+Выпускается в металло-керамическом оформлении с двумя вариантами выводов: с гибкими выводами — для соодинения со схемой при помощи пайки;
+с жесткими выводами (штырьками) - для установки в специальной ламповой панельке.
 Катод оксидный косвенного накала.
 Работает в любом положении.
 Срок службы не менее 2000 ч.
 	    		</help>	    		
 	    		<help name="usage">
-====Основные электрические данные при низком анодном напряжении:
+====Основные электрические данные при низком анодном напряжении (в автогенераторном режиме на частоте 400 Мгц):
 
 *Напряжение на аноде - **27** В
-*Напряжение смещения на сетке - **-0.5** В
-*Напряжение отсечки анодного тока - **-2.7** В
-*Ток в цепи анода - **5** мА
-*Крутизна характеристики - **10** мА/В
+*Ток в цепи анода - **10** мА
+*Выходная мощность - **30** мВт
+*Напряжение отсечки анодного тока - **-1.5** В
 
 ====Основные электрические данные в смесительном режиме:
 
-*Напряжение на аноде - **50** В
-*Напряжение на сетке, поступающее от гетеродина - **0.7** В эфф
+*Напряжение на аноде - **80—90** В
+*Напряжение смещения на сетке - **-1.1** В
+*Напряжение на сетке, поступающее от гетородина - **0.8** В эф
 *Крутизна преобразования - **5.2** мА/В
-*Внутреннее сопротивление - **5** кОм	    		
+*Внутреннее сопротивление - **9** кОм
 	    		</help>	    		
 	    	</lang>
 	    </localizedKeys>
 		<parms>
 			<parm name="FILAMENT_CURRENT" number="1" ref="1,2,3">130</parm>
-			<parm name="ANODE_CURRENT" number="1" ref="1,2,3">10</parm>
-			<parm name="S" number="1" ref="2">11.5</parm>
-			<parm name="MYU" number="1" ref="2">32</parm>
-			<parm name="INPUT_RESISTANCE" number="1" ref="4">7</parm>
-			<parm name="INPUT_RESISTANCE" number="1" ref="5">2.5</parm>
+			<parm name="ANODE_CURRENT" number="1" ref="1,2,3">8</parm>
+			<parm name="S" number="1" ref="2">10</parm>
+			<parm name="MYU" number="1" ref="2">64</parm>
+			<parm name="INPUT_RESISTANCE" number="1" ref="4">6</parm>
+			<parm name="INPUT_RESISTANCE" number="1" ref="5">2.8</parm>
 			<parm name="NOISE_RESISTANCE" number="1">0.4</parm>
-			<parm name="LOW_NOISE_VOLTAGE" number="1">0.5</parm>
+			<parm name="LOW_NOISE_VOLTAGE" number="1">0.7</parm>
 			<parm name="INPUT_CAPACITY" number="1">6</parm>
-			<parm name="OUTPUT_CAPACITY" number="1">1.8</parm>
-			<parm name="TRANSFER_CAPACITY" number="1">1.7</parm>
+			<parm name="OUTPUT_CAPACITY" number="1">1.9</parm>
+			<parm name="TRANSFER_CAPACITY" number="1">0.85</parm>
 			<parm name="MIN_FILAMENT_VOLTAGE" number="1">5.7</parm>
 			<parm name="MAX_FILAMENT_VOLTAGE" number="1">7</parm>
 			<parm name="MAX_ANODE_VOLTAGE" number="1">110</parm>
@@ -87,7 +85,7 @@ Service life of at least 2000 hours.
 				<parm name="FILAMENT_VOLTAGE">6.3</parm>
 			</mode>
 			<mode ref="2">
-				<parm name="ANODE_VOLTAGE">75</parm>
+				<parm name="ANODE_VOLTAGE">110</parm>
 			</mode>
 			<mode ref="3">
 				<parm name="CATHODE_RESISTANCE">130</parm>
@@ -126,7 +124,7 @@ Service life of at least 2000 hours.
 			<connector number="1" type="ANODE" pin="11" pinType="ORDINAL"/>
 		</connectors>
 		<graphics>
-			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="../6s51n-1.png"/>
+			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="../6s52n-1.png"/>
 		</graphics>
 	</tube>
 </tubes>
