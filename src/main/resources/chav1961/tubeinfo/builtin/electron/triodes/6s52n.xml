@@ -76,7 +76,7 @@ Service life of at least 2000 hours.
 			<parm name="MAX_FILAMENT_VOLTAGE" number="1">7</parm>
 			<parm name="MAX_ANODE_VOLTAGE" number="1">110</parm>
 			<parm name="POWER_DISSIPATION" number="1">1.2</parm>
-			<parm name="POWER_GRID2_DISSIPATION" number="1">0.2</parm>
+			<parm name="POWER_GRID1_DISSIPATION" number="1">0.2</parm>
 			<parm name="MAX_GRID_1_RESISTANCE" number="1">1000</parm>
 			<parm name="MAX_CATHODE_CURRENT" number="1">15</parm>
 		</parms>
