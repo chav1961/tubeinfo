@@ -44,6 +44,7 @@ public class Application extends JFrame implements LocalizerOwner, LoggerFacadeO
 	
 	public static final String	ARG_DEBUG = "d";
 	public static final String	ARG_SOURCE = "src";
+	public static final String	ARG_THREADS = "t";
 	public static final String	APPLICATION_TITLE = "chav1961.tubesReference.application.title";	
 	public static final String	MESSAGE_READY = "chav1961.tubesReference.message.ready";
 	private static final int	MAX_TABS = 3;
@@ -54,7 +55,7 @@ public class Application extends JFrame implements LocalizerOwner, LoggerFacadeO
 	private JCloseableTab		helpTab = null; 
 	private JCreoleHelpWindow	helpWindow = null;	
 	
-	public Application(final CountDownLatch latch, final ContentMetadataInterface mdi, final File contentDir) {
+	public Application(final CountDownLatch latch, final ContentMetadataInterface mdi, final File contentDir, final int numberOfThreads) {
 		if (latch == null) {
 			throw new NullPointerException("Latch can't be null");
 		}
@@ -71,7 +72,7 @@ public class Application extends JFrame implements LocalizerOwner, LoggerFacadeO
 			for(TubesGroup item : TubesGroup.values()) {
 				final LocaleResource	anno = InternalUtils.getLocaleResource(item);
 				
-				tabs.addTab("", new ImageIcon(TubesGroup.class.getResource(anno.icon())), createTab(item, contentDir));
+				tabs.addTab("", new ImageIcon(TubesGroup.class.getResource(anno.icon())), createTab(item, contentDir, numberOfThreads));
 			}
 			
 			SwingUtils.assignActionKey((JComponent)getContentPane(), SwingUtils.KS_HELP, (e)->showHelp(URI.create("chav1961.tubeinfo.references.help")), SwingUtils.ACTION_HELP);
@@ -138,11 +139,11 @@ public class Application extends JFrame implements LocalizerOwner, LoggerFacadeO
 		fillLocalizedStrings();
 	}
 	
-	private JComponent createTab(final TubesGroup group, final File contentDir) {
+	private JComponent createTab(final TubesGroup group, final File contentDir, final int numberOfThreads) {
 		switch (group) {
 			case GROUP_ELECTRON	:
 				try {
-					return new ElectronicTubesScreen(localizer, contentDir);
+					return new ElectronicTubesScreen(localizer, contentDir, numberOfThreads);
 				} catch (IOException e) {
 					e.printStackTrace();
 					return new JLabel(group.name());
@@ -184,7 +185,7 @@ public class Application extends JFrame implements LocalizerOwner, LoggerFacadeO
 				final ContentMetadataInterface	xda = ContentModelFactory.forXmlDescription(is);
 				final CountDownLatch			latch = new CountDownLatch(1);
 
-				try(final Application			app = new Application(latch, xda, parsed.getValue(ARG_SOURCE, File.class))) {
+				try(final Application			app = new Application(latch, xda, parsed.getValue(ARG_SOURCE, File.class), parsed.getValue(ARG_THREADS, int.class))) {
 				
 					app.setVisible(true);
 					app.getLogger().message(Severity.note, MESSAGE_READY);
@@ -204,6 +205,7 @@ public class Application extends JFrame implements LocalizerOwner, LoggerFacadeO
 	private static class ApplicationArgParser extends ArgParser {
 		private static final ArgParser.AbstractArg[]	KEYS = {
 			new BooleanArg(ARG_DEBUG, false, "turn on debugging trace", false),
+			new IntegerArg(ARG_THREADS, false, "Number of threads to load content (default is 4)", 4),
 			new FileArg(ARG_SOURCE, false, "Directory with tube descriptors", "./tubes")
 		};
 		

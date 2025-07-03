@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tubes>
+	<tube type="DOUBLE_TRIODE" abbr="6Н6П" corpus="TG" panel="PIN9" description="description" usage="usage">
+	    <localizedKeys>
+	    	<lang name="en">
+	    		<key name="graphic1">Anode characteristics</key>
+	    		<key name="graphic1.tt">Averaged characteristics of the dependence of the anode current and grid current on the voltage at the anode of each triode.</key>
+	    		<help name="description">
+Double triode with separate cathodes.
+Designed to amplify low frequency power. Can be used in pulse circuits.
+Indirectly heated oxide cathode.
+Works in any position.
+Available in glass finger design.
+Service life of at least 500 hours.
+9 pin base with button bottom.
+	    		</help>	    		
+	    		<help name="usage">
+==== LITERATURE
+
+*Borisov E., Synchronizer for an amateur film installation, "Radio", 1961, No. 12
+*Simple generator of rectangular pulses, "Radio", 1961, No. 11
+*Shalimov I., Transmitter for "fox hunting", "Radio", 1962, No. 11
+*Yuzhin A., Radio station on 144-146 Mhz, "Radio", 1960, No. 4.
+	    		</help>	    		
+	    	</lang>
+	    	<lang name="ru">
+	    		<key name="graphic1">Анодные характеристики</key>
+	    		<key name="graphic1.tt">Усредненные характеристики зависимости тока анода и тока сетки от напряжения на аноде каждого триода</key>
+	    		<help name="description">
+Двойной триод с отдельными катодами.
+Предназначен для усиления мощности низкой частоты. Может быть использован в импульсных схемах.
+Катод оксидный косвенного накала.
+Работает в любом положении.
+Выпускается в стеклянном пальчиковом оформлении.
+Срок службы не менее 500 ч.
+Цоколь 9 штырьковый с пуговичным дном.
+	    		</help>	    		
+	    		<help name="usage">
+==== ЛИТЕРАТУРА
+
+*Борисов Е., Синхровизатор для любительской киноустановки, «Радио», 1961, № 12
+*Просто генератор прямоугольных импульсов, «Радио», 1961, № 11
+*Шалимов И., Передатчик для «охоты на лис», «Радио», 1962, № 11
+*Южин А., Радиостанция на 144—146 Мгц, «Радио», 1960, № 4.
+	    		
+	    		</help>	    		
+	    	</lang>
+	    </localizedKeys>
+		<parms>
+			<parm name="FILAMENT_CURRENT" number="1" ref="1,2,3">750</parm>
+			<parm name="ANODE_CURRENT" number="1" ref="1,2,3">10</parm>
+			<parm name="S" number="1">11</parm>
+			<parm name="MYU" number="1">20</parm>
+			<parm name="INPUT_CAPACITY" number="1">4.5</parm>
+			<parm name="OUTPUT_CAPACITY" number="1">2.1</parm>
+			<parm name="TRANSFER_CAPACITY" number="1">3.5</parm>
+			<parm name="ANODE_ANODE_CAPACITY" number="1">0.1</parm>
+			<parm name="CATHODE_FILAMENT_CAPACITY" number="1">8</parm>
+			<parm name="MIN_FILAMENT_VOLTAGE" number="1">5.7</parm>
+			<parm name="MAX_FILAMENT_VOLTAGE" number="1">7</parm>
+			<parm name="MAX_ANODE_VOLTAGE" number="1">300</parm>
+			<parm name="MAX_CATHODE_FILAMENT_VOLTAGE" number="1">200</parm>
+			<parm name="MAX_CATHODE_CURRENT" number="1">45</parm>
+			<parm name="POWER_DISSIPATION" number="1">4.8</parm>
+			<parm name="MAX_GRID_1_RESISTANCE" number="1">1</parm>
+		</parms>
+		<modes>
+			<mode ref="1">
+				<parm name="FILAMENT_VOLTAGE">6.3</parm>
+			</mode>
+			<mode ref="2">
+				<parm name="ANODE_VOLTAGE">120</parm>
+			</mode>
+			<mode ref="3">
+				<parm name="CATHODE_RESISTANCE">600</parm>
+			</mode>
+		</modes>
+		<scheme>
+			<parm name="p1">1</parm>
+			<parm name="p2">2</parm>
+			<parm name="p3">3</parm>
+			<parm name="p4">4</parm>
+			<parm name="p5">5</parm>
+			<parm name="p6">6</parm>
+			<parm name="p7">7</parm>
+			<parm name="p8">8</parm>
+			<parm name="p9">9</parm>
+		</scheme> 
+		<corpus>
+			<parm name="p1">72</parm>
+			<parm name="p2">65</parm>
+			<parm name="p3">22.5</parm>
+			<parm name="p4">58</parm>
+		</corpus> 
+		<connectors>
+			<connector number="1" type="ANODE" pin="1" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_1" pin="2" pinType="ORDINAL"/>
+			<connector number="1" type="CATHODE" pin="3" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="4" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="5" pinType="ORDINAL"/>
+			<connector number="2" type="ANODE" pin="6" pinType="ORDINAL"/>
+			<connector number="2" type="GRID_1" pin="7" pinType="ORDINAL"/>
+			<connector number="2" type="CATHODE" pin="8" pinType="ORDINAL"/>
+			<connector number="0" type="SHIELD_1" pin="9" pinType="ORDINAL"/>
+		</connectors>
+		<graphics>
+			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="../6n6p-1.png"/>
+		</graphics>
+	</tube>
+</tubes>

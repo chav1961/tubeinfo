@@ -17,6 +17,8 @@ import chav1961.tubeinfo.references.interfaces.TubeDescriptor;
 import chav1961.tubeinfo.references.tubes.XMLBasedTube;
 
 public class InternalUtils {
+	private static final DocumentBuilderFactory	DBF = DocumentBuilderFactory.newInstance();
+	
 	public static LocaleResource getLocaleResource(final Enum<?> item) {
 		if (item == null) {
 			throw new NullPointerException("Item to get resource can't be null");
@@ -39,7 +41,7 @@ public class InternalUtils {
 		}
 		else {
 			try {
-				final DocumentBuilder	builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+				final DocumentBuilder	builder = DBF.newDocumentBuilder();
 				final Document 			doc = builder.parse(is);
 				
 				doc.getDocumentElement().normalize();
