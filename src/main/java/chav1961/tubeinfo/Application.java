@@ -205,7 +205,7 @@ public class Application extends JFrame implements LocalizerOwner, LoggerFacadeO
 	private static class ApplicationArgParser extends ArgParser {
 		private static final ArgParser.AbstractArg[]	KEYS = {
 			new BooleanArg(ARG_DEBUG, false, "turn on debugging trace", false),
-			new IntegerArg(ARG_THREADS, false, "Number of threads to load content (default is 4)", 4),
+			new IntegerArg(ARG_THREADS, false, "Number of threads to load content (default is number of processors in the system)", Runtime.getRuntime().availableProcessors()),
 			new FileArg(ARG_SOURCE, false, "Directory with tube descriptors", "./tubes")
 		};
 		

@@ -2,32 +2,21 @@ package chav1961.tubeinfo.references.tubes;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.DirectoryStream;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Vector;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.Callable;
 
 import javax.swing.JComponent;
 import javax.swing.JSplitPane;
 
+import chav1961.purelib.basic.URIUtils;
 import chav1961.purelib.i18n.interfaces.Localizer;
 import chav1961.purelib.ui.swing.SwingUtils;
 import chav1961.tubeinfo.references.interfaces.TubeDescriptor;
@@ -49,28 +38,30 @@ public class ElectronicTubesScreen extends JSplitPane {
 			final Vector<TubeDescriptor>	list = new Vector<>();
 
 			try(final ParallelManager	loader = new ParallelManager()) {
-				try {
-					final URI			std = XMLBasedTube.class.getResource("/chav1961/tubeinfo/builtin/").toURI();
-	
-					if ("jar".equals(std.getScheme())) {
-						final Map<String, String> 	env = new HashMap<>();
-						
-				        try(final FileSystem fs = FileSystems.newFileSystem(std, env)) {
-							
-				        	loadContent(fs, fs.getPath("chav1961", "tubeinfo", "builtin"), list, loader);
-				        }
-					}
-					else {
-						loadContent(std.toURL(), list, loader);
-					}
-					
-					if (contentDir.exists() && contentDir.isDirectory() && contentDir.canRead()) {
-						loadContent(contentDir, list, loader);
-					}
-				} catch (URISyntaxException e) {
-					throw new IOException(e.getLocalizedMessage(), e);
-				} 
-			}
+				final URI		ext = contentDir.toURI();
+				final String[]	externalSet = loadExternal(contentDir);
+				final URI		builtin = XMLBasedTube.class.getResource("/chav1961/tubeinfo/builtin/").toURI();
+				final String[]	builtinSet = loadBuiltin(URIUtils.appendRelativePath2URI(builtin, "index.txt"));
+
+				for (String item : externalSet) {
+					final URI	uri = URIUtils.appendRelativePath2URI(ext, item);
+					loader.addTask(()->{
+						try(final InputStream	is2 = uri.toURL().openStream()) {
+							list.add(InternalUtils.getTubeDescriptor(uri, is2));
+						}
+					});
+				}
+				for (String item : builtinSet) {
+					final URI	uri = URIUtils.appendRelativePath2URI(builtin, item);
+					loader.addTask(()->{
+						try(final InputStream	is2 = uri.toURL().openStream()) {
+							list.add(InternalUtils.getTubeDescriptor(uri, is2));
+						}
+					});
+				}
+			} catch (URISyntaxException e) {
+				throw new IOException(e.getLocalizedMessage(), e);
+			} 
 			final TubeDescriptor[] descList = list.toArray(new TubeDescriptor[list.size()]);
 			
 			Arrays.sort(descList, (o1,o2)->o1.getAbbr().compareTo(o2.getAbbr()));
@@ -84,85 +75,43 @@ public class ElectronicTubesScreen extends JSplitPane {
 		}		
 	}
 
-	private void loadContent(final FileSystem fs, final Path path, final List<TubeDescriptor> list, final ParallelManager loader) throws IOException {
-		if (path.getFileName() != null) {
-			if (path.getFileName().toString().endsWith(".xml")) {
-				loader.addTask(()->{
-					try(final InputStream	is = Files.newInputStream(path, StandardOpenOption.READ)) {
-						list.add(InternalUtils.getTubeDescriptor(path.toAbsolutePath().toUri(), is));
-					}
-				});
-			}
-			else if (!path.getFileName().toString().contains(".")) {	// Possibly directory???
-				try (final DirectoryStream<Path>	stream = Files.newDirectoryStream(path)) {
-					for (Path dir : stream) {
-						loader.addTask(()->{
-							loadContent(fs, dir, list, loader);
-						});
-					}
-				}
-			}
-		}
-		else {
-			try (final DirectoryStream<Path>	stream = Files.newDirectoryStream(path)) {
-				for (Path dir : stream) {
-					loader.addTask(()->{
-						loadContent(fs, dir, list, loader);
-					});
-				}
-			}
-		}
+	private String[] loadExternal(final File contentDir) {
+		final List<String>	result = new ArrayList<>();
+		
+		loadExternal(contentDir, "", result);
+		return result.toArray(new String[result.size()]);
 	}
 
-	private void loadContent(final URL root, final List<TubeDescriptor> list, final ParallelManager loader) throws IOException {
-		if (root.getPath().endsWith(".xml")) {
-			loader.addTask(()->{
-				try(final InputStream		is = root.openStream()) {
-					list.add(InternalUtils.getTubeDescriptor(root.toURI(), is));
-				} catch (URISyntaxException e) {
-					throw new IOException(e.getLocalizedMessage(), e);
+	private void loadExternal(final File current, final String path, final List<String> result) {
+		if (current.exists()) {
+			if (current.isFile() && current.getName().endsWith(".xml")) {
+				result.add(path + '/' + current.getName());
+			}
+			else if (current.isDirectory()) {
+				final File[]	list = current.listFiles();
+				
+				if (list != null) {
+					for(File item : list) {
+						loadExternal(item, path + '/' + item.getName(), result);
+					}
 				}
-			});
-		}
-		else {
-			final String	path = root.getPath();
-			
-			if (!path.substring(path.lastIndexOf("/")+1).contains(".")) {	// Possibly directory???
-				loader.addTask(()->{
-					try(final InputStream		is = root.openStream();
-						final Reader			rdr = new InputStreamReader(is);
-						final BufferedReader	brdr = new BufferedReader(rdr)) {
-						String	line;
-						
-						while ((line = brdr.readLine()) != null) {
-							loadContent(URI.create(root.toExternalForm()+"/"+line).toURL(), list, loader);
-						}
-					}
-				});
-			}
-		}
-	}	
-	
-	private void loadContent(final File root, final List<TubeDescriptor> list, final ParallelManager loader) throws IOException {
-		if (root.exists() && root.canRead()) {
-			if (root.isDirectory()) {
-				loader.addTask(()->{
-					final File[]	content = root.listFiles();
-					
-					if (content != null) {
-						for(File item : content) {
-							loadContent(item, list, loader);
-						}
-					}
-				});
-			}
-			else if (root.getName().endsWith(".xml")) {
-				loader.addTask(()->{
-					try(final InputStream	is = new FileInputStream(root)) {
-						list.add(InternalUtils.getTubeDescriptor(root.toURI(), is));
-					}
-				});
 			}
 		}
 	}
+	
+	private String[] loadBuiltin(final URI uri) throws IOException {
+		final List<String>	result = new ArrayList<>();
+	
+		try(final InputStream	is = uri.toURL().openStream();
+			final Reader		rdr = new InputStreamReader(is);
+			final BufferedReader	brdr = new BufferedReader(rdr)) {
+			
+			String	line;
+			while ((line = brdr.readLine()) != null) {
+				result.add(line);
+			}
+		}
+		return result.toArray(new String[result.size()]);
+	}
+	
 }
