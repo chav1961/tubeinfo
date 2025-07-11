@@ -13,6 +13,8 @@ public enum TubeParameter {
 	S3("S", 100, TubeParameterUnit.MA_V, false),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.cathode.resistance",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.cathode.resistance.tt")
 	CATHODE_RESISTANCE("R<sub>cat</sub>", 100, TubeParameterUnit.OHM, false),
+	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.grid1.voltage",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.grid1.voltage.tt")
+	GRID_1_VOLTAGE("U<sub>g1</sub>", 100, TubeParameterUnit.VOLT, false),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.max.temperature",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.max.temperature.tt")
 	MAX_TEMPERATURE("t<sub>max</sub>", 100, TubeParameterUnit.CELSIUS, true),
 	@LocaleResource(value="chav1961.tubeinfo.references.tubes.tubeParameter.input.capacity",tooltip="chav1961.tubeinfo.references.tubes.tubeParameter.input.capacity.tt")

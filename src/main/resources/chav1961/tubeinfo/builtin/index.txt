@@ -4,8 +4,10 @@
 /electron/double_triodes/6n15p.xml
 /electron/double_triodes/6n17b.xml
 /electron/double_triodes/6n1p.xml
+/electron/double_triodes/6n21b.xml
 /electron/double_triodes/6n23p.xml
 /electron/double_triodes/6n24p.xml
+/electron/double_triodes/6n28b.xml
 /electron/double_triodes/6n2p.xml
 /electron/double_triodes/6n3p.xml
 /electron/double_triodes/6n5p.xml

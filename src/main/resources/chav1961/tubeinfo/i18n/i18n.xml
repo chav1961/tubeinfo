@@ -111,6 +111,8 @@
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.s3.tt">Grid 3 slope</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.cathode.resistance">Resistance in the cathode circuit</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.cathode.resistance.tt">Resistance in the cathode circuit</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.grid1.voltage">Grid 1 voltage</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.grid1.voltage.tt">Grid 1 voltage</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.temperature">Max temperature</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.temperature.tt">Max temperature</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.input.capacity">Input capacitance</key>
@@ -331,6 +333,8 @@
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.s3.tt">Крутизна по третьей сетке</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.cathode.resistance">Сопротивленив в цепи катода</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.cathode.resistance.tt">Сопротивленив в цепи катода</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.grid1.voltage">Напряжение сетки первой</key>
+		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.grid1.voltage.tt">Напряжение сетки первой</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.temperature">Макс.температура</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.max.temperature.tt">Макс.температура</key>
 		<key name="chav1961.tubeinfo.references.tubes.tubeParameter.input.capacity">Входная емкость</key>

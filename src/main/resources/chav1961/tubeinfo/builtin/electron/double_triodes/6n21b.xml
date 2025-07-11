@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tubes>
+	<tube type="DOUBLE_TRIODE" abbr="6Н21Б" corpus="TG" panel="PIN_FLEX10" description="description" usage="usage">
+	    <localizedKeys>
+	    	<lang name="en">
+	    		<key name="graphic1">Anode characteristics</key>
+	    		<key name="graphic1.tt">Averaged characteristics of the dependence of the anode current and grid current on the voltage at the anode of each triode.</key>
+	    		<help name="description">
+Double triode of increased reliability
+Designed to amplify low-frequency voltage.
+Design — in a glass shell, superminiature.
+Cathode is oxide indirectly heated.
+Service life is not less than 3000 h.
+Base is leaded wire. There are 9 leads. Length of leads is not less than 40 mm. Diameter of leads is 0.4 mm.				</help>	    		
+	    		<help name="usage">
+    		</help>	    		
+	    	</lang>
+	    	<lang name="ru">
+	    		<key name="graphic1">Анодные характеристики</key>
+	    		<key name="graphic1.tt">Усредненные характеристики зависимости тока анода и тока сетки от напряжения на аноде каждого триода</key>
+	    		<help name="description">
+Двойной триод повышенной надежности
+Предназначен для усиления напряжения низкой частоты.
+Оформление — в стеклянной оболочке, сверхминнатюрное.
+Катод оксидный косвенного накала.
+Срок службы не менее 3000 ч.
+Цоколь выводной проволочный. Выводов 9. Длина выводов не менее 40 мм. Диаметр выводов 0.4 мм.
+	    		</help>	    		
+	    		<help name="usage">
+	    		</help>	    		
+	    	</lang>
+	    </localizedKeys>
+		<parms>
+			<parm name="FILAMENT_CURRENT" number="1" ref="1">395</parm>
+			<parm name="ANODE_CURRENT" number="1" ref="2">3.5</parm>
+			<parm name="CATHODE_RESISTANCE" number="1">330</parm>
+			<parm name="S" number="1" ref="2">3.8</parm>
+			<parm name="MYU" number="1" ref="2">82</parm>
+			<parm name="INPUT_CAPACITY" number="1">2.8</parm>
+			<parm name="OUTPUT_CAPACITY" number="1">0.6</parm>
+			<parm name="TRANSFER_CAPACITY" number="1">1.4</parm>
+			<parm name="ANODE_ANODE_CAPACITY" number="1">0.045</parm>
+			<parm name="CATHODE_FILAMENT_CAPACITY" number="1">13</parm>
+			<parm name="MIN_FILAMENT_VOLTAGE" number="1">5.7</parm>
+			<parm name="MAX_FILAMENT_VOLTAGE" number="1">7</parm>
+			<parm name="MAX_ANODE_VOLTAGE" number="1">250</parm>
+			<parm name="POWER_DISSIPATION" number="1">1</parm>
+			<parm name="MAX_CATHODE_FILAMENT_VOLTAGE" number="1">200</parm>
+		</parms>
+		<modes>
+			<mode ref="1">
+				<parm name="FILAMENT_VOLTAGE">6.3</parm>
+			</mode>
+			<mode ref="2">
+				<parm name="ANODE_VOLTAGE">200</parm>
+			</mode>
+		</modes>
+		<scheme href="root://chav1961.tubeinfo.references.interfaces.TubesType/chav1961/tubeinfo/references/interfaces/double_triode.svg">
+			<parm name="p1">1</parm>
+			<parm name="p2">6</parm>
+			<parm name="p3">3</parm>
+			<parm name="p4">4</parm>
+			<parm name="p5">7</parm>
+			<parm name="p6">5</parm>
+			<parm name="p7">2</parm>
+			<parm name="p8">2</parm>
+		</scheme> 
+		<corpus>
+			<parm name="p1">40</parm>
+			<parm name="p2">40</parm>
+			<parm name="p3">10.2</parm>
+			<parm name="p4">40</parm>
+		</corpus> 
+		<connectors>
+			<connector number="1" type="CATHODE" pin="1" pinType="ORDINAL"/>
+			<connector number="0" type="SHIELD_1" pin="2" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_1" pin="3" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_1" pin="4" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="5" pinType="ORDINAL"/>
+			<connector number="2" type="CATHODE" pin="6" pinType="ORDINAL"/>
+			<connector number="2" type="GRID_1" pin="8" pinType="ORDINAL"/>
+			<connector number="2" type="ANODE" pin="9" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="10" pinType="ORDINAL"/>
+		</connectors>
+		<graphics>
+			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="../6n21b-1.png"/>
+		</graphics>
+	</tube>
+</tubes>
