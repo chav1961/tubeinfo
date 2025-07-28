@@ -28,6 +28,7 @@
 /electron/special/6e3p.xml
 /electron/special/6e5s.xml
 /electron/triodes/6s19p.xml
+/electron/triodes/6s31b.xml
 /electron/triodes/6s51n.xml
 /electron/triodes/6s52n.xml
 /electron/triodes/6s53n.xml
