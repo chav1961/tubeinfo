@@ -16,14 +16,11 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Vector;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.Callable;
 
 import javax.swing.JComponent;
 import javax.swing.JSplitPane;
@@ -50,14 +47,14 @@ public class ElectronicTubesScreen extends JSplitPane {
 
 			try(final ParallelManager	loader = new ParallelManager()) {
 				try {
-					final URI			std = XMLBasedTube.class.getResource("/chav1961/tubeinfo/builtin/").toURI();
+					final URI			std = XMLBasedTube.class.getResource("/chav1961/tubeinfo/").toURI();
+//					final URI			std = XMLBasedTube.class.getResource("/chav1961/tubeinfo/builtin/").toURI();
 	
 					if ("jar".equals(std.getScheme())) {
 						final Map<String, String> 	env = new HashMap<>();
 						
 				        try(final FileSystem fs = FileSystems.newFileSystem(std, env)) {
-							
-				        	loadContent(fs, fs.getPath("chav1961", "tubeinfo", "builtin"), list, loader);
+				        	loadContent(fs, "chav1961/tubeinfo/builtin", list, loader);
 				        }
 					}
 					else {
@@ -84,36 +81,33 @@ public class ElectronicTubesScreen extends JSplitPane {
 		}		
 	}
 
-	private void loadContent(final FileSystem fs, final Path path, final List<TubeDescriptor> list, final ParallelManager loader) throws IOException {
-		if (path.getFileName() != null) {
-			if (path.getFileName().toString().endsWith(".xml")) {
-				loader.addTask(()->{
-					try(final InputStream	is = Files.newInputStream(path, StandardOpenOption.READ)) {
-						list.add(InternalUtils.getTubeDescriptor(path.toAbsolutePath().toUri(), is));
-					}
-				});
-			}
-			else if (!path.getFileName().toString().contains(".")) {	// Possibly directory???
-				try (final DirectoryStream<Path>	stream = Files.newDirectoryStream(path)) {
-					for (Path dir : stream) {
-						loader.addTask(()->{
-							loadContent(fs, dir, list, loader);
-						});
-					}
+	private void loadContent(final FileSystem fs, final String path, final List<TubeDescriptor> list, final ParallelManager loader) throws IOException {
+		System.err.println("See="+path+" in "+fs);
+		if (path.endsWith(".xml")) {
+			loader.addTask(()->{
+				try(final InputStream	is = Files.newInputStream(toPath(fs, path), StandardOpenOption.READ)) {
+					list.add(InternalUtils.getTubeDescriptor(toPath(fs, path).toUri(), is));
 				}
-			}
+			});
 		}
-		else {
-			try (final DirectoryStream<Path>	stream = Files.newDirectoryStream(path)) {
+		else if (!path.contains(".")) {	// Possibly directory???
+			System.err.println("Dir="+toPath(fs, path));
+			try (final DirectoryStream<Path>	stream = Files.newDirectoryStream(toPath(fs, path), (f)->true)) {
 				for (Path dir : stream) {
 					loader.addTask(()->{
-						loadContent(fs, dir, list, loader);
+						loadContent(fs, path+"/"+dir.getFileName(), list, loader);
 					});
 				}
 			}
 		}
 	}
 
+	private Path toPath(final FileSystem fs, final String currentPath) {
+		final String[]	pieces = currentPath.split("/");
+		
+		return fs.getPath("/", pieces);
+	}
+	
 	private void loadContent(final URL root, final List<TubeDescriptor> list, final ParallelManager loader) throws IOException {
 		if (root.getPath().endsWith(".xml")) {
 			loader.addTask(()->{
