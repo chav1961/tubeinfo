@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tubes>
+	<tube type="DOUBLE_TRIODE" abbr="6Н28Б" corpus="TG" panel="PIN_FLEX10" description="description" usage="usage">
+	    <localizedKeys>
+	    	<lang name="en">
+	    		<key name="graphic1">Anode characteristics</key>
+	    		<key name="graphic1.tt">Averaged characteristics of the dependence of the anode current and grid current on the voltage at the anode of each triode.</key>
+	    		<key name="graphic2">Anode-grid characteristics</key>
+	    		<key name="graphic2.tt">Averaged characteristics of the dependence of the anode current on the grid voltage of each triode.</key>
+	    		<help name="description">
+Double triode for low-frequency voltage amplification and generation.
+Design - in a glass shell, superminiature.
+Indirectly heated oxide cathode.
+Service life not less than 2000 h.
+				</help>	    		
+	    		<help name="usage">
+    		</help>	    		
+	    	</lang>
+	    	<lang name="ru">
+	    		<key name="graphic1">Анодные характеристики</key>
+	    		<key name="graphic1.tt">Усредненные характеристики зависимости тока анода и тока сетки от напряжения на аноде каждого триода</key>
+	    		<key name="graphic2">Анодно-сеточные характеристики</key>
+	    		<key name="graphic2.tt">Усредненные характеристики зависимости тока анода от напряжения на сетке каждого триода</key>
+	    		<help name="description">
+Триод двойной для усиления напряжения низкой частоты и генерирования.
+Оформление — в стеклянной оболочке, сверхминнатюрное.
+Катод оксидный косвенного накала.
+Срок службы не менее 2000 ч.
+	    		</help>	    		
+	    		<help name="usage">
+	    		</help>	    		
+	    	</lang>
+	    </localizedKeys>
+		<parms>
+			<parm name="FILAMENT_CURRENT" number="1" ref="1">247</parm>
+			<parm name="ANODE_CURRENT" number="1" ref="2,3">7</parm>
+			<parm name="S" number="1" ref="2">6.75</parm>
+			<parm name="MYU" number="1" ref="2">22</parm>
+			<parm name="INPUT_CAPACITY" number="1">3.3</parm>
+			<parm name="OUTPUT_CAPACITY" number="1">2.2</parm>
+			<parm name="TRANSFER_CAPACITY" number="1">2</parm>
+			<parm name="ANODE_ANODE_CAPACITY" number="1">0.1</parm>
+			<parm name="MIN_FILAMENT_VOLTAGE" number="1">5.7</parm>
+			<parm name="MAX_FILAMENT_VOLTAGE" number="1">6.9</parm>
+			<parm name="MAX_ANODE_VOLTAGE" number="1">150</parm>
+			<parm name="MAX_CATHODE_CURRENT" number="1">10</parm>
+			<parm name="POWER_DISSIPATION" number="1">0.9</parm>
+			<parm name="POWER_GRID1_DISSIPATION" number="1">0.1</parm>
+			<parm name="MAX_GRID_1_RESISTANCE" number="1">2000</parm>
+			<parm name="MAX_CATHODE_FILAMENT_VOLTAGE" number="1">150</parm>
+			<parm name="MAX_TEMPERATURE" number="1">125</parm>
+		</parms>
+		<modes>
+			<mode ref="1">
+				<parm name="FILAMENT_VOLTAGE">6.3</parm>
+			</mode>
+			<mode ref="2">
+				<parm name="ANODE_VOLTAGE">50</parm>
+			</mode>
+			<mode ref="3">
+				<parm name="GRID_1_VOLTAGE">-1</parm>
+			</mode>
+		</modes>
+		<scheme href="root://chav1961.tubeinfo.references.interfaces.TubesType/chav1961/tubeinfo/references/interfaces/double_triode.svg">
+			<parm name="p1">1</parm>
+			<parm name="p2">6</parm>
+			<parm name="p3">3</parm>
+			<parm name="p4">4</parm>
+			<parm name="p5">7</parm>
+			<parm name="p6">5</parm>
+			<parm name="p7">2</parm>
+			<parm name="p8">2</parm>
+		</scheme> 
+		<corpus>
+			<parm name="p1">40</parm>
+			<parm name="p2">40</parm>
+			<parm name="p3">10.2</parm>
+			<parm name="p4">40</parm>
+		</corpus> 
+		<connectors>
+			<connector number="1" type="ANODE" pin="1" pinType="ORDINAL"/>
+			<connector number="1" type="CATHODE" pin="2" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="3" pinType="ORDINAL"/>
+			<connector number="1" type="GRID_1" pin="4" pinType="ORDINAL"/>
+			<connector number="0" type="SHIELD_1" pin="5" pinType="ORDINAL"/>
+			<connector number="2" type="ANODE" pin="6" pinType="ORDINAL"/>
+			<connector number="2" type="CATHODE" pin="7" pinType="ORDINAL"/>
+			<connector number="0" type="FILAMENT" pin="8" pinType="ORDINAL"/>
+			<connector number="2" type="GRID_1" pin="9" pinType="ORDINAL"/>
+		</connectors>
+		<graphics>
+			<graphic name="graphic1" tooltip="graphic1.tt" number="1" href="../6n28b-1.png"/>
+			<graphic name="graphic2" tooltip="graphic2.tt" number="1" href="../6n28b-2.png"/>
+		</graphics>
+	</tube>
+</tubes>

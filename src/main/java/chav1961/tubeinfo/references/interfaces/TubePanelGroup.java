@@ -9,6 +9,8 @@ import chav1961.purelib.i18n.interfaces.LocaleResourceLocation;
 @LocaleResourceLocation("i18n:xml:root://chav1961.tubeinfo.references.interfaces.TubePanelGroup/chav1961/tubeinfo/i18n/i18n.xml")
 public enum TubePanelGroup {
 	@LocaleResource(value="chav1961s.tubes.tubePanelGroup.pin7",tooltip="chav1961s.tubes.tubePanelGroup.pin7.tt",icon="root://chav1961.tubeinfo.references.interfaces.TubePanelGroup/chav1961/tubeinfo/references/interfaces/pin7.png")
+	PIN_FLEX10("pin7.svg", new Pin(1, 54, 148), new Pin(2, 34, 100), new Pin(3, 54, 52), new Pin(4, 100, 32), new Pin(5, 146, 52), new Pin(6, 166, 100), new Pin(7, 146, 148)),
+	@LocaleResource(value="chav1961s.tubes.tubePanelGroup.pin7",tooltip="chav1961s.tubes.tubePanelGroup.pin7.tt",icon="root://chav1961.tubeinfo.references.interfaces.TubePanelGroup/chav1961/tubeinfo/references/interfaces/pin7.png")
 	PIN_NOUV("pin7.svg", new Pin(1, 54, 148), new Pin(2, 34, 100), new Pin(3, 54, 52), new Pin(4, 100, 32), new Pin(5, 146, 52), new Pin(6, 166, 100), new Pin(7, 146, 148)),
 	@LocaleResource(value="chav1961s.tubes.tubePanelGroup.pin7",tooltip="chav1961s.tubes.tubePanelGroup.pin7.tt",icon="root://chav1961.tubeinfo.references.interfaces.TubePanelGroup/chav1961/tubeinfo/references/interfaces/pin7.png")
 	PIN7("pin7.svg", new Pin(1, 54, 148), new Pin(2, 34, 100), new Pin(3, 54, 52), new Pin(4, 100, 32), new Pin(5, 146, 52), new Pin(6, 166, 100), new Pin(7, 146, 148)),
